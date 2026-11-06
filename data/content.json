@@ -1,4 +1,10 @@
 {
+  "appearance": {
+    "background": "stars",
+    "backgroundImage": "",
+    "particles": "snow",
+    "intensity": 12
+  },
   "copy": {
     "home.badge": "MINECRAFT · JAVA & BEDROCK",
     "home.heroTitle": "DEINE WELT.",
