@@ -359,8 +359,8 @@
       "description": "Informationen zu kommenden Server-Events folgen."
     },
     {
-      "title": "Java & Bedrock",
-      "description": "Hinweise zum Verbinden für beide Editionen."
+      "title": "Bauen & Grundstücke",
+      "description": "1. Neue Plotwelt mit 75×75-Plots, bis zu 16 Plots je nach Rang\n2. Plotmenü mit Flags, Fliegen auf dem eigenen Plot und Plot aushöhlen\n3. Homes per GUI, Live-Karte des Citybuilds auf der Website"
     }
   ]
 }
