@@ -369,6 +369,14 @@
     {
       "title": "Fortschritt",
       "description": "1. Eigenes Jobsystem mit Rebirths und Job-Perks\n2. Erntefarm mit upgradebaren Hacken\n3. Prison-Modus mit Minen, Mining-Tokens und Rankup\n4. Tägliche Aufgaben, Streak und Funity Pass\n5. Haustiere"
+    },
+    {
+      "title": "Belohnungen",
+      "description": "1. Cases mit eigenen Custom-Sets, Keys und seltenen Rängen\n2. Gem-Shop für Keys, Ränge und Booster, mit Mengenrabatt\n3. Serverweite Booster (Break, Drop, Mob, Fly, Job-XP, Funity)\n4. Wöchentliche Gratis-Keys (/wochenkey), Onlinezeit-Belohnungen und Willkommensbonus für Neue\n5. Seltene Sonderfunde beim Angeln"
+    },
+    {
+      "title": "Ränge",
+      "description": "1. 9 Ränge von Spieler bis Legacy, Übersicht mit /ranginfo\n2. Ränge an Freunde verschenken, Items signieren mit /sign"
     }
   ]
 }
