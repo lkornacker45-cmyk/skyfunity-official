@@ -20,11 +20,11 @@ export default function BackgroundGallery({images,onChange,onSelect,selected}:{i
  }catch(e){setError(e instanceof Error?e.message:"Upload fehlgeschlagen")}finally{setBusy(false);if(input.current)input.current.value=""}
  }
  return <div className="space-y-4">
- <p className="text-sm text-purple-200">Deine Hintergrundbilder ({images.length}/12)</p>
- <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+ <p className="text-sm text-purple-200">Deine Scroll-Hintergrundbilder ({images.length}/12)</p>
+ <p className="text-xs text-slate-300">Die Bilder wechseln automatisch beim Runterscrollen in dieser Reihenfolge. Mindestens 2 Bilder hochladen. Bild 1 erscheint oben, das letzte ganz unten.</p><div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
  {images.map((url,i)=><div key={url+i} className="overflow-hidden rounded-xl border border-purple-400/30 bg-black/30">
  <button type="button" onClick={()=>onSelect(url)} className={`block w-full border-2 ${selected===url?"border-purple-400":"border-transparent"}`} aria-label={`Hintergrund ${i+1} auswählen`}><img src={url} alt={`Hintergrund ${i+1}`} className="h-28 w-full object-cover"/><span className="block p-2 text-xs text-white">{selected===url?"✓ Ausgewählt":`Bild ${i+1} auswählen`}</span></button>
- <button type="button" className="w-full border-t border-purple-400/20 px-2 py-2 text-xs text-rose-200 hover:bg-rose-500/10" onClick={()=>onChange(images.filter((_,j)=>j!==i))}>Aus Galerie entfernen</button>
+ <div className="flex border-t border-purple-400/20"><button type="button" disabled={i===0} className="flex-1 px-2 py-2 text-xs text-purple-200 disabled:opacity-30" onClick={()=>{const next=[...images];[next[i-1],next[i]]=[next[i],next[i-1]];onChange(next)}}>←</button><button type="button" disabled={i===images.length-1} className="flex-1 px-2 py-2 text-xs text-purple-200 disabled:opacity-30" onClick={()=>{const next=[...images];[next[i+1],next[i]]=[next[i],next[i+1]];onChange(next)}}>→</button></div><button type="button" className="w-full border-t border-purple-400/20 px-2 py-2 text-xs text-rose-200 hover:bg-rose-500/10" onClick={()=>onChange(images.filter((_,j)=>j!==i))}>Aus Galerie entfernen</button>
  </div>)}
  </div>
  <div onDragOver={e=>e.preventDefault()} onDrop={e=>{e.preventDefault();void upload(e.dataTransfer.files)}} className="rounded-xl border-2 border-dashed border-purple-400/40 p-5 text-center">
