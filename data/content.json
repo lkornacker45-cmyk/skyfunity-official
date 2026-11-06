@@ -111,7 +111,16 @@
       "name": "Spieler",
       "color": "text-fuchsia-300",
       "benefits": [],
-      "description": "Der Startrang, den jeder automatisch beim ersten Join bekommt. Damit kannst du sofort loslegen: ein eigenes Grundstück bebauen, handeln und dir jede Woche einen Gratis-Key holen."
+      "description": "Der Startrang, den jeder automatisch beim ersten Join bekommt. Damit kannst du sofort loslegen: ein eigenes Grundstück bebauen, handeln und dir jede Woche einen Gratis-Key holen.",
+      "plots": "1",
+      "warps": "1",
+      "homes": "1",
+      "auctionHouse": "5",
+      "commands": [
+        "/ec: öffnet deine Endertruhe von überall, ohne dass du eine aufstellen musst.",
+        "/sit: hinsetzen, auch per Klick auf Treppen und Stufen.",
+        "/wochenkey: jede Woche 1x Vote-Key gratis."
+      ]
     },
     {
       "name": "Gold",
