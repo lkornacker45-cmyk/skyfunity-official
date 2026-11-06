@@ -110,10 +110,8 @@
     {
       "name": "Spieler",
       "color": "text-fuchsia-300",
-      "benefits": [
-        "Exklusiver Rang im Chat",
-        "Zusätzliche kosmetische Extras"
-      ]
+      "benefits": [],
+      "description": "Der Startrang, den jeder automatisch beim ersten Join bekommt. Damit kannst du sofort loslegen: ein eigenes Grundstück bebauen, handeln und dir jede Woche einen Gratis-Key holen."
     },
     {
       "name": "Gold",
@@ -122,7 +120,7 @@
         "Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/d15a0f12-51fa-45f5-b401-5d1e39c8a1fb.png",
-      "description": "",
+      "description": "Der Einstiegsrang. Gold verdoppelt deine Plots, gibt dir mehr Homes und doppelt so viele Gratis-Keys wie der Spieler-Rang. Dazu kommen regelmäßig kostenlose Booster.",
       "plots": "2",
       "warps": "2",
       "commands": [
@@ -141,7 +139,7 @@
         "Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/e54fc684-de2f-4b3c-a440-f25ccf1adeed.png",
-      "description": "",
+      "description": "Mit Galaxy wirst du richtig mobil und kannst andere beschenken. Du bekommst Teleport-Anfragen, kannst Items signieren und reparieren und einmal am Tag Geld an alle verteilen.",
       "plots": "4",
       "warps": "3",
       "homes": "6",
@@ -162,7 +160,7 @@
         "Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/796b24cf-e263-4033-bf33-994f67e541f0.png",
-      "description": "",
+      "description": "Toxic ist der Rang für Bauer und Händler: Werkbank, Amboss und Steinsäge hast du immer dabei. Außerdem holst du alle Spieler auf einmal zu dir und startest die stärksten Booster.",
       "plots": "6",
       "warps": "4",
       "homes": "12",
@@ -185,7 +183,7 @@
         "Neuer Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/39653386-5748-43fd-850d-d671386f6fc1.png",
-      "description": "",
+      "description": "Hero ist der erste Rang, mit dem du anderen einen Rang schenken kannst. Dazu kommen nützliche Helfer für den Alltag und eine Stimme bei Abstimmungen gegen Störenfriede.",
       "plots": "8",
       "warps": "5",
       "homes": "15",
@@ -208,7 +206,7 @@
         "Neuer Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/3bbcdf08-a3fe-4cf4-a834-dbec8150c83b.png",
-      "description": "",
+      "description": "Magma bringt dich auf das Home-Maximum von 20 und macht das Erkunden leichter. Shulkerkisten öffnest du direkt aus der Hand, ohne sie abzustellen.",
       "plots": "10",
       "warps": "6",
       "homes": "20",
@@ -227,7 +225,7 @@
         "Neuer Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/e0936d44-6d84-43a0-adc1-a27f7f06da54.png",
-      "description": "",
+      "description": "Infinity ist der höchste normale Rang. Er bringt die stärksten Wochen-Keys bis hierhin und schenkt dir doppelt so oft Booster wie Hero.",
       "plots": "12",
       "warps": "7",
       "homes": "",
@@ -246,7 +244,7 @@
         "Neuer Vorteil"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/18c94051-43ec-4276-87a6-6dc32ffd3579.png",
-      "description": "",
+      "description": "Der geheime Rang: Er lässt sich nicht kaufen, sondern nur mit viel Glück aus der Funity Case ziehen. In /ranginfo bleibt er unsichtbar, bis man ihn selbst hat.",
       "plots": "14",
       "warps": "8",
       "homes": "",
