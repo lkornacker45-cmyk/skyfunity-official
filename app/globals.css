@@ -27,3 +27,14 @@ body[data-theme]:not([data-theme="default"]) .glow:before{background:radial-grad
 body[data-theme="christmas"] .season-banner{background:linear-gradient(90deg,#092a1d,#7f1d1d,#092a1d);color:#fff}
 body[data-theme="halloween"] .season-banner{background:linear-gradient(90deg,#1a0b1c,#713f12,#1a0b1c);color:#fed7aa}
 body[data-theme="newyear"] .season-banner{background:linear-gradient(90deg,#0c1a35,#57400d,#0c1a35);color:#fde68a}
+
+/* Admin-controlled backgrounds and unobtrusive animated decorations */
+body[data-background="solid"]{background:#0b0a12!important;background-image:none!important}
+body[data-background="gradient"]{background:linear-gradient(130deg,#1d123d,#092f45 45%,#3b123b 85%,#101028)!important;background-attachment:fixed!important}
+body[data-background="stars"]{background-color:#090b20!important;background-image:radial-gradient(2px 2px at 10% 20%,#ffffffaa 99%,transparent),radial-gradient(1px 1px at 38% 45%,#ffffffaa 99%,transparent),radial-gradient(2px 2px at 74% 15%,#c4b5fd 99%,transparent),radial-gradient(1px 1px at 90% 70%,#ffffffaa 99%,transparent),radial-gradient(2px 2px at 55% 82%,#93c5fd 99%,transparent),linear-gradient(#080a23,#151031)!important;background-size:310px 310px,220px 220px,450px 450px,270px 270px,380px 380px,cover!important;background-attachment:fixed!important}
+body[data-background="image"]{background-image:linear-gradient(#090713bb,#090713cc),var(--custom-bg-image)!important;background-size:cover!important;background-position:center!important;background-attachment:fixed!important}
+.sky-particles{position:fixed;inset:0;z-index:1;overflow:hidden;pointer-events:none;user-select:none}
+.sky-particle{position:absolute;top:-12%;display:block;color:var(--theme-light,#d8b4fe);text-shadow:0 0 12px currentColor;animation:sky-float 18s linear infinite;will-change:transform}
+@keyframes sky-float{from{transform:translate3d(0,-10vh,0) rotate(0deg)}to{transform:translate3d(40px,125vh,0) rotate(180deg)}}
+@media(prefers-reduced-motion:reduce){.sky-particle{animation:none!important;display:none}}
+@media(max-width:640px){.sky-particle:nth-child(n+13){display:none}}
