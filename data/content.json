@@ -345,7 +345,8 @@
       "since": "22.09.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin ZeRo-Anonym und bin Teil des Builder-Teams bei Skyfunity! 🏗️🎮\n\nIch unterstütze unser Team bei verschiedenen Bauprojekten, wie zum Beispiel dem Spawn, und helfe dabei, unsere Minecraft-Welt noch schöner und einzigartiger zu gestalten! 🌍✨\n\n✨Ein bisschen über mich:\nIch baue gerne in Minecraft und habe Spaß daran, gemeinsam mit dem Team kreative Ideen umzusetzen. Besonders cool finde ich es, wenn aus einer einfachen Idee ein großes und beeindruckendes Bauprojekt entsteht! 💜\n\n🛠️ Meine Aufgaben:\n- 🏗️ Das Builder-Team bei Bauprojekten unterstützen\n- 🌍 Am Spawn und anderen Bauwerken mitarbeiten\n- 🎨 Kreative Ideen und Designs umsetzen\n- 🧱 Gebäude und Landschaften gestalten\n- 🤝 Gemeinsam mit anderen Buildern an Projekten arbeiten\n- 🚀 Die Minecraft-Welt von Skyfunity verschönern\n\n💜 Wenn ihr Fragen zu unseren Bauprojekten habt oder kreative Ideen mit uns teilen möchtet, könnt ihr euch gerne bei mir melden! Ich freue mich darauf, gemeinsam etwas Cooles zu erschaffen! 😎",
       "treeX": 80,
-      "treeY": 31
+      "treeY": 31,
+      "treeCategory": "Builder"
     },
     {
       "name": "Ben",
@@ -355,7 +356,8 @@
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Ben und bin als Sr. Supporter bei Skyfunity tätig! 🎮🛡️\n\nIch kümmere mich darum, dass unsere Spieler bei Fragen und Problemen die passende Unterstützung bekommen und sich auf unserem Server wohlfühlen! 💜\n\n✨ Ein bisschen über mich:\nIch bin hilfsbereit, freundlich und habe immer ein offenes Ohr für eure Anliegen. Mir ist es wichtig, dass jeder Spieler fair behandelt wird und wir gemeinsam eine tolle Community aufbauen! 😊\n\n🛠️ Meine Aufgaben:\n- 🎮 Spielern bei Fragen und Problemen helfen\n- 🎫 Support-Tickets bearbeiten und Anliegen klären\n- 💬 Den Minecraft-Chat im Auge behalten\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 🤝 Das Support-Team unterstützen\n- ⚠️ Streitigkeiten und Konflikte fair lösen\n- 💜 Für eine freundliche und respektvolle Community sorgen\n\n💜 Wenn ihr Fragen, Probleme oder andere Anliegen habt, könnt ihr euch jederzeit gerne bei mir melden. Ich bin für euch da und helfe, wo ich kann! 😎",
       "tasks": "Sr. Supporter",
       "treeX": 20,
-      "treeY": 50
+      "treeY": 50,
+      "treeCategory": "Support-Team"
     },
     {
       "name": "byrepac",
@@ -365,7 +367,8 @@
       "tasks": "T.Sup",
       "bio": "💜 **Hey, schön, dass du hier bist!** 💜\n\nIch bin Test-Supporter bei Skyfunity! 🎮🛡️\n\nIch bin aktuell in meiner Testphase als Supporter und unterstütze unser Team dabei, Spielern bei Fragen und Problemen zu helfen. Dabei sammle ich Erfahrungen und lerne jeden Tag etwas Neues dazu! 💜\n\n✨ Ein bisschen über mich:\nIch bin eine hilfsbereite und motivierte Person, die gerne anderen Spielern zur Seite steht. Mir ist es wichtig, dass sich jeder auf unserem Server wohlfühlt und respektvoll behandelt wird. Auch wenn ich noch in der Testphase bin, gebe ich immer mein Bestes! 😊\n\n🛠️ Meine Aufgaben:\n- 🎮 Spielern bei Fragen und Problemen helfen\n- 💬 Den Minecraft-Chat im Auge behalten\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 🚫 Spam und unangemessenes Verhalten melden\n- 🎫 Bei Support-Anfragen und Tickets unterstützen\n- 🤝 Mit dem Support-Team zusammenarbeiten\n- 📚 Erfahrungen sammeln und mich weiterentwickeln\n\n💜 Wenn ihr Fragen habt oder Hilfe benötigt, könnt ihr euch jederzeit gerne bei mir melden. Ich gebe mein Bestes, um euch zu helfen! 😎",
       "treeX": 40,
-      "treeY": 50
+      "treeY": 50,
+      "treeCategory": "Support-Team"
     },
     {
       "name": "MiCCharon",
@@ -375,7 +378,8 @@
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin MiCCharon Helfer bei Skyfunity und kümmere mich darum, dass unser Minecraft-Chat freundlich, respektvoll und ordentlich bleibt! 🎮💬\n\nIch achte darauf, dass sich alle Spieler an die Regeln halten und jeder Spaß auf unserem Server haben kann! 💜\n\n✨ Ein bisschen über mich:\nMir ist es wichtig, dass sich jeder auf unserem Server wohlfühlt und respektvoll behandelt wird. Ich habe immer ein offenes Ohr für Fragen und versuche, bei Problemen so gut wie möglich zu helfen! 😊\n\n🛡️ Meine Aufgaben:\n- 💬 Den Minecraft-Chat überwachen und moderieren\n- 🚫 Spam und unerwünschte Werbung verhindern\n- ⚠️ Auf beleidigende, diskriminierende oder unangemessene Aussagen achten\n- 📜 Darauf achten, dass die Serverregeln eingehalten werden\n- 🤝 Spielern bei Fragen und Problemen helfen\n- 💜 Für ein freundliches und respektvolles Miteinander sorgen\n\n💜 Wenn ihr Fragen habt, Hilfe benötigt oder euch etwas im Chat auffällt, könnt ihr euch jederzeit gerne bei mir melden. Ich helfe euch, so gut ich kann! 🥰",
       "tasks": "Helfer",
       "treeX": 60,
-      "treeY": 50
+      "treeY": 50,
+      "treeCategory": "Support-Team"
     }
   ],
   "features": [
