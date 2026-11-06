@@ -22,6 +22,13 @@
       "visible": true
     }
   ],
+  "treeCategories": [
+    "Serverleitung",
+    "Administration & Entwicklung",
+    "Builder",
+    "Moderation & Support",
+    "Weitere Teammitglieder"
+  ],
   "appearance": {
     "background": "image",
     "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png",
@@ -292,7 +299,7 @@
       "tasks": "Admin",
       "treeX": 60,
       "treeY": 12,
-      "treeCategory": "Admin"
+      "treeCategory": "Administration & Entwicklung"
     },
     {
       "name": "Tobix",
@@ -303,7 +310,7 @@
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Tobi und die Creatorleitung sowie Developerleitung bei Skyfunity! 🎮💻\n\nIch kümmere mich hauptsächlich um die Programmierung von Plugins und leite unser Creator-Team. Dabei sorge ich dafür, dass sowohl technisch als auch kreativ alles möglichst reibungslos läuft! 🚀\n\n✨ Ein bisschen über mich:\nIch liebe es, zu programmieren, neue Ideen umzusetzen und spannende Features für Skyfunity zu entwickeln. Gleichzeitig macht es mir Spaß, unsere Creator zu unterstützen und gemeinsam mit ihnen coole Projekte auf die Beine zu stellen! 💜\n\n🛠️ Meine Aufgaben:\n- 💻 Developerleitung und Plugin-Entwicklung\n- 🎬 Creatorleitung und Betreuung des Creator-Teams\n- ⚙️ Neue Funktionen und Features programmieren\n- 🚀 Technische Projekte planen und umsetzen\n- 🤝 Das Team unterstützen und gemeinsam Ideen verwirklichen\n\n💜 Wenn Ideen habt könnt ihr sie mir gerne sagen!😎",
       "treeX": 80,
       "treeY": 12,
-      "treeCategory": "Admin"
+      "treeCategory": "Administration & Entwicklung"
     },
     {
       "name": "The Black Dragon",
@@ -314,7 +321,7 @@
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin The Black Dragon und programmiere Plugins für Skyfunity! 🐉💻\n\nIch kümmere mich hauptsächlich um die Entwicklung und Verbesserung von Plugins, damit unser Minecraft-Server immer neue Funktionen und spannende Features bekommt! 🎮🚀\n\n✨ Ein bisschen über mich:\nIch beschäftige mich gerne mit dem Programmieren und liebe es, neue Ideen in funktionierende Plugins umzusetzen. Besonders viel Spaß macht es mir, technische Herausforderungen zu meistern und unseren Server stetig weiterzuentwickeln! 🐉💜\n\n🛠️ Meine Aufgaben:\n- 💻 Plugins programmieren und weiterentwickeln\n- ⚙️ Neue Funktionen und Features erstellen\n- 🐛 Bugs finden und beheben\n- 🚀 Bestehende Plugins verbessern und optimieren\n- 🛡️ Für eine möglichst stabile technische Umsetzung sorgen\n- 🤝 Das Developer-Team bei Projekten unterstützen\n\n💜 Wenn ihr Fragen zu Plugins habt, euch Fehler auffallen oder ihr Ideen für neue Funktionen habt, könnt ihr euch gerne bei mir melden. Ich helfe euch, so gut ich kann! 🐉😎",
       "treeX": 20,
       "treeY": 31,
-      "treeCategory": "Developer"
+      "treeCategory": "Administration & Entwicklung"
     },
     {
       "name": "Mailk75",
@@ -325,18 +332,18 @@
       "since": "18.10.2026",
       "treeX": 40,
       "treeY": 31,
-      "treeCategory": "Developer"
+      "treeCategory": "Administration & Entwicklung"
     },
     {
       "name": "Sky_River",
       "role": "Sr. Builder/Builderleitung",
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/f4f2ad7b-db70-408a-be41-015e154e0734.png",
-      "tasks": "Sr. Builder/Builderleitung",
+      "tasks": "Sr. Builder/Builderleitung/Sekretärin Von Co.Owner",
       "since": "23.08.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin 20 Jahre alt und die Builderleitung bei sett_camo. Außerdem vertrete ich GasJoker / Luca_Sky007 und kümmere mich auch um unseren Discord-Server. 🛠️💻\n\n✨ Ein bisschen über mich:\nIch bin eine ziemlich verrückte, humorvolle, aber manchmal auch schüchterne Socke. 🧦😂 Anfangs bin ich vielleicht etwas zurückhaltend, aber wenn man mich besser kennt, merkt man schnell, wie viel Chaos und gute Laune in mir stecken! 💕\n\n🏗️ Meine Aufgaben:\n- Builderleitung und Vertretung von GasJoker / Luca_Sky007\n- Bauen und kreative Projekte umsetzen\n- Discord verwalten und organisieren\n- Das Team unterstützen und für euch da sein\n\n💜 Wenn ihr Fragen habt oder Hilfe braucht, könnt ihr euch gerne bei mir melden. Ich beiße nicht – zumindest meistens! 😜",
       "treeX": 60,
       "treeY": 31,
-      "treeCategory": "Managment/Builder"
+      "treeCategory": "Builder"
     },
     {
       "name": "ZeRo-Anonym",
@@ -357,7 +364,7 @@
       "tasks": "Sr. Supporter",
       "treeX": 20,
       "treeY": 50,
-      "treeCategory": "Support-Team"
+      "treeCategory": "Moderation & Support"
     },
     {
       "name": "byrepac",
@@ -368,7 +375,7 @@
       "bio": "💜 **Hey, schön, dass du hier bist!** 💜\n\nIch bin Test-Supporter bei Skyfunity! 🎮🛡️\n\nIch bin aktuell in meiner Testphase als Supporter und unterstütze unser Team dabei, Spielern bei Fragen und Problemen zu helfen. Dabei sammle ich Erfahrungen und lerne jeden Tag etwas Neues dazu! 💜\n\n✨ Ein bisschen über mich:\nIch bin eine hilfsbereite und motivierte Person, die gerne anderen Spielern zur Seite steht. Mir ist es wichtig, dass sich jeder auf unserem Server wohlfühlt und respektvoll behandelt wird. Auch wenn ich noch in der Testphase bin, gebe ich immer mein Bestes! 😊\n\n🛠️ Meine Aufgaben:\n- 🎮 Spielern bei Fragen und Problemen helfen\n- 💬 Den Minecraft-Chat im Auge behalten\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 🚫 Spam und unangemessenes Verhalten melden\n- 🎫 Bei Support-Anfragen und Tickets unterstützen\n- 🤝 Mit dem Support-Team zusammenarbeiten\n- 📚 Erfahrungen sammeln und mich weiterentwickeln\n\n💜 Wenn ihr Fragen habt oder Hilfe benötigt, könnt ihr euch jederzeit gerne bei mir melden. Ich gebe mein Bestes, um euch zu helfen! 😎",
       "treeX": 40,
       "treeY": 50,
-      "treeCategory": "Support-Team"
+      "treeCategory": "Moderation & Support"
     },
     {
       "name": "MiCCharon",
@@ -379,7 +386,7 @@
       "tasks": "Helfer",
       "treeX": 60,
       "treeY": 50,
-      "treeCategory": "Support-Team"
+      "treeCategory": "Weitere Teammitglieder"
     }
   ],
   "features": [
