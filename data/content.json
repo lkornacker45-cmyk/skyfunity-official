@@ -1,4 +1,9 @@
 {
+  "typography": {
+    "font": "modern",
+    "textColor": "white",
+    "headingColor": "white"
+  },
   "homeWidgets": [
     {
       "id": "hero",
@@ -114,14 +119,14 @@
     {
       "name": "Gold",
       "color": "text-sky-300",
-      "benefits": [
-        "Neuer Vorteil"
-      ],
+      "benefits": [],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/d15a0f12-51fa-45f5-b401-5d1e39c8a1fb.png",
       "description": "",
-      "plots": "",
-      "warps": "",
-      "commands": []
+      "plots": "2",
+      "warps": "2",
+      "commands": [
+        "/crawl (kriechen)"
+      ]
     }
   ],
   "team": [
