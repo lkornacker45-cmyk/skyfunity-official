@@ -1,7 +1,7 @@
 {
   "typography": {
-    "font": "modern",
-    "textColor": "white",
+    "font": "rounded",
+    "textColor": "lavender",
     "headingColor": "white"
   },
   "homeWidgets": [
