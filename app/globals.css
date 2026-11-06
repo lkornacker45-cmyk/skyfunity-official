@@ -92,3 +92,22 @@ body > .sky-particles{z-index:1!important;pointer-events:none}
 .voxel-landscape[data-voxel-style="nature"] .voxel-vignette{background:linear-gradient(180deg,#d9e9f01f,#13202c4a 65%,#08131aab)}
 .voxel-landscape[data-voxel-style="fantasy"] .voxel-panorama{filter:saturate(1.65) hue-rotate(12deg) contrast(1.1) drop-shadow(0 0 35px #c55bff50)}
 .voxel-landscape[data-voxel-style="fantasy"] .voxel-vignette{background:radial-gradient(ellipse at 50% 36%,#e27bff30,transparent 55%),linear-gradient(180deg,#09041c70,transparent 40%,#130a26b8)}
+
+/* Photographic nature landscapes: seasonal imagery with restrained voxel details. */
+.voxel-photo{position:absolute;inset:-8%;background-position:center;background-size:cover;transform:scale(1.09);animation:voxel-photo-pan 35s ease-in-out infinite alternate;will-change:transform;opacity:0}
+.voxel-landscape[data-voxel-style="nature"] .voxel-photo{opacity:1;filter:saturate(.94) contrast(1.05)}
+.voxel-landscape[data-voxel-style="nature"] .voxel-panorama{filter:none;opacity:.23;mix-blend-mode:soft-light}
+.voxel-landscape[data-voxel-style="nature"] .voxel-sky{opacity:0}
+.voxel-landscape[data-voxel-style="nature"] .voxel-far{opacity:.16}
+.voxel-landscape[data-voxel-style="nature"] .voxel-mid{opacity:.48}
+.voxel-landscape[data-voxel-style="nature"] .voxel-near{opacity:.65}
+.voxel-landscape[data-voxel-style="nature"] .voxel-vignette{background:linear-gradient(90deg,#060b16b5,#060b1650 40%,#060b1685),linear-gradient(180deg,#0508155c,transparent 35%,#060914ad)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="halloween"] .voxel-photo{filter:brightness(.62) saturate(.8) sepia(.35) hue-rotate(-17deg)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="christmas"] .voxel-photo,.voxel-landscape[data-voxel-style="nature"][data-voxel="winter"] .voxel-photo{filter:brightness(.88) saturate(.72) hue-rotate(8deg)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="easter"] .voxel-photo{filter:brightness(1.13) saturate(1.12)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="autumn"] .voxel-photo{filter:sepia(.3) saturate(1.25)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="nether"] .voxel-photo{filter:brightness(.6) sepia(.8) saturate(1.7) hue-rotate(-18deg)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="end"] .voxel-photo{filter:brightness(.7) hue-rotate(65deg) saturate(1.4)}
+.voxel-landscape[data-voxel-style="nature"][data-voxel="newyear"] .voxel-photo{filter:brightness(.7) saturate(1.25)}
+@keyframes voxel-photo-pan{from{transform:scale(1.09) translate3d(-1%,0,0)}to{transform:scale(1.17) translate3d(1.3%,-1.2%,0)}}
+@media(prefers-reduced-motion:reduce){.voxel-photo{animation:none!important}}
