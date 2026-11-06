@@ -1,7 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
 import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
-export type Content={copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[];image?:string}[];team:{name:string;role:string;avatar?:string}[];features:{title:string;description:string}[]};
+export type Content={appearance?:{background:string;backgroundImage:string;particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[];image?:string}[];team:{name:string;role:string;avatar?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=defaults;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -20,7 +20,15 @@ export function validateContent(value:unknown):Content|null{
  if(v.copy!==undefined){if(!v.copy||typeof v.copy!=="object"||Array.isArray(v.copy))return null;const values=v.copy as Record<string,unknown>;for(const key of Object.keys(siteCopyDefaults) as (keyof SiteCopy)[]){if(values[key]!==undefined){if(!str(values[key],600))return null;copy[key]=values[key] as string}}}
  const theme=v.theme===undefined?"default":v.theme;
  if(!["default","christmas","easter","halloween","newyear","summer","winter"].includes(theme as string))return null;
- return {copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ const appearance={background:"theme",backgroundImage:"",particles:"off",intensity:12};
+ if(v.appearance!==undefined){if(!v.appearance||typeof v.appearance!=="object"||Array.isArray(v.appearance))return null;const a=v.appearance as Record<string,unknown>;
+ if(typeof a.background!=="string"||!["theme","stars","gradient","solid","image"].includes(a.background))return null;
+ if(typeof a.backgroundImage!=="string"||a.backgroundImage.length>500)return null;
+ if(a.backgroundImage&&(!/^https:\/\/[^\s]+$/i.test(a.backgroundImage)||(()=>{try{const u=new URL(a.backgroundImage as string);return !!u.username||!!u.password}catch{return true}})()))return null;
+ if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
+ if(typeof a.intensity!=="number"||!Number.isInteger(a.intensity)||a.intensity<3||a.intensity>30)return null;
+ Object.assign(appearance,a)}
+ return {appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
