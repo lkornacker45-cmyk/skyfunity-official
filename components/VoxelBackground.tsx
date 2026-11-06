@@ -21,11 +21,26 @@ function Tree({x,y,s=1,p,snow=false}:{x:number;y:number;s?:number;p:Palette;snow
 export default function VoxelBackground({preset}:{preset:string}){
  const [world,style="shader"]=preset.split(/-(?=shader$|nature$|fantasy$)/);
  const p=worlds[world]||worlds.minecraft;
+ const photos:Record<string,string>={
+ minecraft:"photo-1441974231531-c6227db76b6e",
+ halloween:"photo-1511497584788-876760111969",
+ christmas:"photo-1457269449834-928af64c684d",
+ easter:"photo-1490750967868-88aa4486c946",
+ winter:"photo-1457269449834-928af64c684d",
+ summer:"photo-1500534623283-312aade485b7",
+ autumn:"photo-1473448912268-2022ce9509d8",
+ nether:"photo-1500530855697-b586d89ba3ee",
+ end:"photo-1470770841072-f978cf4d019e",
+ cave:"photo-1519681393784-d120267933ba",
+ newyear:"photo-1519681393784-d120267933ba",
+ skyblock:"photo-1500534623283-312aade485b7"
+ };
+ const photoUrl="https://images.unsplash.com/"+photos[world]+"?auto=format&fit=crop&w=1920&q=82";
  const [offset,setOffset]=useState(0);
  useEffect(()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;let frame=0;const onScroll=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>setOffset(Math.min(window.scrollY,4500)))};onScroll();window.addEventListener("scroll",onScroll,{passive:true});return()=>{window.removeEventListener("scroll",onScroll);cancelAnimationFrame(frame)}},[]);
  const stars=p.night||world==="christmas";
  return <div className="voxel-scene voxel-landscape" aria-hidden="true" data-voxel={world} data-voxel-style={style} style={{background:p.sky}}>
- <div className="voxel-panorama">
+ <div className="voxel-photo" style={{backgroundImage:`url("${photoUrl}")`}}/><div className="voxel-panorama">
  <svg className="voxel-layer voxel-sky" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style={{transform:`translate3d(0,${offset*.035}px,0)`}}>
  <defs><linearGradient id="voxel-sky-gradient" x1="0" y1="0" x2="0" y2="1"><stop stopColor={p.sky}/><stop offset="1" stopColor={p.horizon}/></linearGradient></defs>
  <rect width="1200" height="700" fill="url(#voxel-sky-gradient)"/>
