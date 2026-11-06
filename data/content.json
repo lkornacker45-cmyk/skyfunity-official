@@ -136,7 +136,7 @@
       "name": "Galaxie",
       "color": "text-purple-300",
       "benefits": [
-        "Vorteil"
+        "/repair (3 std. Cooldown)"
       ],
       "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/e54fc684-de2f-4b3c-a440-f25ccf1adeed.png",
       "description": "Mit Galaxy wirst du richtig mobil und kannst andere beschenken. Du bekommst Teleport-Anfragen, kannst Items signieren und reparieren und einmal am Tag Geld an alle verteilen.",
@@ -148,7 +148,6 @@
         "/ptp",
         "/sign",
         "/lay & /layback",
-        "/repair (3 std. Cooldown)",
         "/payall (1x am Tag)",
         "/wochenkey (Wolken & Vote)"
       ]
