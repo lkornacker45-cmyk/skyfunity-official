@@ -321,3 +321,33 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 .sky-board-discord:hover{filter:brightness(1.15);transform:translateY(-2px)}
 @media(max-width:480px){.sky-board-frame{border-width:7px;padding:22px 12px}.sky-board-sign{padding:12px}.sky-board-sign button{flex-wrap:wrap}.sky-board-sign button>span:last-child{margin-left:auto}.sky-board-summary{padding:16px 12px}.sky-board-instructions{padding:16px 12px}}
 @media(prefers-reduced-motion:reduce){.sky-board-chevron,.sky-board-discord{transition:none}.sky-board-discord:hover{transform:none}}
+
+/* SkyFunity space station join layout. Existing global background remains untouched. */
+.sky-station{isolation:isolate;border:1px solid #67e8f96b;background:linear-gradient(145deg,#15102ce9,#061a31ed 50%,#120c29ee);box-shadow:inset 0 1px #ffffff35,0 0 55px #22d3ee22,0 25px 85px #000b}
+.sky-station:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 5%,#8b5cf633,transparent 65%),radial-gradient(ellipse at 95% 60%,#22d3ee18,transparent 50%)}
+.sky-station-stars{background-image:radial-gradient(circle,#ffffffb0 1px,transparent 1.5px),radial-gradient(circle,#67e8f9a0 1px,transparent 1.5px);background-size:73px 91px,127px 149px;background-position:12px 22px,52px 69px;opacity:.27;animation:sky-station-drift 40s linear infinite}
+.sky-station-bar{border-bottom:1px solid #67e8f94a;background:#071426b9}
+.sky-station-beacon{height:9px;width:9px;border-radius:50%;background:#34d399;box-shadow:0 0 15px #34d399;animation:sky-station-blink 3s ease-in-out infinite}
+.sky-station-cockpit{position:relative;padding:25px 12px;border:1px solid #67e8f930;border-radius:22px;background:radial-gradient(ellipse at center,#22d3ee0b,transparent 75%)}
+.sky-station-planet{border:2px solid #67e8f977;background:radial-gradient(circle at 30% 20%,#155e75,#312e81 65%,#0f172a);box-shadow:0 0 0 9px #22d3ee0c,0 0 40px #22d3ee44,inset -8px -10px 20px #02061788;animation:sky-station-float 6s ease-in-out infinite}
+.sky-station-hangar{display:flex;min-width:0;flex-direction:column;align-items:center;gap:10px;border:1px solid #ffffff38;border-radius:18px;padding:25px 16px;background:#0f1833d9;color:white;box-shadow:inset 0 1px #ffffff1b;transition:transform .2s,border-color .2s,box-shadow .2s}
+.sky-station-hangar:hover{transform:translateY(-4px);border-color:#c4b5fd}
+.sky-station-java{background:linear-gradient(145deg,#3c1c63d9,#131126e8)}
+.sky-station-bedrock{background:linear-gradient(145deg,#0b5365c9,#10152ce8)}
+.sky-station-selected{border-color:#a5f3fc;box-shadow:0 0 25px #22d3ee44,inset 0 1px #ffffff4d}
+.sky-station-hangar-status{margin-top:8px;border:1px solid #ffffff45;border-radius:99px;padding:6px 13px;font-family:monospace;font-size:11px;font-weight:900;letter-spacing:.08em}
+.sky-station-console{border:1px solid #67e8f955;background:linear-gradient(150deg,#0d1530ed,#081f35ed);box-shadow:inset 0 0 50px #22d3ee0b}
+.sky-station-console-chip{border:1px solid #67e8f95c;border-radius:6px;background:#22d3ee16;padding:8px 12px;color:#a5f3fc;font-family:monospace;font-size:11px;font-weight:900}
+.sky-station-console button{min-width:0;border-color:#67e8f94d;background:#060f23d9}
+.sky-station-console button:hover{background:#183354}
+.sky-station-console button>span:first-child{min-width:0}
+.sky-station-console button>span:first-child>span{overflow-wrap:anywhere}
+.sky-station-steps li{display:flex;align-items:flex-start;gap:14px;color:#e0e7ff;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.sky-station-stepnum{flex:none;border:1px solid #67e8f960;border-radius:6px;background:#22d3ee15;padding:4px 9px;color:#a5f3fc;font-family:monospace;font-size:12px;font-weight:900}
+.sky-station-discord{border:1px solid #a5b4fc88;background:linear-gradient(110deg,#6d28d9,#0891b2);box-shadow:0 0 25px #8b5cf644;transition:filter .2s,transform .2s}
+.sky-station-discord:hover{filter:brightness(1.2);transform:translateY(-2px)}
+@keyframes sky-station-drift{from{background-position:12px 22px,52px 69px}to{background-position:85px 113px,179px 218px}}
+@keyframes sky-station-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes sky-station-blink{0%,100%{opacity:1}50%{opacity:.35}}
+@media(max-width:420px){.sky-station-console button{flex-wrap:wrap}.sky-station-console button>span:last-child{margin-left:auto}}
+@media(prefers-reduced-motion:reduce){.sky-station-stars,.sky-station-planet,.sky-station-beacon{animation:none!important}.sky-station-hangar,.sky-station-discord{transition:none!important}.sky-station-hangar:hover,.sky-station-discord:hover{transform:none!important}}
