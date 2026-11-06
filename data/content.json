@@ -104,12 +104,24 @@
   },
   "ranks": [
     {
-      "name": "VIP",
+      "name": "Spieler",
       "color": "text-fuchsia-300",
       "benefits": [
         "Exklusiver Rang im Chat",
         "Zusätzliche kosmetische Extras"
       ]
+    },
+    {
+      "name": "Gold",
+      "color": "text-purple-300",
+      "benefits": [
+        "Neuer Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "",
+      "warps": "",
+      "commands": []
     }
   ],
   "team": [
