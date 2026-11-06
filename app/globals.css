@@ -713,3 +713,15 @@ body .sky-liquid-links .sky-liquid-shop{border:1px solid rgba(233,213,255,.55);b
 body .sky-liquid-links .sky-liquid-shop:hover{background:rgba(147,51,234,.82)!important;box-shadow:0 0 20px rgba(192,132,252,.4)}
 @media(max-width:820px){body .sky-liquid-header{padding:8px 10px 0}body .sky-liquid-nav{border-radius:25px;padding:13px 16px;gap:12px}body .sky-liquid-brand{font-size:1.3rem}body .sky-liquid-links{gap:10px;font-size:.78rem}body .sky-liquid-links .sky-liquid-shop{padding:8px 13px}}
 @media(prefers-reduced-motion:reduce){body .sky-liquid-links>a{transition:none}}
+
+/* Dark-purple Liquid Glass navigation: opaque capsule, homepage glass stays 85% transparent. */
+body .sky-liquid-header{background:transparent!important}
+body .sky-liquid-nav{background:linear-gradient(120deg,#180b2d 0%,#24103e 52%,#140b29 100%)!important;border-color:#7c3aed99;box-shadow:inset 0 1px #c4b5fd38,0 12px 34px #090414a8,0 0 22px #7c3aed24;backdrop-filter:none;-webkit-backdrop-filter:none}
+body .sky-liquid-nav:before{background:linear-gradient(110deg,#c4b5fd13,transparent 40%,#a78bfa0b 85%)}
+body .sky-liquid-links .sky-liquid-shop{background:#6d28d9!important;border-color:#a78bfa9c}
+body .sky-liquid-links .sky-liquid-shop:hover{background:#7c3aed!important}
+.sky-privacy-content{background:rgba(16,9,35,.9);border:1px solid rgba(196,181,253,.35);border-radius:24px;padding:clamp(24px,5vw,52px);box-shadow:0 20px 55px #0006}
+.sky-privacy-content h2{font-size:1.3rem;font-weight:800;margin-top:2rem;margin-bottom:.75rem;color:#e9d5ff}
+.sky-privacy-content p,.sky-privacy-content li{line-height:1.8;color:#d8d2e6}
+.sky-privacy-content ul{list-style:disc;padding-left:1.5rem}
+.sky-privacy-content a{color:#c4b5fd;text-decoration:underline}
