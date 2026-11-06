@@ -201,6 +201,20 @@
         "/wochenkey (Sturm & Wolken)",
         "/bonusbooster (alle 7 Tage, 1 von jeden Typ)"
       ]
+    },
+    {
+      "name": "Magma",
+      "color": "text-purple-300",
+      "benefits": [
+        "Neuer Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "10",
+      "warps": "6",
+      "homes": "20",
+      "auctionHouse": "10",
+      "commands": []
     }
   ],
   "team": [
