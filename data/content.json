@@ -168,7 +168,16 @@
       "warps": "4",
       "homes": "12",
       "auctionHouse": "8",
-      "commands": []
+      "commands": [
+        "/stonecutter",
+        "/wb",
+        "/anvil",
+        "/bellyflop",
+        "/spin",
+        "/tpaall",
+        "/payall (alle 10 Std.)",
+        "/wochenkey (Wolken & 2x Vote)"
+      ]
     }
   ],
   "team": [
