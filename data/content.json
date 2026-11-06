@@ -43,7 +43,7 @@
     "join.bedrockStep2": "Spielen und dann Server öffnen",
     "join.bedrockStep3": "Server hinzufügen wählen (falls verfügbar)",
     "join.bedrockStep4": "als Adresse eingeben",
-    "join.bedrockStep5": "Bedrock-Port beim Serverteam erfragen",
+    "join.bedrockStep5": "Bedrock-Port 19132",
     "join.bedrockNotice": "Der Bedrock-Port ist noch nicht bestätigt.",
     "join.discordButton": "Fragen? Discord beitreten",
     "status.javaTitle": "Minecraft Java",
