@@ -18,6 +18,8 @@ export default function ContentEditor(){
  function remove(key:"ranks"|"team"|"features",index:number){setData(prev=>prev?{...prev,[key]:prev[key].filter((_,i)=>i!==index)}:prev)}
  function add(key:"ranks"|"team"|"features"){setData(prev=>{if(!prev)return prev;const item=key==="ranks"?{name:"Neuer Rang",color:"text-purple-300",benefits:["Neuer Vorteil"],image:"",description:"",plots:"",warps:"",commands:[]}:key==="team"?{name:"Spielername",role:"Team",avatar:""}:{title:"Neues Feature",description:"Beschreibung"};return {...prev,[key]:[...prev[key],item]}})}
  function updateTypography(key:"font"|"textColor"|"headingColor",value:string){setData(prev=>prev?{...prev,typography:{font:"modern",textColor:"white",headingColor:"white",...prev.typography,[key]:value}}:prev)}
+ const fontOptions=["modern","classic","rounded","serif","mono","condensed","elegant","pixel"];
+ const colorOptions=["white","slate","lavender","pink","cyan","mint","gold","orange","red","blue"];
  const widgetDefaults=[{id:"hero",visible:true},{id:"status",visible:true},{id:"explore",visible:true},{id:"shop",visible:true}];
  const widgetNames:Record<string,string>={hero:"Willkommensbereich & Serveradresse",status:"Live-Serverstatus",explore:"Features, Ränge & Team",shop:"Shop-Bereich"};
  function changeWidgets(widgets:{id:string;visible:boolean}[]){setData(prev=>prev?{...prev,homeWidgets:widgets}:prev)}
