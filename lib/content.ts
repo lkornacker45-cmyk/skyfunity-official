@@ -1,6 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
-export type Content={theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[];image?:string}[];team:{name:string;role:string;avatar?:string}[];features:{title:string;description:string}[]};
+import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
+export type Content={copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[];image?:string}[];team:{name:string;role:string;avatar?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=defaults;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -15,9 +16,11 @@ export function validateContent(value:unknown):Content|null{
  if(!Array.isArray(v.features)||v.features.length>30||!v.features.every((x:Record<string,unknown>)=>x&&str(x.title,80)&&str(x.description,600)))return null;
  const headings:Content["headings"]={team:{before:"Das",highlight:"Team",description:"Die Menschen hinter SkyFunity."},ranks:{before:"Unsere",highlight:"Ränge",description:"Entdecke unsere Ränge und Vorteile."},features:{before:"Entdecke",highlight:"SkyFunity",description:"Das bietet unsere Community."}};
  if(v.headings!==undefined){if(!v.headings||typeof v.headings!=="object")return null;const h=v.headings as Record<string,unknown>;for(const key of ["team","ranks","features"] as const){const item=h[key] as Record<string,unknown>|undefined;if(!item||!str(item.before,80)||!str(item.highlight,80)||!str(item.description,300))return null;headings[key]={before:item.before as string,highlight:item.highlight as string,description:item.description as string}}}
+ const copy:SiteCopy={...siteCopyDefaults};
+ if(v.copy!==undefined){if(!v.copy||typeof v.copy!=="object"||Array.isArray(v.copy))return null;const values=v.copy as Record<string,unknown>;for(const key of Object.keys(siteCopyDefaults) as (keyof SiteCopy)[]){if(values[key]!==undefined){if(!str(values[key],600))return null;copy[key]=values[key] as string}}}
  const theme=v.theme===undefined?"default":v.theme;
  if(!["default","christmas","easter","halloween","newyear","summer","winter"].includes(theme as string))return null;
- return {theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ return {copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
