@@ -37,7 +37,7 @@ export function validateContent(value:unknown):Content|null{
  if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
  if(typeof a.intensity!=="number"||!Number.isInteger(a.intensity)||a.intensity<3||a.intensity>30)return null;
  Object.assign(appearance,a)}
- return {typography,homeWidgets,treeCategories:v.treeCategories as string[]|undefined,appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ return {typography,homeWidgets,treeCategories:v.treeCategories as string[]|undefined,appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,discordGuildId:s.discordGuildId as string|undefined,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
