@@ -1,5 +1,5 @@
 import type {Metadata} from "next";
-import JoinHologramTerminal from "@/components/JoinHologramTerminal";
+import JoinNoticeBoard from "@/components/JoinNoticeBoard";
 import {getContent} from "@/lib/content";
 import {siteCopyDefaults} from "@/lib/site-copy";
 export const dynamic="force-dynamic";
@@ -13,7 +13,7 @@ export default async function Join(){
    <h1 className="mt-4 text-4xl font-black tracking-tight text-white sm:text-6xl">{t["join.title"]} <span className="bg-gradient-to-r from-fuchsia-300 to-cyan-300 bg-clip-text text-transparent">{t["join.highlight"]}</span></h1>
    <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-slate-200">{t["join.description"]}</p>
   </header>
-  <JoinHologramTerminal
+  <JoinNoticeBoard
    address={server.address}
    port={server.bedrockPort||"19132"}
    verified={server.bedrockPortConfirmed===true}
@@ -21,8 +21,6 @@ export default async function Join(){
    bedrockTitle={t["join.bedrockTitle"]}
    javaSteps={[t["join.javaStep1"],t["join.javaStep2"],t["join.javaStep3"],t["join.javaStep4"],t["join.javaStep5"]]}
    bedrockSteps={[t["join.bedrockStep1"],t["join.bedrockStep2"],t["join.bedrockStep3"],t["join.bedrockStep4"]]}
-   javaStep4={t["join.javaStep4"]}
-   bedrockStep4={t["join.bedrockStep4"]}
    discord={server.discord}
    discordLabel={t["join.discordButton"]}
   />
