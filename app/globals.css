@@ -668,3 +668,31 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-glass-shimmer{from{filter:brightness(.75)}to{filter:brightness(1.22)}}
 @media(max-width:600px){.sky-glass-widget{padding:24px 13px;border-width:5px}.sky-glass-hero{min-height:520px}.sky-glass-window{opacity:.48}.sky-glass-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-glass-widget .glass{padding:20px}.sky-glass-link{min-height:190px}.sky-glass-ip{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-glass-window span{animation:none!important}.sky-glass-link{transition:none}.sky-glass-link:hover{transform:none}}
+
+/* Invisible Glass / layout 58: 85% transparency (15% fill opacity).
+   Scoped to homepage, preserving the global Minecraft background and admin settings. */
+.sky-invisible-home{position:relative;isolation:isolate;padding-top:38px;--invisible-fill:rgba(18,16,43,.15);--invisible-border:rgba(221,214,254,.56)}
+.sky-invisible-widget{position:relative;isolation:isolate;margin:0 auto 36px;max-width:1140px;padding:clamp(22px,3.8vw,48px);border:1px solid var(--invisible-border);border-radius:24px;background:var(--invisible-fill)!important;box-shadow:inset 0 1px rgba(255,255,255,.24),0 12px 38px rgba(0,0,0,.15);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.sky-invisible-widget:before{content:"";position:absolute;inset:7px;border:1px solid rgba(255,255,255,.12);border-radius:18px;pointer-events:none}
+.sky-invisible-widget>.sky-invisible-hero,.sky-invisible-widget>.sky-invisible-status,.sky-invisible-widget>.sky-invisible-explore,.sky-invisible-widget>.sky-invisible-shop{position:relative;z-index:1}
+.sky-invisible-widget-hero{background:var(--invisible-fill)!important}
+.sky-invisible-hero{isolation:isolate}
+.sky-invisible-hero.glow:before,.sky-invisible-hero.glow:after{opacity:.08;pointer-events:none}
+.sky-invisible-kicker{display:inline-flex;align-items:center;justify-content:center;margin:0 auto 20px;padding:9px 17px;border:1px solid rgba(221,214,254,.62);border-radius:99px;background:rgba(18,16,43,.15);color:#f5e9ff;font:800 clamp(10px,2vw,13px) monospace;letter-spacing:.12em;text-shadow:0 2px 9px #140a2c}
+.sky-invisible-hero-title{text-shadow:0 3px 14px #050414,0 0 22px #0f0922}
+.sky-invisible-hero-title span{background-image:linear-gradient(90deg,#e9d5ff,#a5f3fc,#f5d0fe)}
+.sky-invisible-hero>p{text-shadow:0 2px 10px #050414}
+.sky-invisible-ip{padding:18px;border:1px solid rgba(221,214,254,.65);border-radius:16px;background:rgba(18,16,43,.15)!important;box-shadow:inset 0 1px rgba(255,255,255,.12)}
+.sky-invisible-ip p{color:#e9d5ff!important;text-shadow:0 1px 8px #050414}
+.sky-invisible-ip button{min-width:0}
+.sky-invisible-widget .section-label{color:#e9d5ff;text-shadow:0 1px 8px #050414}
+.sky-invisible-widget h2{color:#fff;text-shadow:0 2px 12px #050414}
+.sky-invisible-widget .glass{border:1px solid rgba(221,214,254,.54);border-radius:18px;background:rgba(18,16,43,.15)!important;box-shadow:inset 0 1px rgba(255,255,255,.15),0 8px 24px rgba(0,0,0,.12);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.sky-invisible-widget .glass:hover{border-color:rgba(233,213,255,.95);box-shadow:0 0 22px rgba(192,132,252,.28),inset 0 1px rgba(255,255,255,.2)}
+.sky-invisible-link{position:relative;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s}
+.sky-invisible-link:hover{transform:translateY(-5px)}
+.sky-invisible-link h3,.sky-invisible-link p,.sky-invisible-widget .text-slate-400,.sky-invisible-widget .text-slate-300{text-shadow:0 2px 9px #050414}
+.sky-invisible-widget .sky-invisible-shop{margin-top:0;background:rgba(18,16,43,.15)!important}
+.sky-invisible-widget .sky-invisible-status .glass,.sky-invisible-widget .sky-invisible-status [class*="bg-slate-"],.sky-invisible-widget .sky-invisible-status [class*="bg-gray-"]{background-color:rgba(18,16,43,.15)!important}
+@media(max-width:600px){.sky-invisible-widget{padding:24px 14px;border-radius:17px}.sky-invisible-widget:before{inset:5px;border-radius:12px}.sky-invisible-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-invisible-widget .glass{padding:20px}.sky-invisible-link{min-height:185px}.sky-invisible-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-invisible-link{transition:none}.sky-invisible-link:hover{transform:none}}
