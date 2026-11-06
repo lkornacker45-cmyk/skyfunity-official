@@ -23,7 +23,7 @@
     }
   ],
   "appearance": {
-    "background": "summer",
+    "background": "summer-nature",
     "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
     "particles": "sparkles",
     "intensity": 30,
