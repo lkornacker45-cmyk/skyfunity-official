@@ -205,3 +205,13 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 .sky-inventory-item img{image-rendering:auto}
 .sky-inventory-bottom{background:#c6c0b5}
 @media(prefers-reduced-motion:reduce){.sky-inventory-slot{transition:none!important}.sky-inventory-slot:hover{transform:none!important}}
+
+/* SkyFunity Team Skilltree */
+.sky-skilltree{isolation:isolate;background-image:radial-gradient(ellipse at 50% 10%,#9333ea1e,transparent 55%),radial-gradient(ellipse at 50% 95%,#0891b21b,transparent 55%)}
+.sky-skilltree-spine{position:absolute;z-index:0;top:70px;bottom:70px;left:50%;width:3px;transform:translateX(-50%);background:linear-gradient(#fbbf2488,#a855f7,#22d3ee99);box-shadow:0 0 15px #a855f799;pointer-events:none}
+.sky-skilltree-connector{position:relative;display:flex;height:90px;align-items:center;justify-content:center;color:#e9d5ff;font-size:22px;text-shadow:0 0 18px #d8b4fe;animation:sky-skilltree-pulse 3s ease-in-out infinite}
+.sky-skilltree-node{backdrop-filter:blur(8px)}
+.sky-skilltree-avatar{transition:transform .3s ease,box-shadow .3s ease}
+.sky-skilltree-node:hover .sky-skilltree-avatar,.sky-skilltree-node:focus-visible .sky-skilltree-avatar{transform:scale(1.08);box-shadow:0 0 36px #d8b4feaa}
+@keyframes sky-skilltree-pulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+@media(prefers-reduced-motion:reduce){.sky-skilltree-connector{animation:none!important}.sky-skilltree-node,.sky-skilltree-avatar{transition:none!important}.sky-skilltree-node:hover{transform:none!important}}
