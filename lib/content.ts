@@ -27,10 +27,11 @@ export function validateContent(value:unknown):Content|null{
  if(typeof a.background!=="string"||!(["theme","stars","gradient","solid","image"].includes(a.background)||/^(minecraft|halloween|christmas|easter|winter|summer|autumn|nether|end|cave|newyear|skyblock)(-(shader|nature|fantasy))?$/.test(a.background)))return null;
  if(typeof a.backgroundImage!=="string"||a.backgroundImage.length>500)return null;
  if(a.backgroundImage&&(!/^https:\/\/[^\s]+$/i.test(a.backgroundImage)||(()=>{try{const u=new URL(a.backgroundImage as string);return !!u.username||!!u.password}catch{return true}})()))return null;
+ if(a.backgroundGallery!==undefined&&(!Array.isArray(a.backgroundGallery)||a.backgroundGallery.length>12||!a.backgroundGallery.every((url:unknown)=>typeof url==="string"&&url.length<=500&&/^https:\/\/[^\s]+$/i.test(url))))return null;
  if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
  if(typeof a.intensity!=="number"||!Number.isInteger(a.intensity)||a.intensity<3||a.intensity>30)return null;
  Object.assign(appearance,a)}
- return {appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ return {appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
