@@ -239,6 +239,24 @@
         "/wochenkey (Nebula & Sturm)",
         "/bonusbooster (alle 3 Tage, 1 von jedem Typ)"
       ]
+    },
+    {
+      "name": "Immortel",
+      "color": "text-purple-300",
+      "benefits": [
+        "Neuer Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "14",
+      "warps": "8",
+      "homes": "",
+      "auctionHouse": "14",
+      "commands": [
+        "/hero (verschenkt Hero, 3 Tage)",
+        "/payall (alle 3 Std.)",
+        "/wochenkey (Funity+Nebula)"
+      ]
     }
   ],
   "team": [
