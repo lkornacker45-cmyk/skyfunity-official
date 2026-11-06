@@ -632,3 +632,39 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-islands-water{from{background-position:0 0}to{background-position:40px 0}}
 @media(max-width:600px){.sky-islands-widget{padding:24px 14px;border-radius:18px}.sky-islands-hero{min-height:530px}.sky-islands-landscape{opacity:.6}.sky-islands-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-islands-widget .glass{padding:20px}.sky-islands-link{min-height:190px}.sky-islands-ip{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-islands-land,.sky-islands-cloud,.sky-islands-waterfall{animation:none!important}.sky-islands-link{transition:none}.sky-islands-link:hover{transform:none}}
+
+/* Stained Glass homepage – Minecraft-inspired jewel-toned window panels, preserving global backdrop. */
+.sky-glass-home{position:relative;isolation:isolate;padding-top:38px}
+.sky-glass-home:before{content:"";position:absolute;z-index:-1;top:0;left:5%;right:5%;height:600px;background:radial-gradient(ellipse,#c084fc3a,transparent 68%);filter:blur(60px);pointer-events:none}
+.sky-glass-widget{position:relative;isolation:isolate;margin:0 auto 36px;max-width:1140px;padding:clamp(22px,3.8vw,48px);border:7px solid #241b3b;border-radius:15px;background:linear-gradient(140deg,#26143ecf,#0b2841d7 53%,#30163bd8);box-shadow:inset 0 0 0 2px #c4b5fd8c,inset 0 0 40px #a855f72b,0 24px 65px #0009,0 0 30px #a855f72b;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.sky-glass-widget:before{content:"";position:absolute;inset:7px;border:1px solid #f0abfc78;border-radius:3px;pointer-events:none}
+.sky-glass-widget>.sky-glass-hero,.sky-glass-widget>.sky-glass-status,.sky-glass-widget>.sky-glass-explore,.sky-glass-widget>.sky-glass-shop{position:relative;z-index:1}
+.sky-glass-widget-hero{background:linear-gradient(145deg,#25143bd1,#102b46d4 55%,#351438d4);border-color:#241b3b}
+.sky-glass-hero{isolation:isolate;min-height:580px}
+.sky-glass-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#130f2d9e,#101b35b5 70%,#120f2ad8);pointer-events:none}
+.sky-glass-window{position:absolute;z-index:-2;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(3,1fr);gap:7px;overflow:hidden;border:8px solid #211831;border-radius:160px 160px 12px 12px;opacity:.66;pointer-events:none;box-shadow:inset 0 0 40px #0009}
+.sky-glass-window span{border:3px solid #241b3b;background:linear-gradient(125deg,#ffffff38,transparent 43%),var(--pane);box-shadow:inset 0 0 32px #fff3,0 0 22px var(--glow);animation:sky-glass-shimmer 7s ease-in-out infinite alternate}
+.sky-glass-window span:nth-child(9n+1){--pane:#9333ea;--glow:#a855f7}.sky-glass-window span:nth-child(9n+2){--pane:#0891b2;--glow:#22d3ee}.sky-glass-window span:nth-child(9n+3){--pane:#db2777;--glow:#f472b6}.sky-glass-window span:nth-child(9n+4){--pane:#2563eb;--glow:#60a5fa}.sky-glass-window span:nth-child(9n+5){--pane:#c026d3;--glow:#e879f9}.sky-glass-window span:nth-child(9n+6){--pane:#0d9488;--glow:#5eead4}.sky-glass-window span:nth-child(9n+7){--pane:#b45309;--glow:#fbbf24}.sky-glass-window span:nth-child(9n+8){--pane:#7c3aed;--glow:#c4b5fd}.sky-glass-window span:nth-child(9n){--pane:#be185d;--glow:#fb7185}
+.sky-glass-window span:nth-child(even){animation-delay:-3s}
+.sky-glass-kicker{position:relative;z-index:1;margin:-8px auto 20px;width:max-content;max-width:95%;padding:10px 19px;border:2px solid #e9d5ff9e;border-radius:8px;background:#1b1238d9;color:#f5d0fe;font:800 clamp(10px,2vw,13px) monospace;letter-spacing:.13em;box-shadow:0 0 23px #e879f95a}
+.sky-glass-hero-title{text-shadow:0 4px 18px #0c0921,0 0 24px #e879f9a8}
+.sky-glass-hero-title span{background-image:linear-gradient(90deg,#f0abfc,#67e8f9,#fbbf24)}
+.sky-glass-ip{padding:18px;border:3px solid #c4b5fdb0;border-radius:12px;background:#17132de8;box-shadow:0 0 32px #e879f947,inset 0 0 24px #a855f726}
+.sky-glass-ip p{color:#f0abfc!important}
+.sky-glass-ip button{min-width:0}
+.sky-glass-widget .section-label{color:#f0abfc}
+.sky-glass-widget h2{color:#fff;text-shadow:0 0 17px #c084fc85}
+.sky-glass-widget .glass{border:4px solid #241b3b;border-radius:13px;background:linear-gradient(140deg,#401858d9,#0c3550e0);box-shadow:inset 0 0 0 2px #a5f3fc7a,inset 0 0 24px #e879f929,0 12px 30px #0007;backdrop-filter:blur(11px)}
+.sky-glass-widget .glass:hover{box-shadow:inset 0 0 0 2px #f0abfc,inset 0 0 35px #e879f949,0 0 28px #e879f951,0 12px 30px #0007}
+.sky-glass-link{position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s}
+.sky-glass-link:nth-child(1){background:linear-gradient(145deg,#6b21a8d8,#1e3a8add)}
+.sky-glass-link:nth-child(2){background:linear-gradient(145deg,#0e7490d8,#4c1d95dc)}
+.sky-glass-link:nth-child(3){background:linear-gradient(145deg,#9d174dd8,#312e81dd)}
+.sky-glass-link:before{content:"✧";position:absolute;top:17px;right:18px;font-size:38px;color:#f0abfc80;pointer-events:none}
+.sky-glass-link:after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,#fff2,transparent 44%);pointer-events:none}
+.sky-glass-link:hover{transform:translateY(-6px)}
+.sky-glass-widget-shop{background:linear-gradient(125deg,#301442db,#102e49dc)}
+.sky-glass-widget .sky-glass-shop{margin-top:0;border-color:#241b3b;background:linear-gradient(110deg,#4c1d70cd,#10415bcf)}
+@keyframes sky-glass-shimmer{from{filter:brightness(.75)}to{filter:brightness(1.22)}}
+@media(max-width:600px){.sky-glass-widget{padding:24px 13px;border-width:5px}.sky-glass-hero{min-height:520px}.sky-glass-window{opacity:.48}.sky-glass-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-glass-widget .glass{padding:20px}.sky-glass-link{min-height:190px}.sky-glass-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-glass-window span{animation:none!important}.sky-glass-link{transition:none}.sky-glass-link:hover{transform:none}}
