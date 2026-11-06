@@ -381,6 +381,10 @@
     {
       "title": "Welten",
       "description": "1. Farmwelt, Nether und End per /farmwelt, /nether und /end, Reset alle 3 Monate"
+    },
+    {
+      "title": "Extras",
+      "description": "1. Cosmetics: Hüte, Rucksäcke, Ballons, Namensfarben und Titel\n2. Eigenes Galaxy-Design für alle Menüs\n3. Voice Chat, Chat-KI (!ki) und Twitch-Drops für Streamer\n4. Spielbar mit Java und Bedrock"
     }
   ]
 }
