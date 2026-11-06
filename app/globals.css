@@ -412,3 +412,34 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-sakura-fall{0%{top:0;opacity:0;transform:translateX(0) rotate(0)}8%{opacity:.85}85%{opacity:.65}100%{top:100%;opacity:0;transform:translateX(110px) rotate(680deg)}}
 @media(max-width:600px){.sky-sakura-widget{padding:24px 16px;border-radius:18px;background:linear-gradient(135deg,#231632c9,#142638c4)}.sky-sakura-hero h1{font-size:clamp(2.7rem,11vw,4.5rem)}.sky-sakura-widget .glass{padding:20px}.sky-sakura-link{min-height:190px}}
 @media(prefers-reduced-motion:reduce){.sky-sakura-petals span{animation:none;display:none}.sky-sakura-link,.sky-sakura-hero .focus-ring{transition:none}.sky-sakura-link:hover,.sky-sakura-hero .focus-ring:hover{transform:none}}
+
+/* Nether Nexus homepage: obsidian gateway, floating runes and lava-violet glass */
+.sky-nether-home{position:relative;isolation:isolate;padding-top:34px}
+.sky-nether-home:before{content:"";position:absolute;z-index:-1;left:8%;right:8%;top:0;height:570px;background:radial-gradient(ellipse at center,#a21caf55,transparent 68%);filter:blur(42px);pointer-events:none}
+.sky-nether-widget{position:relative;margin:0 auto 32px;max-width:1140px;padding:clamp(20px,4vw,46px);border:2px solid #6d28d96b;border-radius:14px;background:linear-gradient(135deg,#120c20d9,#1d102be8 52%,#100d20e5);box-shadow:inset 0 1px #d8b4fe30,0 22px 70px #0008,0 0 35px #a21caf22;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.sky-nether-widget:before{content:"";position:absolute;inset:7px;border:1px solid #a855f72e;border-radius:8px;pointer-events:none}
+.sky-nether-widget:after{content:"ᛟ ✦ ᚷ";position:absolute;right:22px;top:15px;color:#c084fc99;font-size:15px;letter-spacing:8px;text-shadow:0 0 15px #c084fc;pointer-events:none}
+.sky-nether-widget>.sky-nether-hero,.sky-nether-widget>.sky-nether-status,.sky-nether-widget>.sky-nether-explore,.sky-nether-widget>.sky-nether-shop{position:relative;z-index:1}
+.sky-nether-widget-hero{border:6px solid #20162f;border-top-color:#453259;border-left-color:#39264b;border-right-color:#0c0a17;border-bottom-color:#080812;background:radial-gradient(ellipse at 50% 42%,#6b21a841,transparent 65%),linear-gradient(140deg,#130b24e9,#0e0a1fe8);box-shadow:inset 0 0 0 2px #a855f74d,0 0 65px #9333ea45,0 25px 75px #0009}
+.sky-nether-portal{position:absolute;z-index:0;left:50%;top:10px;transform:translateX(-50%);width:min(64%,440px);height:calc(100% - 20px);min-height:370px;border:clamp(15px,3vw,30px) ridge #30263e;border-radius:16px 16px 5px 5px;background:linear-gradient(135deg,#171323,#090713 60%,#342047);box-shadow:inset 0 0 0 5px #090612,inset 0 0 28px #000,0 0 45px #a855f75e,0 0 0 4px #0c0816;opacity:.85;pointer-events:none}
+.sky-nether-portal:before{content:"";position:absolute;inset:-11px;border:2px dashed #a855f78c;border-radius:9px;box-shadow:0 0 17px #c084fc5e;animation:sky-nether-pulse 5s ease-in-out infinite}
+.sky-nether-portal-inner{position:absolute;inset:6px;overflow:hidden;background:repeating-linear-gradient(115deg,#581c87a6 0 20px,#a21caf94 25px 42px,#312e81b8 50px 70px);box-shadow:inset 0 0 70px #1e0939,0 0 28px #a855f7;animation:sky-nether-veil 8s linear infinite}
+.sky-nether-portal-inner:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse,#e879f95c,transparent 70%);animation:sky-nether-pulse 4s ease-in-out infinite}
+.sky-nether-portal-rune{position:absolute;top:18%;left:50%;transform:translateX(-50%);font-size:80px;color:#f5d0fe55;text-shadow:0 0 30px #f0abfc}
+.sky-nether-hero{isolation:isolate}
+.sky-nether-hero:after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50%,#0d0717bb,transparent 75%);pointer-events:none}
+.sky-nether-hero-title{text-shadow:0 4px 12px #090314,0 0 28px #a855f7}
+.sky-nether-hero-title span{background-image:linear-gradient(90deg,#e9d5ff,#f0abfc,#a78bfa)}
+.sky-nether-widget .section-label{color:#d8b4fe}
+.sky-nether-widget h2{color:#faf5ff;text-shadow:0 2px 15px #000a}
+.sky-nether-widget .glass{border:1px solid #7e22ce99;border-radius:10px;background:linear-gradient(135deg,#241333df,#100d23e8);box-shadow:inset 0 1px #e9d5ff24,0 8px 24px #0006}
+.sky-nether-widget .glass:hover{border-color:#c084fc;box-shadow:0 0 24px #9333ea3d,0 10px 25px #0007}
+.sky-nether-link{position:relative;overflow:hidden;border-left:5px solid #6b21a8!important;transition:transform .2s,box-shadow .2s}
+.sky-nether-link:before{content:"✦";position:absolute;right:20px;top:17px;color:#c084fc5e;font-size:35px;text-shadow:0 0 20px #c084fc;pointer-events:none}
+.sky-nether-link:hover{transform:translateY(-5px)}
+.sky-nether-widget-shop{background:linear-gradient(120deg,#29112bdc,#120d25e8)}
+.sky-nether-widget .sky-nether-shop{margin-top:0;border-color:#a855f788;background:linear-gradient(115deg,#36164add,#160d2be0)}
+@keyframes sky-nether-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes sky-nether-veil{0%{background-position:0 0}100%{background-position:280px 0}}
+@media(max-width:600px){.sky-nether-widget{padding:25px 14px;border-radius:10px}.sky-nether-widget-hero{padding:20px 10px}.sky-nether-portal{width:86%;height:calc(100% - 24px);min-height:340px;top:12px;opacity:.65}.sky-nether-hero-title{font-size:clamp(2.5rem,11vw,4.4rem)}.sky-nether-widget .glass{padding:20px}.sky-nether-link{min-height:190px}}
+@media(prefers-reduced-motion:reduce){.sky-nether-portal:before,.sky-nether-portal-inner,.sky-nether-portal-inner:before{animation:none!important}.sky-nether-link{transition:none}.sky-nether-link:hover{transform:none}}
