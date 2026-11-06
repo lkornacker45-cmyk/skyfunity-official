@@ -14,7 +14,8 @@ export async function POST(req:NextRequest){
  if(size>maxBytes+100000)return NextResponse.json({error:"Bild darf höchstens 5 MB groß sein."},{status:413});
  let form:FormData;
  try{form=await req.formData()}catch{return NextResponse.json({error:"Ungültiger Upload"},{status:400})}
- const kind=form.get("kind")==="background"?"background":"team";
+ const requestedKind=form.get("kind");
+ const kind=requestedKind==="background"?"background":requestedKind==="rank"?"rank":"team";
  const file=form.get("file");
  if(!(file instanceof File))return NextResponse.json({error:"Bitte ein Bild auswählen."},{status:400});
  if(file.size===0||file.size>maxBytes)return NextResponse.json({error:"Bild muss zwischen 1 Byte und 5 MB groß sein."},{status:413});
