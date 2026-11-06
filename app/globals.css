@@ -699,3 +699,17 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 
 /* Rainbow lettering for the SkyFunity homepage hero highlight; glass opacity unchanged. */
 .sky-invisible-home .sky-invisible-hero-title > span{background-image:linear-gradient(90deg,#fb7185 0%,#fb923c 17%,#fde047 34%,#4ade80 51%,#22d3ee 68%,#818cf8 84%,#e879f9 100%)!important;background-size:100% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none;filter:drop-shadow(0 2px 7px rgba(0,0,0,.4))}
+
+/* Liquid Glass navbar (layout 17): translucent floating capsule, all existing links preserved. */
+body .sky-liquid-header{position:sticky;top:0;z-index:30;padding:12px 16px 0;border:0;background:transparent!important;backdrop-filter:none;-webkit-backdrop-filter:none}
+body .sky-liquid-nav{position:relative;isolation:isolate;max-width:1240px;padding:14px 24px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:linear-gradient(130deg,rgba(255,255,255,.19),rgba(167,139,250,.12) 42%,rgba(255,255,255,.07) 78%)!important;box-shadow:inset 0 1px rgba(255,255,255,.38),inset 0 -1px rgba(167,139,250,.15),0 10px 35px rgba(0,0,0,.2),0 0 24px rgba(167,139,250,.12);backdrop-filter:blur(10px) saturate(135%);-webkit-backdrop-filter:blur(10px) saturate(135%)}
+body .sky-liquid-nav:before{content:"";position:absolute;z-index:-1;inset:2px;border-radius:inherit;background:linear-gradient(115deg,rgba(255,255,255,.15),transparent 36%,rgba(255,255,255,.06) 75%,transparent);pointer-events:none}
+body .sky-liquid-brand{white-space:nowrap;text-shadow:0 2px 10px rgba(0,0,0,.5)}
+body .sky-liquid-brand>span:first-child{background:rgba(167,139,250,.18);border:1px solid rgba(221,214,254,.42);box-shadow:inset 0 1px rgba(255,255,255,.25)}
+body .sky-liquid-brand>span:last-child{background:linear-gradient(90deg,#fb7185,#fbbf24,#4ade80,#22d3ee,#a78bfa);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+body .sky-liquid-links>a:not(.sky-liquid-shop){padding:7px 2px;border-bottom:1px solid transparent;text-shadow:0 2px 8px rgba(0,0,0,.65);transition:color .2s,border-color .2s}
+body .sky-liquid-links>a:not(.sky-liquid-shop):hover{color:#fff;border-bottom-color:rgba(221,214,254,.85)}
+body .sky-liquid-links .sky-liquid-shop{border:1px solid rgba(233,213,255,.55);border-radius:999px;background:rgba(126,34,206,.65)!important;box-shadow:inset 0 1px rgba(255,255,255,.2),0 0 15px rgba(168,85,247,.22)}
+body .sky-liquid-links .sky-liquid-shop:hover{background:rgba(147,51,234,.82)!important;box-shadow:0 0 20px rgba(192,132,252,.4)}
+@media(max-width:820px){body .sky-liquid-header{padding:8px 10px 0}body .sky-liquid-nav{border-radius:25px;padding:13px 16px;gap:12px}body .sky-liquid-brand{font-size:1.3rem}body .sky-liquid-links{gap:10px;font-size:.78rem}body .sky-liquid-links .sky-liquid-shop{padding:8px 13px}}
+@media(prefers-reduced-motion:reduce){body .sky-liquid-links>a{transition:none}}
