@@ -220,6 +220,23 @@
         "/wochenkey Sturm  2x Wolken)",
         "/biomfinder (findet Biome, alle 2 Std.)"
       ]
+    },
+    {
+      "name": "Infinity",
+      "color": "text-purple-300",
+      "benefits": [
+        "Neuer Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "12",
+      "warps": "7",
+      "homes": "",
+      "auctionHouse": "12",
+      "commands": [
+        "/toxic (verschenkt Toxic, 7 Tage)",
+        "/payall (alle 4 Std)"
+      ]
     }
   ],
   "team": [
