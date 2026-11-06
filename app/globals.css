@@ -194,3 +194,14 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-portal-swirl{from{background-position:0 0}to{background-position:180% 180%}}
 @keyframes sky-portal-flow{from{background-position:0 0}to{background-position:0 -120px}}
 @media(prefers-reduced-motion:reduce){.sky-portal-field,.sky-portal-field:after,.sky-portal-sparks{animation:none!important}.sky-portal-frame,.sky-portal-avatar{transition:none!important}.sky-portal-card:hover{transform:none!important}}
+
+/* Minecraft-style inventory for team selection */
+.sky-inventory{overflow:hidden;border:5px solid #2c2927;border-radius:5px;background:#c6c0b5;box-shadow:inset 5px 5px #eee9de,inset -5px -5px #807a70,0 24px 65px #0009}
+.sky-inventory-top{border-bottom:4px solid #817b70;background:linear-gradient(180deg,#ded8ce,#bcb6ab)}
+.sky-inventory-grid{background:#c6c0b5}
+.sky-inventory-slot{min-height:126px;border:3px solid #888277;border-top-color:#5b574f;border-left-color:#5b574f;border-right-color:#eee9de;border-bottom-color:#eee9de;background:#a8a298;box-shadow:inset 2px 2px #777168,inset -2px -2px #dcd5c9;outline-offset:2px}
+.sky-inventory-slot:hover,.sky-inventory-slot:focus-visible{background:#d3c6a6;border-color:#f9e09d;box-shadow:inset 0 0 0 2px #f5d681,0 0 18px #eabf5d88}
+.sky-inventory-item{image-rendering:pixelated;box-shadow:3px 3px #6b6257}
+.sky-inventory-item img{image-rendering:auto}
+.sky-inventory-bottom{background:#c6c0b5}
+@media(prefers-reduced-motion:reduce){.sky-inventory-slot{transition:none!important}.sky-inventory-slot:hover{transform:none!important}}
