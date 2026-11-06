@@ -12,7 +12,6 @@ async function getDiscord(guild:string|undefined){
   const d=await r.json();return typeof d.presence_count==="number"?{online:d.presence_count,reason:null}:{online:null,reason:"unavailable" as const};
  }catch{return{online:null,reason:"unavailable" as const}}
 }
-export async function GETDiscordStatus(){const {server}=await getContent();return getDiscord(server.discordGuildId||process.env.DISCORD_GUILD_ID)}
 export async function GET(){
  const {server}=await getContent();
  const guild=server.discordGuildId||process.env.DISCORD_GUILD_ID;
