@@ -22,7 +22,7 @@ export function validateContent(value:unknown):Content|null{
  if(!["default","christmas","easter","halloween","newyear","summer","winter"].includes(theme as string))return null;
  const appearance={background:"theme",backgroundImage:"",particles:"off",intensity:12};
  if(v.appearance!==undefined){if(!v.appearance||typeof v.appearance!=="object"||Array.isArray(v.appearance))return null;const a=v.appearance as Record<string,unknown>;
- if(typeof a.background!=="string"||!["theme","stars","gradient","solid","image"].includes(a.background))return null;
+ if(typeof a.background!=="string"||!["theme","stars","gradient","solid","image","minecraft","halloween","christmas","easter","winter","summer","autumn","nether","end","cave","newyear","skyblock"].includes(a.background))return null;
  if(typeof a.backgroundImage!=="string"||a.backgroundImage.length>500)return null;
  if(a.backgroundImage&&(!/^https:\/\/[^\s]+$/i.test(a.backgroundImage)||(()=>{try{const u=new URL(a.backgroundImage as string);return !!u.username||!!u.password}catch{return true}})()))return null;
  if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
