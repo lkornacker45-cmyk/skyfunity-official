@@ -117,3 +117,6 @@ body[data-background="image"]{background-image:none!important}
 body[data-background="image"]::before{content:"";position:fixed;inset:-7%;z-index:-1;pointer-events:none;background-image:linear-gradient(#0907138a,#090713ae),var(--custom-bg-image);background-size:cover;background-position:center;animation:sky-custom-pan 34s ease-in-out infinite alternate;will-change:transform}
 @keyframes sky-custom-pan{from{transform:scale(1.04) translate3d(-1%,0,0)}to{transform:scale(1.11) translate3d(1.2%,-1.4%,0)}}
 @media(prefers-reduced-motion:reduce){body[data-background="image"]::before{animation:none!important}}
+
+body[data-background="image"]{isolation:isolate}
+body[data-background="image"]::before{z-index:-1}
