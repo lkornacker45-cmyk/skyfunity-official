@@ -267,7 +267,10 @@
     {
       "name": "sett_camo",
       "role": "Owner",
-      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/d5c5905b-ab19-4cfa-b536-7519bc0e1f21.png"
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/d5c5905b-ab19-4cfa-b536-7519bc0e1f21.png",
+      "treeX": 20,
+      "treeY": 12,
+      "treeCategory": "Serverleitung"
     },
     {
       "name": "GasJoker/Luca_Sky007",
@@ -275,7 +278,10 @@
       "tasks": "Discord/Stv.Builderleitung/Design",
       "since": "22.08.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin 24 Jahre alt und die Co-Ownerin, stellvertretende Builderleitung und Sekretärin von sett_camo. Außerdem kümmere ich mich um unseren Discord-Server, programmiere und unterstütze das Team bei verschiedenen Aufgaben. 🛠️💻\n\n✨ Ein bisschen über mich:\nIch bin eine engagierte und kreative Person, die gerne neue Ideen umsetzt und sich um die technischen sowie organisatorischen Dinge im Hintergrund kümmert. 💕\nAuch wenn es manchmal etwas chaotisch wird, versuche ich immer, den Überblick zu behalten und für alle da zu sein! 😄\n\n💻 Meine Aufgaben:\n- 👑 Co-Ownerin und Unterstützung der Serverleitung\n- 🏗️ Stellvertretende Builderleitung\n- 📋 Sekretärin von sett_camo\n- 💻 Programmierung und technische Aufgaben\n- 💬 Discord verwalten und organisieren\n- 💜 Das Team unterstützen und bei Fragen helfen\n\n💜 Wenn ihr Fragen, Probleme oder Anliegen habt, könnt ihr euch jederzeit gerne bei mir melden. Ich helfe euch, so gut ich kann! 🥰",
-      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/e7016cd1-5ac9-4e93-9949-2bc2956940e8.png"
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/e7016cd1-5ac9-4e93-9949-2bc2956940e8.png",
+      "treeX": 40,
+      "treeY": 12,
+      "treeCategory": "Serverleitung"
     },
     {
       "name": "Chriss",
@@ -283,7 +289,10 @@
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/bfe29371-8eaf-46bb-b024-9b907cf97062.png",
       "since": "15.09.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Chriss und bin als Admin bei Skyfunity tätig! 🎮🛡️\n\nIch kümmere mich darum, dass auf unserem Minecraft-Server und Discord alles möglichst reibungslos läuft und sich jeder Spieler bei uns wohlfühlt! 💜\n\n✨ Ein bisschen über mich:\nIch bin eine hilfsbereite und engagierte Person, die gerne Verantwortung übernimmt und das Team unterstützt. Mir ist es wichtig, dass alle Spieler fair behandelt werden und wir gemeinsam eine freundliche und respektvolle Community aufbauen! 😊\n\n🛠️ Meine Aufgaben:\n- 👑 Den Server und das Team bei der Verwaltung unterstützen\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 💬 Den Minecraft-Chat und die Community im Blick behalten\n- 🎫 Spielern bei Fragen und Problemen helfen\n- ⚠️ Konflikte lösen und für Ordnung sorgen\n- 🤝 Das Support- und Moderationsteam unterstützen\n- 🚀 Bei der Weiterentwicklung von Skyfunity mithelfen\n\n💜 Wenn ihr Fragen, Probleme oder andere Anliegen habt, könnt ihr euch jederzeit gerne bei mir melden. Ich habe immer ein offenes Ohr für euch und helfe, wo ich kann! 😎",
-      "tasks": "Admin"
+      "tasks": "Admin",
+      "treeX": 60,
+      "treeY": 12,
+      "treeCategory": "Admin"
     },
     {
       "name": "Tobix",
@@ -291,7 +300,10 @@
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/9388f7e0-273d-494e-982e-f569920bc946.png",
       "since": "18.10.2026",
       "tasks": "Creatorleitung, Devleitung",
-      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Tobi und die Creatorleitung sowie Developerleitung bei Skyfunity! 🎮💻\n\nIch kümmere mich hauptsächlich um die Programmierung von Plugins und leite unser Creator-Team. Dabei sorge ich dafür, dass sowohl technisch als auch kreativ alles möglichst reibungslos läuft! 🚀\n\n✨ Ein bisschen über mich:\nIch liebe es, zu programmieren, neue Ideen umzusetzen und spannende Features für Skyfunity zu entwickeln. Gleichzeitig macht es mir Spaß, unsere Creator zu unterstützen und gemeinsam mit ihnen coole Projekte auf die Beine zu stellen! 💜\n\n🛠️ Meine Aufgaben:\n- 💻 Developerleitung und Plugin-Entwicklung\n- 🎬 Creatorleitung und Betreuung des Creator-Teams\n- ⚙️ Neue Funktionen und Features programmieren\n- 🚀 Technische Projekte planen und umsetzen\n- 🤝 Das Team unterstützen und gemeinsam Ideen verwirklichen\n\n💜 Wenn Ideen habt könnt ihr sie mir gerne sagen!😎"
+      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Tobi und die Creatorleitung sowie Developerleitung bei Skyfunity! 🎮💻\n\nIch kümmere mich hauptsächlich um die Programmierung von Plugins und leite unser Creator-Team. Dabei sorge ich dafür, dass sowohl technisch als auch kreativ alles möglichst reibungslos läuft! 🚀\n\n✨ Ein bisschen über mich:\nIch liebe es, zu programmieren, neue Ideen umzusetzen und spannende Features für Skyfunity zu entwickeln. Gleichzeitig macht es mir Spaß, unsere Creator zu unterstützen und gemeinsam mit ihnen coole Projekte auf die Beine zu stellen! 💜\n\n🛠️ Meine Aufgaben:\n- 💻 Developerleitung und Plugin-Entwicklung\n- 🎬 Creatorleitung und Betreuung des Creator-Teams\n- ⚙️ Neue Funktionen und Features programmieren\n- 🚀 Technische Projekte planen und umsetzen\n- 🤝 Das Team unterstützen und gemeinsam Ideen verwirklichen\n\n💜 Wenn Ideen habt könnt ihr sie mir gerne sagen!😎",
+      "treeX": 80,
+      "treeY": 12,
+      "treeCategory": "Admin"
     },
     {
       "name": "The Black Dragon",
@@ -300,8 +312,9 @@
       "tasks": "Developer",
       "since": "27.08.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin The Black Dragon und programmiere Plugins für Skyfunity! 🐉💻\n\nIch kümmere mich hauptsächlich um die Entwicklung und Verbesserung von Plugins, damit unser Minecraft-Server immer neue Funktionen und spannende Features bekommt! 🎮🚀\n\n✨ Ein bisschen über mich:\nIch beschäftige mich gerne mit dem Programmieren und liebe es, neue Ideen in funktionierende Plugins umzusetzen. Besonders viel Spaß macht es mir, technische Herausforderungen zu meistern und unseren Server stetig weiterzuentwickeln! 🐉💜\n\n🛠️ Meine Aufgaben:\n- 💻 Plugins programmieren und weiterentwickeln\n- ⚙️ Neue Funktionen und Features erstellen\n- 🐛 Bugs finden und beheben\n- 🚀 Bestehende Plugins verbessern und optimieren\n- 🛡️ Für eine möglichst stabile technische Umsetzung sorgen\n- 🤝 Das Developer-Team bei Projekten unterstützen\n\n💜 Wenn ihr Fragen zu Plugins habt, euch Fehler auffallen oder ihr Ideen für neue Funktionen habt, könnt ihr euch gerne bei mir melden. Ich helfe euch, so gut ich kann! 🐉😎",
-      "treeX": 21,
-      "treeY": 34
+      "treeX": 20,
+      "treeY": 31,
+      "treeCategory": "Developer"
     },
     {
       "name": "Mailk75",
@@ -310,8 +323,9 @@
       "tasks": "Developer",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Mailk und programmiere Plugins für Skyfunity! 💻🎮\n\nIch kümmere mich hauptsächlich um die Entwicklung von Plugins und arbeite daran, unseren Server mit neuen Funktionen und coolen Features noch besser zu machen! 🚀\n\n✨ Ein bisschen über mich:\nIch programmiere gerne und liebe es, neue Ideen in die Tat umzusetzen. Besonders viel Spaß macht es mir, an Plugins zu tüfteln, Fehler zu beheben und spannende Funktionen zu entwickeln! 💜\n\n🛠️ Meine Aufgaben:\n- 💻 Plugins programmieren und weiterentwickeln\n- ⚙️ Neue Funktionen und Features erstellen\n- 🚀 Den Server technisch verbessern\n\n💜 Wenn ihr Fragen zu Plugins habt oder euch technische Probleme auffallen, könnt ihr euch gerne bei mir oder bei Tobi melden. Ich helfe euch, so gut ich kann! 😎",
       "since": "18.10.2026",
-      "treeX": 41,
-      "treeY": 35
+      "treeX": 40,
+      "treeY": 31,
+      "treeCategory": "Developer"
     },
     {
       "name": "Sky_River",
@@ -319,14 +333,19 @@
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/f4f2ad7b-db70-408a-be41-015e154e0734.png",
       "tasks": "Sr. Builder/Builderleitung",
       "since": "23.08.2026",
-      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin 20 Jahre alt und die Builderleitung bei sett_camo. Außerdem vertrete ich GasJoker / Luca_Sky007 und kümmere mich auch um unseren Discord-Server. 🛠️💻\n\n✨ Ein bisschen über mich:\nIch bin eine ziemlich verrückte, humorvolle, aber manchmal auch schüchterne Socke. 🧦😂 Anfangs bin ich vielleicht etwas zurückhaltend, aber wenn man mich besser kennt, merkt man schnell, wie viel Chaos und gute Laune in mir stecken! 💕\n\n🏗️ Meine Aufgaben:\n- Builderleitung und Vertretung von GasJoker / Luca_Sky007\n- Bauen und kreative Projekte umsetzen\n- Discord verwalten und organisieren\n- Das Team unterstützen und für euch da sein\n\n💜 Wenn ihr Fragen habt oder Hilfe braucht, könnt ihr euch gerne bei mir melden. Ich beiße nicht – zumindest meistens! 😜"
+      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin 20 Jahre alt und die Builderleitung bei sett_camo. Außerdem vertrete ich GasJoker / Luca_Sky007 und kümmere mich auch um unseren Discord-Server. 🛠️💻\n\n✨ Ein bisschen über mich:\nIch bin eine ziemlich verrückte, humorvolle, aber manchmal auch schüchterne Socke. 🧦😂 Anfangs bin ich vielleicht etwas zurückhaltend, aber wenn man mich besser kennt, merkt man schnell, wie viel Chaos und gute Laune in mir stecken! 💕\n\n🏗️ Meine Aufgaben:\n- Builderleitung und Vertretung von GasJoker / Luca_Sky007\n- Bauen und kreative Projekte umsetzen\n- Discord verwalten und organisieren\n- Das Team unterstützen und für euch da sein\n\n💜 Wenn ihr Fragen habt oder Hilfe braucht, könnt ihr euch gerne bei mir melden. Ich beiße nicht – zumindest meistens! 😜",
+      "treeX": 60,
+      "treeY": 31,
+      "treeCategory": "Managment/Builder"
     },
     {
       "name": "ZeRo-Anonym",
       "role": "T.Builder",
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/1b9b06dc-f28b-463f-899e-ea803f688613.png",
       "since": "22.09.2026",
-      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin ZeRo-Anonym und bin Teil des Builder-Teams bei Skyfunity! 🏗️🎮\n\nIch unterstütze unser Team bei verschiedenen Bauprojekten, wie zum Beispiel dem Spawn, und helfe dabei, unsere Minecraft-Welt noch schöner und einzigartiger zu gestalten! 🌍✨\n\n✨Ein bisschen über mich:\nIch baue gerne in Minecraft und habe Spaß daran, gemeinsam mit dem Team kreative Ideen umzusetzen. Besonders cool finde ich es, wenn aus einer einfachen Idee ein großes und beeindruckendes Bauprojekt entsteht! 💜\n\n🛠️ Meine Aufgaben:\n- 🏗️ Das Builder-Team bei Bauprojekten unterstützen\n- 🌍 Am Spawn und anderen Bauwerken mitarbeiten\n- 🎨 Kreative Ideen und Designs umsetzen\n- 🧱 Gebäude und Landschaften gestalten\n- 🤝 Gemeinsam mit anderen Buildern an Projekten arbeiten\n- 🚀 Die Minecraft-Welt von Skyfunity verschönern\n\n💜 Wenn ihr Fragen zu unseren Bauprojekten habt oder kreative Ideen mit uns teilen möchtet, könnt ihr euch gerne bei mir melden! Ich freue mich darauf, gemeinsam etwas Cooles zu erschaffen! 😎"
+      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin ZeRo-Anonym und bin Teil des Builder-Teams bei Skyfunity! 🏗️🎮\n\nIch unterstütze unser Team bei verschiedenen Bauprojekten, wie zum Beispiel dem Spawn, und helfe dabei, unsere Minecraft-Welt noch schöner und einzigartiger zu gestalten! 🌍✨\n\n✨Ein bisschen über mich:\nIch baue gerne in Minecraft und habe Spaß daran, gemeinsam mit dem Team kreative Ideen umzusetzen. Besonders cool finde ich es, wenn aus einer einfachen Idee ein großes und beeindruckendes Bauprojekt entsteht! 💜\n\n🛠️ Meine Aufgaben:\n- 🏗️ Das Builder-Team bei Bauprojekten unterstützen\n- 🌍 Am Spawn und anderen Bauwerken mitarbeiten\n- 🎨 Kreative Ideen und Designs umsetzen\n- 🧱 Gebäude und Landschaften gestalten\n- 🤝 Gemeinsam mit anderen Buildern an Projekten arbeiten\n- 🚀 Die Minecraft-Welt von Skyfunity verschönern\n\n💜 Wenn ihr Fragen zu unseren Bauprojekten habt oder kreative Ideen mit uns teilen möchtet, könnt ihr euch gerne bei mir melden! Ich freue mich darauf, gemeinsam etwas Cooles zu erschaffen! 😎",
+      "treeX": 80,
+      "treeY": 31
     },
     {
       "name": "Ben",
@@ -334,7 +353,9 @@
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/a873b9a6-7b3f-4f0a-a4d1-9ccdafde358a.png",
       "since": "11.09.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Ben und bin als Sr. Supporter bei Skyfunity tätig! 🎮🛡️\n\nIch kümmere mich darum, dass unsere Spieler bei Fragen und Problemen die passende Unterstützung bekommen und sich auf unserem Server wohlfühlen! 💜\n\n✨ Ein bisschen über mich:\nIch bin hilfsbereit, freundlich und habe immer ein offenes Ohr für eure Anliegen. Mir ist es wichtig, dass jeder Spieler fair behandelt wird und wir gemeinsam eine tolle Community aufbauen! 😊\n\n🛠️ Meine Aufgaben:\n- 🎮 Spielern bei Fragen und Problemen helfen\n- 🎫 Support-Tickets bearbeiten und Anliegen klären\n- 💬 Den Minecraft-Chat im Auge behalten\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 🤝 Das Support-Team unterstützen\n- ⚠️ Streitigkeiten und Konflikte fair lösen\n- 💜 Für eine freundliche und respektvolle Community sorgen\n\n💜 Wenn ihr Fragen, Probleme oder andere Anliegen habt, könnt ihr euch jederzeit gerne bei mir melden. Ich bin für euch da und helfe, wo ich kann! 😎",
-      "tasks": "Sr. Supporter"
+      "tasks": "Sr. Supporter",
+      "treeX": 20,
+      "treeY": 50
     },
     {
       "name": "byrepac",
@@ -343,8 +364,8 @@
       "since": "31.10.2026",
       "tasks": "T.Sup",
       "bio": "💜 **Hey, schön, dass du hier bist!** 💜\n\nIch bin Test-Supporter bei Skyfunity! 🎮🛡️\n\nIch bin aktuell in meiner Testphase als Supporter und unterstütze unser Team dabei, Spielern bei Fragen und Problemen zu helfen. Dabei sammle ich Erfahrungen und lerne jeden Tag etwas Neues dazu! 💜\n\n✨ Ein bisschen über mich:\nIch bin eine hilfsbereite und motivierte Person, die gerne anderen Spielern zur Seite steht. Mir ist es wichtig, dass sich jeder auf unserem Server wohlfühlt und respektvoll behandelt wird. Auch wenn ich noch in der Testphase bin, gebe ich immer mein Bestes! 😊\n\n🛠️ Meine Aufgaben:\n- 🎮 Spielern bei Fragen und Problemen helfen\n- 💬 Den Minecraft-Chat im Auge behalten\n- 🛡️ Auf die Einhaltung der Serverregeln achten\n- 🚫 Spam und unangemessenes Verhalten melden\n- 🎫 Bei Support-Anfragen und Tickets unterstützen\n- 🤝 Mit dem Support-Team zusammenarbeiten\n- 📚 Erfahrungen sammeln und mich weiterentwickeln\n\n💜 Wenn ihr Fragen habt oder Hilfe benötigt, könnt ihr euch jederzeit gerne bei mir melden. Ich gebe mein Bestes, um euch zu helfen! 😎",
-      "treeX": 39,
-      "treeY": 74
+      "treeX": 40,
+      "treeY": 50
     },
     {
       "name": "MiCCharon",
@@ -353,8 +374,8 @@
       "since": "24.10.2026",
       "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin MiCCharon Helfer bei Skyfunity und kümmere mich darum, dass unser Minecraft-Chat freundlich, respektvoll und ordentlich bleibt! 🎮💬\n\nIch achte darauf, dass sich alle Spieler an die Regeln halten und jeder Spaß auf unserem Server haben kann! 💜\n\n✨ Ein bisschen über mich:\nMir ist es wichtig, dass sich jeder auf unserem Server wohlfühlt und respektvoll behandelt wird. Ich habe immer ein offenes Ohr für Fragen und versuche, bei Problemen so gut wie möglich zu helfen! 😊\n\n🛡️ Meine Aufgaben:\n- 💬 Den Minecraft-Chat überwachen und moderieren\n- 🚫 Spam und unerwünschte Werbung verhindern\n- ⚠️ Auf beleidigende, diskriminierende oder unangemessene Aussagen achten\n- 📜 Darauf achten, dass die Serverregeln eingehalten werden\n- 🤝 Spielern bei Fragen und Problemen helfen\n- 💜 Für ein freundliches und respektvolles Miteinander sorgen\n\n💜 Wenn ihr Fragen habt, Hilfe benötigt oder euch etwas im Chat auffällt, könnt ihr euch jederzeit gerne bei mir melden. Ich helfe euch, so gut ich kann! 🥰",
       "tasks": "Helfer",
-      "treeX": 54,
-      "treeY": 74
+      "treeX": 60,
+      "treeY": 50
     }
   ],
   "features": [
