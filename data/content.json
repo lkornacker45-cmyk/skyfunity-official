@@ -48,7 +48,7 @@
     "home.statusLabel": "Immer informiert",
     "home.statusTitle": "Das Netzwerk",
     "home.statusHighlight": "live",
-    "home.statusRefresh": "Automatische Aktualisierung alle 60 Sekunden",
+    "home.statusRefresh": "Automatische Aktualisierung alle 12 Stunden",
     "home.exploreLabel": "Dein Abenteuer beginnt hier",
     "home.exploreTitle": "Alles an einem Ort.",
     "home.featureCardTitle": "Entdecke den Server",
