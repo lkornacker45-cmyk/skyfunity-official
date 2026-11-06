@@ -477,3 +477,38 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-neon-lights{from{opacity:.35}to{opacity:.9}}
 @media(max-width:600px){.sky-neon-widget{padding:24px 14px;border-radius:12px}.sky-neon-hero{min-height:520px}.sky-neon-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-neon-cityscape{opacity:.5}.sky-neon-widget .glass{padding:20px}.sky-neon-link{min-height:190px}.sky-neon-ip{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-neon-cityscape span:before{animation:none!important}.sky-neon-link{transition:none}.sky-neon-link:hover{transform:none}}
+
+/* Energy Core homepage: animated reactor, HUD panels; original background remains untouched. */
+.sky-energy-home{position:relative;isolation:isolate;padding-top:34px}
+.sky-energy-home:before{content:"";position:absolute;z-index:-1;top:0;left:8%;right:8%;height:570px;background:radial-gradient(ellipse,#22d3ee30,transparent 68%);filter:blur(70px);pointer-events:none}
+.sky-energy-widget{position:relative;isolation:isolate;margin:0 auto 34px;max-width:1140px;padding:clamp(20px,3.5vw,44px);border:1px solid #67e8f96e;border-radius:20px;background:linear-gradient(130deg,#071728db,#1a1333e2 55%,#071c2ce2);box-shadow:inset 0 1px #a5f3fc48,0 22px 65px #0008,0 0 38px #22d3ee24;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.sky-energy-widget:before{content:"";position:absolute;inset:8px;border:1px solid #a78bfa4d;border-radius:13px;pointer-events:none}
+.sky-energy-widget:after{content:"● REACTOR / ACTIVE";position:absolute;top:16px;right:22px;color:#67e8f9a8;font:800 10px monospace;letter-spacing:.16em;pointer-events:none}
+.sky-energy-widget>.sky-energy-hero,.sky-energy-widget>.sky-energy-status,.sky-energy-widget>.sky-energy-explore,.sky-energy-widget>.sky-energy-shop{position:relative;z-index:1}
+.sky-energy-widget-hero{border-color:#a5f3fc8a;background:radial-gradient(ellipse at 50% 45%,#312e8177,transparent 67%),linear-gradient(145deg,#07152ad6,#16112fdf 65%,#061b2ee0);box-shadow:inset 0 1px #cffafe66,0 0 75px #22d3ee31,0 25px 75px #0009}
+.sky-energy-hero{isolation:isolate;min-height:620px}
+.sky-energy-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,#061224c4,transparent 75%);pointer-events:none}
+.sky-energy-reactor{position:absolute;z-index:-2;top:50%;left:50%;width:min(78vw,520px);height:min(78vw,520px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#a5f3fc4d 0 9%,#22d3ee32 12%,#312e8177 23%,#22d3ee13 35%,transparent 67%);filter:drop-shadow(0 0 32px #22d3ee88);opacity:.9;pointer-events:none}
+.sky-energy-ring{position:absolute;inset:var(--ring-inset);border:var(--ring-border) solid var(--ring-color);border-left-color:transparent;border-bottom-color:#a78bfa9e;border-radius:50%;box-shadow:0 0 25px #22d3ee4a,inset 0 0 22px #a855f74a;animation:sky-energy-spin var(--ring-speed) linear infinite}
+.sky-energy-ring-outer{--ring-inset:2%;--ring-border:5px;--ring-color:#67e8f9b8;--ring-speed:28s}
+.sky-energy-ring-mid{--ring-inset:16%;--ring-border:8px;--ring-color:#c084fce0;--ring-speed:17s;animation-direction:reverse}
+.sky-energy-ring-inner{--ring-inset:31%;--ring-border:5px;--ring-color:#a5f3fce0;--ring-speed:10s}
+.sky-energy-reactor-center{position:absolute;inset:40%;display:grid;place-items:center;border:2px solid #a5f3fc;border-radius:50%;background:radial-gradient(circle,#67e8f9,#6d28d9 70%,#140b2b);box-shadow:0 0 30px #22d3ee,0 0 65px #a855f7,inset 0 0 20px #fff8;color:#fff;font-size:40px;animation:sky-energy-pulse 4s ease-in-out infinite}
+.sky-energy-kicker{position:relative;z-index:1;margin:-10px auto 20px;width:max-content;max-width:95%;padding:9px 15px;border:1px solid #67e8f9a1;border-radius:99px;background:#081b30c9;color:#a5f3fc;font:800 clamp(9px,2vw,12px) monospace;letter-spacing:.13em;box-shadow:0 0 20px #22d3ee33}
+.sky-energy-hero-title{text-shadow:0 4px 15px #040817,0 0 28px #22d3eea3}
+.sky-energy-hero-title span{background-image:linear-gradient(90deg,#67e8f9,#c4b5fd,#a5f3fc)}
+.sky-energy-ip{border:1px solid #67e8f9a1;border-radius:14px;padding:18px;background:#07162bdc;box-shadow:0 0 32px #22d3ee4a,inset 0 0 22px #22d3ee16}
+.sky-energy-ip button{min-width:0}
+.sky-energy-widget .section-label{color:#67e8f9}
+.sky-energy-widget h2{color:#fff;text-shadow:0 0 18px #22d3ee5e}
+.sky-energy-widget .glass{border:1px solid #67e8f96b;border-radius:14px;background:linear-gradient(145deg,#091c33dc,#1b1231e6);box-shadow:inset 0 1px #a5f3fc2b,0 10px 27px #0006}
+.sky-energy-widget .glass:hover{border-color:#c4b5fd;box-shadow:0 0 26px #a855f73b,0 12px 28px #0007}
+.sky-energy-link{position:relative;overflow:hidden;border-top:3px solid #22d3ee!important;transition:transform .2s,box-shadow .2s}
+.sky-energy-link:before{content:"⌁";position:absolute;top:15px;right:20px;font-size:38px;color:#67e8f969;text-shadow:0 0 18px #22d3ee;pointer-events:none}
+.sky-energy-link:hover{transform:translateY(-5px)}
+.sky-energy-widget-shop{background:linear-gradient(120deg,#0b2433e3,#1c1030e4)}
+.sky-energy-widget .sky-energy-shop{margin-top:0;border-color:#a78bfa9a;background:linear-gradient(115deg,#122b40dc,#211333e0)}
+@keyframes sky-energy-spin{to{transform:rotate(360deg)}}
+@keyframes sky-energy-pulse{0%,100%{box-shadow:0 0 25px #22d3ee,0 0 55px #a855f7}50%{box-shadow:0 0 45px #22d3ee,0 0 95px #a855f7}}
+@media(max-width:600px){.sky-energy-widget{padding:25px 14px;border-radius:13px}.sky-energy-hero{min-height:520px}.sky-energy-reactor{width:88vw;height:88vw;opacity:.65}.sky-energy-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-energy-widget .glass{padding:20px}.sky-energy-link{min-height:190px}.sky-energy-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-energy-ring,.sky-energy-reactor-center{animation:none!important}.sky-energy-link{transition:none}.sky-energy-link:hover{transform:none}}
