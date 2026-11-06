@@ -556,3 +556,39 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-cloud-drift{from{transform:translateX(-18px) translateY(0)}to{transform:translateX(20px) translateY(-13px)}}
 @media(max-width:600px){.sky-cloud-widget{padding:24px 15px;border-radius:23px}.sky-cloud-widget:before{inset:6px;border-radius:17px}.sky-cloud-hero-title{font-size:clamp(2.6rem,11vw,4.5rem)}.sky-cloud-widget .glass{padding:20px}.sky-cloud-link{min-height:185px}.sky-cloud-ip{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-cloud-decor span{animation:none!important}.sky-cloud-link,.sky-cloud-hero .focus-ring{transition:none}.sky-cloud-link:hover,.sky-cloud-hero .focus-ring:hover{transform:none!important}}
+
+/* Hologram Hub homepage — translucent projected HUD panels; global Minecraft background untouched. */
+.sky-holo-home{position:relative;isolation:isolate;padding-top:38px}
+.sky-holo-home:before{content:"";position:absolute;z-index:-1;top:0;left:6%;right:6%;height:600px;background:radial-gradient(ellipse at 50% 35%,#22d3ee38,transparent 68%);filter:blur(55px);pointer-events:none}
+.sky-holo-widget{position:relative;isolation:isolate;margin:0 auto 36px;max-width:1140px;padding:clamp(22px,3.8vw,48px);border:1px solid #67e8f994;border-radius:14px;background:linear-gradient(145deg,#07162acb,#19113ad5 55%,#081e33d2);box-shadow:inset 0 1px #a5f3fc60,0 22px 60px #0007,0 0 40px #22d3ee25;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+.sky-holo-widget:before{content:"";position:absolute;inset:8px;border:1px dashed #a78bfa6b;border-radius:8px;pointer-events:none}
+.sky-holo-widget:after{content:"◈ HOLO // DISPLAY";position:absolute;right:22px;top:16px;color:#67e8f9a8;font:800 11px monospace;letter-spacing:.15em;pointer-events:none}
+.sky-holo-widget>.sky-holo-hero,.sky-holo-widget>.sky-holo-status,.sky-holo-widget>.sky-holo-explore,.sky-holo-widget>.sky-holo-shop{position:relative;z-index:1}
+.sky-holo-widget-hero{border-color:#a5f3fcb3;background:radial-gradient(ellipse at 50% 48%,#4338ca45,transparent 65%),linear-gradient(140deg,#08192ac9,#130f30d5);box-shadow:inset 0 1px #e0f2fe66,0 0 65px #22d3ee40,0 25px 75px #0008}
+.sky-holo-hero{isolation:isolate;min-height:590px}
+.sky-holo-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,#07162a9c,transparent 72%);pointer-events:none}
+.sky-holo-projection{position:absolute;z-index:-2;left:50%;top:48%;width:min(74vw,480px);height:min(74vw,480px);transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#22d3ee33 0 12%,#a855f72a 28%,transparent 68%);filter:drop-shadow(0 0 25px #22d3eea0);opacity:.8;pointer-events:none}
+.sky-holo-projection:before{content:"";position:absolute;inset:6%;border:1px dashed #67e8f999;border-radius:50%;animation:sky-holo-spin 26s linear infinite}
+.sky-holo-orbit{position:absolute;inset:var(--orbit-inset);border:3px solid #67e8f9bd;border-right-color:transparent;border-bottom-color:#c084fcb3;border-radius:50%;box-shadow:0 0 18px #22d3ee65;animation:sky-holo-spin var(--orbit-speed) linear infinite}
+.sky-holo-orbit-one{--orbit-inset:18%;--orbit-speed:15s}
+.sky-holo-orbit-two{--orbit-inset:33%;--orbit-speed:10s;animation-direction:reverse;border-color:#c084fce0;border-left-color:transparent}
+.sky-holo-projection-core{position:absolute;inset:41%;display:grid;place-items:center;border:2px solid #a5f3fc;border-radius:50%;background:#0e2749b5;box-shadow:0 0 32px #22d3eea0,inset 0 0 24px #a855f788;color:#cffafe;font-size:50px;text-shadow:0 0 20px #22d3ee;animation:sky-holo-flicker 5s ease-in-out infinite}
+.sky-holo-kicker{position:relative;z-index:1;margin:-8px auto 20px;width:max-content;max-width:95%;padding:10px 16px;border:1px solid #67e8f9b0;border-radius:7px;background:#071a30d9;color:#a5f3fc;font:800 clamp(10px,2vw,13px) monospace;letter-spacing:.13em;box-shadow:0 0 20px #22d3ee55}
+.sky-holo-hero-title{text-shadow:0 4px 15px #020617,0 0 26px #22d3ee8c}
+.sky-holo-hero-title span{background-image:linear-gradient(90deg,#67e8f9,#c4b5fd,#e879f9)}
+.sky-holo-ip{padding:18px;border:1px solid #67e8f9b5;border-radius:10px;background:#07192de8;box-shadow:0 0 30px #22d3ee50,inset 0 0 25px #22d3ee17}
+.sky-holo-ip p{color:#a5f3fc!important}
+.sky-holo-ip button{min-width:0}
+.sky-holo-widget .section-label{color:#67e8f9}
+.sky-holo-widget h2{color:#f8fafc;text-shadow:0 0 15px #22d3ee66}
+.sky-holo-widget .glass{border:1px solid #67e8f98a;border-radius:10px;background:linear-gradient(135deg,#0c2340da,#1b1236dc);box-shadow:inset 0 1px #a5f3fc4b,0 9px 28px #0005,0 0 20px #22d3ee16;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.sky-holo-widget .glass:hover{border-color:#e9d5ff;box-shadow:0 0 26px #a855f74b,0 12px 30px #0007}
+.sky-holo-link{position:relative;overflow:hidden;border-top:3px solid #67e8f9!important;transition:transform .22s,box-shadow .22s}
+.sky-holo-link:before{content:"⌗";position:absolute;top:15px;right:18px;color:#67e8f95e;font-size:40px;text-shadow:0 0 17px #22d3ee;pointer-events:none}
+.sky-holo-link:hover{transform:translateY(-6px)}
+.sky-holo-widget-shop{background:linear-gradient(130deg,#091c32d8,#1c1234dd)}
+.sky-holo-widget .sky-holo-shop{margin-top:0;border-color:#c4b5fd88;background:linear-gradient(110deg,#112b42c9,#23113ed5)}
+@keyframes sky-holo-spin{to{transform:rotate(360deg)}}
+@keyframes sky-holo-flicker{0%,100%{opacity:1}48%{opacity:.88}50%{opacity:.68}52%{opacity:.96}}
+@media(max-width:600px){.sky-holo-widget{padding:24px 14px;border-radius:12px}.sky-holo-hero{min-height:540px}.sky-holo-projection{width:86vw;height:86vw;opacity:.58}.sky-holo-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-holo-widget .glass{padding:20px}.sky-holo-link{min-height:190px}.sky-holo-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-holo-projection:before,.sky-holo-orbit,.sky-holo-projection-core{animation:none!important}.sky-holo-link{transition:none}.sky-holo-link:hover{transform:none}}
