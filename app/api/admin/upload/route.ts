@@ -32,6 +32,6 @@ export async function POST(req:NextRequest){
  signal:AbortSignal.timeout(20000)
  });
  if(!response.ok)return NextResponse.json({error:"Bild konnte nicht bei GitHub gespeichert werden."},{status:502});
- return NextResponse.json({url:`/uploads/team/${path.split("/").pop()}`},{headers:{"Cache-Control":"no-store"}});
+ return NextResponse.json({url:`https://raw.githubusercontent.com/${repo}/main/${path}`},{headers:{"Cache-Control":"no-store"}});
  }catch{return NextResponse.json({error:"Upload fehlgeschlagen. Bitte erneut versuchen."},{status:502})}
 }
