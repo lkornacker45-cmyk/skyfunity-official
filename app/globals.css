@@ -512,3 +512,47 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-energy-pulse{0%,100%{box-shadow:0 0 25px #22d3ee,0 0 55px #a855f7}50%{box-shadow:0 0 45px #22d3ee,0 0 95px #a855f7}}
 @media(max-width:600px){.sky-energy-widget{padding:25px 14px;border-radius:13px}.sky-energy-hero{min-height:520px}.sky-energy-reactor{width:88vw;height:88vw;opacity:.65}.sky-energy-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-energy-widget .glass{padding:20px}.sky-energy-link{min-height:190px}.sky-energy-ip{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-energy-ring,.sky-energy-reactor-center{animation:none!important}.sky-energy-link{transition:none}.sky-energy-link:hover{transform:none}}
+
+/* Cloud Glass homepage – bright frosted panels; preserve global Minecraft background and admin settings. */
+.sky-cloud-home{position:relative;isolation:isolate;padding-top:40px}
+.sky-cloud-home:before{content:"";position:absolute;z-index:-1;inset:0 4% auto;height:620px;background:radial-gradient(ellipse at 50% 20%,#e9d5ff55,transparent 72%);filter:blur(55px);pointer-events:none}
+.sky-cloud-widget{position:relative;isolation:isolate;margin:0 auto 38px;max-width:1140px;padding:clamp(22px,4vw,48px);border:1px solid #ffffffb8;border-radius:32px;background:linear-gradient(145deg,#fffef1d9,#f5efffce 48%,#e7faffc5);box-shadow:inset 0 1px #fff,0 20px 65px #17112b3b,0 0 35px #e9d5ff4a;backdrop-filter:blur(20px) saturate(1.2);-webkit-backdrop-filter:blur(20px) saturate(1.2)}
+.sky-cloud-widget:before{content:"";position:absolute;inset:9px;border:1px solid #ffffffb0;border-radius:25px;pointer-events:none}
+.sky-cloud-widget>.sky-cloud-hero,.sky-cloud-widget>.sky-cloud-status,.sky-cloud-widget>.sky-cloud-explore,.sky-cloud-widget>.sky-cloud-shop{position:relative;z-index:1}
+.sky-cloud-widget-hero{background:linear-gradient(160deg,#ffffffd8,#f4e9ffce 58%,#e5faffc7);box-shadow:inset 0 1px #fff,0 25px 70px #151b3340}
+.sky-cloud-hero{isolation:isolate}
+.sky-cloud-decor{position:absolute;z-index:-1;inset:0;overflow:hidden;pointer-events:none}
+.sky-cloud-decor span{position:absolute;width:210px;height:120px;border-radius:100px;background:#ffffff8f;filter:blur(18px);box-shadow:0 0 75px #ffffffa6;animation:sky-cloud-drift 12s ease-in-out infinite alternate}
+.sky-cloud-decor span:nth-child(1){top:12%;left:4%}.sky-cloud-decor span:nth-child(2){top:30%;right:2%;animation-delay:-4s}.sky-cloud-decor span:nth-child(3){bottom:4%;left:33%;animation-delay:-8s}
+.sky-cloud-kicker{display:inline-flex;align-items:center;justify-content:center;margin:0 auto 20px;padding:9px 19px;border:1px solid #d8b4fead;border-radius:99px;background:#ffffffc9;color:#6d28d9;font-size:12px;font-weight:900;letter-spacing:.12em;box-shadow:0 7px 22px #a78bfa25}
+.sky-cloud-hero-title{color:#251b3e!important;text-shadow:0 2px 20px #ffffffa6}
+.sky-cloud-hero-title span{background-image:linear-gradient(90deg,#7c3aed,#c026d3,#0891b2)}
+.sky-cloud-hero>p{color:#4c4261!important}
+.sky-cloud-hero>.inline-flex{border-color:#c4b5fd!important;background:#ffffffb0!important;color:#6d28d9!important}
+.sky-cloud-hero>.inline-flex>span{background:#8b5cf6!important}
+.sky-cloud-hero .focus-ring{box-shadow:0 7px 22px #8b5cf62e;transition:transform .2s,box-shadow .2s}
+.sky-cloud-hero .focus-ring:hover{transform:translateY(-3px);box-shadow:0 12px 26px #8b5cf64a}
+.sky-cloud-hero a[href]:not([class*="bg-purple-600"]){color:#4c1d95!important;background:#ffffffbc!important;border-color:#c4b5fd!important}
+.sky-cloud-ip{padding:18px;border:1px solid #d8b4fe9c;border-radius:18px;background:#ffffffc7;box-shadow:0 12px 35px #a78bfa2b}
+.sky-cloud-ip p{color:#7c3aed!important;letter-spacing:.12em}
+.sky-cloud-ip button{min-width:0}
+.sky-cloud-widget .section-label{color:#7c3aed!important}
+.sky-cloud-widget h2{color:#251b3e!important;text-shadow:none}
+.sky-cloud-widget h2 span{color:#7c3aed!important}
+.sky-cloud-widget .text-slate-400{color:#655b78!important}
+.sky-cloud-widget .text-slate-300{color:#50445e!important}
+.sky-cloud-widget .glass{border:1px solid #ffffffd1;border-radius:22px;background:linear-gradient(140deg,#ffffffdc,#eee8ffd6 60%,#e5faffd0);box-shadow:inset 0 1px #fff,0 10px 35px #7765a82e;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.sky-cloud-widget .glass:hover{border-color:#c4b5fd;box-shadow:0 16px 38px #7765a845}
+.sky-cloud-link{position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s}
+.sky-cloud-link:before{content:"☁";position:absolute;right:18px;top:14px;font-size:32px;color:#a78bfa65;pointer-events:none}
+.sky-cloud-link:hover{transform:translateY(-5px)}
+.sky-cloud-link h3{color:#34244e!important}
+.sky-cloud-link h3 span{color:#7c3aed!important}
+.sky-cloud-link .text-purple-300{color:#7c3aed!important}
+.sky-cloud-link .text-purple-300\/20{color:#a78bfa70!important}
+.sky-cloud-widget-shop{background:linear-gradient(125deg,#ffffffd9,#efe6ffcf)}
+.sky-cloud-widget .sky-cloud-shop{margin-top:0;border-color:#e9d5ff;background:#ffffffb9}
+.sky-cloud-widget .sky-cloud-shop .text-slate-300{color:#514663!important}
+@keyframes sky-cloud-drift{from{transform:translateX(-18px) translateY(0)}to{transform:translateX(20px) translateY(-13px)}}
+@media(max-width:600px){.sky-cloud-widget{padding:24px 15px;border-radius:23px}.sky-cloud-widget:before{inset:6px;border-radius:17px}.sky-cloud-hero-title{font-size:clamp(2.6rem,11vw,4.5rem)}.sky-cloud-widget .glass{padding:20px}.sky-cloud-link{min-height:185px}.sky-cloud-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-cloud-decor span{animation:none!important}.sky-cloud-link,.sky-cloud-hero .focus-ring{transition:none}.sky-cloud-link:hover,.sky-cloud-hero .focus-ring:hover{transform:none!important}}
