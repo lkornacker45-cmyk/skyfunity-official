@@ -160,3 +160,23 @@ body[data-heading-color="blue"]{--site-heading:#93c5fd}
 body[data-font]{font-family:var(--site-font,Arial,sans-serif)}
 body[data-text-color] main p,body[data-text-color] main li{color:var(--site-text,#f8f5ff)}
 body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-heading-color] main h3{color:var(--site-heading,#f8f5ff)}
+
+/* Interactive Minecraft-inspired treasure chests for feature discovery. */
+.sky-treasure{backdrop-filter:blur(16px)}
+.sky-treasure-trigger{min-height:265px}
+.sky-treasure-trigger:focus-visible{outline:3px solid #fcd34d;outline-offset:-4px}
+.sky-treasure-chest{position:relative;display:block;width:136px;height:111px;filter:drop-shadow(0 13px 13px #0008);perspective:400px}
+.sky-treasure-base{position:absolute;left:9px;right:9px;bottom:6px;height:62px;border:5px solid #40220f;border-radius:5px 5px 12px 12px;background:linear-gradient(90deg,#6b3517 0 13%,#b9772e 13% 20%,#854418 20% 77%,#cf8732 77% 86%,#653316 86%);box-shadow:inset 0 7px #d99441,inset 0 -9px #4a230f}
+.sky-treasure-base:after{content:"";position:absolute;inset:20px 0 auto;height:5px;background:#472510}
+.sky-treasure-lid{position:absolute;z-index:3;top:17px;left:5px;width:126px;height:43px;border:5px solid #43250f;border-radius:12px 12px 4px 4px;background:linear-gradient(90deg,#78401c 0 13%,#dc9a42 13% 20%,#a35b22 20% 80%,#d99338 80% 87%,#6b3517 87%);box-shadow:inset 0 7px #e8a54b;transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.sky-treasure-lid-edge{position:absolute;bottom:-5px;left:0;right:0;height:8px;background:#42210e}
+.sky-treasure-lock{position:absolute;z-index:4;top:-18px;left:50%;width:26px;height:33px;transform:translateX(-50%);border:5px solid #765018;border-radius:3px;background:linear-gradient(145deg,#ffe28c,#bb842a);box-shadow:0 2px 4px #0007}
+.sky-treasure-light{position:absolute;z-index:1;left:20px;right:20px;bottom:30px;height:65px;border-radius:50%;background:#fbbf24;filter:blur(20px);opacity:0;transition:opacity .4s}
+.sky-treasure[open] .sky-treasure-lid{transform:translateY(-20px) rotateX(-55deg)}
+.sky-treasure[open] .sky-treasure-light{opacity:.85}
+.sky-treasure:hover .sky-treasure-chest{filter:drop-shadow(0 12px 16px #eab30855)}
+.sky-treasure-open-label,.sky-treasure[open] .sky-treasure-closed-label{display:none}
+.sky-treasure[open] .sky-treasure-open-label{display:inline}
+.sky-treasure[open] .sky-treasure-content{animation:sky-treasure-reveal .35s ease-out both}
+@keyframes sky-treasure-reveal{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.sky-treasure-lid,.sky-treasure-light{transition:none!important}.sky-treasure[open] .sky-treasure-content{animation:none!important}.sky-treasure:hover{transform:none!important}}
