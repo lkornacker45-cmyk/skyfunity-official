@@ -1,0 +1,9 @@
+"use client";
+import { useEffect, useState } from "react";
+type Status = { online:boolean; players:number|null; maxPlayers:number|null; discordMembers:number|null; discordOnline:number|null; checkedAt:string|null };
+export default function ServerStatus(){
+ const [status,setStatus]=useState<Status|null>(null);
+ const [error,setError]=useState(false);
+ useEffect(()=>{let active=true;async function load(){try{const r=await fetch("/api/status",{cache:"no-store"});if(!r.ok)throw Error();const d=await r.json();if(active){setStatus(d);setError(false)}}catch{if(active)setError(true)}}load();const t=setInterval(load,60000);return()=>{active=false;clearInterval(t)}},[]);
+ return <section aria-label="Serverstatus" className="grid gap-4 md:grid-cols-3"><div className="glass p-6"><p className="text-purple-300">Minecraft Java</p><p className="mt-3 text-3xl font-black">{!status?"Lädt …":status.online?"Online":"Offline / unbekannt"}</p><p className="mt-2 text-sm text-slate-400">{status?.players==null?"Spielerzahl nicht verfügbar":`${status.players} / ${status.maxPlayers ?? "?"} Spieler online`}</p></div><div className="glass p-6"><p className="text-purple-300">Discord-Mitglieder</p><p className="mt-3 text-3xl font-black">{status?.discordMembers ?? "—"}</p><p className="mt-2 text-sm text-slate-400">Gesamtzahl (wenn Widget aktiviert)</p></div><div className="glass p-6"><p className="text-purple-300">Discord online</p><p className="mt-3 text-3xl font-black">{status?.discordOnline ?? "—"}</p><p className="mt-2 text-sm text-slate-400">Aktive Mitglieder im Discord-Widget</p></div>{error&&<p className="text-sm text-amber-300 md:col-span-3">Live-Daten vorübergehend nicht erreichbar.</p>}<p className="text-xs text-slate-500 md:col-span-3">Aktualisierung alle 60 Sekunden. 24-Stunden-Verlauf folgt mit Datenbank.</p></section>
+}
