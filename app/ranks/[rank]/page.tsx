@@ -8,6 +8,8 @@ export default async function RankDetails({params}:{params:{rank:string}}){
  const i=Number(params.rank);
  if(!Number.isSafeInteger(i)||i>=ranks.length)notFound();
  const rank=ranks[i];
+ const previousIndex=(i-1+ranks.length)%ranks.length;
+ const nextIndex=(i+1)%ranks.length;
  return <div className="mx-auto max-w-4xl px-5 py-16">
  <Link href="/ranks" className="focus-ring text-sm font-semibold text-purple-300 hover:text-white">← Zurück zu allen Rängen</Link>
  <article className="glass mt-8 overflow-hidden p-7 md:p-12">
@@ -21,5 +23,5 @@ export default async function RankDetails({params}:{params:{rank:string}}){
  {rank.commands&&rank.commands.length>0&&<section><h2 className="text-xl font-bold">Verfügbare Befehle</h2><ul className="mt-4 grid gap-3 sm:grid-cols-2">{rank.commands.map((cmd,j)=><li key={j} className="rounded-lg border border-purple-400/20 bg-black/20 px-4 py-3 font-mono text-purple-200 break-all">{cmd}</li>)}</ul></section>}
  {rank.benefits.length>0&&<section><h2 className="text-xl font-bold">Alle Vorteile</h2><ul className="mt-4 space-y-3 text-slate-300">{rank.benefits.map((b,j)=><li key={j}>✦ {b}</li>)}</ul></section>}
  <a href={server.shop} target="_blank" rel="noopener noreferrer" className="inline-block rounded-xl bg-purple-600 px-6 py-3 font-bold text-white hover:bg-purple-500">Zum Shop ↗</a>
- </div></article></div>
+ </div></article>{ranks.length>1&&<nav aria-label="Zwischen Rängen wechseln" className="mt-6 grid grid-cols-2 gap-3"><Link href={`/ranks/${previousIndex}`} className="focus-ring flex min-w-0 flex-col rounded-xl border border-purple-400/30 bg-purple-500/10 px-4 py-4 text-left text-purple-100 transition hover:bg-purple-500/20"><span className="text-sm text-purple-300">← Vorheriger Rang</span><span className="mt-1 truncate font-bold">{ranks[previousIndex].name}</span></Link><Link href={`/ranks/${nextIndex}`} className="focus-ring flex min-w-0 flex-col items-end rounded-xl border border-purple-400/30 bg-purple-500/10 px-4 py-4 text-right text-purple-100 transition hover:bg-purple-500/20"><span className="text-sm text-purple-300">Nächster Rang →</span><span className="mt-1 truncate font-bold">{ranks[nextIndex].name}</span></Link></nav>}</div>
 }
