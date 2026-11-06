@@ -3,7 +3,7 @@ import {createInterface} from "node:readline/promises";
 import {stdin as input,stdout as output} from "node:process";
 const rl=createInterface({input,output});
 try{
- const password=await rl.question("sett_camo_Sun_Sky007..");
+ const password=await rl.question("7f76bU35Zb7camo..");
  if(password.length<12)throw Error("Mindestens 12 Zeichen erforderlich.");
  const salt=randomBytes(16);
  const hash=pbkdf2Sync(password,salt,210000,32,"sha256");
