@@ -61,3 +61,18 @@ body:has(.voxel-scene)>header,body:has(.voxel-scene)>main,body:has(.voxel-scene)
 body:has(.voxel-scene)>header{position:sticky}
 @media(prefers-reduced-motion:reduce){.voxel-item{transition:none!important}}
 @media(max-width:640px){.voxel-item:nth-of-type(n+16){display:none}}
+
+/* Full-screen illustrated voxel worlds, with ambient camera drift and scroll depth. */
+.voxel-landscape{inset:0;z-index:0;perspective:none;isolation:isolate}
+.voxel-panorama{position:absolute;inset:-5% -7%;overflow:hidden;animation:voxel-camera-drift 28s ease-in-out infinite alternate;transform-origin:center}
+.voxel-layer{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transition:transform .12s linear;will-change:transform}
+.voxel-sky{opacity:1}
+.voxel-far{opacity:.82;animation:voxel-far-drift 34s ease-in-out infinite alternate}
+.voxel-mid{opacity:.9;animation:voxel-mid-drift 23s ease-in-out infinite alternate}
+.voxel-near{opacity:.92;animation:voxel-near-drift 19s ease-in-out infinite alternate}
+.voxel-vignette{position:absolute;inset:0;background:linear-gradient(90deg,#080817a8,transparent 23%,transparent 77%,#080817a8),linear-gradient(180deg,#08081765,transparent 35%,#080817b0);pointer-events:none}
+@keyframes voxel-camera-drift{from{transform:scale(1.05) translate3d(-1%,0,0)}to{transform:scale(1.12) translate3d(1.5%,-1%,0)}}
+@keyframes voxel-far-drift{from{margin-left:-.6%}to{margin-left:.6%}}
+@keyframes voxel-mid-drift{from{margin-left:1%}to{margin-left:-1%}}
+@keyframes voxel-near-drift{from{margin-left:-1.3%}to{margin-left:1.3%}}
+@media(prefers-reduced-motion:reduce){.voxel-panorama,.voxel-far,.voxel-mid,.voxel-near{animation:none!important}.voxel-layer{transition:none!important}}
