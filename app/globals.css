@@ -215,3 +215,30 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 .sky-skilltree-node:hover .sky-skilltree-avatar,.sky-skilltree-node:focus-visible .sky-skilltree-avatar{transform:scale(1.08);box-shadow:0 0 36px #d8b4feaa}
 @keyframes sky-skilltree-pulse{0%,100%{opacity:.55;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
 @media(prefers-reduced-motion:reduce){.sky-skilltree-connector{animation:none!important}.sky-skilltree-node,.sky-skilltree-avatar{transition:none!important}.sky-skilltree-node:hover{transform:none!important}}
+
+/* Minecraft-inspired multiplayer join menu. Background stays controlled by the existing site appearance settings. */
+.sky-join-menu{overflow:hidden;border:6px solid #302e35;border-radius:5px;background:#302c39;box-shadow:inset 5px 5px #77727b,inset -5px -5px #141219,0 25px 70px #000b,0 0 0 2px #0d0b11}
+.sky-join-menu-header{position:relative;padding:36px 20px 34px;border-bottom:5px solid #1d1b24;background:linear-gradient(160deg,#352c4bdf,#1b192be8),repeating-linear-gradient(0deg,#ffffff08 0 3px,transparent 3px 14px);box-shadow:inset 0 5px #5e506f,inset 0 -3px #51445c}
+.sky-join-menu-header:before,.sky-join-menu-header:after{content:"✦";position:absolute;top:16px;color:#d6bbff;font-size:24px;text-shadow:0 0 15px #c084fc}
+.sky-join-menu-header:before{left:20px}.sky-join-menu-header:after{right:20px}
+.sky-join-menu-body{background:linear-gradient(180deg,#aaa5adf2,#827d89f5);color:#282333;box-shadow:inset 5px 0 #ccc7cd,inset -5px 0 #514c58}
+.sky-join-status{border:3px solid #534f5a;border-top-color:#37343d;border-left-color:#37343d;border-bottom-color:#d7d2db;border-right-color:#d7d2db;background:#77727e;padding:12px;color:#fff7df;text-shadow:2px 2px #292330}
+.sky-join-pixel-button{display:block;min-width:0;border:3px solid #18121e;border-top-color:#e3d4f4;border-left-color:#c7a7e7;border-right-color:#38244f;border-bottom-color:#271a38;border-radius:2px;background:linear-gradient(#9864c9,#63358f);padding:14px 12px;font-weight:900;font-size:clamp(12px,2vw,16px);color:white;text-shadow:2px 2px #3c2054;box-shadow:inset 2px 2px #b98be0,inset -2px -2px #4a296d,0 4px #292131;transition:filter .15s,transform .15s}
+.sky-join-pixel-button:hover,.sky-join-pixel-button:focus-visible{filter:brightness(1.22);transform:translateY(-2px);outline:2px solid #f6dc9a;outline-offset:2px}
+.sky-join-pixel-button:active{transform:translateY(2px);box-shadow:inset 2px 2px #4a296d}
+.sky-join-addresses{padding:16px;border:4px solid #625c6a;border-top-color:#3e3946;border-left-color:#3e3946;border-right-color:#d2ccd5;border-bottom-color:#d2ccd5;background:#51465ee8}
+.sky-join-addresses button{min-width:0;border-radius:3px;border:3px solid #30263e;background:#30213eeb;box-shadow:inset 2px 2px #62487b,inset -2px -2px #1b1224}
+.sky-join-addresses button:hover{background:#503165}
+.sky-join-addresses button span{min-width:0}
+.sky-join-addresses button span span{overflow-wrap:anywhere}
+.sky-join-divider{display:flex;align-items:center;gap:14px;font-size:12px;font-weight:900;letter-spacing:.15em;color:#44354c;text-align:center}
+.sky-join-divider:before,.sky-join-divider:after{content:"";height:3px;flex:1;background:#544a5b;box-shadow:0 2px #d4cdd5}
+.sky-join-instruction{border:4px solid #4e4755;border-top-color:#2b2732;border-left-color:#2b2732;border-right-color:#d4ced8;border-bottom-color:#d4ced8;background:#282139f2;padding:22px;color:#ece5f4;box-shadow:inset 2px 2px #514263}
+.sky-join-instruction-heading{display:flex;align-items:center;gap:12px;padding-bottom:15px;border-bottom:2px solid #69567d;color:#d9b9ff;font-size:22px;font-weight:900}
+.sky-join-instruction-heading span{color:#8be7ff}
+.sky-join-steps{counter-reset:sky-join-step;display:grid;gap:13px;margin-top:22px;list-style:none}
+.sky-join-steps li{counter-increment:sky-join-step;position:relative;min-height:28px;padding-left:40px;line-height:1.6;font-size:14px;overflow-wrap:anywhere}
+.sky-join-steps li:before{content:counter(sky-join-step);position:absolute;left:0;top:0;display:grid;place-items:center;width:26px;height:26px;border:2px solid #9e83bd;background:#5c4279;color:white;font-weight:900;font-size:12px}
+.sky-join-discord{background:linear-gradient(#56a8b8,#236b83);border-top-color:#c2f7ff;border-left-color:#93e0ed;border-right-color:#164b60;border-bottom-color:#123e52;box-shadow:inset 2px 2px #79c5d3,inset -2px -2px #144e65,0 4px #292131}
+@media(max-width:480px){.sky-join-menu{border-width:4px}.sky-join-menu-header{padding:32px 15px}.sky-join-addresses{padding:10px}.sky-join-instruction{padding:16px}.sky-join-instruction-heading{font-size:19px}}
+@media(prefers-reduced-motion:reduce){.sky-join-pixel-button{transition:none}}
