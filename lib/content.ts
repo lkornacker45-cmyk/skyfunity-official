@@ -1,7 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
 import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
-export type Content={appearance?:{background:string;backgroundImage:string;particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
+export type Content={appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=validateContent(defaults)!;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
