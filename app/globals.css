@@ -443,3 +443,37 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-nether-veil{0%{background-position:0 0}100%{background-position:280px 0}}
 @media(max-width:600px){.sky-nether-widget{padding:25px 14px;border-radius:10px}.sky-nether-widget-hero{padding:20px 10px}.sky-nether-portal{width:86%;height:calc(100% - 24px);min-height:340px;top:12px;opacity:.65}.sky-nether-hero-title{font-size:clamp(2.5rem,11vw,4.4rem)}.sky-nether-widget .glass{padding:20px}.sky-nether-link{min-height:190px}}
 @media(prefers-reduced-motion:reduce){.sky-nether-portal:before,.sky-nether-portal-inner,.sky-nether-portal-inner:before{animation:none!important}.sky-nether-link{transition:none}.sky-nether-link:hover{transform:none}}
+
+/* Neon City homepage – CSS-only cyberpunk skyline, original Minecraft backdrop untouched. */
+.sky-neon-home{position:relative;isolation:isolate;padding-top:34px}
+.sky-neon-home:before{content:"";position:absolute;z-index:-1;top:0;left:4%;right:4%;height:580px;background:radial-gradient(ellipse,#ec48994b,transparent 67%);filter:blur(70px);pointer-events:none}
+.sky-neon-widget{position:relative;isolation:isolate;margin:0 auto 32px;max-width:1140px;padding:clamp(20px,3.5vw,44px);border:1px solid #22d3ee66;border-radius:17px;background:linear-gradient(130deg,#0c1026d9,#1e1033df 55%,#081c31e3);box-shadow:inset 0 1px #f0abfc40,0 22px 65px #0008,0 0 38px #ec489925;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.sky-neon-widget:before{content:"";position:absolute;inset:7px;border:1px solid #e879f93b;border-radius:10px;pointer-events:none}
+.sky-neon-widget:after{content:"◈ NEO // CITY";position:absolute;right:22px;top:14px;color:#67e8f9a0;font-family:monospace;font-size:10px;font-weight:800;letter-spacing:.16em;pointer-events:none}
+.sky-neon-widget>.sky-neon-hero,.sky-neon-widget>.sky-neon-status,.sky-neon-widget>.sky-neon-explore,.sky-neon-widget>.sky-neon-shop{position:relative;z-index:1}
+.sky-neon-widget-hero{border-color:#f0abfc88;background:linear-gradient(180deg,#120c29c9,#1d1037d7 60%,#08192be8);box-shadow:inset 0 1px #fbcfe85c,0 0 65px #d946ef3b,0 25px 75px #0009}
+.sky-neon-hero{isolation:isolate;min-height:570px}
+.sky-neon-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#0d1027c2,#1110288c 50%,#090c1be8);pointer-events:none}
+.sky-neon-cityscape{position:absolute;z-index:-2;inset:0;overflow:hidden;display:flex;align-items:flex-end;justify-content:space-between;gap:7px;padding:0 1%;opacity:.82;pointer-events:none}
+.sky-neon-cityscape span{position:relative;flex:1;height:var(--city-h);min-width:0;background:repeating-linear-gradient(90deg,#11172d 0 8px,#22102e 8px 13px);border:1px solid #e879f944;border-bottom:0;box-shadow:0 0 20px #ec489933,inset 0 0 16px #0009}
+.sky-neon-cityscape span:before{content:"";position:absolute;inset:9px 4px;background:repeating-linear-gradient(0deg,transparent 0 11px,#22d3ee9c 12px 14px,transparent 15px 22px),repeating-linear-gradient(90deg,transparent 0 10px,#f0abfc6e 11px 14px,transparent 15px 21px);opacity:.65;animation:sky-neon-lights 6s ease-in-out infinite alternate}
+.sky-neon-cityscape span:nth-child(1){--city-h:34%}.sky-neon-cityscape span:nth-child(2){--city-h:48%}.sky-neon-cityscape span:nth-child(3){--city-h:28%}.sky-neon-cityscape span:nth-child(4){--city-h:63%}.sky-neon-cityscape span:nth-child(5){--city-h:38%}.sky-neon-cityscape span:nth-child(6){--city-h:57%}.sky-neon-cityscape span:nth-child(7){--city-h:31%}.sky-neon-cityscape span:nth-child(8){--city-h:46%}.sky-neon-cityscape span:nth-child(9){--city-h:36%}
+.sky-neon-cityscape span:nth-child(even):before{animation-delay:-3s}
+.sky-neon-marquee{position:relative;z-index:1;margin:-10px auto 22px;width:max-content;max-width:90%;padding:9px 20px;border:2px solid #f0abfc91;border-radius:6px;background:#150c28db;color:#fbcfe8;font-family:monospace;font-size:clamp(10px,2.4vw,15px);font-weight:900;letter-spacing:.16em;text-shadow:0 0 14px #f472b6;box-shadow:0 0 20px #d946ef55,inset 0 0 15px #d946ef26}
+.sky-neon-marquee span{color:#67e8f9}
+.sky-neon-hero-title{text-shadow:0 4px 12px #070314,0 0 25px #d946efb3}
+.sky-neon-hero-title span{background-image:linear-gradient(90deg,#f0abfc,#f472b6,#67e8f9)}
+.sky-neon-ip{border:1px solid #67e8f98a;border-radius:12px;padding:18px;background:#060d20db;box-shadow:0 0 25px #22d3ee4a,inset 0 0 24px #22d3ee12}
+.sky-neon-ip button{min-width:0}
+.sky-neon-widget .section-label{color:#67e8f9}
+.sky-neon-widget h2{color:#fff;text-shadow:0 0 17px #d946ef6b}
+.sky-neon-widget .glass{border:1px solid #d946ef6b;border-radius:12px;background:linear-gradient(140deg,#231038d8,#071b31e8);box-shadow:inset 0 1px #f0abfc33,0 10px 25px #0006}
+.sky-neon-widget .glass:hover{border-color:#67e8f9a6;box-shadow:0 0 28px #22d3ee38,0 12px 28px #0007}
+.sky-neon-link{position:relative;overflow:hidden;border-top:3px solid #e879f9!important;transition:transform .22s,box-shadow .22s}
+.sky-neon-link:before{content:"◈";position:absolute;top:22px;right:22px;font-size:28px;color:#67e8f955;text-shadow:0 0 16px #67e8f9;pointer-events:none}
+.sky-neon-link:hover{transform:translateY(-5px)}
+.sky-neon-widget-shop{background:linear-gradient(120deg,#2b103de0,#081a30e8)}
+.sky-neon-widget .sky-neon-shop{margin-top:0;border-color:#67e8f975;background:linear-gradient(115deg,#30133dd5,#071e34e3)}
+@keyframes sky-neon-lights{from{opacity:.35}to{opacity:.9}}
+@media(max-width:600px){.sky-neon-widget{padding:24px 14px;border-radius:12px}.sky-neon-hero{min-height:520px}.sky-neon-hero-title{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-neon-cityscape{opacity:.5}.sky-neon-widget .glass{padding:20px}.sky-neon-link{min-height:190px}.sky-neon-ip{padding:12px}}
+@media(prefers-reduced-motion:reduce){.sky-neon-cityscape span:before{animation:none!important}.sky-neon-link{transition:none}.sky-neon-link:hover{transform:none}}
