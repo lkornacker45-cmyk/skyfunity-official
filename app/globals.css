@@ -351,3 +351,30 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-station-blink{0%,100%{opacity:1}50%{opacity:.35}}
 @media(max-width:420px){.sky-station-console button{flex-wrap:wrap}.sky-station-console button>span:last-child{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.sky-station-stars,.sky-station-planet,.sky-station-beacon{animation:none!important}.sky-station-hangar,.sky-station-discord{transition:none!important}.sky-station-hangar:hover,.sky-station-discord:hover{transform:none!important}}
+
+/* SkyFunity enchanted server book homepage. Background and admin-managed widgets stay intact. */
+.sky-book-home{position:relative;isolation:isolate;padding-top:38px}
+.sky-book-home:before{content:"";position:absolute;z-index:-1;top:12px;left:4%;right:4%;height:220px;border-radius:50%;background:#a855f755;filter:blur(95px);pointer-events:none}
+.sky-book-widget{position:relative;margin:0 auto 30px;max-width:1120px;padding:clamp(20px,4vw,48px);border:9px solid #352039;border-top-color:#765083;border-left-color:#65406f;border-right-color:#241528;border-bottom-color:#1c1120;border-radius:14px 24px 24px 14px;background:linear-gradient(90deg,#27172eea 0%,#39233ce9 3%,#291e38ef 49.4%,#4b3850f0 49.9%,#1e172eea 50.5%,#241c37ef 97%,#161021ed 100%);box-shadow:inset 0 0 0 2px #d8ae6680,inset 0 0 65px #c084fc19,0 24px 60px #000a,0 0 40px #a855f71e}
+.sky-book-widget:before{content:"";position:absolute;inset:11px;border:2px solid #b99a6180;border-radius:5px 13px 13px 5px;pointer-events:none}
+.sky-book-widget:after{content:"✦";position:absolute;right:26px;top:20px;color:#e9c98d;font-size:20px;text-shadow:0 0 16px #e9c98d;pointer-events:none}
+.sky-book-widget>.sky-book-hero,.sky-book-widget>.sky-book-status,.sky-book-widget>.sky-book-explore,.sky-book-widget>.sky-book-shop{position:relative;z-index:1}
+.sky-book-widget-hero{margin-top:10px;border-width:12px;background:radial-gradient(ellipse at 50% 38%,#763d8555,transparent 70%),linear-gradient(110deg,#26152eeb,#32233deb 50%,#24172eec)}
+.sky-book-widget-hero:after{content:"✦ ✧ ✦";left:50%;right:auto;top:25px;transform:translateX(-50%);white-space:nowrap;letter-spacing:10px}
+.sky-book-hero h1{text-shadow:0 5px 25px #090311aa}
+.sky-book-hero .focus-ring{box-shadow:0 5px 0 #130c19,0 0 25px #a855f733}
+.sky-book-widget-status,.sky-book-widget-explore{background:linear-gradient(90deg,#2a2034ef,#33263bed 49%,#20182bed 51%,#30243bed)}
+.sky-book-widget-status:before,.sky-book-widget-explore:before{background:linear-gradient(90deg,transparent 49.8%,#c8a36e55 50%,transparent 50.2%)}
+.sky-book-widget .section-label{color:#e7c989}
+.sky-book-widget h2{color:#f8e8d1;text-shadow:0 2px 8px #0009}
+.sky-book-widget .glass{border-color:#bda36b55;background:linear-gradient(150deg,#241731db,#17152ee8);box-shadow:inset 0 1px #e8c9a51e,0 6px 18px #0003}
+.sky-book-widget .glass:hover{border-color:#dfb77c88}
+.sky-book-widget .sky-book-link{position:relative;border-radius:6px 15px 15px 6px;border-left:5px solid #b78b53;transition:transform .2s,box-shadow .2s}
+.sky-book-widget .sky-book-link:hover{transform:translateY(-5px);box-shadow:0 12px 25px #0007,0 0 24px #c084fc30}
+.sky-book-widget-shop{background:linear-gradient(130deg,#36213beb,#24162feb)}
+.sky-book-widget-shop .sky-book-shop{margin-top:0}
+.sky-book-widget .sky-book-shop{border:1px solid #c7a46d75;background:linear-gradient(120deg,#442748bb,#1c1936dc)}
+.sky-book-widget-status #status{scroll-margin-top:90px}
+@media(min-width:900px){.sky-book-widget{padding:48px 58px}.sky-book-widget:before{inset:14px}.sky-book-widget-hero{padding:22px 50px}}
+@media(max-width:600px){.sky-book-widget{border-width:6px;padding:28px 14px;border-radius:10px 16px 16px 10px;background:linear-gradient(135deg,#291b35f0,#241a33ed)}.sky-book-widget:before{inset:7px}.sky-book-widget:after{right:14px;top:10px;font-size:13px}.sky-book-widget-hero:after{left:50%;right:auto}.sky-book-hero h1{font-size:clamp(2.5rem,11vw,4.5rem)}.sky-book-widget .glass{padding:20px}.sky-book-widget .sky-book-link{min-height:185px}}
+@media(prefers-reduced-motion:reduce){.sky-book-widget .sky-book-link{transition:none}.sky-book-widget .sky-book-link:hover{transform:none}}
