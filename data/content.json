@@ -235,7 +235,9 @@
       "auctionHouse": "12",
       "commands": [
         "/toxic (verschenkt Toxic, 7 Tage)",
-        "/payall (alle 4 Std)"
+        "/payall (alle 4 Std)",
+        "/wochenkey (Nebula & Sturm)",
+        "/bonusbooster (alle 3 Tage, 1 von jedem Typ)"
       ]
     }
   ],
