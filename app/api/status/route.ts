@@ -5,7 +5,7 @@ const TWELVE_HOURS=43200;
 type Edition={online:boolean|null;players:number|null;maxPlayers:number|null};
 async function getEdition(url:string):Promise<Edition>{try{const r=await fetch(url,{next:{revalidate:TWELVE_HOURS},signal:AbortSignal.timeout(6000)});if(!r.ok)return{online:null,players:null,maxPlayers:null};const d=await r.json();return{online:typeof d.online==="boolean"?d.online:null,players:typeof d.players?.online==="number"?d.players.online:null,maxPlayers:typeof d.players?.max==="number"?d.players.max:null}}catch{return{online:null,players:null,maxPlayers:null}}}
 async function getDiscord(guild:string|undefined){
- if(!guild||!/^\\d{17,20}$/.test(guild))return{online:null,reason:"missing" as const};
+ if(!guild||!/^\d{17,20}$/.test(guild))return{online:null,reason:"missing" as const};
  try{const r=await fetch(`https://discord.com/api/guilds/${guild}/widget.json`,{cache:"no-store",signal:AbortSignal.timeout(6000)});
   if(r.status===403||r.status===404)return{online:null,reason:"widget" as const};
   if(!r.ok)return{online:null,reason:"unavailable" as const};
