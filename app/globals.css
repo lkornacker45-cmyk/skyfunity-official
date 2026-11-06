@@ -120,3 +120,10 @@ body[data-background="image"]::before{content:"";position:fixed;inset:-7%;z-inde
 
 body[data-background="image"]{isolation:isolate}
 body[data-background="image"]::before{z-index:-1}
+
+/* Uploaded images become a continuous scroll-driven journey. */
+body[data-background="image"][data-scroll-gallery="true"]::before{display:none}
+.sky-scroll-background{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;isolation:isolate}
+.sky-scroll-background-image{position:absolute;inset:-8%;background-size:cover;background-position:center;will-change:opacity,transform;transition:opacity .12s linear,transform .12s linear}
+.sky-scroll-background-shade{position:absolute;inset:0;background:linear-gradient(180deg,#090713a6,#09071372 38%,#090713bd)}
+@media(prefers-reduced-motion:reduce){.sky-scroll-background-image{transition:none!important;transform:none!important}}
