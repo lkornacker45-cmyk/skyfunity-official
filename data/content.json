@@ -178,6 +178,24 @@
         "/payall (alle 10 Std.)",
         "/wochenkey (Wolken & 2x Vote)"
       ]
+    },
+    {
+      "name": "Hero",
+      "color": "text-purple-300",
+      "benefits": [
+        "Neuer Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "8",
+      "warps": "5",
+      "homes": "15",
+      "auctionHouse": "9",
+      "commands": [
+        "/back (zum Todespunkt, 10 min)",
+        "/votemute (15min, 2 Std. Cooldown)",
+        "/werbung (30 min Cooldown)"
+      ]
     }
   ],
   "team": [
