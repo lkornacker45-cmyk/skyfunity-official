@@ -77,7 +77,8 @@
     "name": "SkyFunity",
     "address": "skyfunity.de",
     "discord": "https://discord.gg/BFrhHMYgrV",
-    "shop": "https://skyfunity.de/shop"
+    "shop": "https://skyfunity.de/shop",
+    "bedrockPortConfirmed": true
   },
   "ranks": [
     {
