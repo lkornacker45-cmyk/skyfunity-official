@@ -149,7 +149,9 @@
         "/ptp",
         "/sign",
         "/lay & /layback",
-        "/repair (3 std. Cooldown)"
+        "/repair (3 std. Cooldown)",
+        "/payall (1x am Tag)",
+        "/wochenkey (Wolken & Vote)"
       ]
     }
   ],
