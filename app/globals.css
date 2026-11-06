@@ -127,3 +127,36 @@ body[data-background="image"][data-scroll-gallery="true"]::before{display:none}
 .sky-scroll-background-image{position:absolute;inset:-8%;background-size:cover;background-position:center;will-change:opacity,transform;transition:opacity .12s linear,transform .12s linear}
 .sky-scroll-background-shade{position:absolute;inset:0;background:linear-gradient(180deg,#090713a6,#09071372 38%,#090713bd)}
 @media(prefers-reduced-motion:reduce){.sky-scroll-background-image{transition:none!important;transform:none!important}}
+
+/* Admin-selectable site typography. */
+body[data-font="modern"]{--site-font:Arial, Helvetica, sans-serif}
+body[data-font="classic"]{--site-font:Verdana, Geneva, sans-serif}
+body[data-font="rounded"]{--site-font:"Trebuchet MS", Verdana, sans-serif}
+body[data-font="serif"]{--site-font:Georgia, "Times New Roman", serif}
+body[data-font="mono"]{--site-font:"Courier New", monospace}
+body[data-font="condensed"]{--site-font:Impact, "Arial Narrow", sans-serif}
+body[data-font="elegant"]{--site-font:"Palatino Linotype", Palatino, Georgia, serif}
+body[data-font="pixel"]{--site-font:"Courier New", monospace}
+body[data-text-color="white"]{--site-text:#f8f5ff}
+body[data-heading-color="white"]{--site-heading:#f8f5ff}
+body[data-text-color="slate"]{--site-text:#cbd5e1}
+body[data-heading-color="slate"]{--site-heading:#cbd5e1}
+body[data-text-color="lavender"]{--site-text:#d8b4fe}
+body[data-heading-color="lavender"]{--site-heading:#d8b4fe}
+body[data-text-color="pink"]{--site-text:#f9a8d4}
+body[data-heading-color="pink"]{--site-heading:#f9a8d4}
+body[data-text-color="cyan"]{--site-text:#67e8f9}
+body[data-heading-color="cyan"]{--site-heading:#67e8f9}
+body[data-text-color="mint"]{--site-text:#86efac}
+body[data-heading-color="mint"]{--site-heading:#86efac}
+body[data-text-color="gold"]{--site-text:#fde68a}
+body[data-heading-color="gold"]{--site-heading:#fde68a}
+body[data-text-color="orange"]{--site-text:#fdba74}
+body[data-heading-color="orange"]{--site-heading:#fdba74}
+body[data-text-color="red"]{--site-text:#fca5a5}
+body[data-heading-color="red"]{--site-heading:#fca5a5}
+body[data-text-color="blue"]{--site-text:#93c5fd}
+body[data-heading-color="blue"]{--site-heading:#93c5fd}
+body[data-font]{font-family:var(--site-font,Arial,sans-serif)}
+body[data-text-color] main p,body[data-text-color] main li{color:var(--site-text,#f8f5ff)}
+body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-heading-color] main h3{color:var(--site-heading,#f8f5ff)}
