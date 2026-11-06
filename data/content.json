@@ -24,11 +24,10 @@
   ],
   "appearance": {
     "background": "image",
-    "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
+    "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png",
     "particles": "sparkles",
     "intensity": 30,
     "backgroundGallery": [
-      "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
       "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png"
     ]
   },
