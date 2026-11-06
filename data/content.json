@@ -162,12 +162,12 @@
       "benefits": [
         "Vorteil"
       ],
-      "image": "",
+      "image": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/rank/796b24cf-e263-4033-bf33-994f67e541f0.png",
       "description": "",
-      "plots": "",
-      "warps": "",
-      "homes": "",
-      "auctionHouse": "",
+      "plots": "6",
+      "warps": "4",
+      "homes": "12",
+      "auctionHouse": "8",
       "commands": []
     }
   ],
