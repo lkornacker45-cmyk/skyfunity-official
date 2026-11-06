@@ -19,7 +19,7 @@ export default async function Team(){
     <svg className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{points.slice(1).map((p,j)=>{const prev=points[j];return <line key={p.i} x1={prev.x} y1={prev.y} x2={p.x} y2={p.y} stroke="#a78bfa" strokeWidth=".45" opacity=".75"/>})}</svg>
     {points.map(({m,i,x,y})=><Link key={i} href={`/team/${i}`} aria-label={`Profil von ${m.name} öffnen`} style={{left:x+"%",top:y+"%"}} className="sky-skilltree-node focus-ring group absolute z-10 flex w-[100px] -translate-x-1/2 -translate-y-1/2 flex-col items-center rounded-xl border border-purple-400/50 bg-[#24133d]/95 px-2 py-3 text-center shadow-[0_0_25px_#a855f744] transition duration-300 hover:z-20 hover:scale-110 hover:border-cyan-300 sm:w-[150px] sm:p-4">
      <span className="sky-skilltree-avatar flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border-2 border-fuchsia-300/60 bg-purple-900 text-3xl sm:h-20 sm:w-20">{m.avatar?<img src={m.avatar} alt={`Profilbild von ${m.name}`} className="h-full w-full object-cover" referrerPolicy="no-referrer"/>:"👤"}</span>
-     <span className="mt-2 w-full break-words text-xs font-black text-white sm:text-base">{m.name}</span>
+     {m.treeCategory?.trim()&&<span className="mt-3 max-w-full break-words rounded-full border border-amber-300/40 bg-amber-400/10 px-2 py-1 text-[10px] font-black uppercase tracking-wide text-amber-200">{m.treeCategory}</span>}<span className="mt-2 w-full break-words text-xs font-black text-white sm:text-base">{m.name}</span>
      <span className="mt-1 w-full break-words text-[10px] font-semibold text-fuchsia-200 sm:text-xs">{m.role}</span>
     </Link>)}
    </div>
