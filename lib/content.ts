@@ -1,7 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
 import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
-export type Content={appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
+export type Content={homeWidgets?:{id:string;visible:boolean}[];appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=validateContent(defaults)!;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -18,6 +18,8 @@ export function validateContent(value:unknown):Content|null{
  if(!Array.isArray(v.features)||v.features.length>30||!v.features.every((x:Record<string,unknown>)=>x&&str(x.title,80)&&str(x.description,600)))return null;
  const headings:Content["headings"]={team:{before:"Das",highlight:"Team",description:"Die Menschen hinter SkyFunity."},ranks:{before:"Unsere",highlight:"Ränge",description:"Entdecke unsere Ränge und Vorteile."},features:{before:"Entdecke",highlight:"SkyFunity",description:"Das bietet unsere Community."}};
  if(v.headings!==undefined){if(!v.headings||typeof v.headings!=="object")return null;const h=v.headings as Record<string,unknown>;for(const key of ["team","ranks","features"] as const){const item=h[key] as Record<string,unknown>|undefined;if(!item||!str(item.before,80)||!str(item.highlight,80)||!str(item.description,300))return null;headings[key]={before:item.before as string,highlight:item.highlight as string,description:item.description as string}}}
+ const allowedWidgets=["hero","status","explore","shop"];let homeWidgets:Content["homeWidgets"]=allowedWidgets.map(id=>({id,visible:true}));
+ if(v.homeWidgets!==undefined){if(!Array.isArray(v.homeWidgets)||v.homeWidgets.length!==allowedWidgets.length)return null;const ids=new Set<string>();const widgets=[] as {id:string;visible:boolean}[];for(const item of v.homeWidgets){if(!item||typeof item!=="object")return null;const w=item as Record<string,unknown>;if(typeof w.id!=="string"||!allowedWidgets.includes(w.id)||ids.has(w.id)||typeof w.visible!=="boolean")return null;ids.add(w.id);widgets.push({id:w.id,visible:w.visible})}homeWidgets=widgets}
  const copy:SiteCopy={...siteCopyDefaults};
  if(v.copy!==undefined){if(!v.copy||typeof v.copy!=="object"||Array.isArray(v.copy))return null;const values=v.copy as Record<string,unknown>;for(const key of Object.keys(siteCopyDefaults) as (keyof SiteCopy)[]){if(values[key]!==undefined){if(!str(values[key],600))return null;copy[key]=values[key] as string}}}
  const theme=v.theme===undefined?"default":v.theme;
@@ -31,7 +33,7 @@ export function validateContent(value:unknown):Content|null{
  if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
  if(typeof a.intensity!=="number"||!Number.isInteger(a.intensity)||a.intensity<3||a.intensity>30)return null;
  Object.assign(appearance,a)}
- return {appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ return {homeWidgets,appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
