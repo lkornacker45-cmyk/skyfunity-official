@@ -125,8 +125,12 @@
       "plots": "2",
       "warps": "2",
       "commands": [
-        "/crawl (kriechen)"
-      ]
+        "/crawl (kriechen)",
+        "/sit (auch auf Spielern)",
+        "/wochenkey (2x Votekey)",
+        "/bonusbooster (alle 7 Tage, 1 zufälliger)"
+      ],
+      "homes": "3"
     }
   ],
   "team": [
