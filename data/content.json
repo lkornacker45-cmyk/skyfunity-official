@@ -41,12 +41,22 @@
       "role": "Co.Owner"
     },
     {
-      "name": "Spielername",
+      "name": "Chriss",
       "role": "Admin"
     },
     {
-      "name": "Spielername",
+      "name": "Tobix",
       "role": "Admin"
+    },
+    {
+      "name": "The Black Dragon",
+      "role": "Developer",
+      "avatar": ""
+    },
+    {
+      "name": "Mailk75",
+      "role": "Developer",
+      "avatar": ""
     }
   ],
   "features": [
