@@ -1,7 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
 import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
-export type Content={typography?:{font:string;textColor:string;headingColor:string};homeWidgets?:{id:string;visible:boolean}[];appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;homes?:string;auctionHouse?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
+export type Content={typography?:{font:string;textColor:string;headingColor:string};homeWidgets?:{id:string;visible:boolean}[];appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;discordGuildId?:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;homes?:string;auctionHouse?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=validateContent(defaults)!;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -10,6 +10,7 @@ export function validateContent(value:unknown):Content|null{
  const str=(x:unknown,max:number)=>typeof x==="string"&&x.trim().length>0&&x.length<=max;
  if(!s||!str(s.name,60)||!str(s.address,255)||!str(s.discord,300)||!str(s.shop,300))return null;
  if(!/^[a-z0-9.-]+(?::\d{1,5})?$/i.test(s.address as string))return null;
+ if(s.discordGuildId!==undefined&&(typeof s.discordGuildId!=="string"||s.discordGuildId!==""&&!/^\d{17,20}$/.test(s.discordGuildId)))return null;
  if(s.bedrockPort!==undefined&&(typeof s.bedrockPort!=="string"||!/^[0-9]{1,5}$/.test(s.bedrockPort)||Number(s.bedrockPort)<1||Number(s.bedrockPort)>65535))return null;
  if(s.bedrockPortConfirmed!==undefined&&typeof s.bedrockPortConfirmed!=="boolean")return null;
  for(const key of ["discord","shop"]){try{const url=new URL(s[key] as string);if(url.protocol!=="https:"||url.username||url.password)return null}catch{return null}}
