@@ -1,5 +1,6 @@
 "use client";
 import {useEffect,useState} from "react";
+import type {CSSProperties} from "react";
 
 type Palette={sky:string;horizon:string;mountain:string;hill:string;ground:string;grass:string;trunk:string;leaf:string;accent:string;light:string;night?:boolean;snow?:boolean;trees?:boolean};
 const worlds:Record<string,Palette>={
@@ -40,7 +41,7 @@ export default function VoxelBackground({preset}:{preset:string}){
  useEffect(()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;let frame=0;const onScroll=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>setOffset(Math.min(window.scrollY,4500)))};onScroll();window.addEventListener("scroll",onScroll,{passive:true});return()=>{window.removeEventListener("scroll",onScroll);cancelAnimationFrame(frame)}},[]);
  const stars=p.night||world==="christmas";
  return <div className="voxel-scene voxel-landscape" aria-hidden="true" data-voxel={world} data-voxel-style={style} style={{background:p.sky}}>
- <div className="voxel-photo" style={{backgroundImage:`url("${photoUrl}")`}}/><div className="voxel-panorama">
+ <div className="voxel-photo" style={{backgroundImage:`url("${photoUrl}")`,"--photo-scroll":`${Math.min(offset*.045,170)}px`} as CSSProperties}/><div className="voxel-panorama">
  <svg className="voxel-layer voxel-sky" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style={{transform:`translate3d(0,${offset*.035}px,0)`}}>
  <defs><linearGradient id="voxel-sky-gradient" x1="0" y1="0" x2="0" y2="1"><stop stopColor={p.sky}/><stop offset="1" stopColor={p.horizon}/></linearGradient></defs>
  <rect width="1200" height="700" fill="url(#voxel-sky-gradient)"/>
