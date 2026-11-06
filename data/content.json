@@ -194,7 +194,12 @@
       "commands": [
         "/back (zum Todespunkt, 10 min)",
         "/votemute (15min, 2 Std. Cooldown)",
-        "/werbung (30 min Cooldown)"
+        "/werbung (30 min Cooldown)",
+        "/xpflasche (10 XP pro Wurfflasche)",
+        "/gold (verschenkt Gold 7 Tage)",
+        "/payall (alle 8 Std.)",
+        "/wochenkey (Sturm & Wolken)",
+        "/bonusbooster (alle 7 Tage, 1 von jeden Typ)"
       ]
     }
   ],
