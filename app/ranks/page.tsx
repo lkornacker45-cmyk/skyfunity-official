@@ -45,12 +45,13 @@ export default async function Ranks(){
        {ranks.map((rank,i)=><td key={i} className={`border-b border-r border-purple-400/10 px-4 py-5 text-center text-base font-bold text-white last:border-r-0 ${index%2===0?"bg-white/[0.025]":"bg-transparent"}`}>{rank[row.key]?.trim()||<span className="text-sm font-normal text-slate-500" aria-label="Keine Angabe">—</span>}</td>)}
       </tr>)}
       <tr>
-       <th scope="row" className="sticky left-0 z-10 border-b border-r border-purple-400/15 bg-[#1b1430] px-5 py-5 align-top text-sm font-bold text-purple-100">Befehle</th>
-       {ranks.map((rank,i)=><td key={i} className="border-b border-r border-purple-400/10 px-4 py-5 text-center align-top last:border-r-0">{rank.commands?.length?<ul className="flex flex-wrap justify-center gap-2">{rank.commands.map((cmd,j)=><li key={j} className="max-w-full break-all rounded-lg border border-purple-400/20 bg-purple-500/10 px-2.5 py-1.5 font-mono text-xs text-purple-100">{cmd}</li>)}</ul>:<span className="text-sm text-slate-500">—</span>}</td>)}
-      </tr>
-      <tr>
-       <th scope="row" className="sticky left-0 z-10 border-r border-purple-400/15 bg-[#171126] px-5 py-5 align-top text-sm font-bold text-purple-100">Alle Vorteile</th>
-       {ranks.map((rank,i)=><td key={i} className="border-r border-purple-400/10 px-5 py-5 align-top last:border-r-0">{rank.benefits.length?<ul className="space-y-3">{rank.benefits.map((benefit,j)=><li key={j} className="flex items-start gap-2 text-sm leading-6 text-slate-200"><span className="shrink-0 font-bold text-emerald-300" aria-hidden="true">✓</span><span className="break-words">{benefit}</span></li>)}</ul>:<span className="block text-center text-sm text-slate-500">—</span>}</td>)}
+       <th scope="row" className="sticky left-0 z-10 border-r border-purple-400/15 bg-[#1b1430] px-5 py-5 align-top text-sm font-bold text-purple-100">Vorteile &amp; Befehle</th>
+       {ranks.map((rank,i)=><td key={i} className="border-r border-purple-400/10 px-4 py-5 align-top last:border-r-0">
+        {rank.benefits.length||rank.commands?.length?<ul className="space-y-2">
+         {rank.benefits.map((benefit,j)=><li key={`benefit-${j}`} className="flex items-start gap-2 rounded-xl border border-emerald-400/10 bg-emerald-400/[0.045] px-3 py-2.5 text-sm leading-6 text-slate-200"><span className="shrink-0 font-bold text-emerald-300" aria-hidden="true">✓</span><span className="break-words">{benefit}</span></li>)}
+         {(rank.commands||[]).map((cmd,j)=><li key={`command-${j}`} className="flex items-start gap-2 rounded-xl border border-purple-400/15 bg-purple-500/[0.08] px-3 py-2.5 text-sm leading-6 text-purple-100"><span className="shrink-0 font-bold text-purple-300" aria-hidden="true">⌘</span><code className="break-all font-mono text-xs leading-6">{cmd}</code></li>)}
+        </ul>:<span className="block text-center text-sm text-slate-500">—</span>}
+       </td>)}
       </tr>
      </tbody>
     </table>
