@@ -1,8 +1,8 @@
 {
   "appearance": {
-    "background": "cave",
+    "background": "christmas",
     "backgroundImage": "",
-    "particles": "stars",
+    "particles": "hearts",
     "intensity": 30
   },
   "copy": {
