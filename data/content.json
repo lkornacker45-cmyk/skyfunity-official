@@ -360,7 +360,15 @@
     },
     {
       "title": "Bauen & Grundstücke",
-      "description": "1. Neue Plotwelt mit 75×75-Plots, bis zu 16 Plots je nach Rang\n2. Plotmenü mit Flags, Fliegen auf dem eigenen Plot und Plot aushöhlen\n3. Homes per GUI, Live-Karte des Citybuilds auf der Website"
+      "description": "1. Neue Plotwelt mit 73×73-Plots, bis zu 16 Plots je nach Rang\n2. Plotmenü mit Flags, Fliegen auf dem eigenen Plot und Plot aushöhlen\n3. Homes per GUI, Live-Karte des Citybuilds auf der Website"
+    },
+    {
+      "title": "Wirtschaft & Handel",
+      "description": "1. Drei Währungen: Coins, Gems und Funitys\n2. Einkaufshalle mit 88 mietbaren Spieler-Shops (/eh)\n3. Auktionshaus, Verkaufs-GUI mit dynamischen Preisen und Bank (/bank)"
+    },
+    {
+      "title": "Fortschritt",
+      "description": "1. Eigenes Jobsystem mit Rebirths und Job-Perks\n2. Erntefarm mit upgradebaren Hacken\n3. Prison-Modus mit Minen, Mining-Tokens und Rankup\n4. Tägliche Aufgaben, Streak und Funity Pass\n5. Haustiere"
     }
   ]
 }
