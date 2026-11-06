@@ -110,22 +110,6 @@
         "Exklusiver Rang im Chat",
         "Zusätzliche kosmetische Extras"
       ]
-    },
-    {
-      "name": "Premium",
-      "color": "text-violet-300",
-      "benefits": [
-        "Besondere Partikel",
-        "Weitere Community-Vorteile"
-      ]
-    },
-    {
-      "name": "Legend",
-      "color": "text-amber-300",
-      "benefits": [
-        "Auffälliges Rangabzeichen",
-        "Exklusive kosmetische Inhalte"
-      ]
     }
   ],
   "team": [
@@ -158,12 +142,16 @@
     {
       "name": "The Black Dragon",
       "role": "Developer",
-      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/71ca10c2-eaf7-43a2-afe5-67b67a09b850.png"
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/71ca10c2-eaf7-43a2-afe5-67b67a09b850.png",
+      "tasks": "Developer",
+      "since": "27.08.2026"
     },
     {
       "name": "Mailk75",
       "role": "Developer",
-      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/574845ef-83e2-4b0f-8d98-bd1711c6183e.png"
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/574845ef-83e2-4b0f-8d98-bd1711c6183e.png",
+      "tasks": "Developer",
+      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin Mailk und programmiere Plugins für Skyfunity! 💻🎮\n\nIch kümmere mich hauptsächlich um die Entwicklung von Plugins und arbeite daran, unseren Server mit neuen Funktionen und coolen Features noch besser zu machen! 🚀\n\n✨ Ein bisschen über mich:\nIch programmiere gerne und liebe es, neue Ideen in die Tat umzusetzen. Besonders viel Spaß macht es mir, an Plugins zu tüfteln, Fehler zu beheben und spannende Funktionen zu entwickeln! 💜\n\n🛠️ Meine Aufgaben:\n- 💻 Plugins programmieren und weiterentwickeln\n- ⚙️ Neue Funktionen und Features erstellen\n- 🚀 Den Server technisch verbessern\n\n💜 Wenn ihr Fragen zu Plugins habt oder euch technische Probleme auffallen, könnt ihr euch gerne bei mir oder bei Tobi melden. Ich helfe euch, so gut ich kann! 😎"
     },
     {
       "name": "Sky_River",
