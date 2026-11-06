@@ -1,12 +1,30 @@
 {
+  "homeWidgets": [
+    {
+      "id": "hero",
+      "visible": true
+    },
+    {
+      "id": "status",
+      "visible": true
+    },
+    {
+      "id": "explore",
+      "visible": true
+    },
+    {
+      "id": "shop",
+      "visible": true
+    }
+  ],
   "appearance": {
-    "background": "image",
-    "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png",
-    "particles": "snow",
+    "background": "autumn-nature",
+    "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
+    "particles": "leaves",
     "intensity": 30,
     "backgroundGallery": [
-      "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png",
-      "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png"
+      "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
+      "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/0e8d366e-a622-4c95-8037-469bae83f32b.png"
     ]
   },
   "copy": {
