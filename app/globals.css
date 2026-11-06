@@ -84,3 +84,11 @@ body > footer{position:relative;z-index:2}
 body > .season-banner{position:relative;z-index:3}
 body > .voxel-scene{z-index:0!important}
 body > .sky-particles{z-index:1!important;pointer-events:none}
+
+/* Three distinct art directions, available for every seasonal voxel landscape. */
+.voxel-landscape[data-voxel-style="shader"] .voxel-panorama{filter:saturate(1.25) contrast(1.13) drop-shadow(0 0 28px #b9b0ff35)}
+.voxel-landscape[data-voxel-style="shader"] .voxel-vignette{background:radial-gradient(ellipse at 60% 24%,#fff6cf2b,transparent 48%),linear-gradient(180deg,#05051220,#050512a0)}
+.voxel-landscape[data-voxel-style="nature"] .voxel-panorama{filter:saturate(.8) contrast(.94) brightness(1.12) sepia(.09)}
+.voxel-landscape[data-voxel-style="nature"] .voxel-vignette{background:linear-gradient(180deg,#d9e9f01f,#13202c4a 65%,#08131aab)}
+.voxel-landscape[data-voxel-style="fantasy"] .voxel-panorama{filter:saturate(1.65) hue-rotate(12deg) contrast(1.1) drop-shadow(0 0 35px #c55bff50)}
+.voxel-landscape[data-voxel-style="fantasy"] .voxel-vignette{background:radial-gradient(ellipse at 50% 36%,#e27bff30,transparent 55%),linear-gradient(180deg,#09041c70,transparent 40%,#130a26b8)}
