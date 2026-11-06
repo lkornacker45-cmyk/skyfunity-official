@@ -130,7 +130,8 @@
         "/wochenkey (2x Votekey)",
         "/bonusbooster (alle 7 Tage, 1 zufälliger)"
       ],
-      "homes": "3"
+      "homes": "3",
+      "auctionHouse": "6"
     }
   ],
   "team": [
