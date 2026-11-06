@@ -1,6 +1,6 @@
 import "server-only";
 import defaults from "@/data/content.json";
-export type Content={server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[]}[];team:{name:string;role:string}[];features:{title:string;description:string}[]};
+export type Content={server:{name:string;address:string;discord:string;shop:string};ranks:{name:string;color:string;benefits:string[]}[];team:{name:string;role:string;avatar?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=defaults;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -11,7 +11,7 @@ export function validateContent(value:unknown):Content|null{
  if(!/^[a-z0-9.-]+(?::\d{1,5})?$/i.test(s.address as string))return null;
  for(const key of ["discord","shop"]){try{const url=new URL(s[key] as string);if(url.protocol!=="https:"||url.username||url.password)return null}catch{return null}}
  if(!Array.isArray(v.ranks)||v.ranks.length>25||!v.ranks.every((x:Record<string,unknown>)=>x&&str(x.name,60)&&typeof x.color==="string"&&["text-fuchsia-300","text-violet-300","text-amber-300","text-purple-300","text-emerald-300","text-sky-300"].includes(x.color)&&Array.isArray(x.benefits)&&x.benefits.length<=20&&x.benefits.every((b:unknown)=>str(b,160))))return null;
- if(!Array.isArray(v.team)||v.team.length>50||!v.team.every((x:Record<string,unknown>)=>x&&str(x.name,60)&&str(x.role,80)))return null;
+ if(!Array.isArray(v.team)||v.team.length>50||!v.team.every((x:Record<string,unknown>)=>x&&str(x.name,60)&&str(x.role,80)&&(x.avatar===undefined||x.avatar===""||(typeof x.avatar==="string"&&x.avatar.length<=500&&/^https:\/\/[^\s]+$/i.test(x.avatar)&&(()=>{try{const u=new URL(x.avatar as string);return !u.username&&!u.password}catch{return false}})()))))return null;
  if(!Array.isArray(v.features)||v.features.length>30||!v.features.every((x:Record<string,unknown>)=>x&&str(x.title,80)&&str(x.description,600)))return null;
  return {server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
