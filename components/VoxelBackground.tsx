@@ -19,18 +19,19 @@ const worlds:Record<string,Palette>={
 function Blocks({fill,y,step=28}:{fill:string;y:number;step?:number}){return <g fill={fill}>{Array.from({length:48},(_,i)=><rect key={i} x={i*step-10} y={y+((i*7)%4)*9} width={step+1} height={180}/>)}</g>}
 function Tree({x,y,s=1,p,snow=false}:{x:number;y:number;s?:number;p:Palette;snow?:boolean}){return <g transform={`translate(${x} ${y}) scale(${s})`} shapeRendering="crispEdges"><rect x="-8" y="-22" width="16" height="69" fill={p.trunk}/><rect x="-33" y="-83" width="66" height="40" fill={p.leaf}/><rect x="-43" y="-57" width="86" height="34" fill={p.leaf}/><rect x="-24" y="-103" width="48" height="26" fill={p.leaf}/><rect x="-33" y="-83" width="17" height="17" fill={p.grass} opacity=".3"/>{snow&&<><rect x="-24" y="-103" width="48" height="9" fill={p.grass}/><rect x="-33" y="-83" width="66" height="8" fill={p.grass}/><rect x="-43" y="-57" width="86" height="7" fill={p.grass}/></>}</g>}
 export default function VoxelBackground({preset}:{preset:string}){
- const p=worlds[preset]||worlds.minecraft;
+ const [world,style="shader"]=preset.split(/-(?=shader$|nature$|fantasy$)/);
+ const p=worlds[world]||worlds.minecraft;
  const [offset,setOffset]=useState(0);
  useEffect(()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;let frame=0;const onScroll=()=>{cancelAnimationFrame(frame);frame=requestAnimationFrame(()=>setOffset(Math.min(window.scrollY,4500)))};onScroll();window.addEventListener("scroll",onScroll,{passive:true});return()=>{window.removeEventListener("scroll",onScroll);cancelAnimationFrame(frame)}},[]);
- const stars=p.night||preset==="christmas";
- return <div className="voxel-scene voxel-landscape" aria-hidden="true" data-voxel={preset} style={{background:p.sky}}>
+ const stars=p.night||world==="christmas";
+ return <div className="voxel-scene voxel-landscape" aria-hidden="true" data-voxel={world} data-voxel-style={style} style={{background:p.sky}}>
  <div className="voxel-panorama">
  <svg className="voxel-layer voxel-sky" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style={{transform:`translate3d(0,${offset*.035}px,0)`}}>
  <defs><linearGradient id="voxel-sky-gradient" x1="0" y1="0" x2="0" y2="1"><stop stopColor={p.sky}/><stop offset="1" stopColor={p.horizon}/></linearGradient></defs>
  <rect width="1200" height="700" fill="url(#voxel-sky-gradient)"/>
  {stars&&Array.from({length:46},(_,i)=><rect key={i} x={(i*137+29)%1200} y={(i*71+11)%380} width={i%5===0?4:2} height={i%5===0?4:2} fill={p.light} opacity={.3+(i%5)*.13}/>)}
- <rect x={preset==="halloween"?900:780} y="100" width="90" height="90" fill={p.light} opacity=".85"/>
- {preset==="halloween"&&<rect x="828" y="110" width="90" height="90" fill={p.sky} opacity=".95"/>}
+ <rect x={world==="halloween"?900:780} y="100" width="90" height="90" fill={p.light} opacity=".85"/>
+ {world==="halloween"&&<rect x="828" y="110" width="90" height="90" fill={p.sky} opacity=".95"/>}
  {Array.from({length:6},(_,i)=><g key={i} fill={p.light} opacity=".14"><rect x={(i*251+90)%1200} y={140+(i%3)*62} width="120" height="28"/><rect x={(i*251+112)%1200} y={120+(i%3)*62} width="70" height="22"/></g>)}
  </svg>
  <svg className="voxel-layer voxel-far" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style={{transform:`translate3d(0,${offset*.085}px,0)`}}>
@@ -42,11 +43,11 @@ export default function VoxelBackground({preset}:{preset:string}){
  <path d="M0 700 V545 H95 V510 H200 V535 H300 V490 H405 V530 H500 V480 H610 V515 H720 V465 H810 V505 H920 V470 H1010 V525 H1110 V490 H1200 V700Z" fill={p.ground}/>
  <path d="M0 545 H95 V510 H200 V535 H300 V490 H405 V530 H500 V480 H610 V515 H720 V465 H810 V505 H920 V470 H1010 V525 H1110 V490 H1200" fill="none" stroke={p.grass} strokeWidth="18" strokeLinejoin="miter"/>
  {p.trees&&[70,220,365,530,690,840,1030,1150].map((x,i)=><Tree key={x} x={x} y={505+(i%3)*19} s={.62+(i%3)*.17} p={p} snow={p.snow}/>)}
- {preset==="halloween"&&[175,780,1050].map((x,i)=><g key={x}><rect x={x} y={538+i*6} width="35" height="31" fill={p.accent}/><rect x={x+13} y={530+i*6} width="8" height="10" fill={p.trunk}/><rect x={x+7} y={548+i*6} width="5" height="6" fill={p.sky}/><rect x={x+23} y={548+i*6} width="5" height="6" fill={p.sky}/></g>)}
- {preset==="easter"&&[140,460,935].map((x,i)=><g key={x}><rect x={x} y={540+i*8} width="18" height="25" fill={i===1?"#f4d5a8":p.accent}/><rect x={x+4} y={548+i*8} width="10" height="5" fill="#e9f3bb"/></g>)}
- {preset==="nether"&&[160,580,980].map(x=><path key={x} d={`M${x} 700 V540 H${x+28} V700Z`} fill={p.accent} opacity=".7"/>)}
- {preset==="end"&&[250,750,1050].map(x=><g key={x}><rect x={x} y="420" width="30" height="130" fill="#171326"/><rect x={x+9} y="430" width="5" height="5" fill={p.accent}/></g>)}
- {preset==="cave"&&[180,560,970].map(x=><g key={x} fill={p.accent}><path d={`M${x} 545 l22 -60 22 60Z`}/></g>)}
+ {world==="halloween"&&[175,780,1050].map((x,i)=><g key={x}><rect x={x} y={538+i*6} width="35" height="31" fill={p.accent}/><rect x={x+13} y={530+i*6} width="8" height="10" fill={p.trunk}/><rect x={x+7} y={548+i*6} width="5" height="6" fill={p.sky}/><rect x={x+23} y={548+i*6} width="5" height="6" fill={p.sky}/></g>)}
+ {world==="easter"&&[140,460,935].map((x,i)=><g key={x}><rect x={x} y={540+i*8} width="18" height="25" fill={i===1?"#f4d5a8":p.accent}/><rect x={x+4} y={548+i*8} width="10" height="5" fill="#e9f3bb"/></g>)}
+ {world==="nether"&&[160,580,980].map(x=><path key={x} d={`M${x} 700 V540 H${x+28} V700Z`} fill={p.accent} opacity=".7"/>)}
+ {world==="end"&&[250,750,1050].map(x=><g key={x}><rect x={x} y="420" width="30" height="130" fill="#171326"/><rect x={x+9} y="430" width="5" height="5" fill={p.accent}/></g>)}
+ {world==="cave"&&[180,560,970].map(x=><g key={x} fill={p.accent}><path d={`M${x} 545 l22 -60 22 60Z`}/></g>)}
  </svg>
  <svg className="voxel-layer voxel-near" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" style={{transform:`translate3d(0,${-offset*.14}px,0)`}} shapeRendering="crispEdges">
  <path d="M0 700 V640 H130 V615 H265 V650 H420 V615 H590 V660 H740 V625 H900 V650 H1030 V610 H1200 V700Z" fill={p.ground}/>
