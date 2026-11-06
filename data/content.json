@@ -155,6 +155,20 @@
         "/payall (1x am Tag)",
         "/wochenkey (Wolken & Vote)"
       ]
+    },
+    {
+      "name": "Toxic",
+      "color": "text-purple-300",
+      "benefits": [
+        "Vorteil"
+      ],
+      "image": "",
+      "description": "",
+      "plots": "",
+      "warps": "",
+      "homes": "",
+      "auctionHouse": "",
+      "commands": []
     }
   ],
   "team": [
