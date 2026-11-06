@@ -377,6 +377,10 @@
     {
       "title": "Ränge",
       "description": "1. 9 Ränge von Spieler bis Legacy, Übersicht mit /ranginfo\n2. Ränge an Freunde verschenken, Items signieren mit /sign"
+    },
+    {
+      "title": "Welten",
+      "description": "1. Farmwelt, Nether und End per /farmwelt, /nether und /end, Reset alle 3 Monate"
     }
   ]
 }
