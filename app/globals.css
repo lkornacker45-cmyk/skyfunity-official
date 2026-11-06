@@ -1,0 +1,4 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{color-scheme:dark}body{background:#080611;color:#f7f3ff}a{transition:color .2s}a:hover{color:#d8b4fe}.glass{background:rgba(31,20,49,.75);border:1px solid rgba(168,85,247,.22);border-radius:1.25rem}.glow{box-shadow:0 0 80px rgba(147,51,234,.12)}
