@@ -2,7 +2,7 @@
   "appearance": {
     "background": "theme",
     "backgroundImage": "",
-    "particles": "pumpkins",
+    "particles": "snow",
     "intensity": 30
   },
   "copy": {
@@ -55,7 +55,7 @@
     "status.chartDescription": "Verlauf seit dem Öffnen dieser Seite · Messung jede Minute",
     "footer.disclaimer": "Unabhängiges Minecraft-Fanprojekt, nicht mit Mojang oder Microsoft verbunden."
   },
-  "theme": "halloween",
+  "theme": "winter",
   "headings": {
     "team": {
       "before": "Das",
