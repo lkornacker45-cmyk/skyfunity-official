@@ -291,3 +291,33 @@ body[data-heading-color] main h1,body[data-heading-color] main h2,body[data-head
 @keyframes sky-holo-flicker{0%,94%,100%{opacity:1}95%{opacity:.65}97%{opacity:.9}}
 @media(max-width:420px){.sky-holo-display button{flex-wrap:wrap}.sky-holo-display button>span:last-child{margin-left:auto}}
 @media(prefers-reduced-motion:reduce){.sky-holo-scan,.sky-holo-scan:after,.sky-holo-led{animation:none!important}.sky-holo-tab,.sky-holo-discord{transition:none!important}.sky-holo-discord:hover{transform:none!important}}
+
+/* Minecraft notice board for join page, preserves the configured site background */
+.sky-board{position:relative;isolation:isolate;padding-bottom:18px}
+.sky-board-posts{position:absolute;inset:20px 8% 0;display:flex;justify-content:space-between;pointer-events:none}
+.sky-board-posts span{width:48px;background:repeating-linear-gradient(90deg,#412313 0 7px,#6d3d20 7px 18px,#4c2917 18px 24px);border:5px solid #2c170d;box-shadow:inset 4px 0 #96643a,7px 8px 0 #0005}
+.sky-board-frame{border:10px solid #593117;border-top-color:#a16a35;border-left-color:#875127;border-right-color:#3a2013;border-bottom-color:#29160d;border-radius:5px;padding:clamp(22px,4vw,48px);background:repeating-linear-gradient(0deg,#764523ed 0 26px,#633719f0 26px 29px,#86502bf0 29px 53px,#4b2916f0 53px 57px);box-shadow:inset 0 0 0 5px #b17b43,inset 0 0 60px #21100599,0 24px 70px #000b}
+.sky-board-frame:before{content:"";position:absolute;inset:9px;border:2px dashed #d9a76b44;pointer-events:none}
+.sky-board-corner{position:absolute;z-index:2;width:21px;height:21px;border:4px solid #252027;background:linear-gradient(135deg,#c7c2b6,#716e67);box-shadow:2px 3px 0 #0008}
+.sky-board-corner-tl{top:12px;left:12px}.sky-board-corner-tr{top:12px;right:12px}.sky-board-corner-bl{bottom:12px;left:12px}.sky-board-corner-br{bottom:12px;right:12px}
+.sky-board-heading{text-shadow:3px 4px #2e1b13,0 0 18px #f6c88c55}
+.sky-board-sign{border:5px solid #382111;border-top-color:#c58b4a;border-left-color:#ad743b;border-right-color:#301a0f;border-bottom-color:#24140c;border-radius:5px;padding:17px;background:linear-gradient(155deg,#a16d3bdc,#68401fe8);box-shadow:inset 2px 2px #e4b87755,0 7px 0 #2e1a0d}
+.sky-board-sign button{min-width:0;border:2px solid #d2a56970;border-radius:4px;background:#291b16d9;box-shadow:inset 0 2px #e2bb8d25}
+.sky-board-sign button:hover{background:#453020}
+.sky-board-sign button>span:first-child{min-width:0}
+.sky-board-sign button>span:first-child>span{overflow-wrap:anywhere}
+.sky-board-sign button>span:last-child{background:#835222;border:1px solid #b78a54}
+.sky-board-details{overflow:hidden;border:4px solid #3a2517;border-top-color:#b3834e;border-left-color:#a26c39;border-right-color:#2b190f;border-bottom-color:#25160e;border-radius:5px;background:#33231cde;box-shadow:0 5px 0 #25150c}
+.sky-board-summary{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:18px 20px;background:linear-gradient(90deg,#76502d,#4b3020);color:#fff0ce;font-weight:900;font-size:clamp(15px,2.5vw,21px);text-shadow:2px 2px #24140d;list-style:none}
+.sky-board-summary::-webkit-details-marker{display:none}
+.sky-board-summary:hover,.sky-board-summary:focus-visible{background:linear-gradient(90deg,#93673b,#60412a);outline-offset:-3px}
+.sky-board-chevron{display:inline-block;transition:transform .2s}
+.sky-board-details[open] .sky-board-chevron{transform:rotate(180deg)}
+.sky-board-instructions{padding:20px;background:linear-gradient(145deg,#3d2b22f0,#241a1af5)}
+.sky-board-steps{display:grid;gap:15px;list-style:none}
+.sky-board-steps li{display:flex;align-items:flex-start;gap:14px;color:#f4e4d2;font-size:14px;line-height:1.7;overflow-wrap:anywhere}
+.sky-board-stepnum{display:grid;flex:none;place-items:center;width:29px;height:29px;border:2px solid #c3904c;background:#674121;color:#fff1d0;font-size:13px;font-weight:900;box-shadow:2px 2px #21130b}
+.sky-board-discord{border:3px solid #b8d9e2;border-right-color:#256276;border-bottom-color:#1c4e5f;background:linear-gradient(#468fa7,#24677e);box-shadow:inset 2px 2px #8ed5e0,0 5px #24150e;transition:filter .2s,transform .2s}
+.sky-board-discord:hover{filter:brightness(1.15);transform:translateY(-2px)}
+@media(max-width:480px){.sky-board-frame{border-width:7px;padding:22px 12px}.sky-board-sign{padding:12px}.sky-board-sign button{flex-wrap:wrap}.sky-board-sign button>span:last-child{margin-left:auto}.sky-board-summary{padding:16px 12px}.sky-board-instructions{padding:16px 12px}}
+@media(prefers-reduced-motion:reduce){.sky-board-chevron,.sky-board-discord{transition:none}.sky-board-discord:hover{transform:none}}
