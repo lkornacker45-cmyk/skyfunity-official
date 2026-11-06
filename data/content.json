@@ -1,8 +1,8 @@
 {
   "appearance": {
-    "background": "stars",
+    "background": "gradient",
     "backgroundImage": "",
-    "particles": "sparkles",
+    "particles": "hearts",
     "intensity": 30
   },
   "copy": {
@@ -55,7 +55,7 @@
     "status.chartDescription": "Verlauf seit dem Öffnen dieser Seite · Messung jede Minute",
     "footer.disclaimer": "Unabhängiges Minecraft-Fanprojekt, nicht mit Mojang oder Microsoft verbunden."
   },
-  "theme": "default",
+  "theme": "easter",
   "headings": {
     "team": {
       "before": "Das",
