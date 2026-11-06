@@ -23,9 +23,9 @@
     }
   ],
   "appearance": {
-    "background": "autumn-nature",
+    "background": "summer",
     "backgroundImage": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
-    "particles": "leaves",
+    "particles": "sparkles",
     "intensity": 30,
     "backgroundGallery": [
       "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/background/307a35cd-7682-4489-bdfc-e8dc73c74ce4.png",
