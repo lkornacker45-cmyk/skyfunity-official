@@ -1,6 +1,6 @@
 {
   "appearance": {
-    "background": "gradient",
+    "background": "theme",
     "backgroundImage": "",
     "particles": "hearts",
     "intensity": 30
