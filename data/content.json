@@ -1,8 +1,8 @@
 {
   "appearance": {
-    "background": "christmas",
+    "background": "winter",
     "backgroundImage": "",
-    "particles": "hearts",
+    "particles": "snow",
     "intensity": 30
   },
   "copy": {
