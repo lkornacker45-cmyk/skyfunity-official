@@ -108,7 +108,8 @@
   "team": [
     {
       "name": "sett_camo",
-      "role": "Owner"
+      "role": "Owner",
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/d5c5905b-ab19-4cfa-b536-7519bc0e1f21.png"
     },
     {
       "name": "GasJoker/Luca_Sky007",
@@ -120,7 +121,8 @@
     },
     {
       "name": "Chriss",
-      "role": "Admin"
+      "role": "Admin",
+      "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/bfe29371-8eaf-46bb-b024-9b907cf97062.png"
     },
     {
       "name": "Tobix",
