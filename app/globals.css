@@ -38,3 +38,26 @@ body[data-background="image"]{background-image:linear-gradient(#090713bb,#090713
 @keyframes sky-float{from{transform:translate3d(0,-10vh,0) rotate(0deg)}to{transform:translate3d(40px,125vh,0) rotate(180deg)}}
 @media(prefers-reduced-motion:reduce){.sky-particle{animation:none!important;display:none}}
 @media(max-width:640px){.sky-particle:nth-child(n+13){display:none}}
+
+/* Minecraft-inspired seasonal voxel scenes: decorative scroll parallax. */
+body[data-background="minecraft"]{--voxel-sky:#101f37;--voxel-glow:#3e814a}
+body[data-background="halloween"]{--voxel-sky:#180d24;--voxel-glow:#e46a19}
+body[data-background="christmas"]{--voxel-sky:#09222b;--voxel-glow:#b7e7ee}
+body[data-background="easter"]{--voxel-sky:#28203e;--voxel-glow:#b96ebc}
+body[data-background="winter"]{--voxel-sky:#0b233a;--voxel-glow:#6caed4}
+body[data-background="summer"]{--voxel-sky:#092e3d;--voxel-glow:#78af49}
+body[data-background="autumn"]{--voxel-sky:#291a19;--voxel-glow:#a95c28}
+body[data-background="nether"]{--voxel-sky:#1f080b;--voxel-glow:#bc351e}
+body[data-background="end"]{--voxel-sky:#110e22;--voxel-glow:#7754a5}
+body[data-background="cave"]{--voxel-sky:#0d1624;--voxel-glow:#297d91}
+body[data-background="newyear"]{--voxel-sky:#0c1733;--voxel-glow:#c6a548}
+body[data-background="skyblock"]{--voxel-sky:#102b42;--voxel-glow:#3e9cb1}
+body:has(.voxel-scene){background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--voxel-glow) 24%,transparent),transparent 70%),linear-gradient(180deg,var(--voxel-sky),#070711)!important;background-attachment:fixed!important}
+.voxel-scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0;perspective:800px}
+.voxel-horizon{position:absolute;inset:42% -10% -20%;opacity:.2;background:linear-gradient(transparent 20%,var(--voxel-glow) 100%),repeating-linear-gradient(90deg,transparent 0 75px,#ffffff20 76px 78px),repeating-linear-gradient(0deg,transparent 0 75px,#ffffff20 76px 78px);transform-origin:center bottom;clip-path:polygon(50% 0,100% 55%,100% 100%,0 100%,0 55%)}
+.voxel-item{position:absolute;display:block;filter:drop-shadow(0 8px 10px #0009);transition:transform .08s linear;will-change:transform}
+.voxel-depth-0{filter:blur(1px);}.voxel-depth-3{filter:drop-shadow(0 10px 18px #000b)}
+body:has(.voxel-scene)>header,body:has(.voxel-scene)>main,body:has(.voxel-scene)>footer,body:has(.voxel-scene)>.season-banner{position:relative;z-index:2}
+body:has(.voxel-scene)>header{position:sticky}
+@media(prefers-reduced-motion:reduce){.voxel-item{transition:none!important}}
+@media(max-width:640px){.voxel-item:nth-of-type(n+16){display:none}}
