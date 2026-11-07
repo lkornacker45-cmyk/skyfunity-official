@@ -315,11 +315,11 @@
     },
     {
       "name": "The Black Dragon",
-      "role": "Developer",
+      "role": "Cyber Secruity",
       "avatar": "https://raw.githubusercontent.com/lkornacker45-cmyk/skyfunity-official/main/public/uploads/team/71ca10c2-eaf7-43a2-afe5-67b67a09b850.png",
-      "tasks": "Developer",
+      "tasks": "Cyber Secruity",
       "since": "27.08.2026",
-      "bio": "💜 Hey, schön, dass du hier bist! 💜\n\nIch bin The Black Dragon und programmiere Plugins für Skyfunity! 🐉💻\n\nIch kümmere mich hauptsächlich um die Entwicklung und Verbesserung von Plugins, damit unser Minecraft-Server immer neue Funktionen und spannende Features bekommt! 🎮🚀\n\n✨ Ein bisschen über mich:\nIch beschäftige mich gerne mit dem Programmieren und liebe es, neue Ideen in funktionierende Plugins umzusetzen. Besonders viel Spaß macht es mir, technische Herausforderungen zu meistern und unseren Server stetig weiterzuentwickeln! 🐉💜\n\n🛠️ Meine Aufgaben:\n- 💻 Plugins programmieren und weiterentwickeln\n- ⚙️ Neue Funktionen und Features erstellen\n- 🐛 Bugs finden und beheben\n- 🚀 Bestehende Plugins verbessern und optimieren\n- 🛡️ Für eine möglichst stabile technische Umsetzung sorgen\n- 🤝 Das Developer-Team bei Projekten unterstützen\n\n💜 Wenn ihr Fragen zu Plugins habt, euch Fehler auffallen oder ihr Ideen für neue Funktionen habt, könnt ihr euch gerne bei mir melden. Ich helfe euch, so gut ich kann! 🐉😎",
+      "bio": "",
       "treeX": 20,
       "treeY": 31,
       "treeCategory": "Administration & Entwicklung"
