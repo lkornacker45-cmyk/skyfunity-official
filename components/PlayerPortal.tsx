@@ -1,6 +1,7 @@
 "use client";
 import {useEffect,useState} from "react";
 import {createClient, type SupabaseClient, type User} from "@supabase/supabase-js";
+import PlayerStats from "@/components/PlayerStats";
 
 type Ticket={id:string;owner_id:string;category:string;subject:string;status:string;created_at:string;updated_at:string};
 type Message={id:string;ticket_id:string;author_id:string;body:string;created_at:string};
@@ -82,6 +83,7 @@ export default function PlayerPortal(){
    </form>
   </section>:<>
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
+   <PlayerStats db={client} userId={user.id} minecraftName={profile?.minecraft_name||"Spieler"}/>
    <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
     <div className="space-y-6">
      <section className="sky-portal-panel"><h2 className="mb-4 text-xl font-bold">{staff?"Alle Support-Tickets":"Meine Tickets"}</h2>
