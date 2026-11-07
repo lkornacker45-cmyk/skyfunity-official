@@ -17,7 +17,7 @@ export default function PlayerPortal(){
  const [tickets,setTickets]=useState<Ticket[]>([]);
  const [messages,setMessages]=useState<Message[]>([]);
  const [selected,setSelected]=useState<string|null>(null);
- const [mode,setMode]=useState<"login"|"register"|"reset">("login");
+ const [mode,setMode]=useState<"login"|"register"|"reset"|"new-password">("login");
  const [email,setEmail]=useState("");const [password,setPassword]=useState("");const [minecraft,setMinecraft]=useState("");
  const [category,setCategory]=useState(categories[0]);const [subject,setSubject]=useState("");const [firstMessage,setFirstMessage]=useState("");const [reply,setReply]=useState("");
  const [notice,setNotice]=useState("");const [busy,setBusy]=useState(false);
@@ -33,7 +33,7 @@ export default function PlayerPortal(){
   const db=client;
   let alive=true;
   db.auth.getUser().then(({data})=>{if(alive){setUser(data.user);if(data.user)void refresh(db,data.user);}});
-  const {data:{subscription}}=db.auth.onAuthStateChange((_event,session)=>{if(!alive)return;setUser(session?.user||null);if(session?.user)void refresh(db,session.user);else{setTickets([]);setMessages([]);setProfile(null);setSelected(null);}});
+  const {data:{subscription}}=db.auth.onAuthStateChange((_event,session)=>{if(!alive)return;if(_event==="PASSWORD_RECOVERY")setMode("new-password");setUser(session?.user||null);if(session?.user)void refresh(db,session.user);else{setTickets([]);setMessages([]);setProfile(null);setSelected(null);}});
   return ()=>{alive=false;subscription.unsubscribe();};
  },[]);
  useEffect(()=>{
@@ -42,7 +42,7 @@ export default function PlayerPortal(){
  },[selected,user]);
  async function authenticate(e:React.FormEvent){e.preventDefault();if(!client)return;setBusy(true);setNotice("");
   try{
-   if(mode==="reset"){const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/account"});if(error)throw error;setNotice("Wenn das Konto existiert, erhältst du eine E-Mail zum Zurücksetzen.");}
+   if(mode==="new-password"){if(password.length<10){setNotice("Bitte ein neues Passwort mit mindestens 10 Zeichen wählen.");return;}const {error}=await client.auth.updateUser({password});if(error)throw error;setMode("login");setPassword("");setNotice("Passwort erfolgreich geändert.");}\n   else if(mode==="reset"){const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/account"});if(error)throw error;setNotice("Wenn das Konto existiert, erhältst du eine E-Mail zum Zurücksetzen.");}
    else if(mode==="register"){
     if(!/^[A-Za-z0-9_]{3,16}$/.test(minecraft)){setNotice("Minecraft-Name: 3–16 Zeichen, nur Buchstaben, Zahlen und _.");return;}
     if(password.length<10){setNotice("Bitte ein Passwort mit mindestens 10 Zeichen wählen.");return;}
@@ -70,14 +70,14 @@ export default function PlayerPortal(){
  if(!client)return <div className="sky-portal-panel"><h2 className="text-xl font-bold">Account-System wird eingerichtet</h2><p className="mt-3 text-slate-300">Die Supabase-Verbindung fehlt noch. Bitte zuerst NEXT_PUBLIC_SUPABASE_URL und NEXT_PUBLIC_SUPABASE_ANON_KEY in Vercel hinterlegen und das SQL-Schema ausführen. Bis dahin sind Registrierung und Tickets deaktiviert.</p></div>;
  return <div className="sky-portal space-y-6">
   {notice&&<p role="status" className="sky-portal-notice">{notice}</p>}
-  {!user?<section className="sky-portal-panel mx-auto max-w-xl">
+  {(!user||mode==="new-password")?<section className="sky-portal-panel mx-auto max-w-xl">
    <div className="mb-5 flex flex-wrap gap-2">{([["login","Anmelden"],["register","Registrieren"],["reset","Passwort vergessen"]] as const).map(([id,label])=><button type="button" key={id} onClick={()=>{setMode(id);setNotice("");}} className={"sky-portal-tab "+(mode===id?"sky-portal-tab-active":"")}>{label}</button>)}</div>
-   <h2 className="mb-5 text-2xl font-bold">{mode==="register"?"SkyFunity-Account erstellen":mode==="reset"?"Passwort zurücksetzen":"Willkommen zurück!"}</h2>
+   <h2 className="mb-5 text-2xl font-bold">{mode==="register"?"SkyFunity-Account erstellen":mode==="reset"?"Passwort zurücksetzen":mode==="new-password"?"Neues Passwort festlegen":"Willkommen zurück!"}</h2>
    <form onSubmit={authenticate} className="space-y-4">
-    <label className="block text-sm">E-Mail<input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} className="sky-portal-input mt-1"/></label>
+    {mode!=="new-password"&&<label className="block text-sm">E-Mail<input required type="email" autoComplete="email" value={email} onChange={e=>setEmail(e.target.value)} className="sky-portal-input mt-1"/></label>
     {mode==="register"&&<label className="block text-sm">Minecraft-Name<input required minLength={3} maxLength={16} pattern="[A-Za-z0-9_]{3,16}" autoComplete="nickname" value={minecraft} onChange={e=>setMinecraft(e.target.value)} className="sky-portal-input mt-1"/></label>}
     {mode!=="reset"&&<label className="block text-sm">Passwort<input required type="password" minLength={mode==="register"?10:1} autoComplete={mode==="register"?"new-password":"current-password"} value={password} onChange={e=>setPassword(e.target.value)} className="sky-portal-input mt-1"/></label>}
-    <button disabled={busy} className="sky-portal-button">{busy?"Bitte warten…":mode==="register"?"Account erstellen":mode==="reset"?"E-Mail senden":"Anmelden"}</button>
+    <button disabled={busy} className="sky-portal-button">{busy?"Bitte warten…":mode==="register"?"Account erstellen":mode==="reset"?"E-Mail senden":mode==="new-password"?"Passwort speichern":"Anmelden"}</button>
    </form>
   </section>:<>
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
