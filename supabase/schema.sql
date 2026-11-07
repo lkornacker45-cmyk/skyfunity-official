@@ -49,7 +49,7 @@ create trigger on_skyfunity_user_created after insert on auth.users
 for each row execute function public.create_player_profile();
 
 create or replace function public.touch_ticket()
-returns trigger language plpgsql set search_path = ''
+returns trigger language plpgsql security definer set search_path = ''
 as $$
 begin
  update public.tickets set updated_at = now() where id = new.ticket_id;
