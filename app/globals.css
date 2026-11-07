@@ -765,3 +765,26 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-ticket-messages{min-height:180px;max-height:520px;overflow:auto;padding:5px}
 .sky-ticket-message{max-width:95%;border:1px solid rgba(196,181,253,.24);border-radius:14px;padding:13px;background:rgba(255,255,255,.06)}
 .sky-ticket-own{margin-left:auto;background:rgba(109,40,217,.28)}
+
+/* Pastel-lilac Account & Tickets action at the far right of the navbar */
+.sky-liquid-links .sky-liquid-account{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:none;
+  white-space:nowrap;
+  background:#d9b8ff;
+  color:#29113f;
+  border:1px solid #edd9ff;
+  border-radius:9999px;
+  font-weight:800;
+  box-shadow:0 3px 18px rgba(207,165,255,.2),inset 0 1px rgba(255,255,255,.6);
+  transition:background-color .2s,box-shadow .2s,transform .2s;
+}
+.sky-liquid-links .sky-liquid-account:hover{
+  background:#ead4ff;
+  color:#210d35;
+  transform:translateY(-1px);
+  box-shadow:0 5px 22px rgba(207,165,255,.34);
+}
+.sky-liquid-links .sky-liquid-account:focus-visible{outline:2px solid #f3e8ff;outline-offset:3px}
