@@ -1,0 +1,1 @@
+{"name":"skyfunity-sync","version":"1.0.0","private":true,"type":"module","scripts":{"start":"node index.mjs"},"engines":{"node":">=20"},"dependencies":{"@supabase/supabase-js":"^2.49.0","mysql2":"^3.12.0"}}
