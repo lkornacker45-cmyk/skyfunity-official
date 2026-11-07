@@ -730,3 +730,22 @@ body .sky-liquid-links .sky-liquid-shop:hover{background:#7c3aed!important}
 .sky-brand-logo{display:inline-block;flex:none;width:46px;height:46px;border-radius:12px;background:rgba(139,92,246,.22) url('/uploads/skyfunity-logo.png') center/cover no-repeat;border:1px solid rgba(196,181,253,.38)}
 .sky-hero-logo{width:min(360px,75vw);height:min(360px,75vw);margin:0 auto 12px;background:url('/uploads/skyfunity-logo.png') center/contain no-repeat;filter:drop-shadow(0 12px 30px rgba(139,92,246,.25))}
 @media(max-width:600px){.sky-brand-logo{width:38px;height:38px}.sky-hero-logo{width:min(260px,72vw);height:min(260px,72vw)}}
+
+/* Display uploaded logo only in the small navbar icon square.
+   Override the earlier generic span background that hid the logo image. */
+body .sky-liquid-brand > .sky-brand-logo{
+  display:inline-block;
+  flex:none;
+  width:46px;
+  height:46px;
+  padding:0;
+  border-radius:12px;
+  background-color:#24103e;
+  background-image:url('/uploads/skyfunity-logo.png');
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  border:1px solid rgba(196,181,253,.55);
+  box-shadow:inset 0 1px rgba(255,255,255,.16);
+}
+@media(max-width:600px){body .sky-liquid-brand > .sky-brand-logo{width:38px;height:38px}}
