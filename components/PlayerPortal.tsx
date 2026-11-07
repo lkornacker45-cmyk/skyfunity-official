@@ -42,7 +42,8 @@ export default function PlayerPortal(){
  },[selected,user]);
  async function authenticate(e:React.FormEvent){e.preventDefault();if(!client)return;setBusy(true);setNotice("");
   try{
-   if(mode==="new-password"){if(password.length<10){setNotice("Bitte ein neues Passwort mit mindestens 10 Zeichen wählen.");return;}const {error}=await client.auth.updateUser({password});if(error)throw error;setMode("login");setPassword("");setNotice("Passwort erfolgreich geändert.");}\n   else if(mode==="reset"){const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/account"});if(error)throw error;setNotice("Wenn das Konto existiert, erhältst du eine E-Mail zum Zurücksetzen.");}
+   if(mode==="new-password"){if(password.length<10){setNotice("Bitte ein neues Passwort mit mindestens 10 Zeichen wählen.");return;}const {error}=await client.auth.updateUser({password});if(error)throw error;setMode("login");setPassword("");setNotice("Passwort erfolgreich geändert.");}
+   else if(mode==="reset"){const {error}=await client.auth.resetPasswordForEmail(email,{redirectTo:window.location.origin+"/account"});if(error)throw error;setNotice("Wenn das Konto existiert, erhältst du eine E-Mail zum Zurücksetzen.");}
    else if(mode==="register"){
     if(!/^[A-Za-z0-9_]{3,16}$/.test(minecraft)){setNotice("Minecraft-Name: 3–16 Zeichen, nur Buchstaben, Zahlen und _.");return;}
     if(password.length<10){setNotice("Bitte ein Passwort mit mindestens 10 Zeichen wählen.");return;}
