@@ -24,7 +24,7 @@ export default function PlayerStats({db,userId,minecraftName}:{db:SupabaseClient
  },[db,userId]);
  const cells=[
   {label:"Spielzeit",value:stats?number(Math.floor(stats.playtime_seconds/3600))+" Std.":"—"},
-  {label:"Kontostand",value:stats?.balance!=null?number(stats.balance)+" $":"—"},
+  {label:"Ingame-Kontostand",value:stats?.balance!=null?number(stats.balance):"—"},
   {label:"Server-Rang",value:stats?.server_rank||"—"},
   {label:"Abgebaute Blöcke",value:stats?.blocks_mined!=null?number(stats.blocks_mined):"—"},
   {label:"Mob-Kills",value:stats?.mob_kills!=null?number(stats.mob_kills):"—"}
@@ -35,9 +35,9 @@ export default function PlayerStats({db,userId,minecraftName}:{db:SupabaseClient
    <span className="sky-player-stats-badge">{stats?"Serverdaten":"Noch nicht verbunden"}</span>
   </div>
   {loading?<p className="text-purple-200">Statistiken werden geladen…</p>:error?<p role="status" className="sky-portal-notice">{error}</p>:<>
-   {!stats&&<p className="mb-5 rounded-xl border border-purple-300/30 bg-purple-300/10 p-3 text-sm text-purple-100">Dein Minecraft-Server ist noch nicht mit den Spielerstatistiken verbunden. Sobald eine sichere Datenübertragung eingerichtet und dein Minecraft-Account verifiziert ist, erscheinen hier deine echten Werte.</p>}
+   {!stats&&<p className="mb-5 rounded-xl border border-purple-300/30 bg-purple-300/10 p-3 text-sm text-purple-100">SkyFunityJobs und die Ingame-Wirtschaft sind noch nicht mit den Spielerstatistiken verbunden. Sobald eine sichere Datenübertragung eingerichtet und dein Minecraft-Account verifiziert ist, erscheinen hier deine echten Werte.</p>}
    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">{cells.map(item=><div key={item.label} className="sky-player-stat-tile"><p className="text-sm text-purple-200">{item.label}</p><p className="mt-2 break-words text-xl font-black text-white">{item.value}</p></div>)}</div>
-   <div className="mt-5"><h3 className="mb-3 text-lg font-bold">Meine Jobs</h3>{jobs.length?<div className="grid gap-3 sm:grid-cols-2">{jobs.map(job=><div key={job.job_key} className="sky-player-stat-tile"><p className="font-semibold text-purple-100">{job.job_key}</p><p className="mt-1 text-xl font-bold">Level {number(job.job_level)}</p>{job.job_xp!=null&&<p className="text-sm text-purple-200">{number(job.job_xp)} XP</p>}</div>)}</div>:<p className="text-sm text-purple-200">Noch keine Job-Level vom Server übertragen.</p>}</div>
+   <div className="mt-5"><h3 className="mb-3 text-lg font-bold">Meine Jobs</h3>{jobs.length?<div className="grid gap-3 sm:grid-cols-2">{jobs.map(job=><div key={job.job_key} className="sky-player-stat-tile"><p className="font-semibold text-purple-100">{job.job_key}</p><p className="mt-1 text-xl font-bold">Level {number(job.job_level)}</p>{job.job_xp!=null&&<p className="text-sm text-purple-200">{number(job.job_xp)} XP</p>}</div>)}</div>:<p className="text-sm text-purple-200">Noch keine Job-Level von SkyFunityJobs übertragen.</p>}</div>
    {stats&&<p className="mt-4 text-xs text-purple-200">Letzte Datenübertragung: {new Date(stats.updated_at).toLocaleString("de-DE")}</p>}
   </>}
  </section>;
