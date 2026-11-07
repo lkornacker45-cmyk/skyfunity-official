@@ -1,0 +1,14 @@
+name: SkyFunityLink
+version: 1.0.0
+main: de.skyfunity.link.SkyFunityLink
+api-version: '1.21'
+folia-supported: true
+description: Secure SkyFunity website account linking
+commands:
+  websitelink:
+    description: Verbindet deinen Minecraft-Account mit SkyFunity
+    usage: /websitelink <CODE>
+    permission: skyfunitylink.use
+permissions:
+  skyfunitylink.use:
+    default: true
