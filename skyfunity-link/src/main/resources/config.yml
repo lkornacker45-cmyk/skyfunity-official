@@ -1,6 +1,7 @@
-# Set the HTTPS address of your SkyFunitySync service (no trailing slash).
-sync-url: "https://sync.example.com"
-# Configure via a secret file or Pterodactyl startup variable before production.
-# Must match LINK_SHARED_SECRET on SkyFunitySync.
-shared-secret: "CHANGE_ME"
-timeout-ms: 7000
+# SkyFunityLink 2.0: one plugin handles linking AND Coins/Funitys/Gems sync.
+# Supabase project URL, e.g. https://YOURPROJECT.supabase.co
+supabase-url: "https://YOURPROJECT.supabase.co"
+# Supabase secret service_role key. Keep private on your Folia server!
+# NEVER put this in GitHub, the website or a NEXT_PUBLIC_ variable.
+supabase-service-role-key: "CHANGE_ME"
+sync-seconds: 60
