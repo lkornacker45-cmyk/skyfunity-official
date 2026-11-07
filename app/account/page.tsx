@@ -1,0 +1,4 @@
+import type {Metadata} from "next";
+import PlayerPortal from "@/components/PlayerPortal";
+export const metadata:Metadata={title:"Account & Support",description:"Registriere deinen SkyFunity-Account, verwalte Support-Tickets und kontaktiere unser Team.",robots:{index:false,follow:false}};
+export default function AccountPage(){return <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6"><p className="section-label">SkyFunity · Community</p><h1 className="mt-3 mb-3 text-4xl font-black text-white md:text-5xl">Account & <span className="text-purple-300">Support</span></h1><p className="mb-9 max-w-2xl text-slate-200">Erstelle deinen Spieler-Account, melde dich an und schreibe dem SkyFunity-Team direkt über dein Ticket.</p><PlayerPortal/></main>}
