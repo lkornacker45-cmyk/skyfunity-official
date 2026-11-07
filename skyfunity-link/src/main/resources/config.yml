@@ -1,0 +1,6 @@
+# Set the HTTPS address of your SkyFunitySync service (no trailing slash).
+sync-url: "https://sync.example.com"
+# Configure via a secret file or Pterodactyl startup variable before production.
+# Must match LINK_SHARED_SECRET on SkyFunitySync.
+shared-secret: "CHANGE_ME"
+timeout-ms: 7000
