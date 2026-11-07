@@ -788,3 +788,8 @@ body .sky-liquid-brand > .sky-brand-logo{
   box-shadow:0 5px 22px rgba(207,165,255,.34);
 }
 .sky-liquid-links .sky-liquid-account:focus-visible{outline:2px solid #f3e8ff;outline-offset:3px}
+
+/* Authenticated Minecraft stats dashboard */
+.sky-player-stats{border-color:rgba(216,180,254,.6);background:rgba(30,13,52,.89)}
+.sky-player-stats-badge{display:inline-flex;align-items:center;border:1px solid rgba(216,180,254,.6);border-radius:999px;padding:7px 12px;background:rgba(216,180,254,.16);color:#e9d5ff;font-size:.75rem;font-weight:700}
+.sky-player-stat-tile{border:1px solid rgba(216,180,254,.3);border-radius:15px;padding:16px;background:linear-gradient(145deg,rgba(124,58,237,.18),rgba(216,180,254,.07))}
