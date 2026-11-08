@@ -22,25 +22,39 @@ async function getLeaderboard(): Promise<{ rows: Record<string, Entry[]>; error:
   if (!url || !key) return { rows: {}, error: true };
   try {
     const db = createClient(url, key, { auth: { persistSession: false } });
-    const { data, error } = await db.from("skyfunity_public_leaderboards")
-      .select("category,minecraft_uuid,player_name,score")
-      .in("category", ["spielzeit", "votes"])
-      .order("score", { ascending: false })
-      .limit(100);
-    if (error) return { rows: {}, error: true };
+    const sources = [
+      { view: "skyfunity_public_leaderboards", categories: ["spielzeit", "votes"] },
+      { view: "skyfunity_public_economy_jobs_top10", categories: ["coins", "gems", "funitys", "jobs"] }
+    ];
+    const results = await Promise.all(sources.map(async source => {
+      const { data, error } = await db.from(source.view)
+        .select("category,minecraft_uuid,player_name,score")
+        .in("category", source.categories)
+        .order("score", { ascending: false })
+        .limit(100);
+      return { data, error };
+    }));
     const rows: Record<string, Entry[]> = {};
-    for (const item of data ?? []) {
-      if (typeof item.category !== "string" || typeof item.minecraft_uuid !== "string") continue;
-      const score = Number(item.score);
-      if (!Number.isFinite(score) || score <= 0) continue;
-      (rows[item.category] ??= []).push({
-        minecraft_uuid: item.minecraft_uuid,
-        player_name: String(item.player_name || "Spieler"),
-        score
-      });
+    let hasError = false;
+    for (const result of results) {
+      if (result.error) {
+        hasError = true;
+        console.error("SkyFunity Ranglisten: Supabase-Abfrage fehlgeschlagen", result.error.message);
+        continue;
+      }
+      for (const item of result.data ?? []) {
+        if (typeof item.category !== "string" || typeof item.minecraft_uuid !== "string") continue;
+        const score = Number(item.score);
+        if (!Number.isFinite(score) || score <= 0) continue;
+        (rows[item.category] ??= []).push({
+          minecraft_uuid: item.minecraft_uuid,
+          player_name: String(item.player_name || "Spieler"),
+          score
+        });
+      }
     }
     for (const list of Object.values(rows)) list.sort((a,b) => b.score - a.score);
-    return { rows, error: false };
+    return { rows, error: hasError };
   } catch { return { rows: {}, error: true }; }
 }
 
@@ -54,7 +68,7 @@ export default async function RanglistenPage() {
     </div>
     <div className="grid gap-6 md:grid-cols-2">
       {categories.map(category => {
-        const available = category.id === "spielzeit" || category.id === "votes";
+        const available = category.id !== "questliga" && category.id !== "erntefarm";
         const entries = (rows[category.id] ?? []).slice(0,10);
         return <section key={category.id} className="glass overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
           <div className="mb-5 flex items-center justify-between gap-3">
