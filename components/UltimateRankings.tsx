@@ -44,15 +44,15 @@ export default function UltimateRankings(){
     <div className={`sky-ultimate-crystal ${paused?"is-paused":""}`} aria-hidden="true"><div className="sky-ultimate-crystal-core">✦</div></div>
     <div className="sky-ultimate-beam" aria-hidden="true"/>
     <div className="sky-ultimate-podiums" aria-hidden="true">
-     <div className="sky-ultimate-podium silver"><span>Ⅱ</span></div>
-     <div className="sky-ultimate-podium gold"><span>Ⅰ</span></div>
-     <div className="sky-ultimate-podium bronze"><span>Ⅲ</span></div>
+     <div className="sky-ultimate-podium silver"><span className="sky-ultimate-avatar">♟</span><span>Ⅱ</span></div>
+     <div className="sky-ultimate-podium gold"><span className="sky-ultimate-avatar">♛</span><span>Ⅰ</span></div>
+     <div className="sky-ultimate-podium bronze"><span className="sky-ultimate-avatar">♟</span><span>Ⅲ</span></div>
     </div>
    </div>
    <div className="sky-ultimate-overlay">
-    <span className="sky-ultimate-live">✧ HOLOGRAMM AKTIV</span>
+    <span className="sky-ultimate-live">✧ HOLOGRAMM AKTIV · CHAMPION ARENA</span>
     <div className="sky-ultimate-selected"><span>{current.icon}</span><div><small>AUSGEWÄHLTE KATEGORIE</small><strong>{current.title}</strong></div></div>
-    <span className="sky-ultimate-hint">↔ Ziehen zum Drehen</span>
+    <span className="sky-ultimate-hint">↔ Ziehen zum Drehen · Top 3 als Vorschau</span>
    </div>
   </section>
   <nav className="sky-ultimate-grid" aria-label="Ranglisten-Kategorien">
@@ -64,6 +64,6 @@ export default function UltimateRankings(){
     <span className="sky-ultimate-card-link">Top 10 ansehen ↗</span>
    </Link>)}
   </nav>
-  <p className="sky-ultimate-footer">Die Podeste sind dekorativ. Echte Platzierungen erscheinen in den einzelnen Ranglisten, sobald ihre Datenquellen verbunden sind.</p>
+  <p className="sky-ultimate-footer">Die Podeste auf der Übersicht sind eine Illustration. Echte Top-3-Spieler mit Minecraft-Köpfen und Werten findest du in den einzelnen Ranglisten.</p>
  </div>;
 }
