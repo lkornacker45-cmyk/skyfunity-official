@@ -83,7 +83,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
             <header className="sky-infinity-header relative z-10">
               <Link href="/ranglisten" className="sky-infinity-back">← Alle Ranglisten</Link>
               <p className="sky-infinity-eyebrow">✦ SKYFUNITY · HALL OF INFINITY ✦</p>
-              <h2>DIAMOND <span>INFINITY</span></h2>
+              <h2>GEMS <span>INFINITY</span></h2>
               <p className="sky-infinity-subtitle">💎 Gems Top 10 · Die wertvollsten Spieler des Netzwerks</p>
             </header>
             {entries.length > 0 ? <>
