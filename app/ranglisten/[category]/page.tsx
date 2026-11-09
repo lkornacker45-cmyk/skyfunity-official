@@ -232,10 +232,6 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <div className="sky-job-scanner-grid"/>
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
-              <div className="sky-job-scanner-core">
-                <div className="sky-vote-beacon-emblem"><div className="sky-vote-beacon-ballot"><span className="sky-vote-beacon-check">✓</span><span className="sky-vote-beacon-line"/><span className="sky-vote-beacon-line"/></div><span className="sky-vote-beacon-wave sky-vote-beacon-wave-one"/><span className="sky-vote-beacon-wave sky-vote-beacon-wave-two"/></div>
-                <div className="sky-job-scanner-core-shadow"/>
-              </div>
               <div className="sky-job-scanner-readout">VOTE SCAN // SIGNAL FLOW <span>● LIVE</span></div>
             </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
@@ -245,6 +241,12 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <p className="sky-job-hq-description">🗳️ Votes Top 10 · Die aktivsten Wähler des Netzwerks</p>
               <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> VOTE NETWORK ONLINE <span aria-hidden="true">/</span> ECHTE VOTES</div>
             </header>
+            <div className="sky-vote-holo-slot" aria-hidden="true">
+              <div className="sky-job-scanner-core">
+                <div className="sky-vote-beacon-emblem"><div className="sky-vote-beacon-ballot"><span className="sky-vote-beacon-check">✓</span><span className="sky-vote-beacon-line"/><span className="sky-vote-beacon-line"/></div><span className="sky-vote-beacon-wave sky-vote-beacon-wave-one"/><span className="sky-vote-beacon-wave sky-vote-beacon-wave-two"/></div>
+                <div className="sky-job-scanner-core-shadow"/>
+              </div>
+            </div>
             {entries.length ? <>
               <div className="sky-job-hq-stage" aria-label="Votes Top 3 Kommandozentrale">
                 <div className="sky-job-hq-hologram sky-mecha-reactor" aria-hidden="true"><div className="sky-job-hq-hologram-ring"/><div className="sky-job-hq-hologram-gear" aria-hidden="true"/></div>
