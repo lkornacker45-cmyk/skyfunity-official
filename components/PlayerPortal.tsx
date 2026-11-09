@@ -15,6 +15,7 @@ const client=url&&key?createClient(url,key,{auth:{persistSession:true,autoRefres
 
 export default function PlayerPortal(){
  const [user,setUser]=useState<User|null>(null);
+ const [section,setSection]=useState<"overview"|"stats"|"link"|"tickets">("overview");
  const [profile,setProfile]=useState<Profile|null>(null);
  const [tickets,setTickets]=useState<Ticket[]>([]);
  const [messages,setMessages]=useState<Message[]>([]);
@@ -84,9 +85,31 @@ export default function PlayerPortal(){
    </form>
   </section>:<>
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
-   <MinecraftLink db={client} userId={user.id}/>
-   <PlayerStats db={client} userId={user.id} minecraftName={profile?.minecraft_name||"Spieler"}/>
-   <div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
+   <nav className="sky-portal-panel" aria-label="Account-Untermenü">
+    <div className="mb-3 text-sm font-bold uppercase tracking-widest text-purple-200">Mein Account · Untermenüs</div>
+    <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+     {([
+      ["overview","⌂","Übersicht"],
+      ["stats","▤","Statistiken"],
+      ["link","⛓","Minecraft verbinden"],
+      ["tickets","✉","Tickets & Support"]
+     ] as const).map(([id,symbol,label])=><button key={id} type="button" aria-current={section===id?"page":undefined} onClick={()=>{setSection(id);setNotice("");}} className={"sky-portal-tab flex min-h-16 flex-col items-center justify-center gap-1 rounded-xl border border-purple-400/30 px-3 py-3 text-center transition-colors "+(section===id?"sky-portal-tab-active border-cyan-300/70 bg-purple-500/20":"hover:border-purple-300/70")}>
+      <span aria-hidden="true" className="text-xl">{symbol}</span><span className="text-sm font-bold">{label}</span>
+     </button>)}
+    </div>
+   </nav>
+   {section==="overview"&&<section className="sky-portal-panel">
+    <h2 className="mb-2 text-2xl font-bold text-cyan-200">Dein SkyFunity-Account</h2>
+    <p className="mb-5 text-purple-200">Willkommen in deinem persönlichen Spielerbereich! Wähle oben ein Untermenü.</p>
+    <div className="grid gap-3 sm:grid-cols-3">
+     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("stats")}><span className="font-bold">📊 Meine Statistiken</span><span className="text-sm text-purple-200">Coins, Funitys, Gems, Jobs und Spielzeit ansehen</span></button>
+     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("link")}><span className="font-bold">🔗 Minecraft verbinden</span><span className="text-sm text-purple-200">Verbindungscode für /websitelink erstellen</span></button>
+     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("tickets")}><span className="font-bold">🎫 Support & Tickets</span><span className="text-sm text-purple-200">{tickets.length} {tickets.length===1?"Ticket":"Tickets"} · Hilfe erhalten</span></button>
+    </div>
+   </section>}
+   {section==="link"&&<MinecraftLink db={client} userId={user.id}/>}
+   {section==="stats"&&<PlayerStats db={client} userId={user.id} minecraftName={profile?.minecraft_name||"Spieler"}/>}
+   {section==="tickets"&&<div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
     <div className="space-y-6">
      <section className="sky-portal-panel"><h2 className="mb-4 text-xl font-bold">{staff?"Alle Support-Tickets":"Meine Tickets"}</h2>
       {tickets.length===0?<p className="text-slate-300">Noch keine Tickets vorhanden.</p>:<div className="space-y-2">{tickets.map(t=><button key={t.id} type="button" onClick={()=>{setSelected(t.id);setNotice("");}} className={"sky-ticket-item "+(selected===t.id?"sky-ticket-active":"")}><span className="font-bold">{t.subject}</span><span className="text-xs text-purple-200">{t.category} · {statusLabel[t.status]||t.status}</span></button>)}</div>}
@@ -105,7 +128,7 @@ export default function PlayerPortal(){
       {active.status!=="closed"?<form onSubmit={sendReply} className="mt-4 space-y-3"><label className="block text-sm">Antwort<textarea required maxLength={4000} rows={3} value={reply} onChange={e=>setReply(e.target.value)} className="sky-portal-input mt-1"/></label><button disabled={busy} className="sky-portal-button">Antwort senden</button></form>:<p className="mt-4 text-sm text-purple-200">Dieses Ticket ist geschlossen.</p>}
      </>}
     </section>
-   </div>
+   </div>}
   </>}
  </div>;
 }
