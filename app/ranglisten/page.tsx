@@ -5,6 +5,8 @@ export const metadata: Metadata = { title: "Ranglisten", description: "Die SkyFu
 export const dynamic = "force-dynamic";
 
 type Entry = { minecraft_uuid: string; player_name: string; score: number };
+const excludedPlayers = new Set(["sett_camo", "chriss", "tobixv3"]);
+
 const categories = [
   { id: "coins", title: "Coins", icon: "🪙", unit: "Coins" },
   { id: "gems", title: "Gems", icon: "💎", unit: "Gems" },
@@ -44,6 +46,7 @@ async function getLeaderboard(): Promise<{ rows: Record<string, Entry[]>; error:
       }
       for (const item of result.data ?? []) {
         if (typeof item.category !== "string" || typeof item.minecraft_uuid !== "string") continue;
+        if (excludedPlayers.has(String(item.player_name ?? "").trim().toLowerCase())) continue;
         const score = Number(item.score);
         if (!Number.isFinite(score) || score <= 0) continue;
         (rows[item.category] ??= []).push({
