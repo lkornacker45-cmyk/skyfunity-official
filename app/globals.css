@@ -1230,3 +1230,33 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyJobChampionEnter{from{opacity:0;translate:0 65px;scale:.9}to{opacity:1;translate:0 0;scale:1}}
 @media(max-width:640px){.sky-job-scanner-core{width:65%;top:27%}.sky-job-scanner-frame{width:110%;top:12%;height:52%}.sky-job-scanner-readout{font-size:7px;letter-spacing:.04em;right:8px}.sky-job-scanner .sky-job-hq-hologram{opacity:.08}}
 @media(prefers-reduced-motion:reduce){.sky-job-scanner-beam,.sky-job-scanner-rotor,.sky-job-scanner-core-shadow,.sky-job-scanner-readout span,.sky-job-scanner .sky-job-hq-station,.sky-job-scanner .sky-job-hq-dashboard{animation:none!important}.sky-job-scanner-beam{opacity:.12;transform:none}.sky-job-scanner .sky-job-hq-station:hover{transform:none!important}}
+
+
+/* Jobs Factory v2: warm industrial copper/orange with purple shadows, no cyan tech aesthetic. */
+.sky-job-scanner{border:2px solid rgba(255,156,59,.68)!important;background:radial-gradient(ellipse 65% 45% at 50% 32%,rgba(252,142,37,.2),transparent 75%),linear-gradient(155deg,#130d17 0%,#25131b 48%,#0c0b13 100%)!important;box-shadow:0 20px 65px rgba(7,3,14,.65),inset 0 0 70px rgba(197,86,26,.12)}
+.sky-job-scanner .sky-mecha-scene{opacity:.12;background-image:linear-gradient(180deg,rgba(12,7,16,.25),rgba(12,7,16,.65)),url('/images/jobs-mecha-industries.svg')}
+.sky-job-scanner .sky-job-scanner-grid{background:repeating-linear-gradient(0deg,transparent 0 49px,rgba(255,162,73,.07) 50px,transparent 51px),repeating-linear-gradient(90deg,transparent 0 49px,rgba(255,162,73,.07) 50px,transparent 51px)}
+.sky-job-scanner .sky-job-scanner-frame{border-color:rgba(255,163,74,.28);box-shadow:inset 0 0 80px rgba(247,116,40,.09),0 0 50px rgba(247,116,40,.09)}
+.sky-job-scanner .sky-job-scanner-frame::before{border-color:rgba(255,177,80,.24)}
+.sky-job-scanner .sky-job-scanner-frame::after{background:linear-gradient(transparent,rgba(255,181,88,.32),transparent)}
+.sky-job-scanner .sky-job-scanner-beam{background:linear-gradient(180deg,transparent 0%,rgba(255,157,51,.02) 41%,rgba(255,165,53,.15) 48%,rgba(255,218,142,.72) 50%,rgba(255,149,42,.14) 52%,transparent 60%);filter:drop-shadow(0 0 12px rgba(255,151,48,.65))}
+.sky-job-scanner .sky-job-scanner-core{width:min(34%,240px);top:27%;filter:drop-shadow(0 0 17px rgba(255,145,48,.4))}
+.sky-job-scanner .sky-job-scanner-gear{background:repeating-conic-gradient(from 12deg,#ffc47a 0deg 8deg,#b9602b 10deg 22deg,#3b1d24 24deg 30deg);box-shadow:inset 0 0 32px rgba(255,187,100,.35)}
+.sky-job-scanner .sky-job-scanner-gear::before{border-color:rgba(31,15,23,.92);background:radial-gradient(circle,#ffe3ad 0 10%,#bc6c31 12% 27%,#321b22 29% 53%,#f2a254 55% 59%,#21131e 62%);box-shadow:0 0 22px rgba(255,161,64,.5),inset 0 0 20px rgba(255,160,68,.4)}
+.sky-job-scanner .sky-job-scanner-hub{background:radial-gradient(circle,#fff2d5,#ffae55 40%,#502a29 70%);box-shadow:0 0 23px rgba(255,161,70,.65)}
+.sky-job-scanner .sky-job-scanner-core-shadow{background:rgba(255,136,53,.32)}
+.sky-job-scanner .sky-job-scanner-readout{color:#ffc58b;text-shadow:0 0 10px rgba(255,140,44,.45)}
+.sky-job-scanner .sky-job-scanner-readout span{color:#ffb562}
+.sky-job-scanner .sky-job-hq-header h2{color:#fff3e5;text-shadow:0 0 28px rgba(255,139,48,.25)}
+.sky-job-scanner .sky-job-hq-header h2 span{background:linear-gradient(110deg,#ffcd77,#ff8a45 55%,#d4a2ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sky-job-scanner .sky-job-hq-kicker{color:#ffbf8d}
+.sky-job-scanner .sky-job-hq-system{border-color:rgba(255,162,72,.32);background:rgba(48,24,26,.75);color:#ffcb94}
+.sky-job-scanner .sky-job-hq-station{--job-accent:#e5a067;--job-glow:rgba(236,119,50,.2);background:linear-gradient(160deg,rgba(69,37,39,.96),rgba(36,23,36,.98) 48%,rgba(19,15,28,.98));border-color:rgba(255,166,92,.58);box-shadow:inset 0 1px rgba(255,229,188,.15),0 0 25px rgba(231,116,48,.12),0 20px 45px rgba(0,0,0,.4)}
+.sky-job-scanner .sky-job-hq-station-1{border-color:rgba(255,194,94,.9);box-shadow:0 0 28px rgba(255,153,52,.22),0 20px 45px rgba(0,0,0,.42)}
+.sky-job-scanner .sky-job-hq-hologram{opacity:.05}
+.sky-job-scanner .sky-job-hq-dashboard{border-color:rgba(255,166,84,.38);background:linear-gradient(145deg,rgba(39,24,32,.97),rgba(20,17,29,.98));box-shadow:0 20px 45px rgba(0,0,0,.4)}
+.sky-job-scanner .sky-job-hq-dashboard-title p{color:#ffb77d}
+.sky-job-scanner .sky-job-hq-row{border-color:rgba(255,161,78,.18);background:rgba(255,154,73,.04)}
+.sky-job-scanner .sky-job-hq-row:hover{border-color:rgba(255,181,97,.48);background:rgba(255,154,73,.11)}
+.sky-job-scanner .sky-job-hq-footer{color:#c99a83}
+@media(max-width:640px){.sky-job-scanner .sky-job-scanner-core{width:51%;top:25%}}
