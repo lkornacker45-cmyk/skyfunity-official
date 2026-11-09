@@ -123,13 +123,13 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
         const entries = (rows[category.id] ?? []).slice(0,10);
         if (category.id === "gems") {
           const top = entries.slice(0, 3);
-          return <section id="rangliste-gems" className="sky-infinity relative isolate mx-auto w-full overflow-hidden rounded-[28px]">
-            <div className="sky-infinity-stars" aria-hidden="true" />
+          return <section id="rangliste-gems" className="sky-infinity sky-diamond-44 relative isolate mx-auto w-full overflow-hidden rounded-[28px]">
+            <div className="sky-diamond-44-vault" aria-hidden="true" /><div className="sky-diamond-44-prisms" aria-hidden="true" /><div className="sky-infinity-stars" aria-hidden="true" />
             <div className="sky-infinity-beams" aria-hidden="true" />
             <header className="sky-infinity-header relative z-10">
               <Link href="/ranglisten" className="sky-infinity-back">← Alle Ranglisten</Link>
-              <p className="sky-infinity-eyebrow">✦ SKYFUNITY · HALL OF INFINITY ✦</p>
-              <h2>GEMS <span>INFINITY</span></h2>
+              <p className="sky-infinity-eyebrow">✦ SKYFUNITY · DIAMOND INFINITY · EDITION 44 ✦</p>
+              <h2>DIAMOND <span>INFINITY</span></h2>
               <p className="sky-infinity-subtitle">💎 Gems Top 10 · Die wertvollsten Spieler des Netzwerks</p>
             </header>
             {entries.length > 0 ? <>
@@ -140,7 +140,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
                 <div className="sky-infinity-diamond" aria-hidden="true">
                   <svg viewBox="0 0 220 250" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M110 8 199 70 181 170 110 238 39 170 21 70Z" fill="#9D69FF" fillOpacity=".13" stroke="#D7C2FF" strokeWidth="3"/><path d="M21 70H199L110 238 21 70ZM110 8 75 70 110 238 145 70 110 8ZM39 170H181M21 70 110 8 199 70" stroke="#B8F2FF" strokeOpacity=".75" strokeWidth="2"/><path d="M75 70H145L110 238Z" fill="#A5F3FC" fillOpacity=".16"/></svg>
                 </div>
-                <div className="sky-infinity-sparks" aria-hidden="true" />
+                <div className="sky-infinity-sparks" aria-hidden="true" /><div className="sky-diamond-44-radiance" aria-hidden="true" /><div className="sky-diamond-44-shard sky-diamond-44-shard-a" aria-hidden="true" /><div className="sky-diamond-44-shard sky-diamond-44-shard-b" aria-hidden="true" /><div className="sky-diamond-44-shard sky-diamond-44-shard-c" aria-hidden="true" />
                 <div className="sky-infinity-winners">
                   {[1,0,2].map((entryIndex) => {
                     const entry = top[entryIndex];
@@ -158,7 +158,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
                 </div>
               </div>
               <div className="sky-infinity-ranking">
-                <div className="sky-infinity-ranking-heading"><div><span>✦ INFINITY LEADERBOARD</span><h3>Weitere Champions</h3></div><span>RANG 04 — 10</span></div>
+                <div className="sky-infinity-ranking-heading"><div><span>✦ DIAMOND INFINITY · TOP 10</span><h3>Weitere Champions</h3></div><span>RANG 04 — 10</span></div>
                 <ol start={4} className="sky-infinity-rows">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-infinity-row">
                   <span className="sky-infinity-position">{String(index+4).padStart(2,"0")}</span>
                   <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="42" height="42" loading="lazy" className="sky-infinity-row-head"/>
@@ -167,7 +167,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
                 </li>)}</ol>
               </div>
             </> : <div className="sky-infinity-empty"><strong>{error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</strong><p>Die Gems-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
-            <footer className="sky-infinity-footer">✦ SKYFUNITY · INFINITY NEVER ENDS ✦</footer>
+            <footer className="sky-infinity-footer">✦ SKYFUNITY · DIAMOND INFINITY · FOREVER ✦</footer>
           </section>;
         }
         if (category.id === "jobs") {
