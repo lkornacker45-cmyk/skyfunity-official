@@ -39,5 +39,5 @@ export default function AnimatedCoinValue({ value, className }: Props) {
     };
   }, [value]);
 
-  return <span ref={element} className={className}>{display.toLocaleString("de-DE", { maximumFractionDigits: 1 })}</span>;
+  return <span ref={element} className={className}>{display.toLocaleString("de-DE", { minimumFractionDigits: 1, maximumFractionDigits: 1 })}</span>;
 }
