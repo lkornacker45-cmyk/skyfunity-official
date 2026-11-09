@@ -1,5 +1,6 @@
 import {NextRequest,NextResponse} from "next/server";
 import {createClient} from "@supabase/supabase-js";
+import {getContent} from "@/lib/content";
 export const dynamic="force-dynamic";
 async function players(url:string):Promise<number|null>{
  try{const r=await fetch(url,{cache:"no-store",signal:AbortSignal.timeout(8000)});if(!r.ok)return null;
@@ -11,7 +12,8 @@ export async function GET(request:NextRequest){
  if(!secret||request.headers.get("authorization")!==`Bearer ${secret}`)return NextResponse.json({error:"Unauthorized"},{status:401});
  const url=process.env.NEXT_PUBLIC_SUPABASE_URL, key=process.env.SUPABASE_SERVICE_ROLE_KEY;
  if(!url||!key)return NextResponse.json({error:"Missing Supabase server credentials"},{status:503});
- const address=encodeURIComponent(process.env.MINECRAFT_SERVER_ADDRESS||"play.skyfunity.net");
+ const {server}=await getContent();
+ const address=encodeURIComponent(server.address);
  const [java,bedrock]=await Promise.all([
   players(`https://api.mcsrvstat.us/3/${address}`),
   players(`https://api.mcsrvstat.us/bedrock/3/${address}`)
