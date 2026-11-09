@@ -66,7 +66,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   if(!selected)notFound();
   const { rows, error } = await getLeaderboard();
   return <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-    <div className="mb-10 text-center">
+    <div className={selected.id === "gems" ? "hidden" : "mb-10 text-center"}>
       <p className="text-xs font-extrabold uppercase tracking-[.25em] text-purple-300">✦ SkyFunity Netzwerk ✦</p>
       <h1 className="mt-4 text-4xl font-black text-white sm:text-6xl">{selected.icon} <span className="text-purple-400">{selected.title}</span>-Rangliste</h1>
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
@@ -79,7 +79,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
           const winners = [entries[1],entries[0],entries[2]];
           const ranks = [2,1,3];
           return <section id="rangliste-gems" className="sky-tokyo-board relative isolate mx-auto w-full overflow-hidden rounded-[28px] border border-fuchsia-400/50 p-4 sm:p-8 lg:p-10">
-            <div className="sky-tokyo-scenery" aria-hidden="true"/>
+            <div className="sky-tokyo-scenery" aria-hidden="true"/><div className="sky-tokyo-rain" aria-hidden="true"/><div className="sky-tokyo-sign sky-tokyo-sign-left" aria-hidden="true">💎 GEMS</div><div className="sky-tokyo-sign sky-tokyo-sign-right" aria-hidden="true">SKYFUNITY</div>
             <div className="relative z-10">
               <header className="mb-9 text-center">
                 <p className="text-[10px] font-extrabold uppercase tracking-[.22em] text-fuchsia-200 sm:text-sm">— SkyFunity Hall of Champions —</p>
@@ -89,7 +89,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               {entries.length > 0 ? <>
                 <div className="sky-tokyo-podium mx-auto grid max-w-4xl grid-cols-3 items-end gap-2 sm:gap-6" aria-label="Gems Siegerpodest">
                   {winners.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-tokyo-card sky-tokyo-place-${ranks[index]} group relative flex min-w-0 flex-col items-center rounded-2xl px-2 pb-4 pt-4 text-center transition-transform duration-300 hover:-translate-y-2 sm:rounded-3xl sm:px-5 sm:pb-6 sm:pt-6`}>
-                    <span className="sky-tokyo-crown" aria-label={`Platz ${ranks[index]}`}>👑</span>
+                    <span className="sky-tokyo-crown" aria-label={`Platz ${ranks[index]}`}>{index===1?"👑":index===0?"♛":"♛"}</span>
                     <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/128`} alt={`Minecraft-Kopf von ${entry.player_name}`} width="96" height="96" loading="lazy" className="sky-tokyo-avatar mt-2 aspect-square w-14 rounded-lg object-cover sm:mt-4 sm:w-24" style={{imageRendering:"pixelated"}}/>
                     <span className="sky-tokyo-rank mt-3 rounded-lg px-3 py-1 text-sm font-black sm:text-lg">{ranks[index]}</span>
                     <strong className="mt-3 block w-full truncate text-xs font-black text-white sm:text-xl" title={entry.player_name}>{entry.player_name}</strong>
