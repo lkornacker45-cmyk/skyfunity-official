@@ -1,4 +1,13 @@
 {
+  "partners": [
+    {
+      "name": "aitch.systems",
+      "description": "Unser Partner – aitch.systems\n\nMit **aitch.systems** haben wir einen zuverlässigen Partner an unserer Seite, der leistungsstarke Hosting- und Serverlösungen anbietet. Profitiert von moderner Technik, hoher Performance und zuverlässigem Service zu fairen Preisen.\n\n🚀 Jetzt entdecken: https://aitch.systems",
+      "url": "https://aitch.systems",
+      "logo": "https://aitch.systems/data/logo_350x55.svg",
+      "status": "planned"
+    }
+  ],
   "uiLabels": {},
   "typography": {
     "font": "rounded",
