@@ -26,6 +26,11 @@ export default function PlayerPortal(){
   return ()=>window.removeEventListener("popstate",update);
  },[]);
  const [profile,setProfile]=useState<Profile|null>(null);
+ const [linkedUuid,setLinkedUuid]=useState<string|null>(null);
+ const [linkStatus,setLinkStatus]=useState<"loading"|"ready"|"unavailable">("loading");
+ const [newPassword,setNewPassword]=useState("");
+ const [confirmPassword,setConfirmPassword]=useState("");
+ const [passwordBusy,setPasswordBusy]=useState(false);
  const [tickets,setTickets]=useState<Ticket[]>([]);
  const [messages,setMessages]=useState<Message[]>([]);
  const [selected,setSelected]=useState<string|null>(null);
@@ -49,6 +54,20 @@ export default function PlayerPortal(){
   return ()=>{alive=false;subscription.unsubscribe();};
  },[]);
  useEffect(()=>{
+  if(!client||!user){setLinkedUuid(null);setLinkStatus("loading");return;}
+  const db=client;
+  let active=true;
+  async function loadLink(){
+   const {data,error}=await db.from("minecraft_links").select("minecraft_uuid").eq("user_id",user!.id).maybeSingle();
+   if(!active)return;
+   setLinkedUuid(error?null:data?.minecraft_uuid||null);
+   setLinkStatus(error?"unavailable":"ready");
+  }
+  void loadLink();
+  const interval=setInterval(()=>void loadLink(),15000);
+  return ()=>{active=false;clearInterval(interval);};
+ },[user?.id]);
+ useEffect(()=>{
   if(!client||!selected||!user)return;
   client.from("ticket_messages").select("id,ticket_id,author_id,body,created_at").eq("ticket_id",selected).order("created_at",{ascending:true}).then(({data,error})=>{if(error)setNotice(error.message);else setMessages(data||[]);});
  },[selected,user]);
@@ -63,6 +82,25 @@ export default function PlayerPortal(){
     setNotice("Registrierung eingereicht! Bitte bestätige deine E-Mail, bevor du dich anmeldest.");
    }else{const {error}=await client.auth.signInWithPassword({email,password});if(error)throw error;setNotice("Angemeldet.");}
   }catch(e){setNotice(e instanceof Error?e.message:"Ein Fehler ist aufgetreten.");}finally{setBusy(false);}
+ }
+ async function changePassword(e:React.FormEvent){
+  e.preventDefault();
+  if(!client||!user||passwordBusy)return;
+  if(newPassword.length<10){setNotice("Das neue Passwort muss mindestens 10 Zeichen haben.");return;}
+  if(newPassword!==confirmPassword){setNotice("Die Passwörter stimmen nicht überein.");return;}
+  setPasswordBusy(true);setNotice("");
+  try{
+   const {error}=await client.auth.updateUser({password:newPassword});
+   if(error)throw error;
+   setNewPassword("");setConfirmPassword("");
+   setNotice("Dein Passwort wurde erfolgreich geändert.");
+  }catch(e){setNotice(e instanceof Error?e.message:"Passwort konnte nicht geändert werden.");}
+  finally{setPasswordBusy(false);}
+ }
+ function showTickets(ticketId?:string){
+  if(ticketId)setSelected(ticketId);
+  setSection("tickets");
+  if(typeof window!=="undefined")window.history.pushState(null,"","/account?tab=tickets");
  }
  async function createTicket(e:React.FormEvent){e.preventDefault();if(!client||!user)return;setBusy(true);setNotice("");
   try{
@@ -94,15 +132,30 @@ export default function PlayerPortal(){
    </form>
   </section>:<>
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
-   {section==="overview"&&<section className="sky-portal-panel">
-    <h2 className="mb-2 text-2xl font-bold text-cyan-200">Dein SkyFunity-Account</h2>
-    <p className="mb-5 text-purple-200">Willkommen in deinem persönlichen Spielerbereich! Wähle im oberen Menü unter „Account“ deinen gewünschten Bereich.</p>
-    <div className="grid gap-3 sm:grid-cols-3">
-     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("stats")}><span className="font-bold">📊 Meine Statistiken</span><span className="text-sm text-purple-200">Coins, Funitys, Gems, Jobs und Spielzeit ansehen</span></button>
-     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("link")}><span className="font-bold">🔗 Minecraft verbinden</span><span className="text-sm text-purple-200">Verbindungscode für /websitelink erstellen</span></button>
-     <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("tickets")}><span className="font-bold">🎫 Support & Tickets</span><span className="text-sm text-purple-200">{tickets.length} {tickets.length===1?"Ticket":"Tickets"} · Hilfe erhalten</span></button>
-    </div>
-   </section>}
+   {section==="overview"&&<div className="space-y-6">
+    <section className="sky-portal-panel">
+     <h2 className="mb-5 text-2xl font-bold text-cyan-200">Account & Sicherheit</h2>
+     <div className="grid gap-4 sm:grid-cols-2">
+      <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">Minecraft-Benutzername</p><p className="break-words font-bold">{profile?.minecraft_name||"Nicht hinterlegt"}</p></div>
+      <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">E-Mail-Adresse</p><p className="break-all font-bold">{user.email||"Nicht hinterlegt"}</p></div>
+      <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">Minecraft-Verknüpfung</p><p className="font-bold">{linkStatus==="loading"?"Wird geprüft…":linkStatus==="unavailable"?"Zurzeit nicht abrufbar":linkedUuid?"✓ Verbunden":"Noch nicht verbunden"}</p>{linkedUuid&&<p className="mt-2 break-all text-xs text-purple-200">UUID: {linkedUuid}</p>}<button type="button" className="sky-portal-tab mt-3" onClick={()=>{setSection("link");window.history.pushState(null,"","/account?tab=link");}}>Minecraft verbinden</button></div>
+      <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">Letzte Anmeldung</p><p className="font-bold">{user.last_sign_in_at?new Date(user.last_sign_in_at).toLocaleString("de-DE",{dateStyle:"medium",timeStyle:"short"}):"Nicht verfügbar"}</p></div>
+     </div>
+     <div className="mt-5 border-t border-purple-300/20 pt-5">
+      <h3 className="mb-3 text-lg font-bold">Passwort ändern</h3>
+      <form onSubmit={changePassword} className="grid gap-3 sm:grid-cols-2">
+       <label className="block text-sm text-purple-100">Neues Passwort<input type="password" autoComplete="new-password" minLength={10} required value={newPassword} onChange={e=>setNewPassword(e.target.value)} className="sky-portal-input mt-1"/></label>
+       <label className="block text-sm text-purple-100">Passwort wiederholen<input type="password" autoComplete="new-password" minLength={10} required value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} className="sky-portal-input mt-1"/></label>
+       <div className="sm:col-span-2"><button type="submit" disabled={passwordBusy} className="sky-portal-button">{passwordBusy?"Wird gespeichert…":"Passwort speichern"}</button></div>
+      </form>
+     </div>
+    </section>
+    <section className="sky-portal-panel">
+     <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-xl font-bold text-cyan-200">{staff?"Offene Support-Tickets":"Meine offenen Tickets"}</h2><p className="mt-1 text-sm text-purple-200">{staff?"Alle für das Team sichtbaren offenen Tickets":"Deine noch nicht geschlossenen Anfragen"}</p></div><span className="rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-sm font-bold">{tickets.filter(t=>t.status!=="closed").length} offen</span></div>
+     {tickets.filter(t=>t.status!=="closed").length===0?<p className="mb-4 text-purple-200">Aktuell keine offenen Tickets.</p>:<div className="mb-4 space-y-2">{tickets.filter(t=>t.status!=="closed").slice(0,5).map(t=><button type="button" key={t.id} onClick={()=>showTickets(t.id)} className="sky-ticket-item text-left"><span className="font-bold">{t.subject}</span><span className="text-xs text-purple-200">{t.category} · {statusLabel[t.status]||t.status}</span></button>)}</div>}
+     <div className="flex flex-wrap gap-3"><button type="button" className="sky-portal-button" onClick={()=>showTickets()}>Neues Ticket erstellen</button><button type="button" className="sky-portal-tab" onClick={()=>showTickets()}>Alle Tickets ansehen</button></div>
+    </section>
+   </div>}
    {section==="link"&&<MinecraftLink db={client} userId={user.id}/>}
    {section==="stats"&&<PlayerStats db={client} userId={user.id} minecraftName={profile?.minecraft_name||"Spieler"}/>}
    {section==="tickets"&&<div className="grid gap-6 lg:grid-cols-[1fr_1.3fr]">
