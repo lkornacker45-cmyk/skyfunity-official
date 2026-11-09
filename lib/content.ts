@@ -1,7 +1,7 @@
 import "server-only";
 import defaults from "@/data/content.json";
 import {siteCopyDefaults,type SiteCopy} from "@/lib/site-copy";
-export type Content={typography?:{font:string;textColor:string;headingColor:string};homeWidgets?:{id:string;visible:boolean}[];treeCategories?:string[];appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;discordGuildId?:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;homes?:string;auctionHouse?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string;treeX?:number;treeY?:number;treeCategory?:string}[];features:{title:string;description:string}[]};
+export type Content={uiLabels?:Partial<Record<"teamMenu"|"accountMenu"|"overview"|"stats"|"link"|"tickets"|"securityHeading"|"ticketsHeading"|"passwordHeading"|"teamAll",string>>;typography?:{font:string;textColor:string;headingColor:string};homeWidgets?:{id:string;visible:boolean}[];treeCategories?:string[];appearance?:{background:string;backgroundImage:string;backgroundGallery?:string[];particles:string;intensity:number};copy?:SiteCopy;theme?:"default"|"christmas"|"easter"|"halloween"|"newyear"|"summer"|"winter";headings?:Record<"team"|"ranks"|"features",{before:string;highlight:string;description:string}>;server:{name:string;address:string;discord:string;shop:string;discordGuildId?:string;bedrockPort?:string;bedrockPortConfirmed?:boolean};ranks:{name:string;color:string;benefits:string[];image?:string;description?:string;plots?:string;warps?:string;homes?:string;auctionHouse?:string;commands?:string[]}[];team:{name:string;role:string;avatar?:string;bio?:string;tasks?:string;since?:string;treeX?:number;treeY?:number;treeCategory?:string}[];features:{title:string;description:string}[]};
 export const defaultContent:Content=validateContent(defaults)!;
 const OWNER="lkornacker45-cmyk",REPO="skyfunity-official",PATH="data/content.json";
 export function validateContent(value:unknown):Content|null{
@@ -26,6 +26,16 @@ export function validateContent(value:unknown):Content|null{
  if(v.typography!==undefined){const t=v.typography as Record<string,unknown>;if(!t||typeof t!=="object"||!["modern","classic","rounded","serif","mono","condensed","elegant","pixel"].includes(t.font as string)||!["white","slate","lavender","pink","cyan","mint","gold","orange","red","blue"].includes(t.textColor as string)||!["white","slate","lavender","pink","cyan","mint","gold","orange","red","blue"].includes(t.headingColor as string))return null;Object.assign(typography,t)}
  const copy:SiteCopy={...siteCopyDefaults};
  if(v.copy!==undefined){if(!v.copy||typeof v.copy!=="object"||Array.isArray(v.copy))return null;const values=v.copy as Record<string,unknown>;for(const key of Object.keys(siteCopyDefaults) as (keyof SiteCopy)[]){if(values[key]!==undefined){if(!str(values[key],600))return null;copy[key]=values[key] as string}}}
+ const labelKeys=["teamMenu","accountMenu","overview","stats","link","tickets","securityHeading","ticketsHeading","passwordHeading","teamAll"];
+ const uiLabels:Content["uiLabels"]={};
+ if(v.uiLabels!==undefined){
+  if(!v.uiLabels||typeof v.uiLabels!=="object"||Array.isArray(v.uiLabels))return null;
+  const labels=v.uiLabels as Record<string,unknown>;
+  for(const [key,value] of Object.entries(labels)){
+   if(!labelKeys.includes(key)||!str(value,80))return null;
+   Object.assign(uiLabels,{[key]:value});
+  }
+ }
  const theme=v.theme===undefined?"default":v.theme;
  if(!["default","christmas","easter","halloween","newyear","summer","winter"].includes(theme as string))return null;
  const appearance={background:"theme",backgroundImage:"",particles:"off",intensity:12};
@@ -37,7 +47,7 @@ export function validateContent(value:unknown):Content|null{
  if(typeof a.particles!=="string"||!["off","snow","stars","hearts","pumpkins","leaves","eggs","sparkles"].includes(a.particles))return null;
  if(typeof a.intensity!=="number"||!Number.isInteger(a.intensity)||a.intensity<3||a.intensity>30)return null;
  Object.assign(appearance,a)}
- return {typography,homeWidgets,treeCategories:v.treeCategories as string[]|undefined,appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,discordGuildId:s.discordGuildId as string|undefined,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
+ return {uiLabels,typography,homeWidgets,treeCategories:v.treeCategories as string[]|undefined,appearance,copy,theme:theme as Content["theme"],headings,server:{name:s.name as string,address:s.address as string,discord:s.discord as string,shop:s.shop as string,discordGuildId:s.discordGuildId as string|undefined,bedrockPort:s.bedrockPort as string|undefined,bedrockPortConfirmed:s.bedrockPortConfirmed as boolean|undefined},ranks:v.ranks,team:v.team,features:v.features} as Content;
 }
 export async function getContent():Promise<Content>{
  try{
