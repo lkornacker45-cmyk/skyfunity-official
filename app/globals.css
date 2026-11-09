@@ -1260,3 +1260,25 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-job-scanner .sky-job-hq-row:hover{border-color:rgba(255,181,97,.48);background:rgba(255,154,73,.11)}
 .sky-job-scanner .sky-job-hq-footer{color:#c99a83}
 @media(max-width:640px){.sky-job-scanner .sky-job-scanner-core{width:51%;top:25%}}
+
+
+/* Jobs visual cleanup: replace all gear silhouettes with a premium copper holographic power cube. */
+.sky-job-scanner .sky-job-hq-hologram-gear{display:none!important}
+.sky-job-scanner .sky-job-hq-hologram-ring{opacity:.25}
+.sky-job-scanner .sky-job-scanner-core{top:29%;width:min(34%,250px);filter:drop-shadow(0 0 28px rgba(255,153,64,.35))}
+.sky-job-scanner .sky-job-holo-machine{position:absolute;inset:20%;transform-style:preserve-3d;animation:skyJobHoloCubeRotate 13s linear infinite}
+.sky-job-scanner .sky-job-holo-face{position:absolute;inset:0;display:block;border:2px solid rgba(255,192,111,.75);background:linear-gradient(135deg,rgba(255,168,66,.24),rgba(87,34,48,.5) 58%,rgba(22,16,32,.72));box-shadow:inset 0 0 32px rgba(255,150,64,.25),0 0 18px rgba(255,140,55,.16);backface-visibility:visible}
+.sky-job-scanner .sky-job-holo-face::before{content:"";position:absolute;inset:13%;border:1px solid rgba(255,208,144,.38);background:linear-gradient(135deg,transparent 40%,rgba(255,183,87,.12) 50%,transparent 60%)}
+.sky-job-scanner .sky-job-holo-front{transform:translateZ(60px)}
+.sky-job-scanner .sky-job-holo-back{transform:rotateY(180deg) translateZ(60px)}
+.sky-job-scanner .sky-job-holo-left{transform:rotateY(-90deg) translateZ(60px)}
+.sky-job-scanner .sky-job-holo-right{transform:rotateY(90deg) translateZ(60px)}
+.sky-job-scanner .sky-job-holo-top{transform:rotateX(90deg) translateZ(60px)}
+.sky-job-scanner .sky-job-holo-bottom{transform:rotateX(-90deg) translateZ(60px)}
+.sky-job-scanner .sky-job-holo-energy{position:absolute;inset:34%;border-radius:50%;background:radial-gradient(circle,#fff4c9 0%,#ffb95c 34%,rgba(255,132,44,.6) 60%,transparent 75%);box-shadow:0 0 35px 15px rgba(255,139,44,.5);transform:translateZ(0);animation:skyJobHoloEnergyPulse 3s ease-in-out infinite}
+.sky-job-scanner .sky-job-scanner-frame{border-radius:18px;border-color:rgba(255,172,82,.22)}
+.sky-job-scanner .sky-job-scanner-frame::before{border-radius:12px}
+@keyframes skyJobHoloCubeRotate{0%{transform:rotateX(-20deg) rotateY(0deg) translateY(0)}50%{transform:rotateX(20deg) rotateY(180deg) translateY(-12px)}100%{transform:rotateX(-20deg) rotateY(360deg) translateY(0)}}
+@keyframes skyJobHoloEnergyPulse{50%{opacity:.55;scale:.8}}
+@media(max-width:640px){.sky-job-scanner .sky-job-scanner-core{width:55%;top:28%}.sky-job-scanner .sky-job-holo-front{transform:translateZ(38px)}.sky-job-scanner .sky-job-holo-back{transform:rotateY(180deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-left{transform:rotateY(-90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-right{transform:rotateY(90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-top{transform:rotateX(90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-bottom{transform:rotateX(-90deg) translateZ(38px)}}
+@media(prefers-reduced-motion:reduce){.sky-job-scanner .sky-job-holo-machine,.sky-job-scanner .sky-job-holo-energy{animation:none!important}}
