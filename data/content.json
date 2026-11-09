@@ -1,4 +1,16 @@
 {
+  "navigationOrder": [
+    "start",
+    "ranks",
+    "features",
+    "join",
+    "team",
+    "leaderboards",
+    "discord",
+    "partners",
+    "shop",
+    "account"
+  ],
   "partners": [
     {
       "name": "aitch.systems",
