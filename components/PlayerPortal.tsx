@@ -13,7 +13,7 @@ const url=process.env.NEXT_PUBLIC_SUPABASE_URL;
 const key=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const client=url&&key?createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}}):null;
 
-export default function PlayerPortal(){
+export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"securityHeading"|"ticketsHeading"|"passwordHeading",string>>}){
  const [user,setUser]=useState<User|null>(null);
  const [section,setSection]=useState<"overview"|"stats"|"link"|"tickets">("overview");
  useEffect(()=>{
@@ -134,7 +134,7 @@ export default function PlayerPortal(){
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
    {section==="overview"&&<div className="space-y-6">
     <section className="sky-portal-panel">
-     <h2 className="mb-5 text-2xl font-bold text-cyan-200">Account & Sicherheit</h2>
+     <h2 className="mb-5 text-2xl font-bold text-cyan-200">{uiLabels?.securityHeading||"Account & Sicherheit"}</h2>
      <div className="grid gap-4 sm:grid-cols-2">
       <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">Minecraft-Benutzername</p><p className="break-words font-bold">{profile?.minecraft_name||"Nicht hinterlegt"}</p></div>
       <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">E-Mail-Adresse</p><p className="break-all font-bold">{user.email||"Nicht hinterlegt"}</p></div>
@@ -142,7 +142,7 @@ export default function PlayerPortal(){
       <div className="sky-player-stat-tile"><p className="mb-2 text-sm text-purple-200">Letzte Anmeldung</p><p className="font-bold">{user.last_sign_in_at?new Date(user.last_sign_in_at).toLocaleString("de-DE",{dateStyle:"medium",timeStyle:"short"}):"Nicht verfügbar"}</p></div>
      </div>
      <div className="mt-5 border-t border-purple-300/20 pt-5">
-      <h3 className="mb-3 text-lg font-bold">Passwort ändern</h3>
+      <h3 className="mb-3 text-lg font-bold">{uiLabels?.passwordHeading||"Passwort ändern"}</h3>
       <form onSubmit={changePassword} className="grid gap-3 sm:grid-cols-2">
        <label className="block text-sm text-purple-100">Neues Passwort<input type="password" autoComplete="new-password" minLength={10} required value={newPassword} onChange={e=>setNewPassword(e.target.value)} className="sky-portal-input mt-1"/></label>
        <label className="block text-sm text-purple-100">Passwort wiederholen<input type="password" autoComplete="new-password" minLength={10} required value={confirmPassword} onChange={e=>setConfirmPassword(e.target.value)} className="sky-portal-input mt-1"/></label>
@@ -151,7 +151,7 @@ export default function PlayerPortal(){
      </div>
     </section>
     <section className="sky-portal-panel">
-     <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-xl font-bold text-cyan-200">{staff?"Offene Support-Tickets":"Meine offenen Tickets"}</h2><p className="mt-1 text-sm text-purple-200">{staff?"Alle für das Team sichtbaren offenen Tickets":"Deine noch nicht geschlossenen Anfragen"}</p></div><span className="rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-sm font-bold">{tickets.filter(t=>t.status!=="closed").length} offen</span></div>
+     <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-xl font-bold text-cyan-200">{staff?(uiLabels?.ticketsHeading||"Offene Support-Tickets"):"Meine "+(uiLabels?.ticketsHeading||"offenen Tickets").toLowerCase()}</h2><p className="mt-1 text-sm text-purple-200">{staff?"Alle für das Team sichtbaren offenen Tickets":"Deine noch nicht geschlossenen Anfragen"}</p></div><span className="rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-sm font-bold">{tickets.filter(t=>t.status!=="closed").length} offen</span></div>
      {tickets.filter(t=>t.status!=="closed").length===0?<p className="mb-4 text-purple-200">Aktuell keine offenen Tickets.</p>:<div className="mb-4 space-y-2">{tickets.filter(t=>t.status!=="closed").slice(0,5).map(t=><button type="button" key={t.id} onClick={()=>showTickets(t.id)} className="sky-ticket-item text-left"><span className="font-bold">{t.subject}</span><span className="text-xs text-purple-200">{t.category} · {statusLabel[t.status]||t.status}</span></button>)}</div>}
      <div className="flex flex-wrap gap-3"><button type="button" className="sky-portal-button" onClick={()=>showTickets()}>Neues Ticket erstellen</button><button type="button" className="sky-portal-tab" onClick={()=>showTickets()}>Alle Tickets ansehen</button></div>
     </section>
