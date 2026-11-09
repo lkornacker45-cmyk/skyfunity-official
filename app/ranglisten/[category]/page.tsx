@@ -66,13 +66,13 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   if(!selected)notFound();
   const { rows, error } = await getLeaderboard();
   return <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-    <div className={selected.id === "gems" ? "hidden" : "mb-10 text-center"}>
+    <div className={selected.id === "gems" || selected.id === "jobs" ? "hidden" : "mb-10 text-center"}>
       <p className="text-xs font-extrabold uppercase tracking-[.25em] text-purple-300">✦ SkyFunity Netzwerk ✦</p>
       <h1 className="mt-4 text-4xl font-black text-white sm:text-6xl">{selected.icon} <span className="text-purple-400">{selected.title}</span>-Rangliste</h1>
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
       <Link href="/ranglisten" className="mt-5 inline-block text-sm font-bold text-cyan-200 hover:text-white">← Zur Ranglisten-Übersicht</Link>
     </div>
-    <div className={selected.id === "coins" || selected.id === "gems" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
+    <div className={selected.id === "coins" || selected.id === "gems" || selected.id === "jobs" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
         if (category.id === "gems") {
@@ -122,6 +122,47 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               </div>
             </> : <div className="sky-infinity-empty"><strong>{error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</strong><p>Die Gems-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
             <footer className="sky-infinity-footer">✦ SKYFUNITY · INFINITY NEVER ENDS ✦</footer>
+          </section>;
+        }
+        if (category.id === "jobs") {
+          const top = entries.slice(0,3);
+          return <section id="rangliste-jobs" className="sky-job-hq" aria-label="SkyFunity Jobs Top 10">
+            <div className="sky-job-hq-architecture" aria-hidden="true"><div className="sky-job-hq-ceiling"/><div className="sky-job-hq-window"/><div className="sky-job-hq-floor"/></div>
+            <header className="sky-job-hq-header">
+              <Link href="/ranglisten" className="sky-job-hq-back">← Alle Ranglisten</Link>
+              <p className="sky-job-hq-kicker">SKYFUNITY // OPERATIONS CENTER // SEKTOR 04</p>
+              <h2>JOB MASTER <span>HQ</span></h2>
+              <p className="sky-job-hq-description">🛠️ Jobs Top 10 · Die besten Arbeiter des Netzwerks</p>
+              <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> RANGLISTE ONLINE <span aria-hidden="true">/</span> ECHTE JOBS-LEVEL</div>
+            </header>
+            {entries.length ? <>
+              <div className="sky-job-hq-stage" aria-label="Jobs Top 3 Kommandozentrale">
+                <div className="sky-job-hq-hologram" aria-hidden="true"><div className="sky-job-hq-hologram-ring"/><div className="sky-job-hq-hologram-gear">⚙</div></div>
+                {[1,0,2].map((entryIndex)=>{
+                  const entry=top[entryIndex];
+                  const rank=entryIndex+1;
+                  return entry?<article key={entry.minecraft_uuid} className={`sky-job-hq-station sky-job-hq-station-${rank}`}>
+                    <div className="sky-job-hq-station-top"><span>{rank===1?"COMMANDER STATION":rank===2?"ELITE STATION A":"ELITE STATION B"}</span><span className="sky-job-hq-status-light"/></div>
+                    <div className="sky-job-hq-scan" aria-hidden="true"/>
+                    <div className="sky-job-hq-rank">{rank===1?"👑":rank===2?"🥈":"🥉"} <span>PLATZ {String(rank).padStart(2,"0")}</span></div>
+                    <div className="sky-job-hq-avatar-frame"><img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/128`} alt={`Minecraft-Spielerkopf von ${entry.player_name}`} width="100" height="100" loading={rank===1?"eager":"lazy"} className="sky-job-hq-avatar"/></div>
+                    <strong className="sky-job-hq-name" title={entry.player_name}>{entry.player_name}</strong>
+                    <p className="sky-job-hq-level">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}<small>JOBS-LEVEL</small></p>
+                    <div className="sky-job-hq-console" aria-hidden="true"><i/><i/><i/><i/><i/></div>
+                  </article>:<div key={rank} className="sky-job-hq-empty-station" aria-hidden="true"/>;
+                })}
+              </div>
+              <div className="sky-job-hq-dashboard">
+                <div className="sky-job-hq-dashboard-title"><div><p>PERSONNEL DATABASE / TOP 10</p><h3>Weitere Spezialisten</h3></div><span>RANG 04 — 10</span></div>
+                <ol start={4} className="sky-job-hq-list">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-job-hq-row">
+                  <span className="sky-job-hq-row-rank">{String(index+4).padStart(2,"0")}</span>
+                  <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="42" height="42" loading="lazy" className="sky-job-hq-row-avatar"/>
+                  <strong title={entry.player_name} className="sky-job-hq-row-name">{entry.player_name}</strong>
+                  <span className="sky-job-hq-row-level">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>LEVEL</small></span>
+                </li>)}</ol>
+              </div>
+            </>:<div className="sky-job-hq-no-data"><strong>{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</strong><p>Die Jobs-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
+            <footer className="sky-job-hq-footer">SKYFUNITY OPERATIONS CENTER · JOB MASTER HQ</footer>
           </section>;
         }
         if (category.id === "coins") {
