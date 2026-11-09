@@ -76,10 +76,10 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       <div className="sky-orbital-beam" aria-hidden="true"/>
       <header className="sky-orbital-header">
         <Link href="/ranglisten" className="sky-orbital-back">← Alle Ranglisten</Link>
-        <p className="sky-orbital-eyebrow">{selected.id === "coins" ? "✦ SKYFUNITY · GOLD INDUSTRIES · COIN FACTORY ✦" : "✦ SKYFUNITY · ORBITAL WORKS · SPACE SHIPYARD ✦"}</p>
+        <p className="sky-orbital-eyebrow">{"✦ SKYFUNITY · GOLD INDUSTRIES · COIN FACTORY ✦"}</p>
         <h1><span>{selected.icon}</span> {selected.title.toUpperCase()} <em>TOP 10</em></h1>
-        <p className="sky-orbital-description">{selected.id === "coins" ? "Die reichsten Spieler des SkyFunity-Netzwerks" : `Die besten ${selected.title}-Spieler des SkyFunity-Netzwerks`}</p>
-        <div className="sky-orbital-signal"><i aria-hidden="true"/> {selected.id === "coins" ? "GOLD FACTORY // LIVE-RANGLISTE" : "ORBITAL COMMAND // LIVE-RANGLISTE"} <span>·</span> {selected.unit.toUpperCase()}</div>
+        <p className="sky-orbital-description">{"Die reichsten Spieler des SkyFunity-Netzwerks"}</p>
+        <div className="sky-orbital-signal"><i aria-hidden="true"/> {"GOLD FACTORY // LIVE-RANGLISTE"} <span>·</span> {selected.unit.toUpperCase()}</div>
       </header>
       {entries.length ? <>
         <div className="sky-orbital-stage" aria-label={`Die drei besten Spieler für ${selected.title}`}>
@@ -97,7 +97,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
           </div>
         </div>
         <div className="sky-orbital-board">
-          <div className="sky-orbital-board-title"><div><p>✦ {selected.id === "coins" ? "GOLD FACTORY LEADERBOARD" : "ORBITAL PERSONNEL DATABASE"}</p><h2>Weitere Champions</h2></div><span>RANG 04 — 10</span></div>
+          <div className="sky-orbital-board-title"><div><p>✦ {"GOLD FACTORY LEADERBOARD"}</p><h2>Weitere Champions</h2></div><span>RANG 04 — 10</span></div>
           <ol start={4} className="sky-orbital-list">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-orbital-row">
             <span className="sky-orbital-row-rank">{String(index+4).padStart(2,"0")}</span>
             <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="42" height="42" loading="lazy" className="sky-orbital-row-head"/>
@@ -106,7 +106,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
           </li>)}</ol>
         </div>
       </>:<div className="sky-orbital-empty"><strong>{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</strong><p>Die {selected.title}-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
-      <footer className="sky-orbital-footer">✦ SKYFUNITY · {selected.id === "coins" ? "GOLD INDUSTRIES" : "ORBITAL WORKS"} · {selected.title.toUpperCase()} ✦</footer>
+      <footer className="sky-orbital-footer">✦ SKYFUNITY · {"GOLD INDUSTRIES"} · {selected.title.toUpperCase()} ✦</footer>
     </section>
     <p className="mt-8 text-center text-sm text-slate-400">Öffentliche Ranglisten zeigen ausschließlich Spielernamen und aggregierte Werte. Veraltete Test-Server-IDs werden nicht mitgezählt.</p>
   </main>;
