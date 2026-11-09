@@ -8,6 +8,7 @@ export default function ServerStatus({copy}:{copy?:SiteCopy}){const t={...siteCo
  const [status,setStatus]=useState<Status|null>(null);
  const [error,setError]=useState(false);
  const [history,setHistory]=useState<Sample[]>([]);
+ useEffect(()=>{let active=true;async function load(){try{const r=await fetch("/api/status",{cache:"no-store"});if(!r.ok)throw Error();const d:Status=await r.json();if(active){setStatus(d);setError(false);setHistory(prev=>[...prev,{time:new Date().toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"}),java:d.java.players,bedrock:d.bedrock.players}].slice(-30))}}catch{if(active)setError(true)}}void load();const timer=setInterval(()=>void load(),43200000);return()=>{active=false;clearInterval(timer)}},[]);
  const cards=[{name:t["status.javaTitle"],icon:"⛏",data:status?.java},{name:t["status.bedrockTitle"],icon:"◆",data:status?.bedrock}];
  const valid=history.some(p=>p.java!==null||p.bedrock!==null);
  const max=Math.max(1,...history.flatMap(p=>[p.java??0,p.bedrock??0]));
