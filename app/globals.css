@@ -1564,3 +1564,13 @@ body .sky-liquid-brand > .sky-brand-logo{
    Offset the hologram artwork, not the entire leaderboard or its spacing. */
 .sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{transform:translateY(56px)!important}
 @media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{transform:translateY(44px)!important}}
+
+/* Unified hologram alignment: matching vertical hero slots across Jobs, Funitys, Spielzeit and Votes. */
+.sky-job-hq .sky-shared-holo-slot{position:relative;z-index:3;height:205px;display:flex;align-items:center;justify-content:center;pointer-events:none;isolation:isolate}
+.sky-job-hq .sky-shared-holo-slot .sky-job-scanner-core{position:relative!important;left:auto!important;top:auto!important;width:245px!important;height:205px!important;aspect-ratio:auto;flex:none;transform:translateY(56px)!important;z-index:1}
+.sky-job-hq:has(.sky-shared-holo-slot) .sky-job-hq-stage{margin-top:0}
+.sky-job-hq:has(.sky-shared-holo-slot) .sky-job-scanner-background .sky-job-scanner-beam{display:none}
+@media(max-width:640px){.sky-job-hq .sky-shared-holo-slot{height:175px}.sky-job-hq .sky-shared-holo-slot .sky-job-scanner-core{width:205px!important;height:175px!important;transform:translateY(44px)!important}}
+/* Gems has a separate crystal scanner; shift its artwork into the same visual gap. */
+.sky-gem-scanner .sky-gem-3d-stage{top:35%!important}
+@media(max-width:640px){.sky-gem-scanner .sky-gem-3d-stage{top:33%!important}}
