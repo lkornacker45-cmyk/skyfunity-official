@@ -73,6 +73,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   return <main className="sky-orbital-page sky-gold-factory-page mx-auto w-full max-w-7xl px-3 py-10 sm:px-6 sm:py-14">
     <section id={`rangliste-${selected.id}`} className={`sky-orbital sky-orbital-${selected.id}`}>
       <div className="sky-orbital-scene" aria-hidden="true"/>
+      <div className="sky-gold-scan-system" aria-hidden="true"><div className="sky-gold-scan-reticle"/><div className="sky-gold-scan-beam"/><div className="sky-gold-scan-target sky-gold-scan-target-a"/><div className="sky-gold-scan-target sky-gold-scan-target-b"/><div className="sky-gold-scan-target sky-gold-scan-target-c"/><div className="sky-gold-scan-status">SCANNING // GOLD CORE ANALYSIS <span>▰▰▰▱▱</span></div></div>
       <div className="sky-gold-factory-rays" aria-hidden="true"/>
       <div className="sky-gold-factory-dust" aria-hidden="true">{Array.from({length: 18}, (_, i) => <i key={i} style={{"--particle-index": i} as React.CSSProperties}/>)}</div>
       <div className="sky-orbital-stardust" aria-hidden="true"/>
