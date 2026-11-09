@@ -227,22 +227,22 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
         }
         if (category.id === "spielzeit") {
           const top = entries.slice(0,3);
-          return <section id="rangliste-spielzeit" className="sky-job-hq sky-mecha-industries sky-job-scanner sky-playtime-chronosphere" aria-label="SkySpielzeit Spielzeit Top 10">
+          return <section id="rangliste-spielzeit" className="sky-job-hq sky-mecha-industries sky-job-scanner sky-playtime-chronosphere" aria-label="SkyFunity Spielzeit Top 10">
             <div className="sky-mecha-scene" aria-hidden="true"/><div className="sky-job-scanner-background" aria-hidden="true">
               <div className="sky-job-scanner-grid"/>
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
               <div className="sky-job-scanner-core">
-                <div className="sky-playtime-chronosphere-orbit"><span className="sky-funity-command-orbit-one"/><span className="sky-funity-command-orbit-two"/><span className="sky-funity-command-orbit-three"/><span className="sky-funity-command-orbit-center"/></div>
+                <div className="sky-playtime-chronosphere-orbit"><span className="sky-playtime-chronosphere-orbit-one"/><span className="sky-playtime-chronosphere-orbit-two"/><span className="sky-playtime-chronosphere-orbit-three"/><span className="sky-playtime-chronosphere-orbit-center"/></div>
                 <div className="sky-job-scanner-core-shadow"/>
               </div>
               <div className="sky-job-scanner-readout">CHRONO SCAN // TIME FLOW <span>● LIVE</span></div>
             </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
               <Link href="/ranglisten" className="sky-job-hq-back">← Alle Ranglisten</Link>
-              <p className="sky-job-hq-kicker">SKYCHRONO ✦ CHRONO COMMAND ✦ TIME NETWORK</p>
-              <h2>STUNDEN <span>RANGLISTE</span></h2>
-              <p className="sky-job-hq-description">✨ Spielzeit Top 10 · Die längste Spielzeit im SkyFunity-Netzwerk</p>
+              <p className="sky-job-hq-kicker">SKYFUNITY ✦ CHRONO COMMAND ✦ TIME NETWORK</p>
+              <h2>SPIELZEIT <span>RANGLISTE</span></h2>
+              <p className="sky-job-hq-description">⏱️ Spielzeit Top 10 · Die längste Spielzeit im SkyFunity-Netzwerk</p>
               <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> CHRONO NETWORK ONLINE <span aria-hidden="true">/</span> ECHTE STUNDEN</div>
             </header>
             {entries.length ? <>
@@ -272,7 +272,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
                 </li>)}</ol>
               </div>
             </>:<div className="sky-job-hq-no-data"><strong>{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</strong><p>Die Spielzeit-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
-            <footer className="sky-job-hq-footer">SKYCHRONO · CHRONO COMMAND · TIME NETWORK</footer>
+            <footer className="sky-job-hq-footer">SKYFUNITY · CHRONO COMMAND · TIME NETWORK</footer>
           </section>;
         }
         if (category.id === "jobs") {
