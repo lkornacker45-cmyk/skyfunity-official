@@ -1486,3 +1486,40 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyPlaytimeSandStream{0%,95%{opacity:1}100%{opacity:0}}
 @keyframes skyPlaytimeSpark{0%,100%{opacity:.25;transform:translateY(8px)}50%{opacity:1;transform:translateY(-15px)}}
 @media(prefers-reduced-motion:reduce){.sky-playtime-chronosphere .sky-playtime-hourglass,.sky-playtime-chronosphere .sky-playtime-hourglass-upper,.sky-playtime-chronosphere .sky-playtime-hourglass-lower,.sky-playtime-chronosphere .sky-playtime-hourglass-stream,.sky-playtime-chronosphere .sky-playtime-hourglass-spark{animation:none!important}}
+
+/* Votes Beacon: Funitys-sized podium, unique midnight navy / electric blue / silver palette. */
+.sky-vote-beacon{background:radial-gradient(ellipse 65% 42% at 50% 28%,rgba(72,124,255,.2),transparent 76%),linear-gradient(155deg,#071326 0%,#102343 48%,#081320 100%)!important;border:2px solid rgba(115,173,255,.53)!important;box-shadow:0 22px 75px rgba(3,12,34,.58),inset 0 0 75px rgba(76,136,255,.1)}
+.sky-vote-beacon .sky-mecha-scene,.sky-vote-beacon .sky-mecha-haze,.sky-vote-beacon .sky-mecha-lights{opacity:.09}
+.sky-vote-beacon .sky-job-scanner-grid{background:repeating-linear-gradient(0deg,transparent 0 48px,rgba(115,182,255,.07) 49px,transparent 50px),repeating-linear-gradient(90deg,transparent 0 48px,rgba(115,182,255,.07) 49px,transparent 50px)}
+.sky-vote-beacon .sky-job-scanner-frame{border-color:rgba(118,184,255,.23);box-shadow:inset 0 0 75px rgba(74,135,255,.1)}
+.sky-vote-beacon .sky-job-scanner-frame::before{border-color:rgba(128,185,255,.25)}
+.sky-vote-beacon .sky-job-scanner-frame::after{background:linear-gradient(transparent,rgba(127,191,255,.4),transparent)}
+.sky-vote-beacon .sky-job-scanner-beam{background:linear-gradient(180deg,transparent 0%,rgba(90,155,255,.02) 43%,rgba(100,170,255,.1) 49%,rgba(198,224,255,.5) 50%,rgba(100,170,255,.1) 51%,transparent 58%);filter:drop-shadow(0 0 12px rgba(108,172,255,.4))}
+.sky-vote-beacon .sky-job-scanner-core{width:min(38%,285px);top:28%;filter:drop-shadow(0 0 19px rgba(100,175,255,.4))}
+.sky-vote-beacon-emblem{position:absolute;inset:4% 15%;transform-style:preserve-3d;animation:skyVoteBeaconFloat 8s ease-in-out infinite}
+.sky-vote-beacon-ballot{position:absolute;inset:15% 23%;border:2px solid rgba(191,223,255,.85);border-radius:12px;background:linear-gradient(145deg,rgba(172,213,255,.33),rgba(40,93,168,.17) 55%,rgba(11,36,75,.64));box-shadow:inset 0 0 24px rgba(132,195,255,.2),0 0 30px rgba(87,153,255,.25);transform:rotateY(-16deg) rotateZ(-8deg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px}
+.sky-vote-beacon-check{font-size:clamp(36px,5vw,78px);line-height:1;color:#c5efff;text-shadow:0 0 18px #58b8ff;font-weight:900;animation:skyVoteCheckPulse 4s ease-in-out infinite}
+.sky-vote-beacon-line{width:42%;height:3px;border-radius:3px;background:rgba(180,219,255,.6)}
+.sky-vote-beacon-line:last-child{width:30%}
+.sky-vote-beacon-wave{position:absolute;inset:2%;border:1px solid rgba(126,187,255,.4);border-radius:50%;transform:rotateX(67deg);animation:skyVoteBeaconWave 6s ease-out infinite}
+.sky-vote-beacon-wave-two{animation-delay:-3s}
+.sky-vote-beacon .sky-job-scanner-core-shadow{background:rgba(99,156,255,.25)}
+.sky-vote-beacon .sky-job-scanner-readout,.sky-vote-beacon .sky-job-scanner-readout span{color:#b9ddff}
+.sky-vote-beacon .sky-job-hq-header h2{color:#edf7ff}
+.sky-vote-beacon .sky-job-hq-header h2 span{background:linear-gradient(110deg,#cceaff,#67aaff 60%,#e4f4ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sky-vote-beacon .sky-job-hq-kicker,.sky-vote-beacon .sky-job-hq-back{color:#b5dcff}
+.sky-vote-beacon .sky-job-hq-system{border-color:rgba(133,191,255,.4);background:rgba(23,58,105,.65);color:#d4eaff}
+.sky-vote-beacon .sky-job-hq-station{background:linear-gradient(160deg,rgba(25,57,102,.96),rgba(12,30,61,.98));border-color:rgba(126,181,255,.5);box-shadow:inset 0 1px rgba(221,239,255,.12),0 18px 42px rgba(0,0,0,.35)}
+.sky-vote-beacon .sky-job-hq-station-1{border-color:rgba(190,226,255,.92);box-shadow:0 0 30px rgba(98,166,255,.23),0 18px 42px rgba(0,0,0,.35)}
+.sky-vote-beacon .sky-job-hq-hologram{opacity:.06}
+.sky-vote-beacon .sky-job-hq-hologram-gear{display:none!important}
+.sky-vote-beacon .sky-job-hq-dashboard{border-color:rgba(125,179,255,.38);background:linear-gradient(150deg,rgba(17,43,83,.97),rgba(10,26,53,.98))}
+.sky-vote-beacon .sky-job-hq-dashboard-title p,.sky-vote-beacon .sky-job-hq-dashboard-title h3{color:#b6ddff}
+.sky-vote-beacon .sky-job-hq-row{background:rgba(76,130,226,.08);border-color:rgba(126,185,255,.23)}
+.sky-vote-beacon .sky-job-hq-row:hover{background:rgba(79,147,240,.16);border-color:rgba(168,210,255,.5)}
+.sky-vote-beacon .sky-job-hq-footer{color:#9fc3e5}
+@keyframes skyVoteBeaconFloat{0%,100%{transform:translateY(0) rotateY(-9deg)}50%{transform:translateY(-13px) rotateY(11deg)}}
+@keyframes skyVoteCheckPulse{50%{opacity:.7;text-shadow:0 0 28px #80d5ff}}
+@keyframes skyVoteBeaconWave{0%{opacity:0;scale:.6}30%{opacity:.6}100%{opacity:0;scale:1.35}}
+@media(max-width:640px){.sky-vote-beacon .sky-job-scanner-core{width:55%;top:26%}.sky-vote-beacon-check{font-size:42px}}
+@media(prefers-reduced-motion:reduce){.sky-vote-beacon-emblem,.sky-vote-beacon-check,.sky-vote-beacon-wave{animation:none!important}}
