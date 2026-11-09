@@ -1282,3 +1282,32 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyJobHoloEnergyPulse{50%{opacity:.55;scale:.8}}
 @media(max-width:640px){.sky-job-scanner .sky-job-scanner-core{width:55%;top:28%}.sky-job-scanner .sky-job-holo-front{transform:translateZ(38px)}.sky-job-scanner .sky-job-holo-back{transform:rotateY(180deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-left{transform:rotateY(-90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-right{transform:rotateY(90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-top{transform:rotateX(90deg) translateZ(38px)}.sky-job-scanner .sky-job-holo-bottom{transform:rotateX(-90deg) translateZ(38px)}}
 @media(prefers-reduced-motion:reduce){.sky-job-scanner .sky-job-holo-machine,.sky-job-scanner .sky-job-holo-energy{animation:none!important}}
+
+
+/* Funitys-only Emerald Energy hologram: subtle, animated, and distinct from Jobs/Gems/Coins. */
+.sky-funity-holo{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse 65% 40% at 50% 32%,rgba(39,200,132,.18),transparent 80%),linear-gradient(155deg,#071711 0%,#0b2421 48%,#09131b 100%)!important;border:1px solid rgba(86,242,175,.45)!important;box-shadow:inset 0 0 65px rgba(20,185,118,.09),0 24px 65px rgba(2,17,14,.5)}
+.sky-funity-holo-scene{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;isolation:isolate}
+.sky-funity-holo-grid{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 45px,rgba(87,255,176,.065) 46px,transparent 47px),repeating-linear-gradient(90deg,transparent 0 45px,rgba(87,255,176,.065) 46px,transparent 47px);mask-image:radial-gradient(ellipse at 50% 36%,#000 0%,transparent 77%)}
+.sky-funity-holo-scan{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(80,255,176,.02) 43%,rgba(97,250,187,.1) 49%,rgba(194,255,219,.38) 50%,rgba(97,250,187,.1) 51%,transparent 58%);filter:drop-shadow(0 0 10px rgba(89,249,171,.4));transform:translateY(-110%);animation:skyFunityHoloScan 9s ease-in-out infinite}
+.sky-funity-holo-core{position:absolute;left:50%;top:31%;width:min(40%,270px);aspect-ratio:1;transform:translate(-50%,-50%);perspective:750px;opacity:.65}
+.sky-funity-holo-core span{position:absolute;inset:20%;border:2px solid rgba(129,255,192,.6);background:linear-gradient(145deg,rgba(49,231,145,.12),rgba(14,92,87,.18));box-shadow:inset 0 0 28px rgba(84,255,170,.1),0 0 25px rgba(56,222,151,.12);transform-style:preserve-3d;animation:skyFunityHoloSpin 15s linear infinite}
+.sky-funity-holo-core span:nth-child(2){inset:27%;border-color:rgba(151,252,220,.5);animation-duration:11s;animation-direction:reverse}
+.sky-funity-holo-core span:nth-child(3){inset:38%;background:radial-gradient(circle,rgba(159,255,207,.65),rgba(47,220,145,.25) 55%,transparent);border-radius:50%;box-shadow:0 0 35px rgba(67,234,152,.25);animation:skyFunityHoloPulse 4s ease-in-out infinite}
+.sky-funity-holo-orbit{position:absolute;left:50%;top:31%;width:min(55%,370px);aspect-ratio:1;border:1px dashed rgba(113,255,184,.18);border-radius:50%;transform:translate(-50%,-50%) rotateX(62deg);box-shadow:0 0 24px rgba(45,230,140,.09)}
+.sky-funity-holo-status{position:absolute;top:14px;right:16px;font-size:9px;letter-spacing:.16em;font-weight:800;color:rgba(150,255,205,.7)}
+.sky-funity-holo>.sky-ultimate-heading,.sky-funity-holo>.sky-ultimate-podium,.sky-funity-holo>.sky-ultimate-list,.sky-funity-holo>div:not(.sky-funity-holo-scene){position:relative;z-index:2}
+.sky-funity-holo .sky-ultimate-eyebrow{color:#8bf0bc}
+.sky-funity-holo .sky-ultimate-heading h2{color:#e6fff2}
+.sky-funity-holo .sky-ultimate-heading h2 span{color:#79edba}
+.sky-funity-holo .sky-ultimate-champion{border-color:rgba(91,236,165,.4);background:linear-gradient(155deg,rgba(15,46,40,.94),rgba(12,25,32,.96));box-shadow:0 12px 38px rgba(0,0,0,.35);animation:skyFunityHoloEnter .85s cubic-bezier(.2,.9,.2,1) both;transition:transform .3s ease,box-shadow .3s ease}
+.sky-funity-holo .sky-ultimate-champion:nth-child(2){animation-delay:.12s}.sky-funity-holo .sky-ultimate-champion:nth-child(3){animation-delay:.25s}
+.sky-funity-holo .sky-ultimate-list{border-color:rgba(102,233,172,.3);background:rgba(7,25,25,.86);backdrop-filter:blur(10px)}
+.sky-funity-holo .sky-ultimate-row{border-color:rgba(112,231,174,.18);background:rgba(48,159,111,.06)}
+.sky-funity-holo .sky-ultimate-row:hover{background:rgba(56,174,125,.14)}
+@media(hover:hover) and (pointer:fine){.sky-funity-holo .sky-ultimate-champion:hover{transform:translateY(-9px) rotateX(3deg);box-shadow:0 20px 45px rgba(41,203,132,.19)}}
+@keyframes skyFunityHoloScan{0%,10%{transform:translateY(-110%);opacity:0}20%,73%{opacity:1}85%,100%{transform:translateY(110%);opacity:0}}
+@keyframes skyFunityHoloSpin{from{transform:rotateX(24deg) rotateY(0deg) rotateZ(0deg)}to{transform:rotateX(24deg) rotateY(360deg) rotateZ(360deg)}}
+@keyframes skyFunityHoloPulse{50%{opacity:.5;scale:.8}}
+@keyframes skyFunityHoloEnter{from{opacity:0;translate:0 45px}to{opacity:1;translate:0 0}}
+@media(max-width:640px){.sky-funity-holo-core{width:55%;top:30%}.sky-funity-holo-status{font-size:7px;letter-spacing:.05em;right:8px}}
+@media(prefers-reduced-motion:reduce){.sky-funity-holo-scan,.sky-funity-holo-core span,.sky-funity-holo .sky-ultimate-champion{animation:none!important}.sky-funity-holo-scan{opacity:.1;transform:none}.sky-funity-holo .sky-ultimate-champion:hover{transform:none!important}}
