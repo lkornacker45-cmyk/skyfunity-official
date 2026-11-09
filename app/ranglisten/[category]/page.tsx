@@ -72,9 +72,44 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
       <Link href="/ranglisten" className="mt-5 inline-block text-sm font-bold text-cyan-200 hover:text-white">← Zur Ranglisten-Übersicht</Link>
     </div>
-    <div className={selected.id === "coins" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
+    <div className={selected.id === "coins" || selected.id === "gems" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
+        if (category.id === "gems") {
+          const winners = [entries[1],entries[0],entries[2]];
+          const ranks = [2,1,3];
+          return <section id="rangliste-gems" className="sky-tokyo-board relative isolate mx-auto w-full overflow-hidden rounded-[28px] border border-fuchsia-400/50 p-4 sm:p-8 lg:p-10">
+            <div className="sky-tokyo-scenery" aria-hidden="true"/>
+            <div className="relative z-10">
+              <header className="mb-9 text-center">
+                <p className="text-[10px] font-extrabold uppercase tracking-[.22em] text-fuchsia-200 sm:text-sm">— SkyFunity Hall of Champions —</p>
+                <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-6xl">💎 Gems <span className="bg-gradient-to-r from-fuchsia-300 to-violet-500 bg-clip-text text-transparent">Top 10</span></h2>
+                <p className="mt-3 text-sm font-medium text-purple-100 sm:text-base">Die besten Spieler des Netzwerks</p>
+              </header>
+              {entries.length > 0 ? <>
+                <div className="sky-tokyo-podium mx-auto grid max-w-4xl grid-cols-3 items-end gap-2 sm:gap-6" aria-label="Gems Siegerpodest">
+                  {winners.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-tokyo-card sky-tokyo-place-${ranks[index]} group relative flex min-w-0 flex-col items-center rounded-2xl px-2 pb-4 pt-4 text-center transition-transform duration-300 hover:-translate-y-2 sm:rounded-3xl sm:px-5 sm:pb-6 sm:pt-6`}>
+                    <span className="sky-tokyo-crown" aria-label={`Platz ${ranks[index]}`}>👑</span>
+                    <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/128`} alt={`Minecraft-Kopf von ${entry.player_name}`} width="96" height="96" loading="lazy" className="sky-tokyo-avatar mt-2 aspect-square w-14 rounded-lg object-cover sm:mt-4 sm:w-24" style={{imageRendering:"pixelated"}}/>
+                    <span className="sky-tokyo-rank mt-3 rounded-lg px-3 py-1 text-sm font-black sm:text-lg">{ranks[index]}</span>
+                    <strong className="mt-3 block w-full truncate text-xs font-black text-white sm:text-xl" title={entry.player_name}>{entry.player_name}</strong>
+                    <p className="mt-auto pt-3 text-sm font-black tabular-nums text-cyan-200 sm:pt-5 sm:text-xl">💎 {entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}</p>
+                    <p className="mt-2 hidden text-[10px] font-bold uppercase tracking-[.15em] text-fuchsia-200 sm:block">✦ SkyFunity ✦</p>
+                    <div className="sky-tokyo-platform" aria-hidden="true"/>
+                  </article>:<div key={index} aria-hidden="true"/>)}
+                </div>
+                <div className="sky-tokyo-table mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl p-2 backdrop-blur-xl sm:mt-14 sm:p-4">
+                  <div className="grid grid-cols-[32px_minmax(0,1fr)_auto] gap-2 px-3 py-3 text-xs font-black text-purple-200 sm:grid-cols-[55px_minmax(0,1fr)_auto] sm:text-sm"><span>#</span><span>Spieler</span><span>Gems</span></div>
+                  <ol start={4} className="space-y-1.5">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="grid grid-cols-[32px_minmax(0,1fr)_auto] items-center gap-2 rounded-xl bg-purple-200/10 px-3 py-2.5 transition-colors hover:bg-fuchsia-400/20 sm:grid-cols-[55px_minmax(0,1fr)_auto]">
+                    <span className="text-sm font-black tabular-nums text-white">{index+4}</span>
+                    <span className="flex min-w-0 items-center gap-2 sm:gap-3"><img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="36" height="36" loading="lazy" className="h-8 w-8 shrink-0 rounded-md object-cover sm:h-10 sm:w-10" style={{imageRendering:"pixelated"}}/><strong className="truncate text-xs text-white sm:text-base">{entry.player_name}</strong></span>
+                    <span className="whitespace-nowrap text-right text-xs font-black tabular-nums text-cyan-200 sm:text-base">💎 {entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}</span>
+                  </li>)}</ol>
+                </div>
+              </>:<div className="mx-auto max-w-xl rounded-2xl border border-fuchsia-300/30 bg-purple-950/80 p-10 text-center"><p className="font-bold text-white">{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</p><p className="mt-2 text-sm text-purple-200">Die Gems-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
+            </div>
+          </section>;
+        }
         if (category.id === "coins") {
           const podium = [entries[1],entries[0],entries[2]];
           const ranks = [2,1,3];
