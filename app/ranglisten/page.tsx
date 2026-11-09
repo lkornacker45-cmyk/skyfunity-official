@@ -70,7 +70,7 @@ export default async function RanglistenPage() {
     <div className="grid gap-6 md:grid-cols-2">
       {categories.map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
-        return <section key={category.id} className="glass overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
+        return <section id={`rangliste-${category.id}`} key={category.id} className="glass scroll-mt-32 overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
           <div className="mb-5 flex items-center justify-between gap-3">
             <h2 className="text-xl font-extrabold text-white"><span aria-hidden="true">{category.icon}</span> {category.title}</h2>
             <span className="rounded-full border border-purple-400/25 bg-purple-500/10 px-3 py-1 text-xs font-bold text-purple-200">TOP 10</span>
