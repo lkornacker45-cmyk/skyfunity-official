@@ -182,10 +182,6 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <div className="sky-job-scanner-grid"/>
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
-              <div className="sky-job-scanner-core">
-                <div className="sky-funity-command-orbit"><span className="sky-funity-command-orbit-one"/><span className="sky-funity-command-orbit-two"/><span className="sky-funity-command-orbit-three"/><span className="sky-funity-command-orbit-center"/></div>
-                <div className="sky-job-scanner-core-shadow"/>
-              </div>
               <div className="sky-job-scanner-readout">FUNITY SCAN // ENERGY FLOW <span>● LIVE</span></div>
             </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
@@ -195,6 +191,12 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <p className="sky-job-hq-description">✨ Funitys Top 10 · Die stärksten Funity-Sammler des Netzwerks</p>
               <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> FUNITY NETWORK ONLINE <span aria-hidden="true">/</span> ECHTE FUNITYS</div>
             </header>
+            <div className="sky-vote-holo-slot sky-shared-holo-slot" aria-hidden="true">
+              <div className="sky-job-scanner-core">
+                <div className="sky-funity-command-orbit"><span className="sky-funity-command-orbit-one"/><span className="sky-funity-command-orbit-two"/><span className="sky-funity-command-orbit-three"/><span className="sky-funity-command-orbit-center"/></div>
+                <div className="sky-job-scanner-core-shadow"/>
+              </div>
+            </div>
             {entries.length ? <>
               <div className="sky-job-hq-stage" aria-label="Funitys Top 3 Kommandozentrale">
                 <div className="sky-job-hq-hologram sky-mecha-reactor" aria-hidden="true"><div className="sky-job-hq-hologram-ring"/><div className="sky-job-hq-hologram-gear" aria-hidden="true"/></div>
@@ -284,10 +286,6 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <div className="sky-job-scanner-grid"/>
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
-              <div className="sky-job-scanner-core">
-                <div className="sky-playtime-hourglass"><div className="sky-playtime-hourglass-top"/><div className="sky-playtime-hourglass-glass"><span className="sky-playtime-hourglass-upper"/><span className="sky-playtime-hourglass-stream"/><span className="sky-playtime-hourglass-lower"/></div><div className="sky-playtime-hourglass-bottom"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-a"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-b"/></div>
-                <div className="sky-job-scanner-core-shadow"/>
-              </div>
               <div className="sky-job-scanner-readout">CHRONO SCAN // TIME FLOW <span>● LIVE</span></div>
             </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
@@ -297,6 +295,12 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <p className="sky-job-hq-description">⏱️ Spielzeit Top 10 · Die längste Spielzeit im SkyFunity-Netzwerk</p>
               <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> CHRONO NETWORK ONLINE <span aria-hidden="true">/</span> ECHTE STUNDEN</div>
             </header>
+            <div className="sky-vote-holo-slot sky-shared-holo-slot" aria-hidden="true">
+              <div className="sky-job-scanner-core">
+                <div className="sky-playtime-hourglass"><div className="sky-playtime-hourglass-top"/><div className="sky-playtime-hourglass-glass"><span className="sky-playtime-hourglass-upper"/><span className="sky-playtime-hourglass-stream"/><span className="sky-playtime-hourglass-lower"/></div><div className="sky-playtime-hourglass-bottom"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-a"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-b"/></div>
+                <div className="sky-job-scanner-core-shadow"/>
+              </div>
+            </div>
             {entries.length ? <>
               <div className="sky-job-hq-stage" aria-label="Spielzeit Top 3 Kommandozentrale">
                 <div className="sky-job-hq-hologram sky-mecha-reactor" aria-hidden="true"><div className="sky-job-hq-hologram-ring"/><div className="sky-job-hq-hologram-gear" aria-hidden="true"/></div>
@@ -334,10 +338,6 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <div className="sky-job-scanner-grid"/>
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
-              <div className="sky-job-scanner-core">
-                <div className="sky-job-holo-machine"><span className="sky-job-holo-face sky-job-holo-front"/><span className="sky-job-holo-face sky-job-holo-back"/><span className="sky-job-holo-face sky-job-holo-left"/><span className="sky-job-holo-face sky-job-holo-right"/><span className="sky-job-holo-face sky-job-holo-top"/><span className="sky-job-holo-face sky-job-holo-bottom"/><span className="sky-job-holo-energy"/></div>
-                <div className="sky-job-scanner-core-shadow"/>
-              </div>
               <div className="sky-job-scanner-readout">MECHA SCAN // SYSTEM ANALYSIS <span>● LIVE</span></div>
             </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
@@ -347,6 +347,12 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <p className="sky-job-hq-description">🛠️ Jobs Top 10 · Die fleißigsten Arbeiter des Netzwerks</p>
               <div className="sky-job-hq-system"><span className="sky-job-hq-live-dot"/> FACTORY SYSTEM ONLINE <span aria-hidden="true">/</span> ECHTE JOBS-LEVEL</div>
             </header>
+            <div className="sky-vote-holo-slot sky-shared-holo-slot" aria-hidden="true">
+              <div className="sky-job-scanner-core">
+                <div className="sky-job-holo-machine"><span className="sky-job-holo-face sky-job-holo-front"/><span className="sky-job-holo-face sky-job-holo-back"/><span className="sky-job-holo-face sky-job-holo-left"/><span className="sky-job-holo-face sky-job-holo-right"/><span className="sky-job-holo-face sky-job-holo-top"/><span className="sky-job-holo-face sky-job-holo-bottom"/><span className="sky-job-holo-energy"/></div>
+                <div className="sky-job-scanner-core-shadow"/>
+              </div>
+            </div>
             {entries.length ? <>
               <div className="sky-job-hq-stage" aria-label="Jobs Top 3 Kommandozentrale">
                 <div className="sky-job-hq-hologram sky-mecha-reactor" aria-hidden="true"><div className="sky-job-hq-hologram-ring"/><div className="sky-job-hq-hologram-gear" aria-hidden="true"/></div>
