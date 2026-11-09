@@ -1444,3 +1444,27 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyPlaytimeChronoPulse{50%{opacity:.55;scale:.78}}
 @media(max-width:640px){.sky-playtime-chronosphere .sky-job-scanner-core{width:55%;top:26%}}
 @media(prefers-reduced-motion:reduce){.sky-playtime-chronosphere-orbit,.sky-playtime-chronosphere-orbit-center{animation:none!important}}
+
+/* Playtime palette v2: burgundy, coral and rose-gold. Layout and animation unchanged. */
+.sky-playtime-chronosphere{background:radial-gradient(ellipse 65% 44% at 50% 28%,rgba(255,104,129,.19),transparent 76%),linear-gradient(155deg,#1a0b16,#341321 52%,#140d18)!important;border-color:rgba(255,151,155,.58)!important;box-shadow:0 22px 75px rgba(30,5,19,.55),inset 0 0 70px rgba(245,83,116,.1)}
+.sky-playtime-chronosphere .sky-job-scanner-grid{background:repeating-linear-gradient(0deg,transparent 0 49px,rgba(255,160,165,.065) 50px,transparent 51px),repeating-linear-gradient(90deg,transparent 0 49px,rgba(255,160,165,.065) 50px,transparent 51px)}
+.sky-playtime-chronosphere .sky-job-scanner-frame{border-color:rgba(255,160,156,.27);box-shadow:inset 0 0 75px rgba(245,84,122,.12)}
+.sky-playtime-chronosphere .sky-job-scanner-frame::before{border-color:rgba(255,180,163,.27)}
+.sky-playtime-chronosphere .sky-job-scanner-frame::after{background:linear-gradient(transparent,rgba(255,179,159,.38),transparent)}
+.sky-playtime-chronosphere .sky-job-scanner-beam{background:linear-gradient(180deg,transparent 0%,rgba(255,111,136,.02) 43%,rgba(255,126,141,.12) 49%,rgba(255,216,191,.55) 50%,rgba(255,126,141,.12) 51%,transparent 58%);filter:drop-shadow(0 0 10px rgba(255,138,150,.4))}
+.sky-playtime-chronosphere .sky-job-scanner-core{filter:drop-shadow(0 0 16px rgba(255,129,146,.4))}
+.sky-playtime-chronosphere-orbit span{border-color:rgba(255,189,168,.65);box-shadow:0 0 16px rgba(255,114,140,.2),inset 0 0 16px rgba(255,114,140,.1)}
+.sky-playtime-chronosphere-orbit-center{background:radial-gradient(circle,#fff7e9 0%,#ffc4ad 26%,rgba(255,106,133,.48) 58%,transparent 78%)!important;box-shadow:0 0 32px rgba(255,133,145,.46)!important}
+.sky-playtime-chronosphere .sky-job-scanner-core-shadow{background:rgba(255,121,137,.3)}
+.sky-playtime-chronosphere .sky-job-scanner-readout,.sky-playtime-chronosphere .sky-job-hq-kicker,.sky-playtime-chronosphere .sky-job-hq-back{color:#ffc5b9}
+.sky-playtime-chronosphere .sky-job-scanner-readout span{color:#ffb09e}
+.sky-playtime-chronosphere .sky-job-hq-header h2{color:#fff0eb}
+.sky-playtime-chronosphere .sky-job-hq-header h2 span{background:linear-gradient(110deg,#ffc4a5,#ff718f 55%,#ffe1c3);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sky-playtime-chronosphere .sky-job-hq-system{border-color:rgba(255,160,155,.38);background:rgba(79,29,46,.7);color:#ffe1d4}
+.sky-playtime-chronosphere .sky-job-hq-station{background:linear-gradient(160deg,rgba(78,30,49,.96),rgba(38,20,38,.98));border-color:rgba(255,153,157,.52);box-shadow:inset 0 1px rgba(255,224,206,.12),0 18px 42px rgba(0,0,0,.36)}
+.sky-playtime-chronosphere .sky-job-hq-station-1{border-color:rgba(255,203,164,.92);box-shadow:0 0 30px rgba(255,132,139,.25),0 18px 42px rgba(0,0,0,.36)}
+.sky-playtime-chronosphere .sky-job-hq-dashboard{border-color:rgba(255,151,157,.4);background:linear-gradient(150deg,rgba(65,26,46,.97),rgba(34,20,37,.98))}
+.sky-playtime-chronosphere .sky-job-hq-dashboard-title p,.sky-playtime-chronosphere .sky-job-hq-dashboard-title h3{color:#ffc9b5}
+.sky-playtime-chronosphere .sky-job-hq-row{background:rgba(233,91,120,.08);border-color:rgba(255,154,155,.24)}
+.sky-playtime-chronosphere .sky-job-hq-row:hover{background:rgba(240,103,131,.16);border-color:rgba(255,193,169,.48)}
+.sky-playtime-chronosphere .sky-job-hq-footer{color:#e6ada7}
