@@ -983,3 +983,24 @@ body .sky-liquid-brand > .sky-brand-logo{
 @media(max-width:640px){.sky-orbital{padding:20px 12px 28px;border-radius:20px}.sky-orbital-scene{background-size:100% 100%,auto 800px;background-position:center top,center top}.sky-orbital-header h1{font-size:clamp(28px,7.5vw,46px)}.sky-orbital-eyebrow{letter-spacing:.1em}.sky-orbital-signal{font-size:9px;letter-spacing:0}.sky-orbital-stage{margin-top:15px;padding:140px 0 25px}.sky-orbital-core{top:10px;width:200px;height:200px}.sky-orbital-core span{inset:12px}.sky-orbital-core span:nth-child(2){inset:36px}.sky-orbital-core span:nth-child(3){inset:70px}.sky-orbital-podium{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sky-orbital-place-1{grid-column:1/-1;grid-row:1;justify-self:center;width:min(100%,300px);min-height:310px}.sky-orbital-place-2{grid-column:1;grid-row:2}.sky-orbital-place-3{grid-column:2;grid-row:2}.sky-orbital-capsule{min-height:230px;padding:12px 7px 20px;border-radius:19px 19px 10px 10px}.sky-orbital-place-1{min-height:310px}.sky-orbital-capsule-top{font-size:8px;letter-spacing:0}.sky-orbital-medal{margin:12px 0 5px;font-size:25px}.sky-orbital-avatar-shell img{width:60px;height:60px}.sky-orbital-place-1 .sky-orbital-avatar-shell img{width:86px;height:86px}.sky-orbital-name{font-size:13px}.sky-orbital-score{font-size:17px}.sky-orbital-board{margin-top:25px;padding:14px 10px}.sky-orbital-board-title>span{font-size:9px}.sky-orbital-row{padding:9px 8px;gap:8px}.sky-orbital-row-rank{flex-basis:23px;font-size:13px}.sky-orbital-row-head{width:32px;height:32px}.sky-orbital-row-score{font-size:12px}.sky-orbital-row-score small{font-size:9px}}
 @media(max-width:360px){.sky-orbital-row-head{width:28px;height:28px}.sky-orbital-row-score{font-size:11px}.sky-orbital-row-score small{display:none}}
 @media(prefers-reduced-motion:reduce){.sky-orbital-stardust,.sky-orbital-beam,.sky-orbital-signal i,.sky-orbital-capsule-top i,.sky-orbital-core span,.sky-orbital-capsule{animation:none!important}.sky-orbital-row{transition:none}.sky-orbital-row:hover{transform:none}}
+
+
+/* Gold Industries — Coins factory variant, matching the dramatic Jobs aesthetic */
+.sky-orbital-coins{border-color:rgba(255,186,67,.72);background:radial-gradient(ellipse at 50% 40%,rgba(178,88,19,.32),transparent 60%),linear-gradient(145deg,#231b21,#0a0d1c 65%,#211622);box-shadow:0 0 60px rgba(237,145,31,.25),0 30px 80px rgba(0,0,0,.7)}
+.sky-orbital-coins .sky-orbital-scene{background-image:linear-gradient(180deg,rgba(17,9,15,.43),rgba(21,12,9,.13) 30%,rgba(18,10,14,.58) 62%,rgba(11,8,16,.97)),url('/images/jobs-mecha-industries.svg');filter:sepia(.42) saturate(1.38) hue-rotate(-16deg)}
+.sky-orbital-coins .sky-orbital-beam{background:conic-gradient(from 200deg at 50% 42%,transparent 0deg,rgba(255,161,33,.24) 30deg,transparent 55deg,rgba(255,214,99,.17) 83deg,transparent 110deg);animation-duration:7s}
+.sky-orbital-coins .sky-orbital-eyebrow,.sky-orbital-coins .sky-orbital-board-title p{color:#ffd78e}
+.sky-orbital-coins .sky-orbital-header h1{color:#fff3d7;text-shadow:0 0 36px rgba(255,157,42,.55)}
+.sky-orbital-coins .sky-orbital-header h1 em{background-image:linear-gradient(100deg,#fff0b2,#ffb74a 52%,#ffe3a1)}
+.sky-orbital-coins .sky-orbital-signal{border-color:rgba(255,189,73,.65);background:rgba(48,29,18,.86);color:#ffe1a8}
+.sky-orbital-coins .sky-orbital-core span{border-color:rgba(255,185,65,.85);box-shadow:0 0 30px rgba(255,156,35,.65),inset 0 0 20px rgba(255,210,100,.25)}
+.sky-orbital-coins .sky-orbital-core span:nth-child(2){border-color:#ffd18d}
+.sky-orbital-coins .sky-orbital-core span:nth-child(3){background:radial-gradient(circle,#fff7c4,#ffb336 45%,#9d4d13);border-color:#ffe7aa;box-shadow:0 0 60px #ffab36}
+.sky-orbital-coins .sky-orbital-capsule{--orbital-accent:#ffd08a;--orbital-glow:rgba(255,163,52,.43);background:linear-gradient(155deg,rgba(79,47,42,.93),rgba(32,25,36,.96) 60%,rgba(19,16,26,.98))}
+.sky-orbital-coins .sky-orbital-place-1{--orbital-accent:#fff0a4;--orbital-glow:rgba(255,196,61,.7);border-width:3px;background:linear-gradient(155deg,rgba(106,65,34,.95),rgba(55,35,27,.97) 60%,rgba(24,20,25,.99))}
+.sky-orbital-coins .sky-orbital-place-3{--orbital-accent:#ffc2a0;--orbital-glow:rgba(255,127,68,.37)}
+.sky-orbital-coins .sky-orbital-score,.sky-orbital-coins .sky-orbital-place-1 .sky-orbital-score{color:#ffe4a0}
+.sky-orbital-coins .sky-orbital-board{border-color:rgba(255,181,64,.7);background:linear-gradient(150deg,rgba(50,32,31,.96),rgba(20,19,31,.98));box-shadow:0 0 36px rgba(255,145,31,.26),0 25px 50px rgba(0,0,0,.48)}
+.sky-orbital-coins .sky-orbital-row{border-color:rgba(255,193,92,.27);background:linear-gradient(90deg,rgba(149,85,34,.23),rgba(50,37,65,.23))}
+.sky-orbital-coins .sky-orbital-row-rank,.sky-orbital-coins .sky-orbital-row-score{color:#ffdda2}
+.sky-orbital-coins .sky-orbital-footer{color:#e5c59d}
