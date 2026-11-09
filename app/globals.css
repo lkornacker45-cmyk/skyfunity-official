@@ -1523,3 +1523,18 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyVoteBeaconWave{0%{opacity:0;scale:.6}30%{opacity:.6}100%{opacity:0;scale:1.35}}
 @media(max-width:640px){.sky-vote-beacon .sky-job-scanner-core{width:55%;top:26%}.sky-vote-beacon-check{font-size:42px}}
 @media(prefers-reduced-motion:reduce){.sky-vote-beacon-emblem,.sky-vote-beacon-check,.sky-vote-beacon-wave{animation:none!important}}
+
+/* Consistent centered hologram placement across all leaderboard themes.
+   Keep each design/animation; align the holographic object in the same central presentation area. */
+.sky-gem-scanner .sky-gem-3d-stage{left:50%;top:27%;transform:translate(-50%,-50%)}
+.sky-job-scanner .sky-job-scanner-core{left:50%;top:36%;transform:translate(-50%,-50%)}
+.sky-funity-command .sky-job-scanner-core,
+.sky-playtime-chronosphere .sky-job-scanner-core,
+.sky-vote-beacon .sky-job-scanner-core{left:50%;top:36%;transform:translate(-50%,-50%)}
+@media(max-width:640px){
+  .sky-gem-scanner .sky-gem-3d-stage{left:50%;top:26%;transform:translate(-50%,-50%)}
+  .sky-job-scanner .sky-job-scanner-core,
+  .sky-funity-command .sky-job-scanner-core,
+  .sky-playtime-chronosphere .sky-job-scanner-core,
+  .sky-vote-beacon .sky-job-scanner-core{left:50%;top:34%;transform:translate(-50%,-50%)}
+}
