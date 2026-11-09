@@ -858,3 +858,21 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyUltimateRing{0%,100%{transform:rotate(-13deg) scale(1)}50%{transform:rotate(13deg) scale(1.07)}}
 @media(max-width:480px){.sky-ultimate-podium{gap:6px;margin-bottom:25px}.sky-ultimate-champion{border-radius:13px;padding-top:12px}.sky-ultimate-place-1{min-height:235px}.sky-ultimate-place-2{min-height:212px}.sky-ultimate-place-3{min-height:202px}.sky-ultimate-card-foot{border-radius:0 0 12px 12px;padding:7px 4px;font-size:7px;letter-spacing:0}.sky-ultimate-value{font-size:12px}.sky-ultimate-row{gap:8px;padding:9px}.sky-ultimate-row-head{width:34px;height:34px}.sky-ultimate-row-score{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.sky-ultimate-champion,.sky-ultimate-place-1 .sky-ultimate-halo::after{animation:none}.sky-ultimate-row{transition:none}.sky-ultimate-row:hover{transform:none}}
+
+/* Coins Gold Mine RTX – scoped so all other leaderboards and admin pages stay untouched */
+.sky-mine-board{background:#170c2c;box-shadow:0 24px 90px rgba(13,4,30,.55),inset 0 0 35px rgba(157,66,239,.14)}
+.sky-mine-scenery{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(14,7,30,.34),rgba(19,7,40,.45) 45%,rgba(17,6,35,.7)),url('/images/coins-gold-mine.svg') center center/cover no-repeat}
+.sky-mine-card{background:linear-gradient(160deg,rgba(64,25,94,.85),rgba(21,11,45,.93));box-shadow:0 16px 35px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.12)}
+.sky-mine-place-1{min-height:280px;border-color:#ffcf5d;box-shadow:0 0 24px rgba(255,185,47,.45),0 20px 45px rgba(0,0,0,.45),inset 0 0 38px rgba(255,174,37,.12);background:linear-gradient(165deg,rgba(118,68,30,.82),rgba(49,19,61,.94) 55%,rgba(23,11,45,.97))}
+.sky-mine-place-2{min-height:252px;border-color:#c4b5fd;box-shadow:0 0 22px rgba(179,126,255,.32),0 20px 38px rgba(0,0,0,.4)}
+.sky-mine-place-3{min-height:245px;border-color:#fb9a80;box-shadow:0 0 22px rgba(245,137,115,.28),0 20px 38px rgba(0,0,0,.4)}
+.sky-mine-crown{font-size:clamp(26px,4vw,46px);line-height:1.1;color:#fcd34d;filter:drop-shadow(0 0 12px rgba(255,201,79,.4))}
+.sky-mine-place-2 .sky-mine-crown{color:#e2e8f0}.sky-mine-place-3 .sky-mine-crown{color:#fdba9b}
+.sky-mine-avatar{border-color:#c4b5fd;box-shadow:0 0 15px rgba(171,111,255,.25)}
+.sky-mine-place-1 .sky-mine-avatar{border-color:#fcd34d;box-shadow:0 0 24px rgba(252,211,77,.5)}
+.sky-mine-rank{color:#fff;background:linear-gradient(140deg,#a78bfa,#6d28d9);box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.sky-mine-place-1 .sky-mine-rank{background:linear-gradient(140deg,#ffdd75,#b66b09);color:#3b2107}
+.sky-mine-place-3 .sky-mine-rank{background:linear-gradient(140deg,#ffb38d,#9a4a2a)}
+.sky-mine-table{background:linear-gradient(145deg,rgba(37,14,59,.93),rgba(23,10,44,.94));box-shadow:0 0 25px rgba(183,73,255,.22),inset 0 1px rgba(255,255,255,.1)}
+@media(max-width:520px){.sky-mine-place-1{min-height:215px}.sky-mine-place-2{min-height:198px}.sky-mine-place-3{min-height:190px}.sky-mine-card{border-radius:14px}.sky-mine-board{border-radius:20px}}
+@media(prefers-reduced-motion:reduce){.sky-mine-card{transition:none}.sky-mine-card:hover{transform:none}}
