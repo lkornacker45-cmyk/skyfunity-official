@@ -5,6 +5,10 @@
       "answer": "Im Spiel rufst du das Team mit /helpop, Spieler meldest du mit /report. Am schnellsten geht es auf unserem Discord oder direkt über die Website."
     },
     {
+      "question": "Wie komme ich an mein erstes Grundstück?",
+      "answer": "Gib im Spiel /plot auto ein. Dein Startpaket mit Coins, Gems, Keys und Rüstung holst du beim NPC Willkommensgeschenk am Spawn ab."
+    },
+    {
       "question": "Was kostet das Spielen?",
       "answer": "Nichts. SkyFunity ist kostenlos. Wer den Server unterstützen möchte, findet Ränge und Pakete im Shop."
     },
