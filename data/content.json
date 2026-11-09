@@ -1,4 +1,22 @@
 {
+  "fqa": [
+    {
+      "question": "Wo bekomme ich Hilfe?",
+      "answer": "Im Spiel rufst du das Team mit /helpop, Spieler meldest du mit /report. Am schnellsten geht es auf unserem Discord oder direkt über die Website."
+    },
+    {
+      "question": "Was kostet das Spielen?",
+      "answer": "Nichts. SkyFunity ist kostenlos. Wer den Server unterstützen möchte, findet Ränge und Pakete im Shop."
+    },
+    {
+      "question": "Welche Minecraft-Version brauche ich?",
+      "answer": "Der Server läuft auf Minecraft 26.2, mit der Java Edition und mit der Bedrock Edition."
+    },
+    {
+      "question": "Kann ich am Handy oder an der Konsole spielen?",
+      "answer": "Ja. Trag in der Bedrock Edition skyfunity.de mit Port 19132 ein."
+    }
+  ],
   "navigationOrder": [
     "start",
     "ranks",
