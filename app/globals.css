@@ -895,3 +895,21 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-tokyo-table{background:linear-gradient(145deg,rgba(30,10,51,.94),rgba(21,7,40,.94));border:1px solid #d946ef;box-shadow:0 0 22px rgba(217,70,239,.55),inset 0 1px rgba(255,255,255,.12)}
 @media(max-width:520px){.sky-tokyo-place-1{min-height:220px}.sky-tokyo-place-2{min-height:202px}.sky-tokyo-place-3{min-height:196px}.sky-tokyo-card{border-radius:14px}.sky-tokyo-board{border-radius:20px}.sky-tokyo-platform{bottom:-9px;height:10px}}
 @media(prefers-reduced-motion:reduce){.sky-tokyo-card{transition:none}.sky-tokyo-card:hover{transform:none}}
+
+/* Gems cinematic Tokyo refinements */
+.sky-tokyo-board{min-height:820px;background:#10051f;box-shadow:0 0 32px rgba(215,42,249,.25),0 30px 80px rgba(0,0,0,.6)}
+.sky-tokyo-scenery{background:linear-gradient(180deg,rgba(10,2,24,.2),rgba(17,3,36,.3) 35%,rgba(10,3,28,.57) 75%,rgba(8,2,25,.82)),url('/images/gems-cyberpunk-tokyo.svg') center/cover no-repeat}
+.sky-tokyo-rain{position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.23;background-image:repeating-linear-gradient(103deg,transparent 0 38px,rgba(196,184,255,.23) 39px,transparent 40px,transparent 83px);background-size:220px 240px;animation:skyTokyoRain 9s linear infinite}
+.sky-tokyo-sign{position:absolute;z-index:0;top:125px;padding:14px 10px;border:2px solid #d946ef;border-radius:8px;background:rgba(36,6,70,.78);box-shadow:0 0 18px #b425ed,inset 0 0 18px rgba(225,55,255,.2);color:#f5d0fe;text-shadow:0 0 12px #e879f9;font-weight:900;letter-spacing:.1em;pointer-events:none}
+.sky-tokyo-sign-left{left:10px;transform:rotate(-4deg)}.sky-tokyo-sign-right{right:10px;transform:rotate(4deg)}
+.sky-tokyo-podium{padding-top:22px}
+.sky-tokyo-card{background:linear-gradient(180deg,rgba(55,14,94,.81),rgba(22,7,43,.93));backdrop-filter:blur(16px);border-width:2px;box-shadow:0 0 0 3px rgba(219,39,255,.08),0 0 26px rgba(211,57,255,.6),inset 0 0 18px rgba(191,76,255,.18),0 20px 35px rgba(0,0,0,.55)}
+.sky-tokyo-place-1{min-height:345px;transform:translateY(-6px);background:linear-gradient(180deg,rgba(100,38,89,.85),rgba(38,9,57,.96));box-shadow:0 0 0 3px rgba(255,198,55,.09),0 0 35px rgba(255,166,40,.7),0 22px 45px rgba(0,0,0,.6)}
+.sky-tokyo-place-2,.sky-tokyo-place-3{min-height:290px}
+.sky-tokyo-place-1:hover{transform:translateY(-14px)}
+.sky-tokyo-card::before{content:"";position:absolute;inset:6px;border:1px solid rgba(255,255,255,.1);border-radius:inherit;pointer-events:none}
+.sky-tokyo-table{margin-top:58px;border-width:2px;border-color:#e44bff;box-shadow:0 0 30px rgba(221,62,255,.6),inset 0 0 20px rgba(128,32,179,.17);background:linear-gradient(140deg,rgba(32,8,54,.92),rgba(23,7,45,.94))}
+.sky-tokyo-table li:nth-child(odd){background:rgba(186,91,236,.15)}
+@keyframes skyTokyoRain{from{background-position:0 0}to{background-position:-100px 240px}}
+@media(max-width:650px){.sky-tokyo-sign{display:none}.sky-tokyo-board{min-height:0}.sky-tokyo-place-1{min-height:235px}.sky-tokyo-place-2,.sky-tokyo-place-3{min-height:205px}.sky-tokyo-podium{padding-top:10px}.sky-tokyo-table{margin-top:35px}}
+@media(prefers-reduced-motion:reduce){.sky-tokyo-rain{animation:none}}
