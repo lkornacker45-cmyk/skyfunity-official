@@ -1028,7 +1028,7 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-gold-factory-page .sky-orbital-stage{isolation:isolate}
 .sky-gold-factory-rays{position:absolute;inset:0 0 auto;height:70%;z-index:0;pointer-events:none;background:repeating-conic-gradient(from 0deg at 50% 36%,rgba(255,191,71,.095) 0deg 3deg,transparent 7deg 25deg);mask-image:radial-gradient(ellipse at 50% 36%,#000 2%,transparent 69%);animation:skyGoldRaySpin 55s linear infinite}
 .sky-gold-factory-dust{position:absolute;inset:0;overflow:hidden;z-index:1;pointer-events:none}
-.sky-gold-factory-dust i{position:absolute;left:calc(5% + mod(var(--particle-index), 9)*11%);bottom:-3%;width:4px;height:4px;border-radius:50%;background:#ffe2a1;box-shadow:0 0 10px 3px rgba(255,174,43,.65);opacity:0;animation:skyGoldDustRise calc(7s + var(--particle-index)*.43s) linear infinite;animation-delay:calc(var(--particle-index)*-.67s)}
+.sky-gold-factory-dust i{position:absolute;left:calc(5% + var(--particle-index)*5%);bottom:-3%;width:4px;height:4px;border-radius:50%;background:#ffe2a1;box-shadow:0 0 10px 3px rgba(255,174,43,.65);opacity:0;animation:skyGoldDustRise calc(7s + var(--particle-index)*.43s) linear infinite;animation-delay:calc(var(--particle-index)*-.67s)}
 .sky-gold-factory-dust i:nth-child(3n){width:2px;height:2px;background:#fff8dd}
 .sky-gold-factory-reactor{position:absolute;left:50%;top:42%;width:min(62vw,450px);aspect-ratio:1;transform:translate(-50%,-50%);z-index:0;pointer-events:none;filter:drop-shadow(0 0 28px rgba(255,166,40,.6))}
 .sky-gold-factory-reactor span{position:absolute;inset:6%;border-radius:50%;border:3px solid rgba(255,194,72,.45);box-shadow:0 0 24px rgba(255,174,46,.45),inset 0 0 24px rgba(255,177,45,.2);animation:skyGoldReactorRotate 19s linear infinite}
