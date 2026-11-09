@@ -1619,3 +1619,24 @@ body .sky-liquid-brand > .sky-brand-logo{
 @media(max-width:760px){.sky-ultimate-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.sky-ultimate-card{padding:15px;min-height:170px}.sky-ultimate-stage{height:390px}.sky-ultimate-crystal{width:75px;height:100px}.sky-ultimate-crystal-core{font-size:42px}.sky-ultimate-podium{width:44px;font-size:20px}.sky-ultimate-podium.gold{height:78px}.sky-ultimate-podium.silver{height:50px}.sky-ultimate-podium.bronze{height:39px}}
 @media(max-width:420px){.sky-ultimate-heading>p:first-child{letter-spacing:.12em}.sky-ultimate-stage{height:330px}.sky-ultimate-grid{gap:10px}.sky-ultimate-card-title{font-size:19px}.sky-ultimate-card-icon{font-size:28px}.sky-ultimate-hint{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.sky-ultimate *{animation:none!important;transition:none!important}}
+
+
+/* Combo 4: Ultimate holographic champion arena. Existing server-rendered scores stay untouched. */
+.sky-ultimate-stage{background:radial-gradient(ellipse at 50% 42%,#5b398477,#141027e8 56%,#090c20f5);border-color:#c4b5fd99}
+.sky-ultimate-stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 26%,#a5f3fc09 44%,#f0abfc12 52%,transparent 70%);mix-blend-mode:screen}
+.sky-ultimate-podiums{top:63%;gap:clamp(12px,3vw,30px);align-items:end}
+.sky-ultimate-podium{position:relative;isolation:isolate;border:1px solid currentColor;box-shadow:0 0 22px color-mix(in srgb,currentColor,transparent 42%),inset 0 0 25px #ffffff20;animation:sky-champion-breathe 4.5s ease-in-out infinite}
+.sky-ultimate-podium.gold{animation-delay:-1.5s}
+.sky-ultimate-podium.bronze{animation-delay:-3s}
+.sky-ultimate-avatar{position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);display:grid;place-items:center;width:45px;height:50px;font-size:32px;border-radius:10px 10px 5px 5px;border:1px solid currentColor;background:linear-gradient(140deg,#473376,#141d3d);box-shadow:0 0 18px currentColor;text-shadow:0 0 10px currentColor}
+.sky-ultimate-podium.gold .sky-ultimate-avatar{width:55px;height:59px;font-size:39px}
+.sky-ultimate-podium::before{content:"";position:absolute;left:-16%;right:-16%;top:-8px;height:14px;border:2px solid currentColor;border-radius:50%;background:#ffffff18;box-shadow:0 0 12px currentColor}
+.sky-ultimate-portal{box-shadow:0 0 14px #67e8f9,0 0 48px #c084fc,inset 0 0 32px #67e8f9,0 0 90px #c084fc55}
+.sky-ultimate-card{backdrop-filter:blur(12px)}
+.sky-ultimate-card:focus-visible{outline:3px solid #a5f3fc;outline-offset:3px}
+@keyframes sky-champion-breathe{50%{filter:brightness(1.2);transform:translateY(-5px)}}
+@media(max-width:760px){.sky-ultimate-podiums{top:65%}.sky-ultimate-avatar{width:33px;height:36px;font-size:24px}.sky-ultimate-podium.gold .sky-ultimate-avatar{width:40px;height:45px;font-size:29px}}
+@media(prefers-reduced-motion:reduce){.sky-ultimate-podium{animation:none!important}}
+/* Unified glass-hologram finish on the real Supabase-backed Top-3 cards. */
+.sky-orbital-capsule,.sky-infinity-champion,.sky-job-hq [class*="champion"],.sky-job-hq [class*="podium"]{backdrop-filter:blur(8px)}
+.sky-orbital-capsule:hover,.sky-infinity-champion:hover{filter:brightness(1.12);transition:filter .25s ease}
