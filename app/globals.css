@@ -1538,3 +1538,7 @@ body .sky-liquid-brand > .sky-brand-logo{
   .sky-playtime-chronosphere .sky-job-scanner-core,
   .sky-vote-beacon .sky-job-scanner-core{left:50%;top:34%;transform:translate(-50%,-50%)}
 }
+
+/* Vote hologram: position in the empty hero zone between title and podium, not behind the cards. */
+.sky-vote-beacon .sky-job-scanner-core{left:50%;top:210px;width:190px;transform:translate(-50%,-50%);z-index:1}
+@media(max-width:640px){.sky-vote-beacon .sky-job-scanner-core{left:50%;top:190px;width:150px;transform:translate(-50%,-50%)}}
