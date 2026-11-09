@@ -1067,3 +1067,26 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-gold-factory-page .sky-orbital-scene::after{content:"";position:absolute;inset:42% -35% -25%;background-image:linear-gradient(rgba(255,183,62,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,183,62,.16) 1px,transparent 1px);background-size:70px 70px;transform:perspective(420px) rotateX(65deg);transform-origin:center top;mask-image:linear-gradient(transparent,#000 30%,transparent 88%);animation:skyGoldPanelGrid 13s linear infinite}
 @keyframes skyGoldPanelGrid{to{background-position:0 70px,0 70px}}
 @media(prefers-reduced-motion:reduce){.sky-gold-factory-page .sky-orbital-scene::after{animation:none!important}}
+
+
+/* Coins scanner background: a dark futuristic vault with a repeating golden scanning sweep. */
+.sky-gold-factory-page .sky-orbital{background:radial-gradient(ellipse 60% 48% at 50% 35%,rgba(214,142,37,.16),transparent 72%),linear-gradient(150deg,#070b13 0%,#101827 44%,#15110e 72%,#080b12 100%)}
+.sky-gold-factory-page .sky-orbital-scene{background:radial-gradient(circle at 50% 24%,rgba(252,188,70,.15),transparent 36%),repeating-linear-gradient(90deg,transparent 0 9.8%,rgba(242,174,57,.07) 10%,transparent 10.2%),linear-gradient(180deg,rgba(7,13,23,.2),rgba(6,10,17,.74))}
+.sky-gold-factory-page .sky-orbital-scene::before{background:linear-gradient(90deg,transparent 0 4%,rgba(255,185,64,.22) 4.1%,transparent 4.3% 95.7%,rgba(255,185,64,.22) 95.9%,transparent 96%),repeating-linear-gradient(0deg,transparent 0 47px,rgba(255,190,80,.07) 48px,transparent 49px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(255,190,80,.06) 48px,transparent 49px);mask-image:linear-gradient(#000 10%,#000 85%,transparent)}
+.sky-gold-scan-system{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none;isolation:isolate}
+.sky-gold-scan-system::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(255,218,144,.028) 5px,transparent 6px);opacity:.65}
+.sky-gold-scan-system::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(255,198,77,.03) 45%,rgba(255,205,99,.14) 49.7%,rgba(255,230,151,.48) 50%,rgba(255,198,77,.14) 50.3%,transparent 55%);background-size:100% 100%;filter:drop-shadow(0 0 12px rgba(255,195,67,.75));transform:translateY(-110%);animation:skyGoldScannerSweep 7.5s ease-in-out infinite}
+.sky-gold-scan-reticle{position:absolute;top:19%;left:50%;width:min(70%,470px);aspect-ratio:1;transform:translateX(-50%);border:1px dashed rgba(255,197,83,.28);border-radius:50%;box-shadow:0 0 40px rgba(241,168,46,.12),inset 0 0 40px rgba(241,168,46,.1);animation:skyGoldReticlePulse 5s ease-in-out infinite}
+.sky-gold-scan-reticle::before,.sky-gold-scan-reticle::after{content:"";position:absolute;inset:13%;border:1px solid rgba(255,204,96,.28);border-radius:50%}
+.sky-gold-scan-reticle::after{inset:30%;border-style:dotted}
+.sky-gold-scan-beam{position:absolute;top:0;bottom:0;left:50%;width:1px;background:linear-gradient(transparent,rgba(255,192,67,.32),transparent);box-shadow:0 0 22px 2px rgba(255,186,62,.2)}
+.sky-gold-scan-target{position:absolute;width:64px;height:64px;border:1px solid rgba(255,211,111,.3);clip-path:polygon(0 0,35% 0,35% 5%,5% 5%,5% 35%,0 35%,0 0,65% 0,100% 0,100% 35%,95% 35%,95% 5%,65% 5%,65% 0,100% 65%,100% 100%,65% 100%,65% 95%,95% 95%,95% 65%,100% 65%,35% 100%,0 100%,0 65%,5% 65%,5% 95%,35% 95%);background:rgba(255,207,100,.45);animation:skyGoldTargetBlink 4s ease-in-out infinite}
+.sky-gold-scan-target-a{top:22%;left:13%}.sky-gold-scan-target-b{top:35%;right:13%;animation-delay:1.2s}.sky-gold-scan-target-c{bottom:18%;left:20%;animation-delay:2.4s}
+.sky-gold-scan-status{position:absolute;top:14px;right:18px;font-size:9px;font-weight:800;letter-spacing:.17em;color:rgba(255,207,114,.8);text-shadow:0 0 10px rgba(255,173,47,.5)}
+.sky-gold-scan-status span{margin-left:10px;color:#f5c568;animation:skyGoldTargetBlink 1.5s ease-in-out infinite}
+.sky-gold-factory-page .sky-orbital-header,.sky-gold-factory-page .sky-orbital-stage,.sky-gold-factory-page .sky-orbital-board,.sky-gold-factory-page .sky-orbital-footer{position:relative;z-index:3}
+@keyframes skyGoldScannerSweep{0%,8%{transform:translateY(-110%);opacity:0}16%{opacity:1}72%{opacity:1}84%,100%{transform:translateY(110%);opacity:0}}
+@keyframes skyGoldReticlePulse{50%{opacity:.45;box-shadow:0 0 65px rgba(255,192,71,.23),inset 0 0 35px rgba(255,192,71,.2)}}
+@keyframes skyGoldTargetBlink{50%{opacity:.22}}
+@media(max-width:640px){.sky-gold-scan-status{font-size:7px;letter-spacing:.07em;right:8px}.sky-gold-scan-target{width:35px;height:35px}.sky-gold-scan-reticle{top:25%;width:85%}}
+@media(prefers-reduced-motion:reduce){.sky-gold-scan-system::after,.sky-gold-scan-reticle,.sky-gold-scan-target,.sky-gold-scan-status span{animation:none!important}.sky-gold-scan-system::after{transform:none;opacity:.15}}
