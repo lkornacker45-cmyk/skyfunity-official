@@ -1119,3 +1119,32 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyGemCardShine{0%,25%{background-position:140% 0}60%,100%{background-position:-140% 0}}
 @media(max-width:640px){.sky-gem-scan-label{font-size:7px;letter-spacing:.06em;right:8px}.sky-gem-scan-reticle{width:88%;top:28%}}
 @media(prefers-reduced-motion:reduce){.sky-gem-scanner .sky-infinity-champion,.sky-gem-scanner .sky-infinity-ranking,.sky-gem-scanner .sky-infinity-row,.sky-gem-scanner .sky-infinity-champion::after,.sky-gem-scan-sweep,.sky-gem-scan-reticle,.sky-gem-scan-grid::after,.sky-gem-scan-label span{animation:none!important}.sky-gem-scanner .sky-infinity-champion:hover{transform:none!important}.sky-gem-scan-sweep{opacity:.12;transform:none}}
+
+
+/* Gems Nexus refresh: cleaner crystalline HUD, restrained motion, clearer hierarchy. */
+.sky-gem-scanner{background:radial-gradient(ellipse 70% 38% at 50% 24%,rgba(90,76,209,.28),transparent 75%),linear-gradient(155deg,#070d1c 0%,#10152d 48%,#090d1c 100%);border:1px solid rgba(117,219,255,.42);box-shadow:0 20px 65px rgba(3,5,18,.55),inset 0 0 45px rgba(86,80,182,.1)}
+.sky-gem-scanner .sky-diamond-44-vault{opacity:.12}
+.sky-gem-scanner .sky-infinity-stars{opacity:.26}
+.sky-gem-scanner .sky-infinity-energy{opacity:.4;filter:blur(35px)}
+.sky-gem-scanner .sky-infinity-sparks{opacity:.3}
+.sky-gem-scanner .sky-infinity-header{padding-bottom:24px}
+.sky-gem-scanner .sky-infinity-eyebrow{color:#9ce8ff;letter-spacing:.24em;text-shadow:none}
+.sky-gem-scanner .sky-infinity-header h2{font-size:clamp(34px,6.3vw,76px);font-weight:950;letter-spacing:-.045em;color:#e9fbff;text-shadow:0 0 25px rgba(87,209,255,.22)}
+.sky-gem-scanner .sky-infinity-header h2 span{background:linear-gradient(110deg,#87e9ff,#b3a2ff 62%,#d7c8ff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.sky-gem-scanner .sky-infinity-subtitle{color:#c1d3ef}
+.sky-gem-scanner .sky-infinity-diamond{opacity:.45;filter:drop-shadow(0 0 20px rgba(105,215,255,.45));animation:skyGemCrystalFloat 8s ease-in-out infinite}
+.sky-gem-scanner .sky-gem-scan-grid{opacity:.3}
+.sky-gem-scanner .sky-gem-scan-reticle{opacity:.25;border-color:rgba(135,228,255,.35);animation-duration:8s}
+.sky-gem-scanner .sky-gem-scan-sweep{opacity:.6;animation-duration:11s}
+.sky-gem-scanner .sky-gem-scan-label{color:#a5dff5;opacity:.75}
+.sky-gem-scanner .sky-infinity-champion{background:linear-gradient(160deg,rgba(20,30,58,.96),rgba(11,18,38,.98));border:1px solid rgba(128,202,255,.4);border-radius:18px;box-shadow:0 12px 32px rgba(0,0,0,.3),inset 0 1px rgba(221,246,255,.08)}
+.sky-gem-scanner .sky-infinity-rank-1{border-color:rgba(164,233,255,.9);box-shadow:0 0 32px rgba(90,199,255,.2),0 18px 45px rgba(0,0,0,.4)}
+.sky-gem-scanner .sky-infinity-champion::after{opacity:.4;animation-duration:9s}
+.sky-gem-scanner .sky-infinity-platform{opacity:.45}
+.sky-gem-scanner .sky-infinity-ranking{background:linear-gradient(155deg,rgba(13,22,45,.97),rgba(12,16,37,.98));border:1px solid rgba(127,202,255,.34);border-radius:20px;box-shadow:0 18px 48px rgba(0,0,0,.35)}
+.sky-gem-scanner .sky-infinity-ranking-heading>div>span{color:#8ddcff}
+.sky-gem-scanner .sky-infinity-row{background:rgba(113,150,215,.06);border-color:rgba(145,197,255,.16)}
+.sky-gem-scanner .sky-infinity-row:hover{background:rgba(107,178,240,.13);border-color:rgba(137,220,255,.5)}
+.sky-gem-scanner .sky-infinity-footer{color:#96b9d5}
+@keyframes skyGemCrystalFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){.sky-gem-scanner .sky-infinity-diamond{animation:none!important}}
