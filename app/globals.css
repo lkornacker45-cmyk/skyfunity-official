@@ -1174,3 +1174,23 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyGemChamberPulse{0%,100%{opacity:.45;filter:brightness(.8)}50%{opacity:1;filter:brightness(1.5)}}
 @media(max-width:640px){.sky-gem-scanner .sky-gem-scan-chamber{width:110%;height:49%;top:15%}.sky-gem-scanner .sky-gem-scan-crosshair{width:85%;top:36%}}
 @media(prefers-reduced-motion:reduce){.sky-gem-scanner .sky-gem-scan-chamber span,.sky-gem-scanner .sky-gem-scan-sweep{animation:none!important}.sky-gem-scanner .sky-gem-scan-sweep{opacity:.1;transform:none}}
+
+
+/* Visible rotating 3D crystal inside the Gems scanner chamber, behind player cards. */
+.sky-gem-scanner .sky-gem-3d-stage{position:absolute;top:14%;left:50%;width:min(45%,320px);aspect-ratio:1;transform:translateX(-50%);perspective:850px;z-index:2;pointer-events:none;filter:drop-shadow(0 0 24px rgba(93,228,255,.55))}
+.sky-gem-scanner .sky-gem-3d-crystal{position:absolute;inset:12%;transform-style:preserve-3d;animation:skyGem3DRotation 12s linear infinite}
+.sky-gem-scanner .sky-gem-3d-face{position:absolute;inset:0;display:block;backface-visibility:visible;clip-path:polygon(50% 0%,96% 30%,83% 77%,50% 100%,17% 77%,4% 30%);border:0;background:linear-gradient(145deg,rgba(186,250,255,.6),rgba(53,208,255,.24) 32%,rgba(105,79,246,.35) 70%,rgba(20,33,91,.65));box-shadow:inset 0 0 42px rgba(145,245,255,.5);outline:1px solid rgba(200,252,255,.4)}
+.sky-gem-scanner .sky-gem-3d-face::after{content:"";position:absolute;inset:0;clip-path:polygon(50% 0%,96% 30%,83% 77%,50% 100%,17% 77%,4% 30%);background:linear-gradient(110deg,transparent 20%,rgba(220,255,255,.38) 48%,transparent 70%);border:2px solid rgba(185,250,255,.65)}
+.sky-gem-scanner .sky-gem-3d-face-1{transform:rotateY(0deg) translateZ(70px)}
+.sky-gem-scanner .sky-gem-3d-face-2{transform:rotateY(60deg) translateZ(70px);background-color:rgba(40,178,244,.25)}
+.sky-gem-scanner .sky-gem-3d-face-3{transform:rotateY(120deg) translateZ(70px)}
+.sky-gem-scanner .sky-gem-3d-face-4{transform:rotateY(180deg) translateZ(70px)}
+.sky-gem-scanner .sky-gem-3d-face-5{transform:rotateY(240deg) translateZ(70px)}
+.sky-gem-scanner .sky-gem-3d-face-6{transform:rotateY(300deg) translateZ(70px)}
+.sky-gem-scanner .sky-gem-3d-shadow{position:absolute;left:15%;right:15%;bottom:-5%;height:24px;border-radius:50%;background:rgba(60,228,255,.3);filter:blur(22px);animation:skyGem3DShadow 4s ease-in-out infinite}
+.sky-gem-scanner .sky-infinity-diamond{display:none}
+.sky-gem-scanner .sky-gem-scan-chamber span{opacity:.3}
+@keyframes skyGem3DRotation{0%{transform:rotateX(-17deg) rotateY(0deg) translateY(0)}50%{transform:rotateX(16deg) rotateY(180deg) translateY(-17px)}100%{transform:rotateX(-17deg) rotateY(360deg) translateY(0)}}
+@keyframes skyGem3DShadow{50%{opacity:.45;transform:scale(.7)}}
+@media(max-width:640px){.sky-gem-scanner .sky-gem-3d-stage{top:19%;width:60%;opacity:.85}.sky-gem-scanner .sky-gem-3d-face-1{transform:rotateY(0deg) translateZ(38px)}.sky-gem-scanner .sky-gem-3d-face-2{transform:rotateY(60deg) translateZ(38px)}.sky-gem-scanner .sky-gem-3d-face-3{transform:rotateY(120deg) translateZ(38px)}.sky-gem-scanner .sky-gem-3d-face-4{transform:rotateY(180deg) translateZ(38px)}.sky-gem-scanner .sky-gem-3d-face-5{transform:rotateY(240deg) translateZ(38px)}.sky-gem-scanner .sky-gem-3d-face-6{transform:rotateY(300deg) translateZ(38px)}}
+@media(prefers-reduced-motion:reduce){.sky-gem-scanner .sky-gem-3d-crystal,.sky-gem-scanner .sky-gem-3d-shadow{animation:none!important}}
