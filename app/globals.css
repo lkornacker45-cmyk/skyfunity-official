@@ -1559,3 +1559,8 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-vote-beacon .sky-job-scanner-background .sky-job-scanner-beam{display:none}
 .sky-vote-beacon .sky-vote-holo-slot::before{content:"";position:absolute;left:50%;top:50%;width:290px;height:160px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(73,145,255,.2),transparent 72%);pointer-events:none}
 @media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot{height:175px}.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{width:205px;height:175px}.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-check{font-size:58px}}
+
+/* Center the visible Votes ballot between the bottom of the status bar and the top of the podium.
+   Offset the hologram artwork, not the entire leaderboard or its spacing. */
+.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{transform:translateY(34px)!important}
+@media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{transform:translateY(26px)!important}}
