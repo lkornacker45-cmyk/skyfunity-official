@@ -75,21 +75,38 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
     <div className="mx-auto w-full max-w-3xl">
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
-        return <section id={`rangliste-${category.id}`} key={category.id} className="glass scroll-mt-32 overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
-          <div className="mb-5 flex items-center justify-between gap-3">
-            <h2 className="text-xl font-extrabold text-white"><span aria-hidden="true">{category.icon}</span> {category.title}</h2>
-            <span className="rounded-full border border-purple-400/25 bg-purple-500/10 px-3 py-1 text-xs font-bold text-purple-200">TOP 10</span>
+        const podium = [entries[1],entries[0],entries[2]];
+        const podiumRanks = [2,1,3];
+        return <section id={`rangliste-${category.id}`} key={category.id} className="sky-islands-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8">
+          <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-center">
+            <h2 className="text-2xl font-extrabold text-white">{category.icon} {category.title}</h2>
+            <span className="rounded-full border border-purple-400/40 bg-purple-500/15 px-3 py-1 text-xs font-bold text-purple-200">TOP 10</span>
           </div>
-          {entries.length > 0 ? <ol className="space-y-2">{entries.map((entry, rank) =>
-            <li key={entry.minecraft_uuid} className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 px-3 py-3">
-              <span className="w-8 text-center text-lg font-black text-purple-200">{rank === 0 ? "🥇" : rank === 1 ? "🥈" : rank === 2 ? "🥉" : rank + 1 + "."}</span>
-              <span className="min-w-0 flex-1 truncate font-semibold text-slate-100">{entry.player_name}</span>
-              <span className="text-right text-sm font-bold tabular-nums text-purple-200">{entry.score.toLocaleString("de-DE", { maximumFractionDigits: 1 })} <span className="text-xs font-normal text-slate-400">{category.unit}</span></span>
-            </li>)}</ol> :
-            <div className="rounded-xl border border-dashed border-purple-300/20 bg-white/5 px-4 py-10 text-center">
-              <p className="font-semibold text-slate-200">{error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</p>
-              <p className="mt-2 text-sm text-slate-400">{"Die Rangliste erscheint, sobald die öffentliche Supabase-Ansicht eingerichtet ist und Daten liefert."}</p>
-            </div>}
+          {entries.length > 0 ? <>
+            <div className="sky-islands-podium" aria-label="Die drei besten Spieler">
+              {podium.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-island-champion sky-island-place-${podiumRanks[index]}`}>
+                <div className="sky-island-aura" aria-hidden="true"/>
+                <span className="sky-island-medal" aria-label={`Platz ${podiumRanks[index]}`}>{podiumRanks[index]===1?"👑":podiumRanks[index]===2?"🥈":"🥉"}</span>
+                <img className="sky-island-head" src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/96`} alt={`Minecraft-Kopf von ${entry.player_name}`} loading="lazy" width="80" height="80"/>
+                <strong className="sky-island-name" title={entry.player_name}>{entry.player_name}</strong>
+                <span className="sky-island-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>{category.unit}</small></span>
+                <div className="sky-island-grass" aria-hidden="true"><span className="sky-island-rank">{podiumRanks[index]}</span></div>
+                <div className="sky-island-dirt" aria-hidden="true"/>
+              </article>:<div key={index} className="sky-island-empty" aria-hidden="true"/>)}
+            </div>
+            <div className="sky-islands-rest">
+              <h3 className="mb-4 text-center text-sm font-black uppercase tracking-[.2em] text-purple-200">Weitere Top-Spieler</h3>
+              <ol start={4} className="space-y-3">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-islands-row">
+                <span className="sky-islands-number">{index+4}.</span>
+                <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" loading="lazy" width="40" height="40" className="sky-islands-row-head"/>
+                <strong className="min-w-0 flex-1 truncate text-slate-100">{entry.player_name}</strong>
+                <span className="text-right text-sm font-bold tabular-nums text-purple-100">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <span className="text-xs font-normal text-slate-400">{category.unit}</span></span>
+              </li>)}</ol>
+            </div>
+          </>:<div className="rounded-xl border border-dashed border-purple-300/20 bg-white/5 px-4 py-10 text-center">
+            <p className="font-semibold text-slate-200">{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</p>
+            <p className="mt-2 text-sm text-slate-400">Die Rangliste erscheint, sobald die öffentliche Supabase-Ansicht eingerichtet ist und Daten liefert.</p>
+          </div>}
         </section>;
       })}
     </div>
