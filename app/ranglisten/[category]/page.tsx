@@ -72,7 +72,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
       <Link href="/ranglisten" className="mt-5 inline-block text-sm font-bold text-cyan-200 hover:text-white">← Zur Ranglisten-Übersicht</Link>
     </div>
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className="mx-auto w-full max-w-3xl">
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
         return <section id={`rangliste-${category.id}`} key={category.id} className="glass scroll-mt-32 overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
