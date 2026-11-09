@@ -175,6 +175,55 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
             <footer className="sky-infinity-footer">✦ SKYFUNITY · GEMS NEXUS · LIVE ✦</footer>
           </section>;
         }
+        if (category.id === "funitys") {
+          const top = entries.slice(0, 3);
+          return <section id="rangliste-funitys" className="sky-infinity sky-diamond-44 sky-gem-scanner sky-funity-nexus relative isolate mx-auto w-full overflow-hidden rounded-[28px]">
+            <div className="sky-diamond-44-vault" aria-hidden="true" /><div className="sky-gem-scan-overlay" aria-hidden="true"><div className="sky-gem-scan-grid"/><div className="sky-gem-scan-chamber"><span/><span/><span/></div><div className="sky-funity-nexus-hologram"><div className="sky-funity-nexus-ring sky-funity-nexus-ring-one"/><div className="sky-funity-nexus-ring sky-funity-nexus-ring-two"/><div className="sky-funity-nexus-energy"><span/><span/><span/></div></div><div className="sky-gem-scan-sweep"/><div className="sky-gem-scan-crosshair"/><div className="sky-gem-scan-reticle"/><div className="sky-gem-scan-label">FUNITY SCAN // ENERGY FLOW <span>✦ ✦ ✦ ◇ ◇</span></div></div><div className="sky-infinity-stars" aria-hidden="true" />
+            
+            <header className="sky-infinity-header relative z-10">
+              <Link href="/ranglisten" className="sky-infinity-back">← Alle Ranglisten</Link>
+              <p className="sky-infinity-eyebrow">✦ SKYFUNITY · FUNITY NEXUS ✦</p>
+              <h2>FUNITY <span>NEXUS</span></h2>
+              <p className="sky-infinity-subtitle">✨ Funitys Top 10 · Die Funity-Champions des Netzwerks</p>
+            </header>
+            {entries.length > 0 ? <>
+              <div className="sky-infinity-stage" aria-label="Die drei besten Funitys-Spieler">
+                <div className="sky-infinity-energy" aria-hidden="true" />
+                
+                
+                <div className="sky-infinity-diamond" aria-hidden="true">
+                  <svg viewBox="0 0 220 250" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M110 8 199 70 181 170 110 238 39 170 21 70Z" fill="#9D69FF" fillOpacity=".13" stroke="#D7C2FF" strokeWidth="3"/><path d="M21 70H199L110 238 21 70ZM110 8 75 70 110 238 145 70 110 8ZM39 170H181M21 70 110 8 199 70" stroke="#B8F2FF" strokeOpacity=".75" strokeWidth="2"/><path d="M75 70H145L110 238Z" fill="#A5F3FC" fillOpacity=".16"/></svg>
+                </div>
+                <div className="sky-infinity-sparks" aria-hidden="true" />
+                <div className="sky-infinity-winners">
+                  {[1,0,2].map((entryIndex) => {
+                    const entry = top[entryIndex];
+                    const rank = entryIndex + 1;
+                    return entry ? <article key={entry.minecraft_uuid} className={`sky-infinity-champion sky-infinity-rank-${rank}`}>
+                      <div className="sky-infinity-champion-glow" aria-hidden="true" />
+                      <div className="sky-infinity-medal" aria-label={`Platz ${rank}`}>{rank === 1 ? "👑" : rank === 2 ? "🥈" : "🥉"}</div>
+                      <span className="sky-infinity-rank-label">PLATZ {rank}</span>
+                      <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/128`} alt={`Minecraft-Spielerkopf von ${entry.player_name}`} width="100" height="100" loading={rank === 1 ? "eager" : "lazy"} className="sky-infinity-head" />
+                      <strong className="sky-infinity-player" title={entry.player_name}>{entry.player_name}</strong>
+                      <p className="sky-infinity-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}<span>✨ FUNITYS</span></p>
+                      <div className="sky-infinity-platform" aria-hidden="true" />
+                    </article> : <div key={rank} className="sky-infinity-champion-empty" aria-hidden="true" />;
+                  })}
+                </div>
+              </div>
+              <div className="sky-infinity-ranking">
+                <div className="sky-infinity-ranking-heading"><div><span>✦ FUNITY NEXUS · TOP 10</span><h3>Weitere Champions</h3></div><span>RANG 04 — 10</span></div>
+                <ol start={4} className="sky-infinity-rows">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-infinity-row">
+                  <span className="sky-infinity-position">{String(index+4).padStart(2,"0")}</span>
+                  <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="42" height="42" loading="lazy" className="sky-infinity-row-head"/>
+                  <strong className="sky-infinity-row-name" title={entry.player_name}>{entry.player_name}</strong>
+                  <span className="sky-infinity-row-value">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>✨</small></span>
+                </li>)}</ol>
+              </div>
+            </> : <div className="sky-infinity-empty"><strong>{error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</strong><p>Die Funitys-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
+            <footer className="sky-infinity-footer">✦ SKYFUNITY · FUNITY NEXUS · LIVE ✦</footer>
+          </section>;
+        }
         if (category.id === "jobs") {
           const top = entries.slice(0,3);
           return <section id="rangliste-jobs" className="sky-job-hq sky-mecha-industries sky-job-scanner" aria-label="SkyFunity Jobs Top 10">
