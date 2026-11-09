@@ -118,7 +118,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
       <Link href="/ranglisten" className="mt-5 inline-block text-sm font-bold text-cyan-200 hover:text-white">← Zur Ranglisten-Übersicht</Link>
     </div>
-    <div className={selected.id === "coins" || selected.id === "gems" || selected.id === "jobs" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
+    <div className={selected.id === "gems" || selected.id === "jobs" ? "mx-auto w-full max-w-6xl" : "mx-auto w-full max-w-3xl"}>
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
         if (category.id === "gems") {
