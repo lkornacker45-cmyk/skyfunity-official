@@ -799,3 +799,29 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-account-dropdown[open] .sky-liquid-account{box-shadow:0 0 0 2px rgba(196,181,253,.35)}
 .sky-account-dropdown-link{display:block;border-radius:10px;padding:12px 14px;color:#ede9fe;font-size:14px;font-weight:700;transition:background .15s,color .15s}
 .sky-account-dropdown-link:hover,.sky-account-dropdown-link:focus-visible{background:rgba(168,85,247,.24);color:#a5f3fc;outline:none}
+
+/* Minecraft Floating Islands leaderboard */
+.sky-islands-board{position:relative;isolation:isolate;overflow:hidden}
+.sky-islands-board::before{content:"";position:absolute;inset:0 0 auto;height:320px;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 25%,rgba(157,88,255,.19),transparent 70%)}
+.sky-islands-podium{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end;gap:clamp(6px,2.5vw,24px);padding:28px 0 32px;min-height:300px}
+.sky-island-champion{min-width:0;position:relative;display:flex;align-items:center;flex-direction:column;justify-content:flex-end;text-align:center;animation:skyIslandFloat 5s ease-in-out infinite;filter:drop-shadow(0 15px 18px rgba(0,0,0,.35))}
+.sky-island-place-1{animation-delay:-1.3s;z-index:2}.sky-island-place-2{animation-delay:-2.7s}.sky-island-place-3{animation-delay:-.5s}
+.sky-island-aura{position:absolute;z-index:-1;top:-20px;left:5%;right:5%;height:155px;border-radius:50%;background:radial-gradient(ellipse,rgba(177,99,255,.29),transparent 70%);filter:blur(12px);pointer-events:none}
+.sky-island-place-1 .sky-island-aura{background:radial-gradient(ellipse,rgba(255,210,84,.35),rgba(170,80,255,.15) 50%,transparent 75%)}
+.sky-island-medal{font-size:clamp(23px,4vw,37px);line-height:1.3;filter:drop-shadow(0 0 8px rgba(255,211,91,.35))}
+.sky-island-head{width:clamp(43px,8vw,80px);height:clamp(43px,8vw,80px);image-rendering:pixelated;border:3px solid rgba(216,180,254,.65);border-radius:10px;background:#30204e;box-shadow:0 0 18px rgba(167,139,250,.24);object-fit:cover}
+.sky-island-place-1 .sky-island-head{border-color:#fcd34d;box-shadow:0 0 24px rgba(252,211,77,.3)}
+.sky-island-name{margin-top:9px;width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff;font-size:clamp(11px,1.8vw,16px)}
+.sky-island-score{margin-top:3px;margin-bottom:13px;color:#e9d5ff;font-size:clamp(11px,1.7vw,15px);font-weight:800;overflow-wrap:anywhere}.sky-island-score small{font-size:.75em;font-weight:500}
+.sky-island-grass{width:100%;height:clamp(36px,6vw,57px);display:flex;align-items:center;justify-content:center;border:3px solid #65a74e;border-bottom:0;border-radius:7px 7px 0 0;background:repeating-linear-gradient(90deg,transparent 0 15px,rgba(18,62,20,.15) 15px 20px),linear-gradient(#8ad064 0 30%,#57983d 30% 53%,#6e503a 53%);box-shadow:inset 0 7px 0 rgba(193,241,143,.28)}
+.sky-island-rank{font-size:clamp(18px,3.5vw,32px);font-weight:1000;color:#fff;text-shadow:2px 3px #2f4d28}
+.sky-island-dirt{width:88%;height:clamp(22px,4vw,45px);clip-path:polygon(0 0,100% 0,84% 100%,20% 100%);background:repeating-linear-gradient(120deg,transparent 0 15px,rgba(40,25,16,.24) 15px 22px),linear-gradient(#866144,#5d3c31);border-bottom:4px solid #4c3229}
+.sky-island-place-1 .sky-island-grass{height:clamp(54px,9vw,90px);border-color:#b1d779}.sky-island-place-1 .sky-island-dirt{height:clamp(36px,6vw,62px)}
+.sky-islands-rest{margin:0 auto;max-width:650px;padding-top:12px;border-top:1px solid rgba(216,180,254,.17)}
+.sky-islands-row{display:flex;align-items:center;gap:12px;border:1px solid rgba(196,181,253,.17);border-radius:14px;padding:10px 13px;background:linear-gradient(110deg,rgba(108,55,169,.18),rgba(255,255,255,.04));transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.sky-islands-row:hover{transform:translateY(-2px);border-color:rgba(196,181,253,.55);box-shadow:0 7px 22px rgba(106,33,180,.18)}
+.sky-islands-number{min-width:27px;font-weight:900;color:#c4b5fd}
+.sky-islands-row-head{height:40px;width:40px;flex:none;border-radius:8px;image-rendering:pixelated;background:#2b1c44}
+@keyframes skyIslandFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@media(max-width:480px){.sky-islands-podium{gap:6px;padding-top:15px;min-height:245px}.sky-islands-row{gap:8px;padding:9px}.sky-islands-row-head{width:32px;height:32px}.sky-island-name{font-size:11px}.sky-island-score{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.sky-island-champion{animation:none}.sky-islands-row{transition:none}.sky-islands-row:hover{transform:none}}
