@@ -410,40 +410,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
             </div>
           </section>;
         }
-        const podium = [entries[1],entries[0],entries[2]];
-        const podiumRanks = [2,1,3] as const;
-        return <section id={`rangliste-${category.id}`} key={category.id} className={`sky-ultimate-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8`}>
-          <div className="sky-ultimate-heading">
-            <span className="sky-ultimate-eyebrow">✦ SKYFUNITY HALL OF CHAMPIONS ✦</span>
-            <h2 className="text-2xl font-black text-white sm:text-3xl">{category.icon} {category.title} <span className="text-purple-300">Top 10</span></h2>
-            <p className="mt-2 text-sm text-purple-200">Die besten Spieler des Netzwerks</p>
-          </div>
-          {entries.length > 0 ? <>
-            <div className="sky-ultimate-podium" aria-label="Die drei besten Spieler">
-              {podium.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-ultimate-champion sky-ultimate-place-${podiumRanks[index]}`}>
-                <div className="sky-ultimate-halo" aria-hidden="true"/>
-                <div className="sky-ultimate-medal" aria-label={`Platz ${podiumRanks[index]}`}>{podiumRanks[index]===1?"👑":podiumRanks[index]===2?"🥈":"🥉"}</div>
-                <span className="sky-ultimate-rank">PLATZ {podiumRanks[index]}</span>
-                <img className="sky-ultimate-head" src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/96`} alt={`Minecraft-Spielerkopf von ${entry.player_name}`} width="84" height="84" loading="lazy"/>
-                <strong className="sky-ultimate-name" title={entry.player_name}>{entry.player_name}</strong>
-                <div className="sky-ultimate-value">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}<small>{category.unit}</small></div>
-                <div className="sky-ultimate-card-foot" aria-hidden="true"><span>✦</span><span>SKYFUNITY</span><span>✦</span></div>
-              </article>:<div key={index} className="sky-ultimate-empty" aria-hidden="true"/>)}
-            </div>
-            <div className="sky-ultimate-list">
-              <div className="sky-ultimate-list-heading"><h3>⚔️ Weitere Champions</h3><span>PLATZ 4–10</span></div>
-              <ol start={4} className="space-y-3">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-ultimate-row">
-                <span className="sky-ultimate-number">{String(index+4).padStart(2,"0")}</span>
-                <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" loading="lazy" width="42" height="42" className="sky-ultimate-row-head"/>
-                <strong className="min-w-0 flex-1 truncate text-slate-100">{entry.player_name}</strong>
-                <span className="sky-ultimate-row-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>{category.unit}</small></span>
-              </li>)}</ol>
-            </div>
-          </>:<div className="rounded-xl border border-dashed border-purple-300/20 bg-white/5 px-4 py-10 text-center">
-            <p className="font-semibold text-slate-200">{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</p>
-            <p className="mt-2 text-sm text-slate-400">Die Rangliste erscheint, sobald die öffentliche Supabase-Ansicht eingerichtet ist und Daten liefert.</p>
-          </div>}
-        </section>;
+        return null;
       })}
     </div>
     <p className="mt-8 text-center text-sm text-slate-400">Öffentliche Ranglisten zeigen ausschließlich Spielernamen und aggregierte Werte. Veraltete Test-Server-IDs werden nicht mitgezählt.</p>
