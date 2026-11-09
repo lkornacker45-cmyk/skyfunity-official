@@ -793,3 +793,9 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-player-stats{border-color:rgba(216,180,254,.6);background:rgba(30,13,52,.89)}
 .sky-player-stats-badge{display:inline-flex;align-items:center;border:1px solid rgba(216,180,254,.6);border-radius:999px;padding:7px 12px;background:rgba(216,180,254,.16);color:#e9d5ff;font-size:.75rem;font-weight:700}
 .sky-player-stat-tile{border:1px solid rgba(216,180,254,.3);border-radius:15px;padding:16px;background:linear-gradient(145deg,rgba(124,58,237,.18),rgba(216,180,254,.07))}
+
+/* Header Account dropdown: supports mouse, keyboard and touch via native details */
+.sky-account-dropdown summary::-webkit-details-marker{display:none}
+.sky-account-dropdown[open] .sky-liquid-account{box-shadow:0 0 0 2px rgba(196,181,253,.35)}
+.sky-account-dropdown-link{display:block;border-radius:10px;padding:12px 14px;color:#ede9fe;font-size:14px;font-weight:700;transition:background .15s,color .15s}
+.sky-account-dropdown-link:hover,.sky-account-dropdown-link:focus-visible{background:rgba(168,85,247,.24);color:#a5f3fc;outline:none}
