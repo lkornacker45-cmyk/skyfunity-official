@@ -25,14 +25,21 @@ async function getLeaderboard(): Promise<{ rows: Record<string, Entry[]>; error:
   if (!url || !key) return { rows: {}, error: true };
   try {
     const db = createClient(url, key, { auth: { persistSession: false } });
+    // Query categories separately so one large category cannot exhaust a shared row limit.
+    // Note: a database view that already exposes only ten players cannot supply replacements
+    // after website-only exclusions; that requires updating the view itself.
     const sources = [
-      { view: "skyfunity_public_leaderboards", categories: ["spielzeit", "votes"] },
-      { view: "skyfunity_public_economy_jobs_top10", categories: ["coins", "gems", "funitys", "jobs"] }
+      { view: "skyfunity_public_leaderboards", category: "spielzeit" },
+      { view: "skyfunity_public_leaderboards", category: "votes" },
+      { view: "skyfunity_public_economy_jobs_top10", category: "coins" },
+      { view: "skyfunity_public_economy_jobs_top10", category: "gems" },
+      { view: "skyfunity_public_economy_jobs_top10", category: "funitys" },
+      { view: "skyfunity_public_economy_jobs_top10", category: "jobs" }
     ];
     const results = await Promise.all(sources.map(async source => {
       const { data, error } = await db.from(source.view)
         .select("category,minecraft_uuid,player_name,score")
-        .in("category", source.categories)
+        .eq("category", source.category)
         .order("score", { ascending: false })
         .limit(100);
       return { data, error };
