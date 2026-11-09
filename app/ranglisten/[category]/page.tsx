@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import AnimatedCoinValue from "./AnimatedCoinValue";
 import {notFound} from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
@@ -69,9 +70,11 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   const entries = (rows[selected.id] ?? []).slice(0,10);
   const top = [entries[1],entries[0],entries[2]];
   const ranks = [2,1,3] as const;
-  return <main className="sky-orbital-page mx-auto w-full max-w-7xl px-3 py-10 sm:px-6 sm:py-14">
+  return <main className="sky-orbital-page sky-gold-factory-page mx-auto w-full max-w-7xl px-3 py-10 sm:px-6 sm:py-14">
     <section id={`rangliste-${selected.id}`} className={`sky-orbital sky-orbital-${selected.id}`}>
       <div className="sky-orbital-scene" aria-hidden="true"/>
+      <div className="sky-gold-factory-rays" aria-hidden="true"/>
+      <div className="sky-gold-factory-dust" aria-hidden="true">{Array.from({length: 18}, (_, i) => <i key={i} style={{"--particle-index": i} as React.CSSProperties}/>)}</div>
       <div className="sky-orbital-stardust" aria-hidden="true"/>
       <div className="sky-orbital-beam" aria-hidden="true"/>
       <header className="sky-orbital-header">
@@ -84,25 +87,26 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       {entries.length ? <>
         <div className="sky-orbital-stage" aria-label={`Die drei besten Spieler für ${selected.title}`}>
           <div className="sky-orbital-core" aria-hidden="true"><span/><span/><span/></div>
+          <div className="sky-gold-factory-reactor" aria-hidden="true"><span/><span/><span/></div>
           <div className="sky-orbital-podium">
-            {top.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-orbital-capsule sky-orbital-place-${ranks[index]}`}>
+            {top.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-orbital-capsule sky-orbital-place-${ranks[index]} sky-gold-factory-champion`}>
               <div className="sky-orbital-capsule-top"><span>{ranks[index]===1?"CAPTAIN'S BRIDGE":ranks[index]===2?"DOCKING BAY A":"DOCKING BAY B"}</span><i aria-hidden="true"/></div>
               <div className="sky-orbital-medal">{ranks[index]===1?"👑":ranks[index]===2?"🥈":"🥉"}</div>
               <span className="sky-orbital-position">PLATZ {String(ranks[index]).padStart(2,"0")}</span>
               <div className="sky-orbital-avatar-shell"><img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/128`} alt={`Minecraft-Spielerkopf von ${entry.player_name}`} width="100" height="100" loading={ranks[index]===1?"eager":"lazy"}/></div>
               <strong title={entry.player_name} className="sky-orbital-name">{entry.player_name}</strong>
-              <div className="sky-orbital-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}<small>{selected.unit}</small></div>
+              <div className="sky-orbital-score"><AnimatedCoinValue value={entry.score}/><small>{selected.unit}</small></div>
               <div className="sky-orbital-capsule-bottom" aria-hidden="true"><span/><span/><span/><span/><span/></div>
             </article>:<div key={index} className="sky-orbital-blank" aria-hidden="true"/>)}
           </div>
         </div>
         <div className="sky-orbital-board">
           <div className="sky-orbital-board-title"><div><p>✦ {"GOLD FACTORY LEADERBOARD"}</p><h2>Weitere Champions</h2></div><span>RANG 04 — 10</span></div>
-          <ol start={4} className="sky-orbital-list">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-orbital-row">
+          <ol start={4} className="sky-orbital-list">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-orbital-row sky-gold-factory-row">
             <span className="sky-orbital-row-rank">{String(index+4).padStart(2,"0")}</span>
             <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" width="42" height="42" loading="lazy" className="sky-orbital-row-head"/>
             <strong title={entry.player_name} className="sky-orbital-row-name">{entry.player_name}</strong>
-            <span className="sky-orbital-row-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>{selected.unit}</small></span>
+            <span className="sky-orbital-row-score"><AnimatedCoinValue value={entry.score}/> <small>{selected.unit}</small></span>
           </li>)}</ol>
         </div>
       </>:<div className="sky-orbital-empty"><strong>{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</strong><p>Die {selected.title}-Rangliste erscheint, sobald öffentliche Daten verfügbar sind.</p></div>}
