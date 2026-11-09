@@ -1542,3 +1542,10 @@ body .sky-liquid-brand > .sky-brand-logo{
 /* Vote hologram: position in the empty hero zone between title and podium, not behind the cards. */
 .sky-vote-beacon .sky-job-scanner-core{left:50%;top:210px;width:190px;transform:translate(-50%,-50%);z-index:1}
 @media(max-width:640px){.sky-vote-beacon .sky-job-scanner-core{left:50%;top:190px;width:150px;transform:translate(-50%,-50%)}}
+
+/* Votes: actual hero hologram slot directly below heading and above champion cards. */
+.sky-vote-beacon .sky-vote-holo-slot{position:relative;z-index:3;height:170px;max-width:100%;display:flex;justify-content:center;align-items:center;pointer-events:none}
+.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{position:relative;left:auto;top:auto;transform:none;width:185px;height:185px;flex:none;z-index:1;filter:drop-shadow(0 0 24px rgba(96,178,255,.55))}
+.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-emblem{inset:4% 15%}
+.sky-vote-beacon .sky-job-hq-stage{margin-top:0}
+@media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot{height:145px}.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{width:155px;height:155px;top:auto;left:auto;transform:none}}
