@@ -233,7 +233,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
               <div className="sky-job-scanner-frame"/>
               <div className="sky-job-scanner-beam"/>
               <div className="sky-job-scanner-core">
-                <div className="sky-playtime-chronosphere-orbit"><span className="sky-playtime-chronosphere-orbit-one"/><span className="sky-playtime-chronosphere-orbit-two"/><span className="sky-playtime-chronosphere-orbit-three"/><span className="sky-playtime-chronosphere-orbit-center"/></div>
+                <div className="sky-playtime-hourglass"><div className="sky-playtime-hourglass-top"/><div className="sky-playtime-hourglass-glass"><span className="sky-playtime-hourglass-upper"/><span className="sky-playtime-hourglass-stream"/><span className="sky-playtime-hourglass-lower"/></div><div className="sky-playtime-hourglass-bottom"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-a"/><span className="sky-playtime-hourglass-spark sky-playtime-hourglass-spark-b"/></div>
                 <div className="sky-job-scanner-core-shadow"/>
               </div>
               <div className="sky-job-scanner-readout">CHRONO SCAN // TIME FLOW <span>● LIVE</span></div>
