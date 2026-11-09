@@ -75,6 +75,50 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
     <div className="mx-auto w-full max-w-3xl">
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
+        if (category.id === "coins") {
+          const podium = [entries[1], entries[0], entries[2]];
+          const positions = [2, 1, 3];
+          const frame = [
+            "border-slate-300/50 from-slate-300/20 via-purple-950/95 to-slate-950/95",
+            "border-amber-300/70 from-amber-400/25 via-purple-950/95 to-slate-950/95",
+            "border-orange-300/50 from-orange-400/15 via-purple-950/95 to-slate-950/95"
+          ];
+          return <section id="rangliste-coins" key="coins" className="glass relative mx-auto w-full max-w-4xl overflow-hidden rounded-[28px] border border-purple-300/30 bg-[#170c2b]/90 px-3 py-7 shadow-2xl shadow-purple-950/50 sm:px-8 sm:py-10">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-purple-600/25 via-fuchsia-500/5 to-transparent"/>
+            <div className="relative mb-8 text-center">
+              <p className="text-[10px] font-black uppercase tracking-[.28em] text-amber-300 sm:text-xs">✦ SkyFunity · Hall of Champions ✦</p>
+              <h2 className="mt-3 text-3xl font-black tracking-tight text-white sm:text-5xl">🪙 Coins <span className="bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-600 bg-clip-text text-transparent">Top 10</span></h2>
+              <p className="mt-3 text-sm text-purple-200">Die reichsten Spieler auf SkyFunity</p>
+            </div>
+            {entries.length > 0 ? <>
+              <div className="relative grid grid-cols-3 items-end gap-2 pb-10 sm:gap-5" aria-label="Die drei besten Coins-Spieler">
+                {podium.map((entry,index) => entry ? <article key={entry.minecraft_uuid} className={`group relative flex min-w-0 flex-col items-center overflow-hidden rounded-2xl border bg-gradient-to-b px-2 pb-4 pt-5 text-center shadow-xl transition-transform duration-300 hover:-translate-y-2 sm:px-4 sm:pb-6 ${frame[index]} ${index===1?"min-h-[265px] shadow-amber-400/15 sm:min-h-[345px]":"min-h-[240px] sm:min-h-[300px]"}`}>
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-amber-300/70 to-transparent"/>
+                  <span className="mb-2 text-2xl sm:text-4xl" aria-label={`Platz ${positions[index]}`}>{index===1?"👑":index===0?"🥈":"🥉"}</span>
+                  <span className="mb-3 rounded-full border border-white/20 bg-black/30 px-2 py-1 text-[9px] font-black uppercase tracking-widest text-white/90 sm:text-xs">Platz {positions[index]}</span>
+                  <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/96`} width="80" height="80" loading="lazy" alt={`Minecraft-Kopf von ${entry.player_name}`} className={`aspect-square w-12 rounded-xl border-2 bg-purple-950 object-cover shadow-lg sm:w-20 ${index===1?"border-amber-300 shadow-amber-400/30":"border-purple-300/70"}`} style={{imageRendering:"pixelated"}}/>
+                  <strong className="mt-3 w-full truncate text-xs font-black text-white sm:text-lg" title={entry.player_name}>{entry.player_name}</strong>
+                  <div className="mt-auto w-full pt-4">
+                    <p className="break-words text-sm font-black tabular-nums text-amber-200 sm:text-xl">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}</p>
+                    <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-purple-200 sm:text-xs">Coins</p>
+                  </div>
+                </article> : <div key={index} aria-hidden="true" className="min-w-0"/>)}
+              </div>
+              <div className="relative mx-auto max-w-2xl">
+                <div className="mb-4 flex items-center justify-between gap-3 border-b border-purple-300/20 pb-3">
+                  <h3 className="text-sm font-black text-white sm:text-lg">⚔️ Weitere Champions</h3>
+                  <span className="text-[10px] font-bold tracking-widest text-purple-300 sm:text-xs">PLATZ 4–10</span>
+                </div>
+                <ol start={4} className="space-y-2.5">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="flex min-w-0 items-center gap-2 rounded-xl border border-purple-300/20 bg-purple-500/10 px-3 py-3 transition-colors duration-200 hover:border-amber-300/50 hover:bg-purple-500/20 sm:gap-4 sm:px-4">
+                  <span className="w-6 shrink-0 text-center text-sm font-black tabular-nums text-purple-200 sm:w-9">{String(index+4).padStart(2,"0")}</span>
+                  <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} width="42" height="42" loading="lazy" alt="" className="h-9 w-9 shrink-0 rounded-lg border border-purple-300/30 bg-purple-950 object-cover sm:h-11 sm:w-11" style={{imageRendering:"pixelated"}}/>
+                  <strong className="min-w-0 flex-1 truncate text-xs font-bold text-white sm:text-base">{entry.player_name}</strong>
+                  <div className="shrink-0 text-right"><span className="block text-xs font-black tabular-nums text-amber-200 sm:text-base">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}</span><span className="text-[10px] text-purple-300">Coins</span></div>
+                </li>)}</ol>
+              </div>
+            </>:<div className="rounded-xl border border-dashed border-purple-300/30 bg-purple-500/10 px-4 py-10 text-center"><p className="font-bold text-white">{error?"Datenquelle noch nicht erreichbar":"Noch keine Werte vorhanden"}</p><p className="mt-2 text-sm text-purple-200">Sobald öffentliche Coins-Daten vorliegen, erscheint hier die Top 10.</p></div>}
+          </section>;
+        }
         const podium = [entries[1],entries[0],entries[2]];
         const podiumRanks = [2,1,3] as const;
         return <section id={`rangliste-${category.id}`} key={category.id} className="sky-ultimate-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8">
