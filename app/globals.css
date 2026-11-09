@@ -1090,3 +1090,32 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyGoldTargetBlink{50%{opacity:.22}}
 @media(max-width:640px){.sky-gold-scan-status{font-size:7px;letter-spacing:.07em;right:8px}.sky-gold-scan-target{width:35px;height:35px}.sky-gold-scan-reticle{top:25%;width:85%}}
 @media(prefers-reduced-motion:reduce){.sky-gold-scan-system::after,.sky-gold-scan-reticle,.sky-gold-scan-target,.sky-gold-scan-status span{animation:none!important}.sky-gold-scan-system::after{transform:none;opacity:.15}}
+
+
+/* Gems-only Diamond Infinity scanner: crystalline violet/cyan HUD, not Gold Factory. */
+.sky-gem-scanner{background:radial-gradient(ellipse 60% 38% at 50% 31%,rgba(151,105,255,.28),transparent 80%),radial-gradient(ellipse 50% 48% at 50% 70%,rgba(43,176,235,.12),transparent 80%),linear-gradient(160deg,#080d22 0%,#191039 47%,#080c23 100%);border:1px solid rgba(191,160,255,.7);box-shadow:0 0 38px rgba(136,87,255,.2),inset 0 0 50px rgba(126,77,234,.12)}
+.sky-gem-scanner .sky-diamond-44-vault{opacity:.5}
+.sky-gem-scan-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;isolation:isolate}
+.sky-gem-scan-grid{position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 47px,rgba(178,164,255,.065) 48px,transparent 49px),repeating-linear-gradient(90deg,transparent 0 47px,rgba(116,220,255,.07) 48px,transparent 49px);mask-image:linear-gradient(transparent,#000 14%,#000 88%,transparent)}
+.sky-gem-scan-grid::after{content:"";position:absolute;inset:48% -40% -25%;background-image:linear-gradient(rgba(150,212,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(177,142,255,.16) 1px,transparent 1px);background-size:72px 72px;transform:perspective(440px) rotateX(66deg);transform-origin:center top;animation:skyGemGridFlow 12s linear infinite}
+.sky-gem-scan-sweep{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(167,122,255,.03) 43%,rgba(159,123,255,.16) 49.5%,rgba(202,243,255,.62) 50%,rgba(145,121,255,.14) 50.5%,transparent 57%);filter:drop-shadow(0 0 16px rgba(152,204,255,.8));transform:translateY(-110%);animation:skyGemScanSweep 8s ease-in-out infinite}
+.sky-gem-scan-reticle{position:absolute;top:23%;left:50%;width:min(72%,480px);aspect-ratio:1;border:1px dashed rgba(189,167,255,.42);border-radius:50%;transform:translateX(-50%);box-shadow:0 0 35px rgba(135,110,255,.24),inset 0 0 35px rgba(128,221,255,.12);animation:skyGemReticlePulse 5s ease-in-out infinite}
+.sky-gem-scan-reticle::before,.sky-gem-scan-reticle::after{content:"";position:absolute;inset:15%;border:1px solid rgba(165,230,255,.42);border-radius:50%}.sky-gem-scan-reticle::after{inset:32%;border-style:dotted}
+.sky-gem-scan-label{position:absolute;right:14px;top:12px;font-size:9px;letter-spacing:.16em;font-weight:800;color:#c7eaff;text-shadow:0 0 12px rgba(120,202,255,.6)}.sky-gem-scan-label span{margin-left:8px;color:#d9b6ff;animation:skyGemScanBlink 1.7s ease-in-out infinite}
+.sky-gem-scanner .sky-infinity-header,.sky-gem-scanner .sky-infinity-stage,.sky-gem-scanner .sky-infinity-ranking,.sky-gem-scanner .sky-infinity-footer{position:relative;z-index:3}
+.sky-gem-scanner .sky-infinity-champion{transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;animation:skyGemChampionArrival .85s cubic-bezier(.2,.9,.2,1) both}
+.sky-gem-scanner .sky-infinity-champion:nth-child(1){animation-delay:.18s}.sky-gem-scanner .sky-infinity-champion:nth-child(2){animation-delay:.32s}.sky-gem-scanner .sky-infinity-champion:nth-child(3){animation-delay:.48s}
+.sky-gem-scanner .sky-infinity-champion::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(115deg,transparent 25%,rgba(206,245,255,.18) 45%,rgba(224,196,255,.28) 50%,transparent 62%);background-size:240% 100%;animation:skyGemCardShine 6s ease-in-out infinite}
+.sky-gem-scanner .sky-infinity-ranking{animation:skyGemRankingReveal .85s .6s both}
+.sky-gem-scanner .sky-infinity-row{animation:skyGemRankingReveal .6s both}
+.sky-gem-scanner .sky-infinity-row:nth-child(1){animation-delay:.85s}.sky-gem-scanner .sky-infinity-row:nth-child(2){animation-delay:.95s}.sky-gem-scanner .sky-infinity-row:nth-child(3){animation-delay:1.05s}.sky-gem-scanner .sky-infinity-row:nth-child(4){animation-delay:1.15s}.sky-gem-scanner .sky-infinity-row:nth-child(5){animation-delay:1.25s}.sky-gem-scanner .sky-infinity-row:nth-child(6){animation-delay:1.35s}.sky-gem-scanner .sky-infinity-row:nth-child(7){animation-delay:1.45s}
+@media(hover:hover) and (pointer:fine){.sky-gem-scanner .sky-infinity-champion:hover{transform:translateY(-12px) rotateX(4deg) rotateY(-4deg) scale(1.03);border-color:#c7f4ff;box-shadow:0 18px 55px rgba(149,105,255,.42),0 0 35px rgba(112,224,255,.28)}}
+@keyframes skyGemScanSweep{0%,8%{transform:translateY(-110%);opacity:0}17%,75%{opacity:1}86%,100%{transform:translateY(110%);opacity:0}}
+@keyframes skyGemGridFlow{to{background-position:0 72px,0 72px}}
+@keyframes skyGemReticlePulse{50%{opacity:.45;box-shadow:0 0 65px rgba(134,117,255,.42),inset 0 0 35px rgba(140,229,255,.2)}}
+@keyframes skyGemScanBlink{50%{opacity:.3}}
+@keyframes skyGemChampionArrival{from{opacity:0;translate:0 65px;scale:.86}to{opacity:1;translate:0 0;scale:1}}
+@keyframes skyGemRankingReveal{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes skyGemCardShine{0%,25%{background-position:140% 0}60%,100%{background-position:-140% 0}}
+@media(max-width:640px){.sky-gem-scan-label{font-size:7px;letter-spacing:.06em;right:8px}.sky-gem-scan-reticle{width:88%;top:28%}}
+@media(prefers-reduced-motion:reduce){.sky-gem-scanner .sky-infinity-champion,.sky-gem-scanner .sky-infinity-ranking,.sky-gem-scanner .sky-infinity-row,.sky-gem-scanner .sky-infinity-champion::after,.sky-gem-scan-sweep,.sky-gem-scan-reticle,.sky-gem-scan-grid::after,.sky-gem-scan-label span{animation:none!important}.sky-gem-scanner .sky-infinity-champion:hover{transform:none!important}.sky-gem-scan-sweep{opacity:.12;transform:none}}
