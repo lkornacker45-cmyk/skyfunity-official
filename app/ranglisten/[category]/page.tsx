@@ -177,8 +177,17 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
         }
         if (category.id === "jobs") {
           const top = entries.slice(0,3);
-          return <section id="rangliste-jobs" className="sky-job-hq sky-mecha-industries" aria-label="SkyFunity Jobs Top 10">
-            <div className="sky-mecha-scene" aria-hidden="true"/><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
+          return <section id="rangliste-jobs" className="sky-job-hq sky-mecha-industries sky-job-scanner" aria-label="SkyFunity Jobs Top 10">
+            <div className="sky-mecha-scene" aria-hidden="true"/><div className="sky-job-scanner-background" aria-hidden="true">
+              <div className="sky-job-scanner-grid"/>
+              <div className="sky-job-scanner-frame"/>
+              <div className="sky-job-scanner-beam"/>
+              <div className="sky-job-scanner-core">
+                <div className="sky-job-scanner-rotor"><span className="sky-job-scanner-gear sky-job-scanner-gear-front"/><span className="sky-job-scanner-gear sky-job-scanner-gear-back"/><span className="sky-job-scanner-hub"/></div>
+                <div className="sky-job-scanner-core-shadow"/>
+              </div>
+              <div className="sky-job-scanner-readout">MECHA SCAN // SYSTEM ANALYSIS <span>● LIVE</span></div>
+            </div><div className="sky-mecha-haze" aria-hidden="true"/><div className="sky-mecha-lights" aria-hidden="true"/>
             <header className="sky-job-hq-header">
               <Link href="/ranglisten" className="sky-job-hq-back">← Alle Ranglisten</Link>
               <p className="sky-job-hq-kicker">SKYFUNITY ✦ MECHA INDUSTRIES ✦ ROBOT FACTORY</p>
