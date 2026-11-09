@@ -128,8 +128,8 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
         const entries = (rows[category.id] ?? []).slice(0,10);
         if (category.id === "gems") {
           const top = entries.slice(0, 3);
-          return <section id="rangliste-gems" className="sky-infinity sky-diamond-44 relative isolate mx-auto w-full overflow-hidden rounded-[28px]">
-            <div className="sky-diamond-44-vault" aria-hidden="true" /><div className="sky-diamond-44-prisms" aria-hidden="true" /><div className="sky-infinity-stars" aria-hidden="true" />
+          return <section id="rangliste-gems" className="sky-infinity sky-diamond-44 sky-gem-scanner relative isolate mx-auto w-full overflow-hidden rounded-[28px]">
+            <div className="sky-diamond-44-vault" aria-hidden="true" /><div className="sky-gem-scan-overlay" aria-hidden="true"><div className="sky-gem-scan-grid"/><div className="sky-gem-scan-sweep"/><div className="sky-gem-scan-reticle"/><div className="sky-gem-scan-label">DIAMOND SCAN // CRYSTAL ANALYSIS <span>◆ ◆ ◆ ◇ ◇</span></div></div><div className="sky-diamond-44-prisms" aria-hidden="true" /><div className="sky-infinity-stars" aria-hidden="true" />
             <div className="sky-infinity-beams" aria-hidden="true" />
             <header className="sky-infinity-header relative z-10">
               <Link href="/ranglisten" className="sky-infinity-back">← Alle Ranglisten</Link>
