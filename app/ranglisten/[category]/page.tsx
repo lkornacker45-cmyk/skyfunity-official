@@ -76,31 +76,32 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
       {categories.filter(category=>category.id===selected.id).map(category => {
         const entries = (rows[category.id] ?? []).slice(0,10);
         const podium = [entries[1],entries[0],entries[2]];
-        const podiumRanks = [2,1,3];
-        return <section id={`rangliste-${category.id}`} key={category.id} className="sky-islands-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8">
-          <div className="mb-8 flex flex-wrap items-center justify-center gap-3 text-center">
-            <h2 className="text-2xl font-extrabold text-white">{category.icon} {category.title}</h2>
-            <span className="rounded-full border border-purple-400/40 bg-purple-500/15 px-3 py-1 text-xs font-bold text-purple-200">TOP 10</span>
+        const podiumRanks = [2,1,3] as const;
+        return <section id={`rangliste-${category.id}`} key={category.id} className="sky-ultimate-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8">
+          <div className="sky-ultimate-heading">
+            <span className="sky-ultimate-eyebrow">✦ SKYFUNITY HALL OF CHAMPIONS ✦</span>
+            <h2 className="text-2xl font-black text-white sm:text-3xl">{category.icon} {category.title} <span className="text-purple-300">Top 10</span></h2>
+            <p className="mt-2 text-sm text-purple-200">Die besten Spieler des Netzwerks</p>
           </div>
           {entries.length > 0 ? <>
-            <div className="sky-islands-podium" aria-label="Die drei besten Spieler">
-              {podium.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-island-champion sky-island-place-${podiumRanks[index]}`}>
-                <div className="sky-island-aura" aria-hidden="true"/>
-                <span className="sky-island-medal" aria-label={`Platz ${podiumRanks[index]}`}>{podiumRanks[index]===1?"👑":podiumRanks[index]===2?"🥈":"🥉"}</span>
-                <img className="sky-island-head" src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/96`} alt={`Minecraft-Kopf von ${entry.player_name}`} loading="lazy" width="80" height="80"/>
-                <strong className="sky-island-name" title={entry.player_name}>{entry.player_name}</strong>
-                <span className="sky-island-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>{category.unit}</small></span>
-                <div className="sky-island-grass" aria-hidden="true"><span className="sky-island-rank">{podiumRanks[index]}</span></div>
-                <div className="sky-island-dirt" aria-hidden="true"/>
-              </article>:<div key={index} className="sky-island-empty" aria-hidden="true"/>)}
+            <div className="sky-ultimate-podium" aria-label="Die drei besten Spieler">
+              {podium.map((entry,index)=>entry?<article key={entry.minecraft_uuid} className={`sky-ultimate-champion sky-ultimate-place-${podiumRanks[index]}`}>
+                <div className="sky-ultimate-halo" aria-hidden="true"/>
+                <div className="sky-ultimate-medal" aria-label={`Platz ${podiumRanks[index]}`}>{podiumRanks[index]===1?"👑":podiumRanks[index]===2?"🥈":"🥉"}</div>
+                <span className="sky-ultimate-rank">PLATZ {podiumRanks[index]}</span>
+                <img className="sky-ultimate-head" src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/96`} alt={`Minecraft-Spielerkopf von ${entry.player_name}`} width="84" height="84" loading="lazy"/>
+                <strong className="sky-ultimate-name" title={entry.player_name}>{entry.player_name}</strong>
+                <div className="sky-ultimate-value">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})}<small>{category.unit}</small></div>
+                <div className="sky-ultimate-card-foot" aria-hidden="true"><span>✦</span><span>SKYFUNITY</span><span>✦</span></div>
+              </article>:<div key={index} className="sky-ultimate-empty" aria-hidden="true"/>)}
             </div>
-            <div className="sky-islands-rest">
-              <h3 className="mb-4 text-center text-sm font-black uppercase tracking-[.2em] text-purple-200">Weitere Top-Spieler</h3>
-              <ol start={4} className="space-y-3">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-islands-row">
-                <span className="sky-islands-number">{index+4}.</span>
-                <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" loading="lazy" width="40" height="40" className="sky-islands-row-head"/>
+            <div className="sky-ultimate-list">
+              <div className="sky-ultimate-list-heading"><h3>⚔️ Weitere Champions</h3><span>PLATZ 4–10</span></div>
+              <ol start={4} className="space-y-3">{entries.slice(3).map((entry,index)=><li key={entry.minecraft_uuid} className="sky-ultimate-row">
+                <span className="sky-ultimate-number">{String(index+4).padStart(2,"0")}</span>
+                <img src={`https://mc-heads.net/avatar/${encodeURIComponent(entry.minecraft_uuid)}/48`} alt="" loading="lazy" width="42" height="42" className="sky-ultimate-row-head"/>
                 <strong className="min-w-0 flex-1 truncate text-slate-100">{entry.player_name}</strong>
-                <span className="text-right text-sm font-bold tabular-nums text-purple-100">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <span className="text-xs font-normal text-slate-400">{category.unit}</span></span>
+                <span className="sky-ultimate-row-score">{entry.score.toLocaleString("de-DE",{maximumFractionDigits:1})} <small>{category.unit}</small></span>
               </li>)}</ol>
             </div>
           </>:<div className="rounded-xl border border-dashed border-purple-300/20 bg-white/5 px-4 py-10 text-center">
