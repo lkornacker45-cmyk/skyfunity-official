@@ -71,6 +71,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   const top = [entries[1],entries[0],entries[2]];
   const ranks = [2,1,3] as const;
   return <main className="sky-orbital-page sky-gold-factory-page mx-auto w-full max-w-7xl px-3 py-10 sm:px-6 sm:py-14">
+    <div className="sky-gold-factory-backdrop" aria-hidden="true"><div className="sky-gold-factory-backdrop-grid"/><div className="sky-gold-factory-backdrop-towers"/><div className="sky-gold-factory-backdrop-glow"/></div>
     <section id={`rangliste-${selected.id}`} className={`sky-orbital sky-orbital-${selected.id}`}>
       <div className="sky-orbital-scene" aria-hidden="true"/>
       <div className="sky-gold-factory-rays" aria-hidden="true"/>
