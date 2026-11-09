@@ -13,9 +13,7 @@ const categories = [
   { id: "jobs", title: "Jobs", icon: "🛠️", unit: "Level" },
   { id: "funitys", title: "Funitys", icon: "✨", unit: "Funitys" },
   { id: "spielzeit", title: "Spielzeit", icon: "⏱️", unit: "Stunden" },
-  { id: "votes", title: "Votes", icon: "🗳️", unit: "Votes" },
-  { id: "questliga", title: "Questliga", icon: "🏆", unit: "Punkte" },
-  { id: "erntefarm", title: "Erntefarm", icon: "🌾", unit: "Ernte" }
+  { id: "votes", title: "Votes", icon: "🗳️", unit: "Votes" }
 ] as const;
 
 async function getLeaderboard(): Promise<{ rows: Record<string, Entry[]>; error: boolean }> {
@@ -71,22 +69,21 @@ export default async function RanglistenPage() {
     </div>
     <div className="grid gap-6 md:grid-cols-2">
       {categories.map(category => {
-        const available = category.id !== "questliga" && category.id !== "erntefarm";
         const entries = (rows[category.id] ?? []).slice(0,10);
         return <section key={category.id} className="glass overflow-hidden rounded-2xl border border-purple-300/15 p-5 sm:p-7">
           <div className="mb-5 flex items-center justify-between gap-3">
             <h2 className="text-xl font-extrabold text-white"><span aria-hidden="true">{category.icon}</span> {category.title}</h2>
             <span className="rounded-full border border-purple-400/25 bg-purple-500/10 px-3 py-1 text-xs font-bold text-purple-200">TOP 10</span>
           </div>
-          {available && entries.length > 0 ? <ol className="space-y-2">{entries.map((entry, rank) =>
+          {entries.length > 0 ? <ol className="space-y-2">{entries.map((entry, rank) =>
             <li key={entry.minecraft_uuid} className="flex items-center gap-3 rounded-xl border border-white/5 bg-white/5 px-3 py-3">
               <span className="w-8 text-center text-lg font-black text-purple-200">{rank === 0 ? "🥇" : rank === 1 ? "🥈" : rank === 2 ? "🥉" : rank + 1 + "."}</span>
               <span className="min-w-0 flex-1 truncate font-semibold text-slate-100">{entry.player_name}</span>
               <span className="text-right text-sm font-bold tabular-nums text-purple-200">{entry.score.toLocaleString("de-DE", { maximumFractionDigits: 1 })} <span className="text-xs font-normal text-slate-400">{category.unit}</span></span>
             </li>)}</ol> :
             <div className="rounded-xl border border-dashed border-purple-300/20 bg-white/5 px-4 py-10 text-center">
-              <p className="font-semibold text-slate-200">{!available ? "Datenanbindung folgt" : error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</p>
-              <p className="mt-2 text-sm text-slate-400">{!available ? "Diese Kategorie wird aktiviert, sobald ihre Datenquelle angebunden ist." : "Die Rangliste erscheint, sobald die öffentliche Supabase-Ansicht eingerichtet ist und Daten liefert."}</p>
+              <p className="font-semibold text-slate-200">{error ? "Datenquelle noch nicht erreichbar" : "Noch keine Werte vorhanden"}</p>
+              <p className="mt-2 text-sm text-slate-400">{"Die Rangliste erscheint, sobald die öffentliche Supabase-Ansicht eingerichtet ist und Daten liefert."}</p>
             </div>}
         </section>;
       })}
