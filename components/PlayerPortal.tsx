@@ -16,6 +16,15 @@ const client=url&&key?createClient(url,key,{auth:{persistSession:true,autoRefres
 export default function PlayerPortal(){
  const [user,setUser]=useState<User|null>(null);
  const [section,setSection]=useState<"overview"|"stats"|"link"|"tickets">("overview");
+ useEffect(()=>{
+  const update=()=>{
+   const tab=new URLSearchParams(window.location.search).get("tab");
+   setSection(tab==="stats"||tab==="link"||tab==="tickets"?tab:"overview");
+  };
+  update();
+  window.addEventListener("popstate",update);
+  return ()=>window.removeEventListener("popstate",update);
+ },[]);
  const [profile,setProfile]=useState<Profile|null>(null);
  const [tickets,setTickets]=useState<Ticket[]>([]);
  const [messages,setMessages]=useState<Message[]>([]);
@@ -85,22 +94,9 @@ export default function PlayerPortal(){
    </form>
   </section>:<>
    <section className="sky-portal-panel flex flex-wrap items-center justify-between gap-4"><div><h2 className="text-xl font-bold">Hallo, {profile?.minecraft_name||user.email}!</h2><p className="text-sm text-purple-200">{staff?"Team-Zugang aktiviert":"Spieler-Account"} · {user.email}</p></div><button className="sky-portal-tab" onClick={()=>void client.auth.signOut()}>Abmelden</button></section>
-   <nav className="sky-portal-panel" aria-label="Account-Untermenü">
-    <div className="mb-3 text-sm font-bold uppercase tracking-widest text-purple-200">Mein Account · Untermenüs</div>
-    <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-     {([
-      ["overview","⌂","Übersicht"],
-      ["stats","▤","Statistiken"],
-      ["link","⛓","Minecraft verbinden"],
-      ["tickets","✉","Tickets & Support"]
-     ] as const).map(([id,symbol,label])=><button key={id} type="button" aria-current={section===id?"page":undefined} onClick={()=>{setSection(id);setNotice("");}} className={"sky-portal-tab flex min-h-16 flex-col items-center justify-center gap-1 rounded-xl border border-purple-400/30 px-3 py-3 text-center transition-colors "+(section===id?"sky-portal-tab-active border-cyan-300/70 bg-purple-500/20":"hover:border-purple-300/70")}>
-      <span aria-hidden="true" className="text-xl">{symbol}</span><span className="text-sm font-bold">{label}</span>
-     </button>)}
-    </div>
-   </nav>
    {section==="overview"&&<section className="sky-portal-panel">
     <h2 className="mb-2 text-2xl font-bold text-cyan-200">Dein SkyFunity-Account</h2>
-    <p className="mb-5 text-purple-200">Willkommen in deinem persönlichen Spielerbereich! Wähle oben ein Untermenü.</p>
+    <p className="mb-5 text-purple-200">Willkommen in deinem persönlichen Spielerbereich! Wähle im oberen Menü unter „Account“ deinen gewünschten Bereich.</p>
     <div className="grid gap-3 sm:grid-cols-3">
      <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("stats")}><span className="font-bold">📊 Meine Statistiken</span><span className="text-sm text-purple-200">Coins, Funitys, Gems, Jobs und Spielzeit ansehen</span></button>
      <button type="button" className="sky-ticket-item text-left" onClick={()=>setSection("link")}><span className="font-bold">🔗 Minecraft verbinden</span><span className="text-sm text-purple-200">Verbindungscode für /websitelink erstellen</span></button>
