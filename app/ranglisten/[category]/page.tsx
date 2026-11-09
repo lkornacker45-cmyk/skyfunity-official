@@ -312,8 +312,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
         }
         const podium = [entries[1],entries[0],entries[2]];
         const podiumRanks = [2,1,3] as const;
-        return <section id={`rangliste-${category.id}`} key={category.id} className={`sky-ultimate-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8 ${category.id === "funitys" ? "sky-funity-holo" : ""}`}>
-          {category.id === "funitys" && <div className="sky-funity-holo-scene" aria-hidden="true"><div className="sky-funity-holo-grid"/><div className="sky-funity-holo-scan"/><div className="sky-funity-holo-core"><span/><span/><span/></div><div className="sky-funity-holo-orbit"/><div className="sky-funity-holo-status">FUNITY ENERGY // LIVE</div></div>}
+        return <section id={`rangliste-${category.id}`} key={category.id} className={`sky-ultimate-board glass scroll-mt-32 rounded-3xl border border-purple-300/20 p-4 sm:p-8`}>
           <div className="sky-ultimate-heading">
             <span className="sky-ultimate-eyebrow">✦ SKYFUNITY HALL OF CHAMPIONS ✦</span>
             <h2 className="text-2xl font-black text-white sm:text-3xl">{category.icon} {category.title} <span className="text-purple-300">Top 10</span></h2>
