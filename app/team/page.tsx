@@ -19,7 +19,7 @@ export default async function Team(){
   {team.length===0?<p className="glass mx-auto mt-12 max-w-xl p-8 text-center text-slate-300">Unser Team wird hier bald vorgestellt.</p>:
   <section className="sky-skilltree relative mx-auto mt-14 max-w-6xl rounded-3xl border border-purple-400/25 bg-[#0c091b]/80 px-3 py-12 shadow-2xl shadow-black/40 sm:px-8" aria-label="Team-Skilltree">
    <div className="sky-skilltree-spine" aria-hidden="true"/>
-   {groups.map((group,g)=><div key={group.title} className="sky-skilltree-level relative z-10 flex flex-col items-center">
+   {groups.map((group,g)=><div id={`team-category-${group.title}`} key={group.title} className="sky-skilltree-level relative z-10 flex scroll-mt-32 flex-col items-center">
     {g>0&&<div className="sky-skilltree-connector" aria-hidden="true"><span>✦</span></div>}
     <h2 className="relative z-10 mb-7 rounded-full border border-purple-300/40 bg-[#211238] px-5 py-3 text-center text-sm font-black uppercase tracking-widest text-purple-100 shadow-[0_0_22px_#a855f744] sm:text-base">✦ {group.title}</h2>
     <div className="flex w-full flex-wrap items-stretch justify-center gap-4 sm:gap-6">
