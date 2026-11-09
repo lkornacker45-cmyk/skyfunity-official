@@ -117,7 +117,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   </main>;
   }
   return <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
-    <div className={selected.id === "gems" || selected.id === "jobs" ? "hidden" : "mb-10 text-center"}>
+    <div className={selected.id === "gems" || selected.id === "jobs" || selected.id === "funitys" ? "hidden" : "mb-10 text-center"}>
       <p className="text-xs font-extrabold uppercase tracking-[.25em] text-purple-300">✦ SkyFunity Netzwerk ✦</p>
       <h1 className="mt-4 text-4xl font-black text-white sm:text-6xl">{selected.icon} <span className="text-purple-400">{selected.title}</span>-Rangliste</h1>
       <p className="mx-auto mt-4 max-w-2xl text-slate-300">Die Top 10 aus dem SkyFunity-Netzwerk für {selected.title}.</p>
