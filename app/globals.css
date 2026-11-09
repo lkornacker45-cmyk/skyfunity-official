@@ -1549,3 +1549,13 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-emblem{inset:4% 15%}
 .sky-vote-beacon .sky-job-hq-stage{margin-top:0}
 @media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot{height:145px}.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{width:155px;height:155px;top:auto;left:auto;transform:none}}
+
+/* Votes hero refinement: larger, centered ballot; scan light stays behind and away from the emblem. */
+.sky-vote-beacon .sky-vote-holo-slot{height:205px;isolation:isolate}
+.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{width:245px;height:205px;overflow:visible}
+.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-emblem{inset:0 12%;filter:drop-shadow(0 0 18px rgba(110,196,255,.55))}
+.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-ballot{inset:10% 25%;border-width:3px}
+.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-check{font-size:72px}
+.sky-vote-beacon .sky-job-scanner-background .sky-job-scanner-beam{display:none}
+.sky-vote-beacon .sky-vote-holo-slot::before{content:"";position:absolute;left:50%;top:50%;width:290px;height:160px;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(73,145,255,.2),transparent 72%);pointer-events:none}
+@media(max-width:640px){.sky-vote-beacon .sky-vote-holo-slot{height:175px}.sky-vote-beacon .sky-vote-holo-slot .sky-job-scanner-core{width:205px;height:175px}.sky-vote-beacon .sky-vote-holo-slot .sky-vote-beacon-check{font-size:58px}}
