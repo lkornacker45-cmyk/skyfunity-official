@@ -29,6 +29,7 @@ export async function getStoreCatalog():Promise<StoreCatalog>{
   if(!response.ok)throw new Error("Tebex HTTP "+response.status);
   const json:unknown=await response.json();
   if(!json||typeof json!=="object"||!("data" in json)||!Array.isArray(json.data))throw new Error("Invalid Tebex response");
+  console.info("[tebex-catalog-shape]",JSON.stringify({count:json.data.length,sample:json.data.slice(0,2).map((v:unknown)=>{if(!v||typeof v!=="object")return {type:typeof v};const p=v as Record<string,unknown>;return {id:p.id,idType:typeof p.id,price:p.total_price,priceType:typeof p.total_price,currency:p.currency,currencyType:typeof p.currency,keys:Object.keys(p).slice(0,30)};})}));
   const records=new Map<number,TebexProduct>();
   for(const value of json.data){
    if(!value||typeof value!=="object")continue;
