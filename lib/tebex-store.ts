@@ -5,7 +5,7 @@ import {storeProducts,type StoreProduct} from "@/lib/store-preview";
 // Never use a Tebex private key or the Minecraft plugin secret here.
 const publicToken="14hvr-a5771d4a6b64705c39fbde42c027d3eabfdabe76";
 const endpoint="https://headless.tebex.io/api/accounts/"+publicToken+"/packages";
-export type SyncedStoreProduct=StoreProduct & {price:number|null;currency:string;available:boolean};
+export type SyncedStoreProduct=Omit<StoreProduct,"price"> & {price:number|null;currency:string;available:boolean};
 export type StoreCatalog={products:SyncedStoreProduct[];live:boolean;notice:string|null};
 type TebexProduct={id?:unknown;name?:unknown;description?:unknown;image?:unknown;media?:unknown;total_price?:unknown;currency?:unknown;disable_quantity?:unknown};
 const allowed=new Set(storeProducts.map(p=>p.id));
