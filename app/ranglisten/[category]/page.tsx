@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimatedCoinValue from "./AnimatedCoinValue";
+import LeaderboardAutoRefresh from "@/components/LeaderboardAutoRefresh";
 import {notFound} from "next/navigation";
 import { createClient } from "@supabase/supabase-js";
 
@@ -78,6 +79,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   const top = [entries[1],entries[0],entries[2]];
   const ranks = [2,1,3] as const;
   return <main className="sky-orbital-page sky-gold-factory-page mx-auto w-full max-w-7xl px-3 py-10 sm:px-6 sm:py-14">
+    <LeaderboardAutoRefresh/>
     <section id={`rangliste-${selected.id}`} className={`sky-orbital sky-orbital-${selected.id}`}>
       <div className="sky-orbital-scene" aria-hidden="true"/>
       <div className="sky-gold-scan-system" aria-hidden="true"><div className="sky-gold-scan-reticle"/><div className="sky-gold-scan-beam"/><div className="sky-gold-scan-target sky-gold-scan-target-a"/><div className="sky-gold-scan-target sky-gold-scan-target-b"/><div className="sky-gold-scan-target sky-gold-scan-target-c"/><div className="sky-gold-scan-status">SCANNING // GOLD CORE ANALYSIS <span>▰▰▰▱▱</span></div></div>
@@ -124,6 +126,7 @@ export default async function RanglistenCategoryPage({params}:{params:{category:
   </main>;
   }
   return <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6">
+    <LeaderboardAutoRefresh/>
     <div className={selected.id === "gems" || selected.id === "jobs" || selected.id === "funitys" || selected.id === "spielzeit" || selected.id === "votes" ? "hidden" : "mb-10 text-center"}>
       <p className="text-xs font-extrabold uppercase tracking-[.25em] text-purple-300">✦ SkyFunity Netzwerk ✦</p>
       <h1 className="mt-4 text-4xl font-black text-white sm:text-6xl">{selected.icon} <span className="text-purple-400">{selected.title}</span>-Rangliste</h1>
