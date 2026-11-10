@@ -6,7 +6,7 @@ type AuthLink={name:string;url:string};
 type Session={connected?:boolean;username?:string|null;error?:string};
 type ResponseData={error?:string;links?:AuthLink[];url?:string;total?:number|null;currency?:string};
 const api="/api/store-test";
-export default function TebexConnect({items}:{items:CartItem[]}){
+export default function TebexConnect({items,publicShop=false}:{items:CartItem[];publicShop?:boolean}){
  const [session,setSession]=useState<Session|null>(null);
  const [links,setLinks]=useState<AuthLink[]>([]);
  const [loading,setLoading]=useState(false);
@@ -22,7 +22,7 @@ export default function TebexConnect({items}:{items:CartItem[]}){
  const authenticate=async()=>{
   setLoading(true);setError("");setLinks([]);setCheckout(null);
   try{
-   const response=await post("/session",{});
+   const response=await post("/session",{returnPath:publicShop?"/shop":"/store-test"});
    if(!response.links?.length)throw Error("Keine Minecraft-Anmeldelinks verfügbar.");
    setLinks(response.links);
   }catch(e){setError(e instanceof Error?e.message:"Tebex-Anmeldung fehlgeschlagen.");}
@@ -41,10 +41,10 @@ export default function TebexConnect({items}:{items:CartItem[]}){
  return <div className="mt-4 space-y-3">
   {session?.connected?<div className="flex items-start gap-2 rounded-xl border border-emerald-300/35 bg-emerald-300/10 p-3 text-sm text-emerald-100"><CheckCircle2 size={18} className="mt-0.5 shrink-0"/><span>Minecraft-Account über Tebex verbunden: <strong>{session.username}</strong></span></div>:<div className="rounded-xl border border-purple-300/25 bg-purple-300/5 p-3 text-sm text-slate-200">Verbinde deinen Minecraft-Account über Tebex, bevor du zur Kasse gehst. Das Namensfeld auf dieser Seite ist nur eine Formatvorschau.</div>}
   {!session?.connected&&<button type="button" disabled={loading} onClick={()=>void authenticate()} className="flex w-full items-center justify-center gap-2 rounded-xl bg-cyan-600 px-4 py-3 font-black text-white hover:bg-cyan-500 disabled:opacity-50">{loading?<Loader2 size={18} className="animate-spin"/>:<Link2 size={18}/>} Minecraft über Tebex verbinden</button>}
-  {!!links.length&&!session?.connected&&<div className="space-y-2 rounded-xl border border-cyan-300/30 p-3"><p className="text-xs font-bold text-cyan-100">Wähle deine Minecraft-Anmeldung:</p>{links.map((item,i)=><a href={item.url} key={i} rel="nofollow" className="flex items-center justify-between rounded-lg border border-purple-300/30 bg-purple-500/15 p-3 text-sm font-bold text-white hover:bg-purple-500/30">{item.name}<ExternalLink size={16}/></a>)}<p className="text-xs text-slate-400">Nach der Anmeldung gelangst du zu diesem Testshop zurück. Dein Warenkorb bleibt im Browser gespeichert.</p></div>}
+  {!!links.length&&!session?.connected&&<div className="space-y-2 rounded-xl border border-cyan-300/30 p-3"><p className="text-xs font-bold text-cyan-100">Wähle deine Minecraft-Anmeldung:</p>{links.map((item,i)=><a href={item.url} key={i} rel="nofollow" className="flex items-center justify-between rounded-lg border border-purple-300/30 bg-purple-500/15 p-3 text-sm font-bold text-white hover:bg-purple-500/30">{item.name}<ExternalLink size={16}/></a>)}<p className="text-xs text-slate-400">Nach der Anmeldung gelangst du zum SkyFunity-Shop zurück. Dein Warenkorb bleibt im Browser gespeichert.</p></div>}
   {session?.connected&&<button type="button" disabled={loading||!items.length||!!checkout} onClick={()=>void prepare()} className="flex w-full items-center justify-center gap-2 rounded-xl bg-purple-600 px-4 py-4 font-black text-white hover:bg-purple-500 disabled:cursor-not-allowed disabled:opacity-50">{loading?<Loader2 className="animate-spin" size={18}/>:<Wallet size={18}/>} Warenkorb bei Tebex vorbereiten</button>}
   {checkout&&<div className="space-y-3 rounded-xl border border-cyan-300/35 bg-cyan-300/10 p-4"><div className="flex items-center gap-2 font-bold text-cyan-100"><ShieldCheck size={19}/> Tebex-Warenkorb erstellt</div><p className="text-xs text-slate-200">Prüfe die Artikel und den endgültigen Preis auf der offiziellen Tebex-Zahlungsseite. Durch das Öffnen wird noch keine Zahlung abgeschlossen.</p>{checkout.total!==null&&<p className="font-bold">Tebex-Summe: {new Intl.NumberFormat("de-DE",{style:"currency",currency:checkout.currency}).format(checkout.total)}</p>}<a href={checkout.url} rel="nofollow" className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-4 text-center font-black text-white hover:bg-emerald-500">Offiziellen Tebex-Checkout öffnen <ExternalLink size={18}/></a></div>}
   {error&&<p role="alert" className="rounded-xl border border-rose-300/30 bg-rose-300/10 p-3 text-sm text-rose-200">{error}</p>}
-  <p className="text-xs leading-5 text-slate-400">Testshop: Zahlungen und Zustellung erfolgen ausschließlich bei Tebex. Der bisherige Shop bleibt unverändert. Es gibt keine automatische Bestellung.</p>
+  <p className="text-xs leading-5 text-slate-400">Zahlungen und Zustellung erfolgen ausschließlich über Tebex. Der Kauf wird erst auf der Tebex-Seite bestätigt.</p>
  </div>;
 }
