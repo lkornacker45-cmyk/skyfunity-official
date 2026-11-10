@@ -1,6 +1,7 @@
 
 "use client";
-import {useMemo,useState} from "react";
+import {useEffect,useMemo,useState} from "react";
+import {useRouter} from "next/navigation";
 import Link from "next/link";
 import {Check,ChevronDown,CircleHelp,Crown,Gift,Gem,LayoutGrid,Minus,Plus,Search,ShieldCheck,ShoppingBag,ShoppingCart,Sparkles,UserRound,Wallet,X} from "lucide-react";
 import {euro,type StoreCategory} from "@/lib/store-preview";
@@ -9,6 +10,8 @@ import type {SyncedStoreProduct} from "@/lib/tebex-store";
 type Filter="Alle Produkte"|StoreCategory;
 const categories:[Filter,typeof LayoutGrid][]=[["Alle Produkte",LayoutGrid],["Ränge",Crown],["Gems",Gem],["Bundles",Gift]];
 export default function StoreTestClient({products,live,notice}:{products:SyncedStoreProduct[];live:boolean;notice:string|null}){
+ const router=useRouter();
+ useEffect(()=>{const timer=setInterval(()=>router.refresh(),75000);return ()=>clearInterval(timer)},[router]);
  const hero=products.find(p=>p.id===7653865)!;
  const [filter,setFilter]=useState<Filter>("Alle Produkte");
  const [term,setTerm]=useState("");
@@ -26,7 +29,7 @@ export default function StoreTestClient({products,live,notice}:{products:SyncedS
  const pick=(id:Filter)=>{setFilter(id);setMenuOpen(false);document.getElementById("store-products")?.scrollIntoView({behavior:"smooth",block:"start"});};
  const validName=edition==="Java"?/^[a-zA-Z0-9_]{3,16}$/.test(player.trim()):/^\.[a-zA-Z0-9_]{1,16}$/.test(player.trim());
  return <div className="sky-shop mx-auto max-w-7xl px-4 pb-24 pt-8 text-white sm:px-6">
-  <div className="mb-5 flex flex-wrap justify-between gap-2 rounded-2xl border border-amber-300/35 bg-amber-950/45 px-5 py-3 text-sm text-amber-100"><span><strong>Shop-Testversion:</strong> {live?"Live-Preise, Bilder und Beschreibungen von Tebex (Aktualisierung etwa alle 60 Sekunden).":"Live-Daten vorübergehend nicht verfügbar."} Kein echter Kauf möglich.</span><span className="font-black">● VORSCHAU</span></div>{notice&&<p role="status" className="mb-5 rounded-xl border border-amber-300/35 bg-amber-950/55 px-4 py-3 text-sm text-amber-100">{notice}</p>}
+  <div className="mb-5 flex flex-wrap justify-between gap-2 rounded-2xl border border-amber-300/35 bg-amber-950/45 px-5 py-3 text-sm text-amber-100"><span><strong>Shop-Testversion:</strong> {live?"Live-Preise, Bilder und Beschreibungen von Tebex (Servercache 60 Sekunden, Aktualisierung der geöffneten Seite etwa alle 75 Sekunden).":"Live-Daten vorübergehend nicht verfügbar."} Kein echter Kauf möglich.</span><span className="font-black">● VORSCHAU</span></div>{notice&&<p role="status" className="mb-5 rounded-xl border border-amber-300/35 bg-amber-950/55 px-4 py-3 text-sm text-amber-100">{notice}</p>}
   <section className="sky-shop-hero relative overflow-hidden rounded-[28px] border border-violet-300/25 px-6 py-10 sm:px-10 sm:py-14">
    <div className="pointer-events-none absolute -right-12 top-0 h-80 w-80 rounded-full bg-cyan-300/10 blur-3xl"/>
    <div className="relative max-w-2xl"><p className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-3 py-2 text-xs font-black uppercase tracking-[.19em] text-cyan-200"><Sparkles size={15}/> SkyFunity Store</p><h1 className="text-4xl font-black leading-tight sm:text-6xl">Dein Abenteuer.<br/><span className="bg-gradient-to-r from-cyan-300 via-violet-300 to-pink-300 bg-clip-text text-transparent">Dein Upgrade.</span></h1><p className="mt-4 max-w-lg text-sm leading-7 text-slate-200 sm:text-base">Entdecke Ränge, Gems und Bundles mit echten Minecraft-Extras.</p><div className="mt-7 flex flex-wrap gap-3"><button type="button" onClick={()=>pick("Alle Produkte")} className="rounded-xl bg-purple-600 px-5 py-3 text-sm font-bold hover:bg-purple-500">Produkte entdecken →</button><button type="button" onClick={()=>setCartOpen(true)} className="rounded-xl border border-cyan-300/40 bg-cyan-300/10 px-5 py-3 text-sm font-bold text-cyan-100"><ShoppingBag size={16} className="mr-2 inline"/>Warenkorb ({quantity})</button></div></div>
