@@ -19,7 +19,8 @@ export async function POST(req:NextRequest){
   if(typeof id!=="string"||!/^[A-Za-z0-9-]{12,100}$/.test(id))return fail("Tebex hat keinen gültigen Warenkorb zurückgegeben.",502);
   const auth=await tebex<unknown>(authLinkUrl(id)+"?returnUrl="+encodeURIComponent(back),"GET");
   const options=Array.isArray(auth)?auth:typeof auth==="object"&&auth!==null&&"data" in auth&&Array.isArray(auth.data)?auth.data:[];
-  const links=options.filter((x:unknown)=>x&&typeof x==="object"&&"url" in x&&authenticatingUrl(x.url)).map((x:{name?:unknown;url:unknown})=>({name:typeof x.name==="string"?x.name:"Minecraft verbinden",url:authenticatingUrl(x.url)}));
+  const links:{name:string;url:string}[]=[];
+  for(const value of options){if(!value||typeof value!=="object")continue;const x=value as {name?:unknown;url?:unknown};const url=authenticatingUrl(x.url);if(url)links.push({name:typeof x.name==="string"?x.name:"Minecraft verbinden",url});}
   if(!links.length)return fail("Für diesen Store sind keine Minecraft-Anmeldelinks verfügbar.",502);
   const response=NextResponse.json({links},{headers:noStore});
   setBasket(response,id);
