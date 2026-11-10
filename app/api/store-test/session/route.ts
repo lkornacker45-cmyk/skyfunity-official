@@ -12,9 +12,11 @@ export async function GET(){
 export async function POST(req:NextRequest){
  if(!sameOrigin(req))return fail("Ungültiger Aufruf.",403);
  try{
-  const origin="https://skyfunity-official.vercel.app";
-  const back=origin+"/store-test?tebex=returned";
-  const result=await tebex<{data?:Basket}>(createBasketUrl,"POST",{complete_url:origin+"/store-test?tebex=complete",cancel_url:origin+"/store-test?tebex=cancel",complete_auto_redirect:true});
+  const raw:unknown=await req.json().catch(()=>({}));
+  const returnPath=raw&&typeof raw==="object"&&"returnPath" in raw&&raw.returnPath==="/shop"?"/shop":"/store-test";
+  const origin=req.nextUrl.origin;
+  const back=origin+returnPath+"?tebex=returned";
+  const result=await tebex<{data?:Basket}>(createBasketUrl,"POST",{complete_url:origin+returnPath+"?tebex=complete",cancel_url:origin+returnPath+"?tebex=cancel",complete_auto_redirect:true});
   const id=result.data?.ident;
   if(typeof id!=="string"||!/^[A-Za-z0-9-]{12,100}$/.test(id))return fail("Tebex hat keinen gültigen Warenkorb zurückgegeben.",502);
   const auth=await tebex<unknown>(authLinkUrl(id)+"?returnUrl="+encodeURIComponent(back),"GET");
