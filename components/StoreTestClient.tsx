@@ -30,8 +30,7 @@ export default function StoreTestClient({products:serverProducts,live,notice}:{p
     const updated=serverProducts.map(p=>{
      const item=map.get(p.id);
      const price=item?.total_price,currency=item?.currency,base=item?.base_price,discount=item?.discount;
-     const valid=typeof price==="number"&&Number.isFinite(price)&&price>=0&&(currency==="EUR"||currency==="USD");
-     if(!valid)return {...p,available:false,price:null,originalPrice:null,discountPercent:null};
+     if(typeof price!=="number"||!Number.isFinite(price)||price<0||(currency!=="EUR"&&currency!=="USD"))return {...p,available:false,price:null,originalPrice:null,discountPercent:null};
      const regular=typeof base==="number"&&Number.isFinite(base)&&typeof discount==="number"&&Number.isFinite(discount)&&discount>0?Math.round((base+discount)*100)/100:null;
      const original=regular!==null&&regular>price+0.005?regular:null;
      return {...p,available:true,price,currency,originalPrice:original,discountPercent:original===null?null:Math.round((1-price/original)*100)};
