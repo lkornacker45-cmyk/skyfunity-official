@@ -1,5 +1,5 @@
 "use client";
-import {useState} from "react";
+import {useEffect,useState} from "react";
 import {CreditCard,Loader2,ShieldCheck,AlertTriangle} from "lucide-react";
 type CartItem={id:number;quantity:number};
 type Edition="Java"|"Bedrock";
@@ -25,9 +25,12 @@ export default function TebexConnect({items,username,edition}:{items:CartItem[];
  const [busy,setBusy]=useState(false);
  const [error,setError]=useState("");
  const [status,setStatus]=useState("");
+ const [prepared,setPrepared]=useState<{ident:string;username:string;fingerprint:string}|null>(null);
+ const fingerprint=JSON.stringify({username:username.trim(),edition,items});
+ useEffect(()=>{void loadCheckout().catch(()=>{});},[]);
  const valid=edition==="Java"?/^[a-zA-Z0-9_]{3,16}$/.test(username.trim()):/^\.[a-zA-Z0-9_]{1,16}$/.test(username.trim());
  async function checkout(){
-  setError("");setStatus("");
+  setError("");setStatus("");setPrepared(null);
   if(!valid){setError("Bitte gib oben einen gültigen Minecraft-Namen ein.");return;}
   if(!items.length){setError("Bitte wähle zuerst ein Produkt aus.");return;}
   setBusy(true);
@@ -39,13 +42,20 @@ export default function TebexConnect({items,username,edition}:{items:CartItem[];
    const result=await response.json() as CheckoutResponse;
    if(!response.ok||!result.ident)throw Error(result.error||"Tebex hat keinen Checkout erstellt.");
    if(!result.username||result.username.toLowerCase()!==username.trim().toLowerCase())throw Error("Der Tebex-Spielername stimmt nicht mit deiner Eingabe überein.");
-   setStatus("Warenkorb für "+result.username+" bestätigt. Der Tebex-Zahlungsdialog wird geöffnet.");
-   await loadCheckout();
-   if(!window.Tebex)throw Error("Der Checkout ist nicht verfügbar.");
-   window.Tebex.checkout.init({ident:result.ident,theme:"dark",locale:"de_DE"});
-   window.Tebex.checkout.launch();
+   setPrepared({ident:result.ident,username:result.username,fingerprint});
+   setStatus("Tebex hat den Warenkorb für "+result.username+" bestätigt. Du kannst jetzt direkt auf dieser Seite bezahlen.");
   }catch(err){setError(err instanceof Error?err.message:"Der Checkout konnte nicht gestartet werden.");}
   finally{setBusy(false);}
+ }
+ const isReady=!!prepared&&prepared.fingerprint===fingerprint;
+ function launch(){
+  if(!isReady||!prepared)return;
+  setError("");
+  try{
+   if(!window.Tebex)throw Error("Tebex.js ist noch nicht geladen. Bitte erneut versuchen.");
+   window.Tebex.checkout.init({ident:prepared.ident,theme:"dark",locale:"de_DE"});
+   window.Tebex.checkout.launch();
+  }catch(e){setError(e instanceof Error?e.message:"Der Tebex-Zahlungsdialog konnte nicht gestartet werden.");}
  }
  return <div className="mt-4 space-y-3">
   <div className="rounded-xl border border-cyan-300/30 bg-cyan-300/5 p-3 text-xs leading-5 text-slate-200">
@@ -54,8 +64,9 @@ export default function TebexConnect({items,username,edition}:{items:CartItem[];
   </div>
   <button type="button" onClick={()=>void checkout()} disabled={busy||!items.length||!valid} className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-600 px-4 py-4 text-sm font-black text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50">
    {busy?<Loader2 size={19} className="animate-spin"/>:<CreditCard size={19}/>}
-   {busy?"Tebex-Warenkorb wird geprüft …":"Jetzt hier zur Kasse"}
+   {busy?"Tebex-Warenkorb wird geprüft …":"Tebex-Warenkorb vorbereiten"}
   </button>
+  {isReady&&<button type="button" onClick={launch} className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-4 text-sm font-black text-white hover:bg-emerald-500"><CreditCard size={19}/> Jetzt direkt hier bezahlen</button>}
   {!valid&&<p className="text-xs text-amber-200">Bitte gib oben den {edition==="Java"?"Java-Spielernamen":"Bedrock-Spielernamen mit führendem Punkt"} ein.</p>}
   {status&&<p role="status" className="rounded-lg border border-emerald-300/30 bg-emerald-300/10 p-3 text-xs text-emerald-100">{status}</p>}
   {error&&<p role="alert" className="flex items-start gap-2 rounded-lg border border-rose-300/30 bg-rose-300/10 p-3 text-xs text-rose-100"><AlertTriangle size={16} className="mt-0.5 shrink-0"/>{error}</p>}
