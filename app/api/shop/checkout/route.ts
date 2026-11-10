@@ -6,6 +6,17 @@ type Input={items?:unknown;username?:unknown;edition?:unknown};
 const java=/^[a-zA-Z0-9_]{3,16}$/;
 const bedrock=/^\.[a-zA-Z0-9_]{1,16}$/;
 
+// Forward the real visitor region when Vercel runs the API in a different country.
+function visitorIp(request:NextRequest):string|undefined{
+ const forwarded=request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()||"";
+ const real=request.headers.get("x-real-ip")?.trim()||"";
+ return [forwarded,real].find(value=>isIP(value)!==0);
+}
+function visitorCountry(request:NextRequest):string|undefined{
+ const country=request.headers.get("x-vercel-ip-country")?.toUpperCase()||"";
+ return /^[A-Z]{2}$/.test(country)?country:undefined;
+}
+
 export async function POST(req:NextRequest){
  if(!sameOrigin(req))return fail("Ungültiger Aufruf.",403);
  let body:Input;
