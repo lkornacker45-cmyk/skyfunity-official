@@ -4,11 +4,11 @@ import {useMemo,useState} from "react";
 import Link from "next/link";
 import {Check,ChevronDown,CircleHelp,Crown,Gift,Gem,LayoutGrid,Minus,Plus,Search,ShieldCheck,ShoppingBag,ShoppingCart,Sparkles,UserRound,Wallet,X} from "lucide-react";
 import {euro,type StoreCategory} from "@/lib/store-preview";
-import type {SyncedSyncedStoreProduct} from "@/lib/tebex-store";
+import type {SyncedStoreProduct} from "@/lib/tebex-store";
 
 type Filter="Alle Produkte"|StoreCategory;
 const categories:[Filter,typeof LayoutGrid][]=[["Alle Produkte",LayoutGrid],["Ränge",Crown],["Gems",Gem],["Bundles",Gift]];
-export default function StoreTestClient({products,live,notice}:{products:SyncedSyncedStoreProduct[];live:boolean;notice:string|null}){
+export default function StoreTestClient({products,live,notice}:{products:SyncedStoreProduct[];live:boolean;notice:string|null}){
  const hero=products.find(p=>p.id===7653865)!;
  const [filter,setFilter]=useState<Filter>("Alle Produkte");
  const [term,setTerm]=useState("");
