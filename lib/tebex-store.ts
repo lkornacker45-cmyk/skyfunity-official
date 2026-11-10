@@ -29,7 +29,6 @@ export async function getStoreCatalog():Promise<StoreCatalog>{
   if(!response.ok)throw new Error("Tebex HTTP "+response.status);
   const json:unknown=await response.json();
   if(!json||typeof json!=="object"||!("data" in json)||!Array.isArray(json.data))throw new Error("Invalid Tebex response");
-  console.info("[tebex-catalog-shape]",JSON.stringify({count:json.data.length,sample:json.data.slice(0,2).map((v:unknown)=>{if(!v||typeof v!=="object")return {type:typeof v};const p=v as Record<string,unknown>;return {id:p.id,idType:typeof p.id,price:p.total_price,priceType:typeof p.total_price,currency:p.currency,currencyType:typeof p.currency,keys:Object.keys(p).slice(0,30)};})}));
   const records=new Map<number,TebexProduct>();
   for(const value of json.data){
    if(!value||typeof value!=="object")continue;
@@ -41,7 +40,7 @@ export async function getStoreCatalog():Promise<StoreCatalog>{
    const current=records.get(p.id);
    const currency=current?.currency;
    const price=current?.total_price;
-   const valid=!!current&&typeof price==="number"&&Number.isFinite(price)&&price>=0&&typeof currency==="string"&&currency==="EUR";
+   const valid=!!current&&typeof price==="number"&&Number.isFinite(price)&&price>=0&&typeof currency==="string"&&(currency==="EUR"||currency==="USD");
    const image=safeImage(current?.image);
    // Preserve Tebex fractional cents: base_price + discount yields the
    // regular list price (1.996 + 2.994 = 4.99, not 5.00).
@@ -50,7 +49,7 @@ export async function getStoreCatalog():Promise<StoreCatalog>{
    const regular=typeof basePrice==="number"&&Number.isFinite(basePrice)&&typeof discount==="number"&&Number.isFinite(discount)&&discount>0?Math.round((basePrice+discount)*100)/100:null;
    const originalPrice=valid&&regular!==null&&regular>(price as number)+0.005?regular:null;
    const discountPercent=originalPrice!==null?Math.round((1-(price as number)/originalPrice)*100):null;
-   return {...p,name:typeof current?.name==="string"?current.name:p.name,teaser:cleanDescription(current?.description)||p.teaser,image:image||p.image,price:valid?price:null,currency:valid?"EUR":"EUR",available:valid,originalPrice,discountPercent};
+   return {...p,name:typeof current?.name==="string"?current.name:p.name,teaser:cleanDescription(current?.description)||p.teaser,image:image||p.image,price:valid?price:null,currency:valid?currency:"EUR",available:valid,originalPrice,discountPercent};
   });
   const missing=products.filter(p=>!p.available).length;
   return {products,live:true,notice:missing?missing+" Paket(e) bei Tebex derzeit nicht verfügbar.":null};
