@@ -5,9 +5,9 @@ import {storeProducts,type StoreProduct} from "@/lib/store-preview";
 // Never use a Tebex private key or the Minecraft plugin secret here.
 const publicToken="14hvr-a5771d4a6b64705c39fbde42c027d3eabfdabe76";
 const endpoint="https://headless.tebex.io/api/accounts/"+publicToken+"/packages";
-export type SyncedStoreProduct=Omit<StoreProduct,"price"> & {price:number|null;currency:string;available:boolean};
+export type SyncedStoreProduct=Omit<StoreProduct,"price"> & {price:number|null;currency:string;available:boolean;originalPrice:number|null;discountPercent:number|null};
 export type StoreCatalog={products:SyncedStoreProduct[];live:boolean;notice:string|null};
-type TebexProduct={id?:unknown;name?:unknown;description?:unknown;image?:unknown;media?:unknown;total_price?:unknown;currency?:unknown;disable_quantity?:unknown};
+type TebexProduct={id?:unknown;name?:unknown;description?:unknown;image?:unknown;media?:unknown;total_price?:unknown;base_price?:unknown;discount?:unknown;currency?:unknown;disable_quantity?:unknown};
 const allowed=new Set(storeProducts.map(p=>p.id));
 
 function cleanDescription(raw:unknown):string|null{
@@ -22,7 +22,7 @@ function safeImage(src:unknown):string|null{
  if(typeof src!=="string")return null;
  try{const url=new URL(src);return url.protocol==="https:"&&url.hostname==="dunb17ur4ymx4.cloudfront.net"?url.toString():null;}catch{return null;}
 }
-function unavailable():StoreCatalog{return {live:false,notice:"Tebex ist aktuell nicht erreichbar. Preise und Warenkorb sind vorübergehend nicht verfügbar.",products:storeProducts.map(p=>({...p,price:null,currency:"EUR",available:false}))};}
+function unavailable():StoreCatalog{return {live:false,notice:"Tebex ist aktuell nicht erreichbar. Preise und Warenkorb sind vorübergehend nicht verfügbar.",products:storeProducts.map(p=>({...p,price:null,currency:"EUR",available:false,originalPrice:null,discountPercent:null}))};}
 export async function getStoreCatalog():Promise<StoreCatalog>{
  try{
   const response=await fetch(endpoint,{method:"GET",headers:{Accept:"application/json"},next:{revalidate:60},signal:AbortSignal.timeout(6500)});
@@ -42,7 +42,14 @@ export async function getStoreCatalog():Promise<StoreCatalog>{
    const price=current?.total_price;
    const valid=!!current&&typeof price==="number"&&Number.isFinite(price)&&price>=0&&typeof currency==="string"&&currency==="EUR";
    const image=safeImage(current?.image);
-   return {...p,name:typeof current?.name==="string"?current.name:p.name,teaser:cleanDescription(current?.description)||p.teaser,image:image||p.image,price:valid?price:null,currency:valid?"EUR":"EUR",available:valid};
+   // Preserve Tebex fractional cents: base_price + discount yields the
+   // regular list price (1.996 + 2.994 = 4.99, not 5.00).
+   const basePrice=current?.base_price;
+   const discount=current?.discount;
+   const regular=typeof basePrice==="number"&&Number.isFinite(basePrice)&&typeof discount==="number"&&Number.isFinite(discount)&&discount>0?Math.round((basePrice+discount)*100)/100:null;
+   const originalPrice=valid&&regular!==null&&regular>(price as number)+0.005?regular:null;
+   const discountPercent=originalPrice!==null?Math.round((1-(price as number)/originalPrice)*100):null;
+   return {...p,name:typeof current?.name==="string"?current.name:p.name,teaser:cleanDescription(current?.description)||p.teaser,image:image||p.image,price:valid?price:null,currency:valid?"EUR":"EUR",available:valid,originalPrice,discountPercent};
   });
   const missing=products.filter(p=>!p.available).length;
   return {products,live:true,notice:missing?missing+" Paket(e) bei Tebex derzeit nicht verfügbar.":null};
