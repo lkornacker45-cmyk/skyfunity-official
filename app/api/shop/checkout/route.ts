@@ -1,21 +1,9 @@
-import {isIP} from "node:net";
 import {NextRequest,NextResponse} from "next/server";
 import {addPackageUrl,basketData,checkedItems,createBasketUrl,fail,noStore,sameOrigin,tebex,type Basket} from "@/lib/tebex-checkout";
 export const dynamic="force-dynamic";
 type Input={items?:unknown;username?:unknown;edition?:unknown};
 const java=/^[a-zA-Z0-9_]{3,16}$/;
 const bedrock=/^\.[a-zA-Z0-9_]{1,16}$/;
-
-// Forward the real visitor region when Vercel runs the API in a different country.
-function visitorIp(request:NextRequest):string|undefined{
- const forwarded=request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()||"";
- const real=request.headers.get("x-real-ip")?.trim()||"";
- return [forwarded,real].find(value=>isIP(value)!==0);
-}
-function visitorCountry(request:NextRequest):string|undefined{
- const country=request.headers.get("x-vercel-ip-country")?.toUpperCase()||"";
- return /^[A-Z]{2}$/.test(country)?country:undefined;
-}
 
 export async function POST(req:NextRequest){
  if(!sameOrigin(req))return fail("Ungültiger Aufruf.",403);
@@ -31,13 +19,8 @@ export async function POST(req:NextRequest){
   // Official Tebex Headless Template creates Minecraft baskets with {username}.
   // No external identity provider or unverified local player ID is used.
   const returnUrl=req.nextUrl.origin+"/shop";
-  const ip=visitorIp(req);
-  const country=visitorCountry(req);
   const result=await tebex<{data?:Basket}>(createBasketUrl,"POST",{
    username,
-   ...(ip?{ip}:{}),
-   ...(country?{country}:{}),
-   currency:"EUR",
    complete_url:returnUrl+"?tebex=complete",
    cancel_url:returnUrl+"?tebex=cancel",
    complete_auto_redirect:true
@@ -58,10 +41,6 @@ export async function POST(req:NextRequest){
   if(typeof verified.username!=="string"||verified.username.toLowerCase()!==username.toLowerCase()||!verified.username_id
     ||!Array.isArray(verified.packages)||!verified.packages.length||verified.complete===true)
     return fail("Der Tebex-Warenkorb konnte nicht sicher bestätigt werden.",502);
-  if(verified.currency!=="EUR"){
-   console.warn("Tebex created non-EUR basket for country",country||"unknown","currency",verified.currency||"unknown");
-   return fail("Tebex hat den Warenkorb nicht in Euro erstellt. Bitte versuche es erneut. Der Kauf wurde nicht gestartet.",409);
-  }
   return NextResponse.json({
    ident:id,
    username:verified.username,
