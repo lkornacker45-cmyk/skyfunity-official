@@ -1660,3 +1660,15 @@ body .sky-liquid-brand > .sky-brand-logo{
 @media(max-width:900px){.sky-fqa-orb{opacity:.22;right:3%;width:150px;height:150px}.sky-fqa-orb span{font-size:5rem}}
 @media(max-width:520px){.sky-fqa-orb{width:115px;height:115px;right:-28px;opacity:.17}.sky-fqa-hero{border-radius:1.4rem}.sky-fqa-category{gap:6px;padding:10px 7px}.sky-fqa-sidebar{padding:12px}}
 @media(prefers-reduced-motion:reduce){.sky-fqa-orb{animation:none}}
+
+
+/* Isolated SkyFunity shop preview. Does not affect /shop or Tebex. */
+.sky-shop{isolation:isolate}
+.sky-shop-hero{background:linear-gradient(108deg,rgba(17,12,37,.97),rgba(42,20,78,.92) 66%,rgba(15,45,67,.89));box-shadow:0 22px 75px #08031866,inset 0 1px #ffffff21;backdrop-filter:blur(12px)}
+.sky-shop-surface{background:linear-gradient(135deg,rgba(29,19,55,.96),rgba(13,11,31,.95));box-shadow:0 15px 48px #05030d6b;backdrop-filter:blur(16px)}
+.sky-shop-spotlight{background:radial-gradient(circle at 92% 30%,#38bdf823,transparent 45%),linear-gradient(118deg,rgba(34,21,68,.97),rgba(15,29,49,.94));box-shadow:0 16px 60px #08031877,inset 0 0 35px #67e8f909}
+.sky-shop-product{background:linear-gradient(145deg,rgba(29,21,56,.98),rgba(15,12,32,.96));box-shadow:0 12px 32px #05031070;backdrop-filter:blur(14px)}
+.sky-shop-product:hover{transform:translateY(-4px);box-shadow:0 18px 45px #0b052a88,0 0 22px #67e8f920}
+.sky-shop-drawer{background:linear-gradient(150deg,#1d1338,#0c0a1d)}
+.sky-shop button:focus-visible,.sky-shop a:focus-visible,.sky-shop input:focus-visible{outline:2px solid #67e8f9;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.sky-shop-product,.sky-shop-product img{transition:none!important}.sky-shop-product:hover{transform:none}}
