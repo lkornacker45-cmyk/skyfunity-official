@@ -1766,3 +1766,8 @@ body .sky-liquid-brand > .sky-brand-logo{
  .sky-partner-premium-meta{font-size:11px;padding:5px 10px}
  .sky-partner-premium-cta{font-size:15px;padding:14px 15px}
 }
+
+
+/* Modal dialogs (shop cart, checkout, etc.) must never be covered by sponsor cards. */
+body:has([role="dialog"][aria-modal="true"]) .sky-partner-ad-rails,
+body:has([aria-modal="true"]) .sky-partner-ad-rails{display:none!important}
