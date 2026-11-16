@@ -96,7 +96,7 @@
     {
       "question": "Gibt es eine Bank?",
       "answer": "Ja. Mit /einzahlen und /abheben legst du Coins auf dein Bankkonto oder holst sie zurück. Den Geldautomaten öffnest du mit /atm.",
-      "category": "Allgemein"
+      "category": "Wirtschaft"
     }
   ],
   "navigationOrder": [
