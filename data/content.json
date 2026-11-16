@@ -49,8 +49,9 @@
       "category": "Erste Schritte"
     },
     {
-      "question": "Kann ich am Handy oder an der Konsole spielen?",
-      "answer": "Ja. Trag in der Bedrock Edition skyfunity.de mit Port 19132 ein."
+      "question": "Was sind Aufgaben (Quests)?",
+      "answer": "Am Quest-NPC am Spawn gibt es tägliche, wöchentliche und monatliche Aufgaben. Dafür bekommst du Funitys, Coins und Pass-XP. Die Aufgaben werden jeden Tag beim Neustart um 5:00 Uhr neu verteilt.",
+      "category": "Gameplay"
     }
   ],
   "navigationOrder": [
