@@ -72,6 +72,31 @@
       "question": "Was gibt es neben dem Bauen noch zu tun?",
       "answer": "Unter anderem die Erntefarm mit eigener Erntehacke und Upgrades, den Prison-Bereich mit Minen und Spitzhacken-Upgrades, Jobs, Events und Verlosungen.",
       "category": "Gameplay"
+    },
+    {
+      "question": "Welche Währungen gibt es?",
+      "answer": "Coins – die Hauptwährung zum Handeln\nGems – für den /gemshop, zum Beispiel Booster, Keys und Ränge\nFunitys – bekommst du nur durch Aufgaben, Streak und den Pass, sie sind nicht kaufbar",
+      "category": "Wirtschaft"
+    },
+    {
+      "question": "Wie verdiene ich Coins?",
+      "answer": "Mit Jobs, durch den Verkauf an den AdminShop (/sell oder /adminshop), über den Handel mit anderen Spielern, in Auktionshaus und Orders, durch Aufgaben und mit Onlinezeit-Belohnungen.",
+      "category": "Wirtschaft"
+    },
+    {
+      "question": "Kann ich einen eigenen Shop eröffnen?",
+      "answer": "Ja! In der Einkaufshalle (/eh) gibt es 88 Shop-Flächen zum Mieten. Jeder Spieler darf einen Shop mieten und dort Kistenshops aufstellen.",
+      "category": "Wirtschaft"
+    },
+    {
+      "question": "Ändern sich die Preise im AdminShop?",
+      "answer": "Ja, die Preise sind dynamisch. Wenn viel von einem Item verkauft wird, sinkt sein Preis. Danach erholt er sich wieder.",
+      "category": "Wirtschaft"
+    },
+    {
+      "question": "Gibt es eine Bank?",
+      "answer": "Ja. Mit /einzahlen und /abheben legst du Coins auf dein Bankkonto oder holst sie zurück. Den Geldautomaten öffnest du mit /atm.",
+      "category": "Allgemein"
     }
   ],
   "navigationOrder": [
