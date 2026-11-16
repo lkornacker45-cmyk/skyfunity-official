@@ -117,6 +117,31 @@
       "question": "Was sind Badges?",
       "answer": "Badges sind Abzeichen, die vor deinem Namen im Chat und über deinem Kopf stehen, zum Beispiel für Events, gefundene Bugs oder Gewinne. Deine Badges siehst du mit /badge. Vergeben werden sie vom Team.",
       "category": "Ranglisten"
+    },
+    {
+      "question": "Welche Minecraft-Version brauche ich?",
+      "answer": "26.2 Java. Bedrock-Spieler können mit der aktuellen Bedrock-Version joinen.",
+      "category": "Technik & Support"
+    },
+    {
+      "question": "Warum werde ich jeden Morgen kurz gekickt?",
+      "answer": "Jeden Tag um 5:00 Uhr startet der Server mit einem Backup neu. Du wirst vorher gewarnt und kommst danach automatisch zurück.",
+      "category": "Technik & Support"
+    },
+    {
+      "question": "Gibt es Voice Chat?",
+      "answer": "Ja, über den Mod Simple Voice Chat. Installier ihn auf deinem Client, dann kannst du in der Nähe mit anderen sprechen oder Gruppen nutzen.",
+      "category": "Technik & Support"
+    },
+    {
+      "question": "Ich habe einen Bug gefunden – was tun?",
+      "answer": "Melde ihn bitte im Discord unter [Kanal/Ticket] oder direkt über die Website. Beschreib, was passiert ist und wo, am besten mit Screenshot. Wer einen Bug meldet, kann sich das Bug-Badge verdienen!",
+      "category": "Technik & Support"
+    },
+    {
+      "question": "Mein Kauf im Shop ist nicht angekommen – was nun?",
+      "answer": "Bei Gems-Käufen musst du online sein, damit sie ankommen. Kommt trotzdem nichts an, öffne ein Ticket unter [Discord-Link] und schick deine Bestellnummer mit.",
+      "category": "Technik & Support"
     }
   ],
   "navigationOrder": [
