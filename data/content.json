@@ -26,6 +26,11 @@
       "category": "Allgemein"
     },
     {
+      "question": "Ich bin neu – was mache ich zuerst?",
+      "answer": "Beim ersten Join bekommst du automatisch das Willkommensbuch. Darin stehen alle wichtigen Befehle nach Themen sortiert. Du kannst es jederzeit wieder mit /willkommensbuch öffnen. Einen Überblick über alle Befehle gibt /hilfe.",
+      "category": "Erste Schritte"
+    },
+    {
       "question": "Was kostet das Spielen?",
       "answer": "Nichts. SkyFunity ist kostenlos. Wer den Server unterstützen möchte, findet Ränge und Pakete im Shop."
     },
