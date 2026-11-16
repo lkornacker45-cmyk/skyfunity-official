@@ -1687,3 +1687,22 @@ body .sky-liquid-brand > .sky-brand-logo{
  .sky-partner-ad-link:hover{background:#9333ea;color:white}
  .sky-partner-ad-close{position:absolute;top:calc(clamp(180px,27vh,300px) - 24px);right:calc(50% + 515px);pointer-events:auto;background:rgba(30,17,48,.9);border:1px solid #a78bfa;border-radius:8px;color:white;width:24px;height:24px}
 }
+
+
+/* Position the sponsor cards within the actual outer gutters, never on the hero. */
+@media(min-width:1600px) and (min-height:700px){
+ .sky-partner-ad-side{top:clamp(155px,22vh,230px);width:clamp(175px,12vw,210px)}
+ .sky-partner-ad-left{left:clamp(25px,4vw,85px);right:auto}
+ .sky-partner-ad-right{right:clamp(25px,4vw,85px);left:auto}
+ .sky-partner-ad-close{top:calc(clamp(155px,22vh,230px) - 26px);left:clamp(25px,4vw,85px);right:auto}
+ .sky-partner-ad-card{border-color:rgba(70,220,255,.5);box-shadow:0 0 24px rgba(34,211,238,.15),0 14px 35px rgba(0,0,0,.35);animation:skyPartnerFloat 5s ease-in-out infinite}
+ .sky-partner-ad-right .sky-partner-ad-card{animation-delay:-2.5s}
+ .sky-partner-server{display:grid;gap:5px;margin:14px auto 7px;max-width:125px;border:1px solid rgba(103,232,249,.4);padding:9px;border-radius:10px;background:rgba(4,17,37,.75)}
+ .sky-partner-server span{height:11px;border-radius:3px;background:linear-gradient(90deg,rgba(20,184,166,.18),rgba(8,145,178,.4));position:relative;overflow:hidden}
+ .sky-partner-server span:before{content:"";position:absolute;left:8px;top:3px;width:5px;height:5px;border-radius:50%;background:#67e8f9;box-shadow:0 0 9px #22d3ee;animation:skyPartnerBlink 1.7s ease-in-out infinite}
+ .sky-partner-server span:nth-child(2):before{animation-delay:.4s}.sky-partner-server span:nth-child(3):before{animation-delay:.8s}.sky-partner-server span:nth-child(4):before{animation-delay:1.2s}
+ .sky-partner-server-caption{font-size:10px;color:#a5f3fc;letter-spacing:.06em;margin-bottom:13px}
+}
+@keyframes skyPartnerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes skyPartnerBlink{0%,100%{opacity:.25}45%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.sky-partner-ad-card,.sky-partner-server span:before{animation:none!important}}
