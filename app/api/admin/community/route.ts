@@ -16,7 +16,9 @@ export async function GET(){
 }
 export async function POST(req:NextRequest){
  if(!isAdmin())return fail("Nicht angemeldet",401);
- if(req.headers.get("origin")!==req.nextUrl.origin)return fail("Ungültige Herkunft",403);
+ const origin=req.headers.get("origin");
+ const host=req.headers.get("host");
+ if(!origin||!host||new URL(origin).host.toLowerCase()!==host.toLowerCase())return fail("Ungültige Herkunft. Bitte die Admin-Seite neu laden.",403);
  const db=communityDb();if(!db)return fail("Supabase-Service-Key fehlt",503);
  let v:any;try{const raw=await req.text();if(raw.length>16000)return fail("Zu groß",413);v=JSON.parse(raw)}catch{return fail("Ungültiges JSON",400)}
  if(v.action==="news"){
