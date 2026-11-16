@@ -1745,3 +1745,24 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyPartnerEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes skyPartnerTimer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(prefers-reduced-motion:reduce){.sky-partner-premium,.sky-partner-premium:before,.sky-partner-aura,.sky-partner-beam,.sky-partner-core,.sky-partner-orbit,.sky-partner-signal,.sky-partner-premium-copy,.sky-partner-premium-progress span{animation:none!important}}
+
+
+/* Bigger, more legible partner placements in the outside desktop gutters. */
+@media(min-width:1600px) and (min-height:700px){
+ .sky-partner-ad-side{top:clamp(135px,16vh,185px);width:clamp(240px,16.5vw,285px)}
+ .sky-partner-ad-left{left:clamp(20px,2.2vw,42px);right:auto}
+ .sky-partner-ad-right{right:clamp(20px,2.2vw,42px);left:auto}
+ .sky-partner-premium{padding:23px 20px 21px;border-radius:25px}
+ .sky-partner-ad-label{font-size:11px;letter-spacing:.085em;line-height:1.5}
+ .sky-partner-premium-logo{height:44px;margin:16px auto 9px}
+ .sky-partner-premium-display{height:135px;margin:12px auto}
+ .sky-partner-core{width:79px;height:79px;font-size:39px;border-radius:22px}
+ .sky-partner-orbit{width:113px;height:113px}
+ .sky-partner-orbit.orbit-b{width:132px;height:89px}
+ .sky-partner-premium-copy{min-height:176px}
+ .sky-partner-premium-eyebrow{font-size:11px;letter-spacing:.12em}
+ .sky-partner-premium-title{font-size:22px;line-height:1.22;margin-bottom:12px}
+ .sky-partner-premium-body{font-size:15px;line-height:1.5;margin-bottom:13px}
+ .sky-partner-premium-meta{font-size:11px;padding:5px 10px}
+ .sky-partner-premium-cta{font-size:15px;padding:14px 15px}
+}
