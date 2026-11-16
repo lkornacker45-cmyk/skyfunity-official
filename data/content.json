@@ -97,6 +97,26 @@
       "question": "Gibt es eine Bank?",
       "answer": "Ja. Mit /einzahlen und /abheben legst du Coins auf dein Bankkonto oder holst sie zurück. Den Geldautomaten öffnest du mit /atm.",
       "category": "Wirtschaft"
+    },
+    {
+      "question": "Welche Ranglisten gibt es?",
+      "answer": "Am Spawn hängen Hologramme mit den Bestenlisten, unter anderem Top-Clans, meiste Spielzeit und Erntefarm etc.",
+      "category": "Ranglisten"
+    },
+    {
+      "question": "Wie oft werden die Ranglisten aktualisiert?",
+      "answer": "[z. B. alle 5 Minuten] – du musst also nichts tun, dein Fortschritt wird automatisch eingetragen.",
+      "category": "Ranglisten"
+    },
+    {
+      "question": "Wo sehe ich meine eigenen Statistiken?",
+      "answer": "Mit /stats. Mit /stats <Spieler> siehst du auch die Statistiken von anderen.",
+      "category": "Ranglisten"
+    },
+    {
+      "question": "Was sind Badges?",
+      "answer": "Badges sind Abzeichen, die vor deinem Namen im Chat und über deinem Kopf stehen, zum Beispiel für Events, gefundene Bugs oder Gewinne. Deine Badges siehst du mit /badge. Vergeben werden sie vom Team.",
+      "category": "Ranglisten"
     }
   ],
   "navigationOrder": [
