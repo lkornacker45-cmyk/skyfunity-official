@@ -1672,3 +1672,20 @@ body .sky-liquid-brand > .sky-brand-logo{
 .sky-shop-drawer{background:linear-gradient(150deg,#1d1338,#0c0a1d)}
 .sky-shop button:focus-visible,.sky-shop a:focus-visible,.sky-shop input:focus-visible{outline:2px solid #67e8f9;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.sky-shop-product,.sky-shop-product img{transition:none!important}.sky-shop-product:hover{transform:none}}
+
+
+/* Discreet sponsor cards in the empty margins on extra-wide desktops. */
+.sky-partner-ad-rails{display:none}
+@media(min-width:1600px) and (min-height:700px){
+ .sky-partner-ad-rails{display:block;position:fixed;inset:0;z-index:18;pointer-events:none}
+ .sky-partner-ad-side{position:absolute;top:clamp(180px,27vh,300px);width:174px;pointer-events:auto}
+ .sky-partner-ad-left{right:calc(50% + 515px)}
+ .sky-partner-ad-right{left:calc(50% + 515px)}
+ .sky-partner-ad-card{padding:16px 12px;text-align:center;border:1px solid rgba(204,171,255,.46);border-radius:18px;background:linear-gradient(155deg,rgba(36,18,63,.89),rgba(11,9,28,.87));box-shadow:0 12px 35px rgba(0,0,0,.35);backdrop-filter:blur(14px)}
+ .sky-partner-ad-label{font-size:9px;letter-spacing:.12em;font-weight:800;color:#d8b4fe;margin-bottom:12px}
+ .sky-partner-ad-logo{display:block;width:100%;max-height:56px;object-fit:contain;margin:0 auto 12px}
+ .sky-partner-ad-name{display:block;font-size:13px;overflow-wrap:anywhere;color:white;margin-bottom:12px}
+ .sky-partner-ad-link{display:block;border-radius:10px;background:#7e22ce;color:white;padding:10px 6px;font-size:11px;font-weight:800}
+ .sky-partner-ad-link:hover{background:#9333ea;color:white}
+ .sky-partner-ad-close{position:absolute;top:calc(clamp(180px,27vh,300px) - 24px);right:calc(50% + 515px);pointer-events:auto;background:rgba(30,17,48,.9);border:1px solid #a78bfa;border-radius:8px;color:white;width:24px;height:24px}
+}
