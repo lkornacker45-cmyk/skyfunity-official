@@ -44,8 +44,9 @@
       "answer": "Das hängt vom Rang ab: Spieler 1, Gold 2, Galaxy 4, Toxic 6, Hero 8, Magma 10, Infinity 12. Dazu kommen Bonus-Plots, die du zum Beispiel aus Cases ziehen kannst."
     },
     {
-      "question": "Welche Minecraft-Version brauche ich?",
-      "answer": "Der Server läuft auf Minecraft 26.2, mit der Java Edition und mit der Bedrock Edition."
+      "question": "Wo bekomme ich Rohstoffe her?",
+      "answer": "Der Server läuft auf Minecraft 26.2, mit der Java Edition und mit der Bedrock Edition.",
+      "category": "Erste Schritte"
     },
     {
       "question": "Kann ich am Handy oder an der Konsole spielen?",
