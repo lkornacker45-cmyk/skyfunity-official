@@ -1,5 +1,5 @@
 {
-  "customShopEnabled": true,
+  "customShopEnabled": false,
   "fqa": [
     {
       "question": "Was ist SkyFunity?",
