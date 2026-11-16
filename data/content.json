@@ -36,12 +36,12 @@
       "category": "Erste Schritte"
     },
     {
-      "question": "Wie komme ich an mein erstes Grundstück?",
-      "answer": "Gib im Spiel /plot auto ein. Dein Startpaket mit Coins, Gems, Keys und Rüstung holst du beim NPC Willkommensgeschenk am Spawn ab."
+      "question": "Wie bekomme ich ein Grundstück?",
+      "answer": "Geh in die Plotwelt und hol dir ein freies Plot. Ein Plot ist 75×75 Blöcke groß. Mit /plotmenu stellst du alles ein, zum Beispiel Freunde, Rollen und Flags."
     },
     {
-      "question": "Wo bekomme ich Hilfe?",
-      "answer": "Im Spiel rufst du das Team mit /helpop, Spieler meldest du mit /report. Am schnellsten geht es auf unserem Discord oder direkt über die Website."
+      "question": "Wie viele Plots darf ich haben?",
+      "answer": "Das hängt vom Rang ab: Spieler 1, Gold 2, Galaxy 4, Toxic 6, Hero 8, Magma 10, Infinity 12. Dazu kommen Bonus-Plots, die du zum Beispiel aus Cases ziehen kannst."
     },
     {
       "question": "Welche Minecraft-Version brauche ich?",
