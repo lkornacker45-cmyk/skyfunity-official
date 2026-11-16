@@ -19,6 +19,31 @@
     {
       "question": "Kann ich am Handy oder an der Konsole spielen?",
       "answer": "Ja. Trag in der Bedrock Edition skyfunity.de mit Port 19132 ein."
+    },
+    {
+      "question": "Was ist SkyFunity?",
+      "answer": "SkyFunity ist ein deutscher Minecraft-Citybuild-Server. Du bekommst dein eigenes Grundstück, kannst handeln und Jobs machen, Aufgaben erledigen, Cases öffnen und in der Erntefarm oder im Prison-Bereich farmen.",
+      "category": "Allgemein"
+    },
+    {
+      "question": "Wie komme ich auf den Server?",
+      "answer": "Füg in Minecraft einfach skyfunity.de als Server hinzu und verbinde dich.",
+      "category": "Allgemein"
+    },
+    {
+      "question": "Kann ich auch mit Bedrock (Handy, Konsole, Windows 10/11) spielen?",
+      "answer": "Ja. SkyFunity unterstützt Java und Bedrock. Auf Bedrock steht ein Punkt vor deinem Namen.",
+      "category": "Allgemein"
+    },
+    {
+      "question": "Kostet SkyFunity etwas?",
+      "answer": "Nein, spielen ist komplett kostenlos. Im Shop unter skyfunity.de/shop kannst du den Server freiwillig unterstützen, zum Beispiel mit Rängen oder Gems.",
+      "category": "Allgemein"
+    },
+    {
+      "question": "Gibt es einen Discord?",
+      "answer": "Ja, hier: [https://discord.gg/BFrhHMYgrV]. Dort gibt es Neuigkeiten, Events und Support.",
+      "category": "Allgemein"
     }
   ],
   "navigationOrder": [
