@@ -10,9 +10,8 @@ const aitchSlides=[
 export default function PartnerSideAds({partners}:{partners:Partner[]}){
  const active=partners.filter(p=>p.status==="active"&&/^https:\/\//i.test(p.url));
  const [step,setStep]=useState(0);
- const [hidden,setHidden]=useState(false);
  useEffect(()=>{if(!active.length)return;const timer=window.setInterval(()=>setStep(i=>i+1),6500);return()=>window.clearInterval(timer)},[active.length]);
- if(!active.length||hidden)return null;
+ if(!active.length)return null;
  function Card({partner,side}:{partner:Partner;side:"left"|"right"}){
   const aitch=/^(www\.)?aitch\.systems$/i.test(new URL(partner.url).hostname);
   const slide=aitch?aitchSlides[(step+(side==="right"?2:0))%aitchSlides.length]:null;
@@ -32,5 +31,5 @@ export default function PartnerSideAds({partners}:{partners:Partner[]}){
    <a className="sky-partner-premium-cta" href={partner.url} target="_blank" rel="noopener noreferrer sponsored">Jetzt entdecken <span aria-hidden="true">↗</span></a>
   </div>
  }
- return <aside className="sky-partner-ad-rails" aria-label="Werbung unserer Partner"><div className="sky-partner-ad-side sky-partner-ad-left"><Card partner={active[step%active.length]} side="left"/></div><div className="sky-partner-ad-side sky-partner-ad-right"><Card partner={active[(step+(active.length>1?1:0))%active.length]} side="right"/></div><button type="button" className="sky-partner-ad-close" onClick={()=>setHidden(true)} aria-label="Partnerwerbung schließen" title="Partnerwerbung schließen">×</button></aside>
+ return <aside className="sky-partner-ad-rails" aria-label="Werbung unserer Partner"><div className="sky-partner-ad-side sky-partner-ad-left"><Card partner={active[step%active.length]} side="left"/></div><div className="sky-partner-ad-side sky-partner-ad-right"><Card partner={active[(step+(active.length>1?1:0))%active.length]} side="right"/></div></aside>
 }
