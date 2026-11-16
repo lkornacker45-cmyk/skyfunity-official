@@ -156,6 +156,12 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
      </div>
     </section>
     <section className="sky-portal-panel">
+     <h2 className="text-xl font-bold text-cyan-200">Öffentliches Spielerprofil</h2>
+     <p className="mt-2 text-sm text-purple-200">Nur wenn du zustimmst, sind dein Minecraft-Name, dein Rang und deine Erfolge öffentlich sichtbar. E-Mail, Tickets und private Statistiken bleiben privat.</p>
+     <label className="mt-4 flex items-center gap-3"><input type="checkbox" checked={publicProfile} onChange={e=>void togglePublicProfile(e.target.checked)}/> Mein Profil öffentlich anzeigen</label>
+     {publicProfile&&profile?.minecraft_name&&<a className="mt-3 inline-block font-bold text-purple-300" href={"/spieler/"+profile.minecraft_name}>Mein öffentliches Profil ansehen →</a>}
+    </section>
+    <section className="sky-portal-panel">
      <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-xl font-bold text-cyan-200">{staff?(uiLabels?.ticketsHeading||"Offene Support-Tickets"):"Meine "+(uiLabels?.ticketsHeading||"offenen Tickets").toLowerCase()}</h2><p className="mt-1 text-sm text-purple-200">{staff?"Alle für das Team sichtbaren offenen Tickets":"Deine noch nicht geschlossenen Anfragen"}</p></div><span className="rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-sm font-bold">{tickets.filter(t=>t.status!=="closed").length} offen</span></div>
      {tickets.filter(t=>t.status!=="closed").length===0?<p className="mb-4 text-purple-200">Aktuell keine offenen Tickets.</p>:<div className="mb-4 space-y-2">{tickets.filter(t=>t.status!=="closed").slice(0,5).map(t=><button type="button" key={t.id} onClick={()=>showTickets(t.id)} className="sky-ticket-item text-left"><span className="font-bold">{t.subject}</span><span className="text-xs text-purple-200">{t.category} · {statusLabel[t.status]||t.status}</span></button>)}</div>}
      <div className="flex flex-wrap gap-3"><button type="button" className="sky-portal-button" onClick={()=>showTickets()}>Neues Ticket erstellen</button><button type="button" className="sky-portal-tab" onClick={()=>showTickets()}>Alle Tickets ansehen</button></div>
