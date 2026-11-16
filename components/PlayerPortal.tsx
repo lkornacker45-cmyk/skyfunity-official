@@ -27,6 +27,7 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
  },[]);
  const [profile,setProfile]=useState<Profile|null>(null);
  const [linkedUuid,setLinkedUuid]=useState<string|null>(null);
+ const [publicProfile,setPublicProfile]=useState(false);
  const [linkStatus,setLinkStatus]=useState<"loading"|"ready"|"unavailable">("loading");
  const [newPassword,setNewPassword]=useState("");
  const [confirmPassword,setConfirmPassword]=useState("");
@@ -39,11 +40,15 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
  const [category,setCategory]=useState(categories[0]);const [subject,setSubject]=useState("");const [firstMessage,setFirstMessage]=useState("");const [reply,setReply]=useState("");
  const [notice,setNotice]=useState("");const [busy,setBusy]=useState(false);
  const staff=profile?.role==="team"||profile?.role==="admin";
+ async function togglePublicProfile(value:boolean){if(!client||!user)return;const {error}=await client.from("community_profile_settings").upsert({user_id:user.id,public_enabled:value});if(error)setNotice("Profil-Sichtbarkeit konnte nicht gespeichert werden.");else setPublicProfile(value)}
  const active=tickets.find(t=>t.id===selected);
+ // Players opt in before their profile becomes publicly visible.
  async function refresh(db:SupabaseClient,u:User){
   const [p,t]=await Promise.all([db.from("profiles").select("id,minecraft_name,role").eq("id",u.id).maybeSingle(),db.from("tickets").select("id,owner_id,category,subject,status,created_at,updated_at").order("updated_at",{ascending:false}).limit(100)]);
   if(p.error||t.error){setNotice(p.error?.message||t.error?.message||"Daten konnten nicht geladen werden.");return;}
   setProfile(p.data);setTickets(t.data||[]);
+  const {data:visibility}=await db.from("community_profile_settings").select("public_enabled").eq("user_id",u.id).maybeSingle();
+  setPublicProfile(Boolean(visibility?.public_enabled));
  }
  useEffect(()=>{
   if(!client)return;
