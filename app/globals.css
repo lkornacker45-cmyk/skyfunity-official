@@ -1706,3 +1706,42 @@ body .sky-liquid-brand > .sky-brand-logo{
 @keyframes skyPartnerFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 @keyframes skyPartnerBlink{0%,100%{opacity:.25}45%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.sky-partner-ad-card,.sky-partner-server span:before{animation:none!important}}
+
+
+/* Premium animated sponsor campaign; isolated from the page hero. */
+@media(min-width:1600px) and (min-height:700px){
+ .sky-partner-ad-side{top:clamp(138px,17vh,190px);width:clamp(195px,14vw,235px)}
+ .sky-partner-ad-left{left:clamp(24px,2.8vw,54px);right:auto}
+ .sky-partner-ad-right{right:clamp(24px,2.8vw,54px);left:auto}
+ .sky-partner-ad-close{top:calc(clamp(138px,17vh,190px) - 27px);left:clamp(24px,2.8vw,54px);right:auto}
+ .sky-partner-premium{position:relative;isolation:isolate;overflow:hidden;padding:17px 14px 15px;border:1px solid rgba(73,226,253,.65);border-radius:22px;text-align:center;color:#fff;background:linear-gradient(145deg,rgba(10,27,51,.96),rgba(23,11,54,.95));box-shadow:0 0 0 1px #ffffff12,0 0 30px #22d3ee24,0 18px 42px #0008;backdrop-filter:blur(18px);animation:skyPartnerFloat 5s ease-in-out infinite}
+ .sky-partner-ad-right .sky-partner-premium{animation-delay:-2.5s}
+ .sky-partner-premium:before{content:"";position:absolute;inset:-2px;z-index:-1;border-radius:inherit;background:conic-gradient(from var(--ad-angle,0deg),transparent 0deg,#22d3ee 65deg,transparent 115deg,transparent 205deg,#a855f7 270deg,transparent 315deg);opacity:.26;animation:skyPartnerSpin 9s linear infinite}
+ .sky-partner-aura{position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 50% 25%,#0891b255,transparent 57%);animation:skyPartnerGlow 4s ease-in-out infinite alternate}
+ .sky-partner-beam{position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 40%,#ffffff12 50%,transparent 60%);transform:translateX(-150%);animation:skyPartnerSweep 5s ease-in-out infinite}
+ .sky-partner-premium-logo{display:block;max-width:100%;height:31px;margin:12px auto 5px;object-fit:contain}
+ .sky-partner-premium-display{position:relative;height:112px;margin:8px auto 5px;display:grid;place-items:center}
+ .sky-partner-core{position:relative;z-index:2;display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,#0e7490,#5b21b6);border:1px solid #67e8f9a0;font-size:32px;box-shadow:0 0 30px #22d3ee77;animation:skyPartnerPulse 2.6s ease-in-out infinite}
+ .sky-partner-orbit{position:absolute;width:94px;height:94px;border:1px dashed #67e8f980;border-radius:50%;animation:skyPartnerSpin 9s linear infinite}
+ .sky-partner-orbit.orbit-b{width:110px;height:72px;transform:rotate(-35deg);border-color:#c084fc99;animation:skyPartnerSpinReverse 7s linear infinite}
+ .sky-partner-signal{position:absolute;width:6px;height:6px;border-radius:50%;background:#67e8f9;box-shadow:0 0 14px #22d3ee;animation:skyPartnerSignal 2s ease-in-out infinite}
+ .sky-partner-signal.s1{left:22%;top:22%}.sky-partner-signal.s2{right:20%;top:38%;animation-delay:.6s}.sky-partner-signal.s3{left:35%;bottom:9%;animation-delay:1.2s}
+ .sky-partner-premium-copy{min-height:148px;animation:skyPartnerEnter .55s ease both}
+ .sky-partner-premium-eyebrow{display:block;color:#67e8f9;font-size:9px;font-weight:900;letter-spacing:.13em;margin-bottom:8px}
+ .sky-partner-premium-title{display:block;font-size:17px;line-height:1.2;font-weight:900;margin-bottom:9px}
+ .sky-partner-premium-body{font-size:12px;line-height:1.55;color:#dbeafe;margin:0 0 9px}
+ .sky-partner-premium-meta{display:inline-block;font-size:9px;letter-spacing:.13em;color:#a5f3fc;border:1px solid #22d3ee55;border-radius:20px;padding:4px 8px}
+ .sky-partner-premium-progress{height:3px;overflow:hidden;border-radius:8px;background:#ffffff24;margin:9px 0 12px}
+ .sky-partner-premium-progress span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#22d3ee,#a855f7);transform-origin:left;animation:skyPartnerTimer 6.5s linear both}
+ .sky-partner-premium-cta{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:12px;background:linear-gradient(100deg,#0891b2,#7e22ce);font-size:12px;font-weight:900;color:white;box-shadow:0 4px 22px #22d3ee40}
+ .sky-partner-premium-cta:hover{color:white;filter:brightness(1.2)}
+}
+@keyframes skyPartnerSpin{to{rotate:360deg}}
+@keyframes skyPartnerSpinReverse{to{rotate:-360deg}}
+@keyframes skyPartnerGlow{to{opacity:.45}}
+@keyframes skyPartnerSweep{50%,100%{transform:translateX(150%)}}
+@keyframes skyPartnerPulse{50%{transform:scale(1.09);box-shadow:0 0 42px #22d3eeaa}}
+@keyframes skyPartnerSignal{50%{opacity:.2;transform:scale(.5)}}
+@keyframes skyPartnerEnter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes skyPartnerTimer{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.sky-partner-premium,.sky-partner-premium:before,.sky-partner-aura,.sky-partner-beam,.sky-partner-core,.sky-partner-orbit,.sky-partner-signal,.sky-partner-premium-copy,.sky-partner-premium-progress span{animation:none!important}}
