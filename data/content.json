@@ -52,6 +52,26 @@
       "question": "Was sind Aufgaben (Quests)?",
       "answer": "Am Quest-NPC am Spawn gibt es tägliche, wöchentliche und monatliche Aufgaben. Dafür bekommst du Funitys, Coins und Pass-XP. Die Aufgaben werden jeden Tag beim Neustart um 5:00 Uhr neu verteilt.",
       "category": "Gameplay"
+    },
+    {
+      "question": "Was ist die Streak?",
+      "answer": "Erledige jeden Tag mindestens eine Tagesaufgabe, dann wächst deine Streak. Je länger sie läuft, desto mehr Funitys bekommst du: x1,25 ab 7 Tagen, x1,5 ab 14 Tagen und x2 ab 30 Tagen. Deinen Stand siehst du mit /streak.",
+      "category": "Gameplay"
+    },
+    {
+      "question": "Was ist der Funity Pass?",
+      "answer": "Der Funity Pass hat 50 Level pro Season, eine Season dauert 6 Wochen. XP bekommst du durch Aufgaben, deine Streak und Spielzeit. Mit dem Deluxe-Pass für 2.500 Funitys bekommst du zusätzliche Belohnungen und Extra-Aufgaben.",
+      "category": "Gameplay"
+    },
+    {
+      "question": "Was sind Cases und wie bekomme ich Keys?",
+      "answer": "Die Cases stehen am Spawn. Keys bekommst du durch Voten, Events und den Funity Pass. Du kannst sie auch im /gemshop kaufen. Es gibt Vote, Wolken, Sturm, Nebula, Funity und den RangKey.",
+      "category": "Gameplay"
+    },
+    {
+      "question": "Was gibt es neben dem Bauen noch zu tun?",
+      "answer": "Unter anderem die Erntefarm mit eigener Erntehacke und Upgrades, den Prison-Bereich mit Minen und Spitzhacken-Upgrades, Jobs, Events und Verlosungen.",
+      "category": "Gameplay"
     }
   ],
   "navigationOrder": [
