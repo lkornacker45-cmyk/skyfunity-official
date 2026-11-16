@@ -27,6 +27,7 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
  },[]);
  const [profile,setProfile]=useState<Profile|null>(null);
  const [linkedUuid,setLinkedUuid]=useState<string|null>(null);
+ const [publicProfile,setPublicProfile]=useState(false);
  const [linkStatus,setLinkStatus]=useState<"loading"|"ready"|"unavailable">("loading");
  const [newPassword,setNewPassword]=useState("");
  const [confirmPassword,setConfirmPassword]=useState("");
@@ -39,11 +40,15 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
  const [category,setCategory]=useState(categories[0]);const [subject,setSubject]=useState("");const [firstMessage,setFirstMessage]=useState("");const [reply,setReply]=useState("");
  const [notice,setNotice]=useState("");const [busy,setBusy]=useState(false);
  const staff=profile?.role==="team"||profile?.role==="admin";
+ async function togglePublicProfile(value:boolean){if(!client||!user)return;const {error}=await client.from("community_profile_settings").upsert({user_id:user.id,public_enabled:value});if(error)setNotice("Profil-Sichtbarkeit konnte nicht gespeichert werden.");else setPublicProfile(value)}
  const active=tickets.find(t=>t.id===selected);
+ // Players opt in before their profile becomes publicly visible.
  async function refresh(db:SupabaseClient,u:User){
   const [p,t]=await Promise.all([db.from("profiles").select("id,minecraft_name,role").eq("id",u.id).maybeSingle(),db.from("tickets").select("id,owner_id,category,subject,status,created_at,updated_at").order("updated_at",{ascending:false}).limit(100)]);
   if(p.error||t.error){setNotice(p.error?.message||t.error?.message||"Daten konnten nicht geladen werden.");return;}
   setProfile(p.data);setTickets(t.data||[]);
+  const {data:visibility}=await db.from("community_profile_settings").select("public_enabled").eq("user_id",u.id).maybeSingle();
+  setPublicProfile(Boolean(visibility?.public_enabled));
  }
  useEffect(()=>{
   if(!client)return;
@@ -149,6 +154,12 @@ export default function PlayerPortal({uiLabels}:{uiLabels?:Partial<Record<"secur
        <div className="sm:col-span-2"><button type="submit" disabled={passwordBusy} className="sky-portal-button">{passwordBusy?"Wird gespeichert…":"Passwort speichern"}</button></div>
       </form>
      </div>
+    </section>
+    <section className="sky-portal-panel">
+     <h2 className="text-xl font-bold text-cyan-200">Öffentliches Spielerprofil</h2>
+     <p className="mt-2 text-sm text-purple-200">Nur wenn du zustimmst, sind dein Minecraft-Name, dein Rang und deine Erfolge öffentlich sichtbar. E-Mail, Tickets und private Statistiken bleiben privat.</p>
+     <label className="mt-4 flex items-center gap-3"><input type="checkbox" checked={publicProfile} onChange={e=>void togglePublicProfile(e.target.checked)}/> Mein Profil öffentlich anzeigen</label>
+     {publicProfile&&profile?.minecraft_name&&<a className="mt-3 inline-block font-bold text-purple-300" href={"/spieler/"+profile.minecraft_name}>Mein öffentliches Profil ansehen →</a>}
     </section>
     <section className="sky-portal-panel">
      <div className="mb-4 flex flex-wrap items-center justify-between gap-3"><div><h2 className="text-xl font-bold text-cyan-200">{staff?(uiLabels?.ticketsHeading||"Offene Support-Tickets"):"Meine "+(uiLabels?.ticketsHeading||"offenen Tickets").toLowerCase()}</h2><p className="mt-1 text-sm text-purple-200">{staff?"Alle für das Team sichtbaren offenen Tickets":"Deine noch nicht geschlossenen Anfragen"}</p></div><span className="rounded-full border border-purple-300/40 bg-purple-500/20 px-4 py-2 text-sm font-bold">{tickets.filter(t=>t.status!=="closed").length} offen</span></div>
